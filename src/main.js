@@ -1,14 +1,9 @@
 import { createApp } from "vue";
 import App from "./App.vue";
+import vuetify from "./plugins/vuetify";
+import { loadFonts } from "./plugins/webfontloader";
 import "./index.css";
-// import gsap from "gsap";
-// import ScrollTrigger from "gsap/ScrollTrigger";
 
-// gsap.registerPlugin(ScrollTrigger);
+loadFonts();
 
-// Vue.mixin({
-//   created: function () {
-//     this.gsap = gsap;
-//   },
-// });
-createApp(App).mount("#app");
+createApp(App).use(vuetify).mount("#app");
