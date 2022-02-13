@@ -6,10 +6,8 @@ import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
-  <div class="w-screen h-screen">
-    <Navbar />
-    <HomePage />
-  </div>
+  <Navbar />
+  <HomePage />
 </template>
 
-<style></style>
+<style scoped></style>

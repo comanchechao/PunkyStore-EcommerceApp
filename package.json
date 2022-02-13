@@ -1,5 +1,5 @@
 {
-  "name": "punkystore-ecommerceapp",
+  "name": "punkyMonkey-ecommerceapp",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -7,6 +7,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.4.3",
     "gsap": "^3.9.1",
     "vue": "^3.2.25"
   },

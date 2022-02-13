@@ -13,7 +13,100 @@
 
   font-display: swap;
 }
+@font-face {
+  font-family: "LaleZar";
+  src: url("../src/assets/fonts/Lalezar-Regular.ttf");
+  font-style: normal;
+  font-display: swap;
+
+  font-weight: 700;
+  unicode-range: U+0600-06FF;
+
+  font-display: swap;
+}
 
 * {
-  font-family: "Estedad";
+  font-family: "LaleZar";
+}
+html,
+body {
+  overflow-x: hidden;
+}
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #ff595e #6a4c93;
+}
+
+#main {
+  animation: 25s ease-in-out infinite alternate-reverse color-change;
+  height: 100%;
+}
+@-webkit-keyframes color-change {
+  0% {
+    background-color: #ffca3a;
+  }
+
+  45% {
+    background-color: #1982c4;
+  }
+
+  100% {
+    background-color: #8ac926;
+  }
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #ffca3a;
+  }
+
+  50% {
+    background-color: #660be7;
+  }
+
+  100% {
+    background-color: #ff595e;
+  }
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+@media only screen and (max-width: 767px) {
+  *::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #6a4c93;
+  border: 0px none #ffffff;
+  border-radius: 86px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8f2738;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #ff7a90;
+}
+::-webkit-scrollbar-track {
+  background: #1982c4;
+  border: 0px none #ffffff;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #8ac926;
+}
+::-webkit-scrollbar-track:active {
+  background: #3b3b3b;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }

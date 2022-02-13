@@ -9,7 +9,7 @@ module.exports = {
         dialog: "32rem",
       },
       fontFamily: {
-        mainFont: ["Estedad"],
+        mainFont: ["LaleZar"],
       },
       fontSize: {
         "10xl": "14rem",
@@ -26,11 +26,11 @@ module.exports = {
       // Build your palette here
       transparent: "transparent",
       current: "currentColor",
-      mainPurple: "#9B5DE5",
-      mainPink: "#F15BB5",
-      mainYellow: "#FEE440",
-      mainBlue: "#00BBF9",
-      mainGreen: "#00F5D4",
+      mainPurple: "#6A4C93",
+      mainPink: "#FF595E",
+      mainYellow: "#FFCA3A",
+      mainBlue: "#1982C4",
+      mainGreen: "#8AC926",
       darkPurple: "#240046",
       goldie: "#ff9e00",
       white: colors.white,
