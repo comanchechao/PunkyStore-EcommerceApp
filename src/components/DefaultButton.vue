@@ -1,6 +1,6 @@
 <template>
   <button
-    class="Button py-3 px-6 drop-shadow-2xl text-white rounded-full font-mainFont text-3xl font-bold"
+    class="Button py-3 px-6 text-darkPurple rounded-full font-mainFont text-3xl font-bold"
   >
     <slot>Default</slot>
   </button>
@@ -11,14 +11,15 @@ export default {};
 </script>
 
 <style scoped>
+.Button {
+  transition: transform ease-in-out 0.5s;
+}
 .Button:hover {
-  filter: brightness(0.5);
+  filter: brightness(80%);
   filter: drop-shadow(1.5);
-  transition: ease-in-out 0.3s;
 }
 .Button:active {
   filter: brightness(1.2);
-  scale: 1.1;
-  transition: ease-in-out 0.3s;
+  transform: scale(1.06);
 }
 </style>
