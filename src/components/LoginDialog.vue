@@ -20,7 +20,7 @@
 
       <v-card position="right" class="self-center">
         <div
-          class="absolute bg-pink-700 rounded-full transform -translate-x-28 -translate-y-28 w-80 h-80"
+          class="absolute bg-mainPink rounded-full transform -translate-x-28 -translate-y-28 w-80 h-80"
         ></div>
         <v-card-title class="text-h5 grey lighten-2">
           <div class="z-10 flex w-full justify-center p-4">
@@ -72,7 +72,7 @@ export default {
   },
   data() {
     return {
-      dialog: true,
+      dialog: false,
     };
   },
 };
