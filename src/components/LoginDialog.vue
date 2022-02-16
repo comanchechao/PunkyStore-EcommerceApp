@@ -1,20 +1,26 @@
 <template>
-  <div class="text-center" position="center">
+  <div class="text-center">
     <v-dialog
-      class="w-full self-center"
+      class="w-full"
       position="center"
       v-model="dialog"
       width="100%"
+      height="100%"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template v-if="!store.user" v-slot:activator="{ on, attrs }">
         <DefaultButton v-bind="attrs" v-on="on" @click="dialog = true">
           ورود
         </DefaultButton>
       </template>
 
-      <v-card position="right" class="self-center">
+      <template v-else v-slot:activator="{}">
+        <DefaultButton @click="signOut"> خروج </DefaultButton>
+      </template>
+
+      <v-card class="">
         <div
-          class="absolute bg-mainPink rounded-full transform -translate-x-28 -translate-y-28 w-80 h-80"
+          id="ball"
+          class="ball absolute bg-mainPink rounded-full transform -translate-x-28 -translate-y-28 w-80 h-80"
         ></div>
         <v-card-title class="text-6xl grey lighten-2">
           <div
@@ -29,11 +35,13 @@
           <div class="w-full h-full flex flex-col items-end justify-end p-5">
             <form class="flex flex-col" action="">
               <input
+                v-model="email"
                 class="border-2 border-b placeholder-black text-1xl outline-0 m-5 p-4 px-12"
                 type="email"
                 placeholder="آدرس ایمیل خود را وارد کنید"
               />
               <input
+                v-model="password"
                 class="border-2 placeholder-black text-1xl border-b outline-0 m-5 p-4 px-12"
                 type="password"
                 placeholder="رمز خود را وارد کنید"
@@ -50,7 +58,8 @@
             ورود
           </DefaultButton>
           <DefaultButton
-            @click="dialog = false"
+            @click="createUser"
+            :class="{ disabled: loading === true }"
             class="text-xl text-darkPurple rounded-full bg-goldie"
           >
             ایجاد حساب جدید؟
@@ -66,16 +75,94 @@
 
 <script>
 import DefaultButton from "./DefaultButton.vue";
+import { ref, onMounted } from "vue";
+import { supabase } from "../supabase";
+import { store } from "../store";
 
 export default {
   components: {
     DefaultButton,
   },
-  data() {
-    return {
-      dialog: false,
+
+  setup() {
+    const dialog = ref(false);
+    const email = ref("");
+    const password = ref("");
+    const loading = ref(false);
+
+    onMounted(() => {
+      supabase.auth.onAuthStateChange(() => {
+        store.user = supabase.auth.user();
+      });
+    });
+
+    const createUser = async () => {
+      try {
+        loading.value = false;
+        const { error } = await supabase.auth.signUp({
+          email: email.value,
+          password: password.value,
+        });
+        if (error) throw error;
+        alert("check your inbox for conformation");
+      } catch (error) {
+        alert(error.message);
+      }
     };
+
+    async function signOut() {
+      try {
+        loading.value = true;
+        let { error } = await supabase.auth.signOut();
+        if (error) throw error; 
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        loading.value = false;
+      }
+    }
+
+    return { dialog, store, email, password, loading, createUser, signOut };
   },
+  // data() {
+  //   return {
+  //     dialog: false,
+  //     email: "",
+  //     password: "",
+  //     loading: false,
+  //   };
+  // },
+
+  // mounted() {},
+
+  // methods: {
+  //   async createUser() {
+  //     try {
+  //       this.loading = true;
+  //       const { error } = await supabase.auth.signUp(
+  //         {
+  //           email: this.email,
+  //           password: this.password,
+  //         },
+  //         {
+  //           data: {
+  //             username: this.displayName,
+  //             email: this.email,
+  //           },
+  //         }
+  //       );
+  //       if (error) throw error;
+  //       alert("Check your inbox for conformtion");
+  //     } catch (error) {
+  //       alert(error.error_description || error.message);
+  //     } finally {
+  //       this.email = "";
+  //       this.password = "";
+  //       this.dialog = false;
+  //       this.loading = false;
+  //     }
+  //   },
+  // },
 };
 </script>
 
