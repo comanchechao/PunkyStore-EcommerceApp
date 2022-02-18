@@ -5,22 +5,17 @@
       position="center"
       v-model="dialog"
       width="100%"
-      height="100%"
+      height="75%"
     >
-      <template v-if="!store.user" v-slot:activator="{ on, attrs }">
+      <template v-slot:activator="{ on, attrs }">
         <DefaultButton
+          v-if="!store.user"
           v-bind="attrs"
           v-on="on"
           @click="dialog = true"
           class="text-white"
         >
           <v-icon>mdi-login-variant</v-icon>
-        </DefaultButton>
-      </template>
-
-      <template v-else v-slot:activator="{}">
-        <DefaultButton class="text-darkPurple" @click="signOut">
-          <v-icon class="text-white">mdi-login-variant</v-icon>
         </DefaultButton>
       </template>
 
@@ -59,7 +54,8 @@
 
         <v-card-actions class="flex flex-col space-y-3 my-2">
           <DefaultButton
-            @click="dialog = false"
+            @click="loginAction"
+            :class="{ disabled: loading === true }"
             class="text-xl text-darkPurple rounded-full bg-goldie"
           >
             ورود
@@ -72,7 +68,7 @@
             ایجاد حساب جدید؟
           </DefaultButton>
           <DefaultButton class="text-xl text-darkPurple rounded-full">
-            بازیابی گذرواژه
+            <ForgottenPasswordDialog :token="token" />
           </DefaultButton>
         </v-card-actions>
       </v-card>
@@ -81,6 +77,7 @@
 </template>
 
 <script>
+import ForgottenPasswordDialog from "./ForgottenPasswordDialog.vue";
 import DefaultButton from "./DefaultButton.vue";
 import { ref, onMounted } from "vue";
 import { supabase } from "../supabase";
@@ -89,6 +86,7 @@ import { store } from "../store";
 export default {
   components: {
     DefaultButton,
+    ForgottenPasswordDialog,
   },
 
   setup() {
@@ -96,16 +94,20 @@ export default {
     const email = ref("");
     const password = ref("");
     const loading = ref(false);
+    const token = ref("");
 
     onMounted(() => {
-      supabase.auth.onAuthStateChange(() => {
+      supabase.auth.onAuthStateChange((event, session) => {
         store.user = supabase.auth.user();
+        if (event === "PASSWORD_RECOVERY") {
+          token.value = session;
+        }
       });
     });
 
     const createUser = async () => {
       try {
-        loading.value = false;
+        loading.value = true;
         const { error } = await supabase.auth.signUp({
           email: email.value,
           password: password.value,
@@ -117,11 +119,28 @@ export default {
       }
     };
 
+    const loginAction = async () => {
+      try {
+        loading.value = true;
+        const { user, session, error } = await supabase.auth.signIn({
+          email: "example@email.com",
+          password: "example-password",
+        });
+        if (error) throw error;
+        alert("login successfuly");
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        loading.value = false;
+      }
+    };
+
     async function signOut() {
       try {
         loading.value = true;
         let { error } = await supabase.auth.signOut();
         if (error) throw error;
+        alert("signed out");
       } catch (error) {
         alert(error.message);
       } finally {
@@ -129,7 +148,17 @@ export default {
       }
     }
 
-    return { dialog, store, email, password, loading, createUser, signOut };
+    return {
+      dialog,
+      store,
+      email,
+      password,
+      loading,
+      createUser,
+      loginAction,
+      signOut,
+      token,
+    };
   },
   // data() {
   //   return {
