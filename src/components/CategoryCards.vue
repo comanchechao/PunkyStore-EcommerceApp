@@ -1,7 +1,7 @@
 <template>
   <div class="w-full h-72 wrapper rounded-lg p-12 flex">
-    <div class="w-full h-full bg-Lime-900">
-      <img src="" alt="" />
+    <div class="w-full h-full bg-purple-900 p-2">
+      <img class="bg-mainPurple" src="" alt="" />
     </div>
     <div
       class="w-full h-full flex flex-col text-center align-center justify-center space-y-4"
@@ -12,7 +12,7 @@
         یه سری توضیحات راجب کتگوری کالاها
       </h2>
 
-      <DefaultButton class="bg-mainPink text-2xl px-4 rounded-full text-white"
+      <DefaultButton class="bg-mainPink text-xl px-4 rounded-full text-white"
         >نشونم بده</DefaultButton
       >
     </div>
