@@ -6,13 +6,12 @@
           <v-badge
             :content="cartTotalAmount"
             :value="cartTotalAmount"
-            color="blue"
-            overlap
+            color="deep-purple"
             bordered
-            light
+            location="top-right"
           >
+            <v-icon class="text-white">mdi-shopping-outline</v-icon>
           </v-badge>
-          <v-icon size="x-large">mdi-shopping-outline</v-icon>
         </DefaultButton>
       </template>
       <span>Shopping Cart</span>

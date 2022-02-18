@@ -14,13 +14,13 @@
           @click="dialog = true"
           class="text-white"
         >
-          <v-icon size="large">mdi-login-variant</v-icon>
+          <v-icon>mdi-login-variant</v-icon>
         </DefaultButton>
       </template>
 
       <template v-else v-slot:activator="{}">
         <DefaultButton class="text-darkPurple" @click="signOut">
-          <v-icon size="large">mdi-login-variant</v-icon>
+          <v-icon class="text-white">mdi-login-variant</v-icon>
         </DefaultButton>
       </template>
 

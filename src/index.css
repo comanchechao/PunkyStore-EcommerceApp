@@ -28,9 +28,8 @@
 * {
   font-family: "LaleZar";
 }
-html,
-body {
-  overflow-x: hidden;
+html {
+  overflow-x: initial !important;
 }
 * {
   scroll-behavior: smooth;
