@@ -8,13 +8,20 @@
       height="100%"
     >
       <template v-if="!store.user" v-slot:activator="{ on, attrs }">
-        <DefaultButton v-bind="attrs" v-on="on" @click="dialog = true">
-          ورود
+        <DefaultButton
+          v-bind="attrs"
+          v-on="on"
+          @click="dialog = true"
+          class="text-white"
+        >
+          <v-icon size="large">mdi-login-variant</v-icon>
         </DefaultButton>
       </template>
 
       <template v-else v-slot:activator="{}">
-        <DefaultButton @click="signOut"> خروج </DefaultButton>
+        <DefaultButton class="text-darkPurple" @click="signOut">
+          <v-icon size="large">mdi-login-variant</v-icon>
+        </DefaultButton>
       </template>
 
       <v-card class="">
@@ -114,7 +121,7 @@ export default {
       try {
         loading.value = true;
         let { error } = await supabase.auth.signOut();
-        if (error) throw error; 
+        if (error) throw error;
       } catch (error) {
         alert(error.message);
       } finally {

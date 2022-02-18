@@ -2,14 +2,7 @@
   <div class="">
     <v-tooltip bottom>
       <template #activator="{ on, attrs }">
-        <v-btn
-          v-bind="attrs"
-          size="x-large"
-          color="white"
-          v-on="on"
-          variant="rounded"
-          @click="drawer = !drawer"
-        >
+        <DefaultButton v-bind="attrs" v-on="on" @click="drawer = !drawer">
           <v-badge
             :content="cartTotalAmount"
             :value="cartTotalAmount"
@@ -20,7 +13,7 @@
           >
           </v-badge>
           <v-icon size="x-large">mdi-shopping-outline</v-icon>
-        </v-btn>
+        </DefaultButton>
       </template>
       <span>Shopping Cart</span>
     </v-tooltip>
@@ -137,7 +130,12 @@
 </template>
 
 <script>
+import DefaultButton from "./DefaultButton.vue";
+
 export default {
+  components: {
+    DefaultButton,
+  },
   data() {
     return {
       drawer: false,

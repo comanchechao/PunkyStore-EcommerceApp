@@ -1,6 +1,6 @@
 <template>
   <button
-    class="Button py-3 px-6 text-darkPurple rounded-full font-mainFont text-3xl font-bold"
+    class="Button py-3 text-darkPurple rounded-full font-mainFont text-3xl font-bold"
   >
     <slot>Default</slot>
   </button>
