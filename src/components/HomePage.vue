@@ -3,7 +3,7 @@
     <div
       class="h-auto w-screen flex flex-col justify-center align-center space-y-5 p-7"
     >
-      <CategoryCards />
+      <CategoryCards class="NavbarTrigger" />
       <CategoryCards />
       <CategoryCards />
     </div>

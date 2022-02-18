@@ -28,7 +28,7 @@
   font-family: "LaleZar";
 }
 html {
-  overflow-x: initial !important;
+  overflow-x: hidden !important;
 }
 * {
   scroll-behavior: smooth;

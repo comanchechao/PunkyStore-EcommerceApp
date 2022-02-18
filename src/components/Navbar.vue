@@ -1,7 +1,7 @@
 <template>
   <div
     id="main"
-    class="w-screen Navbar h-20 flex justify-center space-x-4 align-center"
+    class="w-screen Navbar h-20 flex justify-center space-x-4 align-center fixed bg-transparent"
   >
     <MenuDrawer />
     <DefaultButton class="text-white">
@@ -20,7 +20,10 @@ import DefaultButton from "./DefaultButton.vue";
 import MenuDrawer from "./MenuDrawer.vue";
 import ShoppingCartDrawer from "./ShoppingCartDrawer.vue";
 import LoginDialog from "./LoginDialog.vue";
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+// gsap.registerPlugin(ScrollTrigger);
 export default {
   components: {
     DefaultButton,
@@ -28,12 +31,31 @@ export default {
     ShoppingCartDrawer,
     LoginDialog,
   },
+  mounted() {
+    this.animateNavbar();
+  },
+  methods: {
+    animateNavbar() {
+      gsap.to(".Navbar", {
+        backgroundColor: "#ff4a68",
+        opacity: 0.8,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".NavbarTrigger",
+          scrub: 2.5,
+          start: "bottom top",
+          end: "bottom bottom",
+          toggleActions: "play none none none none",
+        },
+      });
+    },
+  },
   setup() {},
 };
 </script>
 
 <style scoped>
-.Navbar {
+/* .Navbar {
   animation: 35s ease-in-out infinite alternate-reverse color-change;
 }
 @-webkit-keyframes color-change {
@@ -62,5 +84,5 @@ export default {
   100% {
     background-color: #ff595e;
   }
-}
+} */
 </style>
