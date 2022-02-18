@@ -1,15 +1,8 @@
 <template>
   <div class="">
-    <v-btn
-      v-bind="attrs"
-      variant="rounded"
-      size="x-large"
-      color="white"
-      v-on="on"
-      @click="drawer = !drawer"
-    >
-      <v-icon size="x-large">mdi-microsoft-xbox-controller-menu</v-icon>
-    </v-btn>
+    <DefaultButton v-bind="attrs" v-on="on" @click="drawer = !drawer">
+      <v-icon class="text-white">mdi-microsoft-xbox-controller-menu</v-icon>
+    </DefaultButton>
 
     <v-navigation-drawer
       v-model="drawer"

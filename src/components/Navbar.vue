@@ -1,12 +1,12 @@
 <template>
   <div id="main" class="w-screen Navbar h-20 flex justify-center align-center">
     <MenuDrawer />
-    <DefaultButton class="sm:text-1xl">درباره ی پانکی مانکی</DefaultButton>
+    <!-- <DefaultButton class="sm:text-1xl">درباره ی پانکی مانکی</DefaultButton> -->
     <DefaultButton class="text-white">
-      <v-icon size="large">mdi-shopping</v-icon>
+      <v-icon>mdi-shopping</v-icon>
     </DefaultButton>
     <DefaultButton class="text-white">
-      <v-icon size="large">mdi-home</v-icon>
+      <v-icon>mdi-home</v-icon>
     </DefaultButton>
     <LoginDialog />
     <ShoppingCartDrawer />

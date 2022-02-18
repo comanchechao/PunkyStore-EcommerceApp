@@ -15,7 +15,7 @@
           @click="dialog = true"
           class="text-white"
         >
-          <v-icon size="large">mdi-login-variant</v-icon>
+          <v-icon>mdi-login-variant</v-icon>
         </DefaultButton>
       </template>
 

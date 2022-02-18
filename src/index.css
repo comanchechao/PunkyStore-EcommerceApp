@@ -15,7 +15,7 @@
 }
 @font-face {
   font-family: "LaleZar";
-  src: url("../src/assets/fonts/Lalezar-Regular.ttf");
+  src: url("../src/assets/fonts/Vazir-Bold.ttf");
   font-style: normal;
   font-display: swap;
 
@@ -28,9 +28,8 @@
 * {
   font-family: "LaleZar";
 }
-html,
-body {
-  overflow-x: hidden;
+html {
+  overflow-x: initial !important;
 }
 * {
   scroll-behavior: smooth;
