@@ -17,6 +17,10 @@
         >
           <v-icon>mdi-login-variant</v-icon>
         </DefaultButton>
+
+        <DefaultButton v-else class="text-white" @click="signOut">
+          <v-icon>mdi-account</v-icon>
+        </DefaultButton>
       </template>
 
       <v-card class="">
