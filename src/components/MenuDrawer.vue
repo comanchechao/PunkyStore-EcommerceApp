@@ -7,7 +7,6 @@
     <v-navigation-drawer
       v-model="drawer"
       left
-      app
       temporary
       rounded
       class="drawer"
@@ -72,6 +71,5 @@ export default {
 
 <style scoped>
 .drawer {
-  z-index: 200 !important;
 }
 </style>
