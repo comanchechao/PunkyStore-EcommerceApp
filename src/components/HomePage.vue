@@ -7,15 +7,20 @@
       <CategoryCards />
       <CategoryCards />
     </div>
-    <div class="h-screen w-screen bg-blue-500"></div>
+    <div
+      class="h-screen w-screen bg-blue-500 p-3 flex justify-center align-center"
+    >
+      <CategoryProductList />
+    </div>
     <div class="h-screen w-screen bg-yellow-500"></div>
   </div>
 </template>
 
 <script>
 import CategoryCards from "./CategoryCards.vue";
+import CategoryProductList from "./CategoryProductList.vue";
 export default {
-  components: { CategoryCards },
+  components: { CategoryCards, CategoryProductList },
 };
 </script>
 

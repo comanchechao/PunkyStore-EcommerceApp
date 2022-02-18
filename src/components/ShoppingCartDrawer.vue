@@ -21,7 +21,6 @@
       v-model="drawer"
       position="right"
       temporary
-      scrollable
       color="#4DD0E1"
       bottom
     >
@@ -143,8 +142,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.drawer {
-  z-index: 199 !important;
-}
-</style>
+<style scoped></style>

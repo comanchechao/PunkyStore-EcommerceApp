@@ -1,7 +1,9 @@
 <template>
-  <div id="main" class="w-screen Navbar h-20 flex justify-center align-center">
+  <div
+    id="main"
+    class="w-screen Navbar h-20 flex justify-center space-x-4 align-center"
+  >
     <MenuDrawer />
-    <!-- <DefaultButton class="sm:text-1xl">درباره ی پانکی مانکی</DefaultButton> -->
     <DefaultButton class="text-white">
       <v-icon>mdi-shopping</v-icon>
     </DefaultButton>
@@ -33,7 +35,6 @@ export default {
 <style scoped>
 .Navbar {
   animation: 35s ease-in-out infinite alternate-reverse color-change;
-  z-index: 250 !important;
 }
 @-webkit-keyframes color-change {
   0% {
