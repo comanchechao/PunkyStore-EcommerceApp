@@ -1,7 +1,7 @@
 <template>
   <div
     id="main"
-    class="w-screen Navbar h-20 flex justify-center space-x-4 align-center fixed bg-transparent"
+    class="w-screen Navbar h-20 flex justify-center space-x-4 align-center text-3xl"
   >
     <MenuDrawer />
     <DefaultButton class="text-white">

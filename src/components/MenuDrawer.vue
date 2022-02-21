@@ -17,12 +17,12 @@
       >
         <DefaultButton
           @click="bar = 'menu'"
-          class="mx-4 p-4 hover:bg-mainYellow"
+          class="px-4 hover:bg-mainYellow ease-in-out transition-colors text-2xl"
           >منو</DefaultButton
         >
         <DefaultButton
           @click="bar = 'catagories'"
-          class="hover:bg-mainYellow p-4"
+          class="hover:bg-mainYellow px-4 transition ease-in-out duration-300 delay-150 text-2xl"
           >دسته بندی</DefaultButton
         >
       </div>
@@ -44,7 +44,7 @@
         <DefaultButton class=" ">آکسسوری</DefaultButton>
         <DefaultButton class="text-2xl">تیشرت</DefaultButton>
         <DefaultButton class=" ">کلاه</DefaultButton>
-         <DefaultButton class=" ">پیراهن</DefaultButton>
+        <DefaultButton class=" ">پیراهن</DefaultButton>
         <DefaultButton class=" ">کفش</DefaultButton>
         <DefaultButton class="text-2xl">دیزاین</DefaultButton>
         <DefaultButton class=" ">بول</DefaultButton>

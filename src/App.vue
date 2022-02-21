@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Navbar />
+      <Navbar class="" />
       <!-- <SubNavbar /> -->
       <HomePage />
     </v-main>

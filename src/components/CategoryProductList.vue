@@ -1,13 +1,13 @@
 <template>
   <div class="flex flex-col w-full h-full">
-    <div class="w-full h-24 bg-Rose-400 flex justify-between align-center p-5">
-      <DefaultButton>
+    <div class="w-full h-24 bg-mainBlue flex justify-between align-center p-5">
+      <DefaultButton class="text-white">
         <v-icon size="x-large">mdi-login-variant</v-icon>
       </DefaultButton>
       <h1 class="text-black text-3xl font-extrabold">اسم کتگوری</h1>
     </div>
     <div
-      class="w-full h-4/5 gap-3 bg-mainYellow grid grid-flow-row grid-cols-2 grid-rows-3 place-items-center"
+      class="w-full h-full py-4 gap-5 grid px-3 grid-flow-row grid-cols-2 grid-rows-2 place-items-center background"
     >
       <ProductCard />
       <ProductCard />
@@ -29,4 +29,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.background {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background-color: #ffffff2a;
+}
+</style>

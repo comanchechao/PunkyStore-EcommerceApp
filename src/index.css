@@ -41,21 +41,21 @@ html {
 }
 @-webkit-keyframes color-change {
   0% {
-    background-color: #ffca3a;
+    background-color: #d9e285;
   }
 
   45% {
-    background-color: #1982c4;
+    background-color: #8bbcdb;
   }
 
   100% {
-    background-color: #8ac926;
+    background-color: #c1e28d;
   }
 }
 
 @keyframes color-change {
   0% {
-    background-color: #ffca3a;
+    background-color: #e9cf8a;
   }
 
   50% {
@@ -63,7 +63,7 @@ html {
   }
 
   100% {
-    background-color: #ff595e;
+    background-color: #ce7578;
   }
 }
 /* Chrome, Edge, and Safari */
@@ -74,7 +74,7 @@ html {
 
 @media only screen and (max-width: 767px) {
   *::-webkit-scrollbar {
-    width: 3px;
+    width: 6px;
     height: 3px;
   }
 }

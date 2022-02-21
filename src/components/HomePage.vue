@@ -7,9 +7,7 @@
       <CategoryCards />
       <CategoryCards />
     </div>
-    <div
-      class="h-screen w-screen bg-blue-500 p-3 flex justify-center align-center"
-    >
+    <div class="h-screen w-screen p-3 flex justify-center align-center">
       <CategoryProductList />
     </div>
     <div class="h-screen w-screen bg-yellow-500"></div>
