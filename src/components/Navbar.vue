@@ -10,8 +10,8 @@
     <DefaultButton class="text-white">
       <v-icon>mdi-home</v-icon>
     </DefaultButton>
-    <ProfilePage v-if="store.user" />
-    <LoginDialog v-else />
+    <ProfilePage v-show="store.user !== null" />
+    <LoginDialog v-show="store.user === null" />
     <ShoppingCartDrawer />
   </div>
 </template>

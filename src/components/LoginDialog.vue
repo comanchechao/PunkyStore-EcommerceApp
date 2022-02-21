@@ -18,12 +18,12 @@
         </DefaultButton>
       </template>
 
-      <v-card class="">
+      <v-card class="p-5">
         <div
           id="ball"
           class="ball absolute bg-mainPink rounded-full transform -translate-x-28 -translate-y-28 w-80 h-80"
         ></div>
-        <v-card-title class="text-6xl grey lighten-2">
+        <v-card-title class="text-5xl grey lighten-2">
           <div
             class="z-10 flex flex-col align-center w-full justify-center space-y-6 p-4"
           >
@@ -56,7 +56,7 @@
             v-show="!loading"
             @click="loginAction"
             :class="{ disabled: loading === true }"
-            class="text-xl text-darkPurple rounded-full bg-goldie"
+            class="text-lg p-4 text-darkPurple rounded-full bg-goldie"
           >
             ورود
           </DefaultButton>
@@ -70,7 +70,7 @@
             v-show="!loading"
             @click="createUser"
             :class="{ disabled: loading === true }"
-            class="text-xl text-darkPurple rounded-full bg-goldie"
+            class="text-lg p-4 text-darkPurple rounded-full bg-goldie"
           >
             ایجاد حساب جدید؟
           </DefaultButton>
