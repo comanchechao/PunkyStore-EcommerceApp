@@ -30,7 +30,7 @@
             ></v-text-field>
 
             <v-text-field
-            v-show="token !== ''"
+              v-show="token !== ''"
               v-model="password"
               label="New password"
               hint="pick strong password"
@@ -57,25 +57,23 @@ import DefaultButton from "./DefaultButton.vue";
 import { supabase } from "../supabase";
 
 export default {
-  props: {
-    token: String,
-  },
+  props: {},
   data() {
     return {
       dialog: false,
       email: "",
       password: "",
+      token: "",
     };
   },
 
-  watch: {
-    token() {
-      if (this.token !== "") {
-        this.dialog = true;
-      }
-    },
-  },
+  mounted() {},
+
   methods: {
+    sessionActivator(token) {
+      this.dialog = !this.dialog;
+      console.log(token)
+    },
     async resetPasswordRequest() {
       try {
         const { error } = await supabase.auth.api.resetPasswordForEmail(
@@ -96,7 +94,7 @@ export default {
         const { error } = await supabase.auth.api.updateUser(
           this.token.access_token,
           {
-            password: password.value,
+            password: this.password,
           }
         );
         if (error) throw error;

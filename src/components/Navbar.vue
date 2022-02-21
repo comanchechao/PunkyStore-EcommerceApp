@@ -10,7 +10,8 @@
     <DefaultButton class="text-white">
       <v-icon>mdi-home</v-icon>
     </DefaultButton>
-    <LoginDialog />
+    <ProfilePage v-show="store.user !== null" />
+    <LoginDialog v-show="store.user === null" />
     <ShoppingCartDrawer />
   </div>
 </template>
@@ -20,6 +21,8 @@ import DefaultButton from "./DefaultButton.vue";
 import MenuDrawer from "./MenuDrawer.vue";
 import ShoppingCartDrawer from "./ShoppingCartDrawer.vue";
 import LoginDialog from "./LoginDialog.vue";
+import { store } from "../store";
+import ProfilePage from "./ProfilePage.vue";
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -30,9 +33,11 @@ export default {
     MenuDrawer,
     ShoppingCartDrawer,
     LoginDialog,
+    ProfilePage,
   },
   mounted() {
-    this.animateNavbar();
+    // this.animateNavbar();
+    console.log(store.user)
   },
   methods: {
     animateNavbar() {
@@ -50,7 +55,11 @@ export default {
       });
     },
   },
-  setup() {},
+  setup() {
+    return {
+      store,
+    };
+  },
 };
 </script>
 
