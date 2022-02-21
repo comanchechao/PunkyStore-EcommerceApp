@@ -9,17 +9,12 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <DefaultButton
-          v-if="!store.user"
           v-bind="attrs"
           v-on="on"
           @click="dialog = true"
           class="text-white"
         >
           <v-icon>mdi-login-variant</v-icon>
-        </DefaultButton>
-
-        <DefaultButton v-else class="text-white" @click="signOut">
-          <v-icon>mdi-account</v-icon>
         </DefaultButton>
       </template>
 
@@ -58,21 +53,38 @@
 
         <v-card-actions class="flex flex-col space-y-3 my-2">
           <DefaultButton
+            v-show="!loading"
             @click="loginAction"
             :class="{ disabled: loading === true }"
             class="text-xl text-darkPurple rounded-full bg-goldie"
           >
             ورود
           </DefaultButton>
+          <v-progress-circular
+            v-show="loading"
+            :size="50"
+            color="amber"
+            indeterminate
+          ></v-progress-circular>
           <DefaultButton
+            v-show="!loading"
             @click="createUser"
             :class="{ disabled: loading === true }"
             class="text-xl text-darkPurple rounded-full bg-goldie"
           >
             ایجاد حساب جدید؟
           </DefaultButton>
+          <v-progress-circular
+            v-show="loading"
+            :size="50"
+            color="amber"
+            indeterminate
+          ></v-progress-circular>
           <DefaultButton class="text-xl text-darkPurple rounded-full">
-            <ForgottenPasswordDialog :token="token" />
+            <ForgottenPasswordDialog
+              ref="ForgottenPasswordDialog"
+              :token="token"
+            />
           </DefaultButton>
         </v-card-actions>
       </v-card>
@@ -85,7 +97,7 @@ import ForgottenPasswordDialog from "./ForgottenPasswordDialog.vue";
 import DefaultButton from "./DefaultButton.vue";
 import { ref, onMounted } from "vue";
 import { supabase } from "../supabase";
-import { store } from "../store";
+import { store } from "../store.js";
 
 export default {
   components: {
@@ -99,12 +111,14 @@ export default {
     const password = ref("");
     const loading = ref(false);
     const token = ref("");
+    const sessionActive = ref(false);
 
     onMounted(() => {
       supabase.auth.onAuthStateChange((event, session) => {
         store.user = supabase.auth.user();
         if (event === "PASSWORD_RECOVERY") {
           token.value = session;
+          sessionActive.value = true;
         }
       });
     });
@@ -127,30 +141,18 @@ export default {
       try {
         loading.value = true;
         const { user, session, error } = await supabase.auth.signIn({
-          email: "example@email.com",
-          password: "example-password",
+          email: email.value,
+          password: password.value,
         });
         if (error) throw error;
         alert("login successfuly");
+        dialog.value = false;
       } catch (error) {
         alert(error.message);
       } finally {
         loading.value = false;
       }
     };
-
-    async function signOut() {
-      try {
-        loading.value = true;
-        let { error } = await supabase.auth.signOut();
-        if (error) throw error;
-        alert("signed out");
-      } catch (error) {
-        alert(error.message);
-      } finally {
-        loading.value = false;
-      }
-    }
 
     return {
       dialog,
@@ -160,9 +162,15 @@ export default {
       loading,
       createUser,
       loginAction,
-      signOut,
       token,
+      sessionActive,
     };
+  },
+
+  watch: {
+    sessionActive() {
+      this.$refs.ForgottenPasswordDialog.sessionActivator();
+    },
   },
   // data() {
   //   return {
