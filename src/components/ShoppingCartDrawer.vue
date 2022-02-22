@@ -21,6 +21,7 @@
       v-model="drawer"
       position="right"
       bottom
+      class="drawer"
       temporary
       color="#4DD0E1"
     >
@@ -142,4 +143,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.drawer {
+  z-index: 260 !important;
+}
+</style>

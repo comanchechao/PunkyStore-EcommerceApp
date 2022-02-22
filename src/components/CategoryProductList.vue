@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col w-full h-full">
-    <div class="w-full h-24 bg-mainBlue flex justify-between align-center p-5">
+    <div class="w-full h-24 bg-mainPink flex justify-between align-center p-5">
       <DefaultButton class="text-white">
         <v-icon size="x-large">mdi-login-variant</v-icon>
       </DefaultButton>
-      <h1 class="text-black text-3xl font-extrabold">اسم کتگوری</h1>
+      <h1 class="text-white text-3xl font-extrabold">اسم کتگوری</h1>
     </div>
     <div
       class="w-full h-full py-4 gap-5 grid px-3 grid-flow-row grid-cols-2 grid-rows-2 place-items-center background"

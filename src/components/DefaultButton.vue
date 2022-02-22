@@ -1,7 +1,5 @@
 <template>
-  <button
-    class="Button py-3 text-darkPurple rounded-full font-mainFont font-bold"
-  >
+  <button class="Button py-3 cursor-pointer">
     <slot>Default</slot>
   </button>
 </template>

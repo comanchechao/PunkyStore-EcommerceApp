@@ -8,7 +8,9 @@
           @click="dialog = true"
           class="text-white"
         >
-          <v-icon>mdi-login-variant</v-icon>
+          <h4 class="text-lg p-4 text-darkPurple rounded-full bg-goldie">
+            ایجاد حساب جدید
+          </h4>
         </DefaultButton>
       </template>
 
@@ -21,8 +23,8 @@
           <div
             class="z-10 flex flex-col align-center w-full justify-center space-y-6 p-4"
           >
-            <h3>ورود به</h3>
-            <h3 class="Punky">پانکی</h3>
+            <h3>ایجاد حساب در</h3>
+            <h3 class="Punky">پانکی مانکی</h3>
           </div>
         </v-card-title>
 
@@ -31,7 +33,7 @@
             <form class="flex flex-col justify-center" action="">
               <input
                 v-model="email"
-                class="border-2 border-b placeholder-black text-start text-1xl outline-0 m-5 p-4 px-12"
+                class="border-2 border-b placeholder-black text-right text-start text-1xl outline-0 m-5 p-4 px-12"
                 type="email"
                 placeholder=" ایمیل"
               />
@@ -52,7 +54,7 @@
             :class="{ disabled: loading === true }"
             class="text-lg p-4 text-darkPurple rounded-full bg-goldie"
           >
-            ورود
+            ثبت نام
           </DefaultButton>
           <v-progress-circular
             v-show="loading"
@@ -60,27 +62,6 @@
             color="amber"
             indeterminate
           ></v-progress-circular>
-          <!-- <DefaultButton
-            v-show="!loading"
-            @click="createUser"
-            :class="{ disabled: loading === true }"
-            class="text-lg p-4 text-darkPurple rounded-full bg-goldie"
-          >
-            ایجاد حساب جدید؟
-          </DefaultButton> -->
-          <SignUpDialog />
-          <v-progress-circular
-            v-show="loading"
-            :size="50"
-            color="amber"
-            indeterminate
-          ></v-progress-circular>
-          <DefaultButton class="text-xl text-darkPurple rounded-full">
-            <ForgottenPasswordDialog
-              ref="ForgottenPasswordDialog"
-              :token="token"
-            />
-          </DefaultButton>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -88,7 +69,6 @@
 </template>
 
 <script>
-import SignUpDialog from "./SignUpDialog.vue";
 import ForgottenPasswordDialog from "./ForgottenPasswordDialog.vue";
 import DefaultButton from "./DefaultButton.vue";
 import { ref, onMounted } from "vue";
@@ -98,7 +78,6 @@ import { store } from "../store.js";
 export default {
   components: {
     DefaultButton,
-    SignUpDialog,
     ForgottenPasswordDialog,
   },
 

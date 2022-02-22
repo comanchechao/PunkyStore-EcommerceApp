@@ -11,10 +11,11 @@
       <h2 class="text-black font-bold text-1xl">
         یه سری توضیحات راجب کتگوری کالاها
       </h2>
-
-      <DefaultButton class="bg-mainPink text-xl px-4 rounded-full text-white"
-        >نشونم بده</DefaultButton
-      >
+      <router-link to="/shop">
+        <DefaultButton class="bg-mainPink text-xl px-4 rounded-full text-white"
+          >نشونم بده</DefaultButton
+        >
+      </router-link>
     </div>
   </div>
 </template>

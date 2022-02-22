@@ -1,9 +1,10 @@
 <template>
   <v-app>
     <v-main>
-      <Navbar class="" />
+      <Navbar class="Navbar" />
       <!-- <SubNavbar /> -->
-      <HomePage />
+      <!-- <HomePage /> -->
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -12,7 +13,7 @@
 import Navbar from "./components/Navbar.vue";
 // import SubNavbar from "./components/SubNavbar.vue";
 
-import HomePage from "./components/HomePage.vue";
+// import HomePage from "./components/HomePage.vue";
 
 export default {
   name: "App",
@@ -20,7 +21,7 @@ export default {
   components: {
     Navbar,
     // SubNavbar,
-    HomePage,
+    // HomePage,
   },
 
   data: () => ({
