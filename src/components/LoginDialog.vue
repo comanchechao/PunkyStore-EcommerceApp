@@ -2,7 +2,6 @@
   <div class="text-center">
     <v-dialog
       class="w-full"
-      position="center"
       v-model="dialog"
       width="100%"
       height="75%"
@@ -18,7 +17,7 @@
         </DefaultButton>
       </template>
 
-      <v-card class="p-5">
+      <v-card class="p-5 w-full justify-center">
         <div
           id="ball"
           class="ball absolute bg-mainPink rounded-full transform -translate-x-28 -translate-y-28 w-80 h-80"
@@ -33,19 +32,19 @@
         </v-card-title>
 
         <v-card-text>
-          <div class="w-full h-full flex flex-col items-end justify-end p-5">
-            <form class="flex flex-col" action="">
+          <div class="w-full h-full flex flex-col justify-center">
+            <form class="flex flex-col justify-center" action="">
               <input
                 v-model="email"
-                class="border-2 border-b placeholder-black text-1xl outline-0 m-5 p-4 px-12"
+                class="border-2 border-b placeholder-black text-start text-1xl outline-0 m-5 p-4 px-12"
                 type="email"
-                placeholder="آدرس ایمیل خود را وارد کنید"
+                placeholder=" ایمیل"
               />
               <input
                 v-model="password"
                 class="border-2 placeholder-black text-1xl border-b outline-0 m-5 p-4 px-12"
                 type="password"
-                placeholder="رمز خود را وارد کنید"
+                placeholder="گذرواژه "
               />
             </form>
           </div>
@@ -113,15 +112,7 @@ export default {
     const token = ref("");
     const sessionActive = ref(false);
 
-    onMounted(() => {
-      supabase.auth.onAuthStateChange((event, session) => {
-        store.user = supabase.auth.user();
-        if (event === "PASSWORD_RECOVERY") {
-          token.value = session;
-          sessionActive.value = true;
-        }
-      });
-    });
+    
 
     const createUser = async () => {
       try {
