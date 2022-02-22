@@ -1,7 +1,8 @@
 <template>
   <div
+    @click="drawer = false"
     id="main"
-    class="w-screen Navbar h-20 flex justify-center space-x-4 align-center text-3xl"
+    class="w-screen Navbar h-20 flex justify-center space-x-4 align-center text-3xl border-b border-gray-200 z-10"
   >
     <MenuDrawer />
     <DefaultButton class="text-white">
@@ -68,6 +69,9 @@ export default {
 </script>
 
 <style scoped>
+.Navbar {
+  z-index: 80 !important;
+}
 /* .Navbar {
   animation: 35s ease-in-out infinite alternate-reverse color-change;
 }

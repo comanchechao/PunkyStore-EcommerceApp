@@ -71,5 +71,6 @@ export default {
 
 <style scoped>
 .drawer {
+  z-index: 100 !important;
 }
 </style>

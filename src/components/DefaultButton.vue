@@ -12,7 +12,7 @@ export default {};
 
 <style scoped>
 .Button {
-  transition: transform ease-in-out 0.5s;
+  transition: ease-in-out 0.3s;
 }
 .Button:hover {
   filter: brightness(80%);

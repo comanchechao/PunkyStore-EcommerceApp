@@ -20,9 +20,9 @@
     <v-navigation-drawer
       v-model="drawer"
       position="right"
+      bottom
       temporary
       color="#4DD0E1"
-      bottom
     >
       <div
         class="p-4 w-full h-2/3 flex flex-row lg:flex-col justify-around align-center"

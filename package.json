@@ -11,6 +11,7 @@
     "@headlessui/vue": "^1.5.0",
     "@mdi/font": "5.9.55",
     "@supabase/supabase-js": "^1.30.3",
+    "daisyui": "^2.1.0",
     "gsap": "^3.9.1",
     "roboto-fontface": "*",
     "vue": "^3.2.31",

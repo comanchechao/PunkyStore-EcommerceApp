@@ -17,7 +17,9 @@
       >
     </template>
     <v-card class="w-full h-auto bg-Sky-500 p-4">
-      <div class="font-mainFont bg-darkPurple text-3xl font-bold cardMain h-full">
+      <div
+        class="font-mainFont bg-darkPurple text-3xl font-bold cardMain h-full"
+      >
         <div class="flex w-full justify-end align-center">
           <h2 class="z-10 w-full text-center text-white">نام کاربری</h2>
           <div class="exitContainer flex justify-end">
@@ -66,7 +68,7 @@
 <script>
 import ordersDetail from "./ordersDetail.vue";
 import Favorites from "./Favorites.vue";
-import EditInfo from './EditInfo.vue'
+import EditInfo from "./EditInfo.vue";
 import { ref } from "vue";
 import { supabase } from "../supabase";
 import DefaultButton from "./DefaultButton.vue";
@@ -93,6 +95,6 @@ export default {
 
     return { dialog, displayContainer, signOut, store };
   },
-  components: { DefaultButton, ordersDetail, Favorites , EditInfo },
+  components: { DefaultButton, ordersDetail, Favorites, EditInfo },
 };
 </script>
