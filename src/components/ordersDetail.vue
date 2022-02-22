@@ -1,7 +1,7 @@
 <template>
-  <div class="displayContinainer flex w-full h-full flex-col">
-    <div
-      class="barContainer flex flex-row my-2 w-full items-center align-center content-center justify-around border-b-2 border-mainYellow"
+  <div class="displayContainer flex w-full h-full flex-col">
+    <div 
+      class="barContainer bg-darkPurple h-24 text-white p-5 flex flex-row my-2 w-full items-center align-center content-center justify-around border-b-2 border-mainYellow"
     >
       <h3
         @click="display = 'waitList'"
@@ -80,4 +80,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.displayContainer {
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background-color: #ffffff2a;
+}
+</style>
