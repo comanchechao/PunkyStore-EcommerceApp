@@ -54,7 +54,7 @@
           >
           <DefaultButton
             @click="signOut"
-            class="text-lg bg-red-500 p-4 text-white lg:text-2xl"
+            class="text-lg bg-red-500 rounded p-4 text-white lg:text-2xl"
             ><v-icon>mdi-logout</v-icon></DefaultButton
           >
         </div>

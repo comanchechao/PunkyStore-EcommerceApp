@@ -4,13 +4,13 @@
       class="w-full h-24 bg-darkPurple flex justify-between align-center p-5"
     >
       <DefaultButton class="text-white">
-        <v-icon size="x-large">mdi-heart</v-icon>
+        <v-icon size="x-large">mdi-account</v-icon>
       </DefaultButton>
       <h1 class="text-white text-2xl font-bold">اطلاعات کاربری</h1>
     </div>
     <div class="w-full h-full p-4 background">
-      <form action="flex flex-wrap font-mainFont">
-        <div class="md:w-2/3">
+      <form @submit.prevent="" class="font-mainFont">
+        <div class="">
           <input
             class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-full-name"
@@ -18,7 +18,7 @@
             value="نام کاربری"
           />
         </div>
-        <div class="md:w-2/3">
+        <div class="">
           <input
             class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-full-name"
@@ -26,7 +26,7 @@
             value="شماره همراه"
           />
         </div>
-        <div class="md:w-2/3">
+        <div class="">
           <input
             class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-full-name"
