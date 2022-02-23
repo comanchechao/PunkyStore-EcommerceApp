@@ -41,29 +41,29 @@ html {
 }
 @-webkit-keyframes color-change {
   0% {
-    background-color: #d9e285;
+    background-color: #85e294;
   }
 
   45% {
-    background-color: #8bbcdb;
+    background-color: #58a8da;
   }
 
   100% {
-    background-color: #c1e28d;
+    background-color: #2318b8;
   }
 }
 
 @keyframes color-change {
   0% {
-    background-color: #e9cf8a;
+    background-color: #4900af;
   }
 
   50% {
-    background-color: #660be7;
+    background-color: #802073;
   }
 
   100% {
-    background-color: #ce7578;
+    background-color: #e95157;
   }
 }
 /* Chrome, Edge, and Safari */
