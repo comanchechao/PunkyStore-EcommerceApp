@@ -1,7 +1,7 @@
 <template>
   <div class="displayContainer flex w-full h-full flex-col">
-    <div 
-      class="barContainer bg-darkPurple h-24 text-white p-5 flex flex-row my-2 w-full items-center align-center content-center justify-around border-b-2 border-mainYellow"
+    <div
+      class="barContainer bg-darkPurple h-24 text-white p-3 flex flex-row my-2 w-full items-center align-center content-center justify-between border-b-2 border-mainYellow"
     >
       <h3
         @click="display = 'waitList'"
