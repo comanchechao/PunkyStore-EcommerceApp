@@ -37,13 +37,13 @@
       :class="{ hidden: display !== 'delivered' }"
       class="deliveredContainer max-h-96 overflow-y-scroll"
     >
-      <OrderCard />
-      <OrderCard />
-      <OrderCard />
-      <OrderCard />
-      <OrderCard />
-      <OrderCard />
-      <OrderCard />
+      <OrderCard :display="display"/>
+      <OrderCard :display="display"/>
+      <OrderCard :display="display"/>
+      <OrderCard :display="display"/>
+      <OrderCard :display="display"/>
+      <OrderCard :display="display"/>
+      <OrderCard :display="display"/>
     </div>
 
     <!-- wait list container change by click from barContainer  -->
@@ -51,7 +51,7 @@
       :class="{ hidden: display !== 'waitList' }"
       class="waitListContainer h-full"
     >
-      <OrderCard />
+      <OrderCard :display="display"/>
     </div>
 
     <!-- processing orders container change by click from barContainer  -->
@@ -60,7 +60,7 @@
       :class="{ hidden: display !== 'processing' }"
       class="processingContainer h-full"
     >
-      <OrderCard />
+      <OrderCard :display="display"/>
     </div>
   </div>
 </template>

@@ -25,7 +25,7 @@ import LoginDialog from "./LoginDialog.vue";
 import { store } from "../store";
 import ProfilePage from "./ProfilePage.vue";
 import { supabase } from "../supabase";
-import { onMounted, ref } from "@vue/runtime-core";
+import { computed, onMounted, ref } from "@vue/runtime-core";
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -58,7 +58,9 @@ export default {
     },
   },
   setup() {
-    const userIcon = ref(supabase.auth.user());
+    const userIcon = computed(() => {
+      return supabase.auth.user();
+    });
 
     return {
       store,
