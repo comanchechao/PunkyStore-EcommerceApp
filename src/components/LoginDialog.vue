@@ -1,13 +1,8 @@
 <template>
   <div class="text-center">
     <v-dialog class="w-full" v-model="dialog" width="100%" height="75%">
-      <template v-slot:activator="{ on, attrs }">
-        <DefaultButton
-          v-bind="attrs"
-          v-on="on"
-          @click="dialog = true"
-          class="text-white"
-        >
+      <template v-slot:activator="{}">
+        <DefaultButton @click="dialog = true" class="text-white">
           <v-icon>mdi-login-variant</v-icon>
         </DefaultButton>
       </template>
@@ -47,30 +42,29 @@
 
         <v-card-actions class="flex flex-col space-y-3 my-2">
           <DefaultButton
-            v-show="!loading"
+            v-show="!loadingLogin"
             @click="loginAction"
-            :class="{ disabled: loading === true }"
+            :class="{ disabled: loadingLogin === true }"
             class="text-lg p-4 text-darkPurple rounded-full bg-goldie"
           >
             ورود
           </DefaultButton>
           <v-progress-circular
-            v-show="loading"
+            v-show="loadingLogin"
             :size="50"
             color="amber"
             indeterminate
           ></v-progress-circular>
-          <!-- <DefaultButton
-            v-show="!loading"
+          <DefaultButton
+            v-show="!loadingSignUp"
             @click="createUser"
-            :class="{ disabled: loading === true }"
+            :class="{ disabled: loadingSignUp === true }"
             class="text-lg p-4 text-darkPurple rounded-full bg-goldie"
           >
             ایجاد حساب جدید؟
-          </DefaultButton> -->
-          <SignUpDialog />
+          </DefaultButton>
           <v-progress-circular
-            v-show="loading"
+            v-show="loadingSignUp"
             :size="50"
             color="amber"
             indeterminate
@@ -78,7 +72,6 @@
           <DefaultButton class="text-xl text-darkPurple rounded-full">
             <ForgottenPasswordDialog
               ref="ForgottenPasswordDialog"
-              :token="token"
             />
           </DefaultButton>
         </v-card-actions>
@@ -88,17 +81,17 @@
 </template>
 
 <script>
-import SignUpDialog from "./SignUpDialog.vue";
+import SignUpDialogVue from "./SignUpDialog.vue";
 import ForgottenPasswordDialog from "./ForgottenPasswordDialog.vue";
 import DefaultButton from "./DefaultButton.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { supabase } from "../supabase";
 import { store } from "../store.js";
 
 export default {
   components: {
     DefaultButton,
-    SignUpDialog,
+    SignUpDialogVue,
     ForgottenPasswordDialog,
   },
 
@@ -106,13 +99,15 @@ export default {
     const dialog = ref(false);
     const email = ref("");
     const password = ref("");
-    const loading = ref(false);
-    const token = ref("");
-    const sessionActive = ref(false);
+    const loadingSignUp = ref(false);
+    const loadingLogin = ref(false);
+    const user = computed(() => {
+      return supabase.auth.user();
+    });
 
     const createUser = async () => {
       try {
-        loading.value = true;
+        loadingSignUp.value = true;
         const { error } = await supabase.auth.signUp({
           email: email.value,
           password: password.value,
@@ -122,11 +117,14 @@ export default {
       } catch (error) {
         alert(error.message);
       }
+      finally{
+        loadingSignUp.value = false
+      }
     };
 
     const loginAction = async () => {
       try {
-        loading.value = true;
+        loadingLogin.value = true;
         const { user, session, error } = await supabase.auth.signIn({
           email: email.value,
           password: password.value,
@@ -137,20 +135,19 @@ export default {
       } catch (error) {
         alert(error.message);
       } finally {
-        loading.value = false;
+        loadingLogin.value = false;
       }
     };
 
     return {
       dialog,
-      store,
+      user,
       email,
       password,
-      loading,
+      loadingSignUp,
+      loadingLogin,
       createUser,
       loginAction,
-      token,
-      sessionActive,
     };
   },
 

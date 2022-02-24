@@ -1,6 +1,5 @@
 <template>
   <div
-    @click="drawer = false"
     id="main"
     class="w-screen Navbar h-20 flex justify-center space-x-4 align-center text-3xl border-b border-gray-200 z-10"
   >
@@ -11,8 +10,10 @@
     <DefaultButton class="text-white">
       <v-icon>mdi-home</v-icon>
     </DefaultButton>
-    <ProfilePage />
-    <LoginDialog />
+    <div><ProfilePage /></div>
+    <div>
+      <LoginDialog />
+    </div>
     <ShoppingCartDrawer />
   </div>
 </template>
@@ -58,14 +59,7 @@ export default {
     },
   },
   setup() {
-    const userIcon = computed(() => {
-      return supabase.auth.user();
-    });
-
-    return {
-      store,
-      userIcon,
-    };
+    return {};
   },
 };
 </script>

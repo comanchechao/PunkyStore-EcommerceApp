@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <DefaultButton v-bind="attrs" v-on="on" @click="drawer = !drawer">
+    <DefaultButton @click="drawer = !drawer">
       <v-icon class="text-white">mdi-microsoft-xbox-controller-menu</v-icon>
     </DefaultButton>
 
@@ -70,7 +70,4 @@ export default {
 </script>
 
 <style scoped>
-.drawer {
-  z-index: 100 !important;
-}
 </style>

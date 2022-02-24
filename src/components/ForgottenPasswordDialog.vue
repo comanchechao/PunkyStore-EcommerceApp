@@ -1,14 +1,8 @@
 <template>
   <div class="text-center flex w-full justify-center">
     <v-dialog v-model="dialog" width="100%" height="100%">
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          @click="dialog = true"
-          color="amber lighten-2"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
+      <template v-slot:activator="{}">
+        <v-btn @click="dialog = true" color="amber lighten-2" dark>
           بازیابی گذرواژه
         </v-btn>
       </template>
@@ -30,7 +24,6 @@
             ></v-text-field>
 
             <v-text-field
-              v-show="token !== ''"
               v-model="password"
               label="New password"
               hint="pick strong password"
@@ -70,39 +63,39 @@ export default {
   mounted() {},
 
   methods: {
-    sessionActivator(token) {
-      this.dialog = !this.dialog;
-      console.log(token)
-    },
-    async resetPasswordRequest() {
-      try {
-        const { error } = await supabase.auth.api.resetPasswordForEmail(
-          this.email,
-          {
-            redirectTo: "http://localhost:3000",
-          }
-        );
-        if (error) throw error;
-        alert("check your inbox for recovery link");
-      } catch (error) {
-        alert(error.message);
-      }
-    },
+    // sessionActivator(token) {
+    //   this.dialog = !this.dialog;
+    //   console.log(token);
+    // },
+    // async resetPasswordRequest() {
+    //   try {
+    //     const { error } = await supabase.auth.api.resetPasswordForEmail(
+    //       this.email,
+    //       {
+    //         redirectTo: "http://localhost:3000",
+    //       }
+    //     );
+    //     if (error) throw error;
+    //     alert("check your inbox for recovery link");
+    //   } catch (error) {
+    //     alert(error.message);
+    //   }
+    // },
 
-    async passwordReset() {
-      try {
-        const { error } = await supabase.auth.api.updateUser(
-          this.token.access_token,
-          {
-            password: this.password,
-          }
-        );
-        if (error) throw error;
-        alert("password update successful");
-      } catch (error) {
-        alert(error.message);
-      }
-    },
+    // async passwordReset() {
+    //   try {
+    //     const { error } = await supabase.auth.api.updateUser(
+    //       this.token.access_token,
+    //       {
+    //         password: this.password,
+    //       }
+    //     );
+    //     if (error) throw error;
+    //     alert("password update successful");
+    //   } catch (error) {
+    //     alert(error.message);
+    //   }
+    // },
   },
   // setup(props) {
   //   const dialog = ref(false);

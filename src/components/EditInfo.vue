@@ -12,18 +12,20 @@
       <form @submit.prevent="" class="font-mainFont">
         <div class="">
           <input
+            v-model="username"
             class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-full-name"
             type="text"
-            value="نام کاربری"
+            placeholder="نام کاربری"
           />
         </div>
         <div class="">
           <input
+            v-model="phone_number"
             class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
             id="inline-full-name"
             type="text"
-            value="شماره همراه"
+            placeholder="شماره همراه"
           />
         </div>
         <div class="">
@@ -34,7 +36,10 @@
             value="آدرس"
           />
         </div>
-        <DefaultButton class="px-4 py-2 rounded bg-mainPink text-white">
+        <DefaultButton
+          @click="updateProfile"
+          class="px-4 py-2 rounded bg-mainPink text-white"
+        >
           تایید
         </DefaultButton>
       </form>
@@ -43,11 +48,96 @@
 </template>
 
 <script>
+import { supabase } from "../supabase";
+import { store } from "../store";
+import { onMounted, ref } from "vue";
 import DefaultButton from "./DefaultButton.vue";
 
 export default {
-  components: {
-    DefaultButton,
+  components: { DefaultButton },
+  setup() {
+    const user = ref(null)
+    const loading = ref(true);
+    const username = ref("");
+    const full_name = ref("");
+    const phone_number = ref("");
+
+    async function getProfile() {
+      try {
+        loading.value = true;
+        user.value = supabase.auth.user();
+
+        let { data, error, status } = await supabase
+          .from("profiles")
+          .select(`username, full_name, phone_number`)
+          .eq("id", user.value.id)
+          .single();
+
+        if (error && status !== 406) throw error;
+
+        if (data) {
+          username.value = data.username;
+          full_name.value = data.full_name;
+          phone_number.value = data.phone_number;
+        }
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        loading.value = false;
+      }
+    }
+
+    async function updateProfile() {
+      try {
+        loading.value = true;
+        user.value = supabase.auth.user();
+
+        const updates = {
+          id: user.value.id,
+          username: username.value,
+          full_name: full_name.value,
+          phone_number: phone_number.value,
+          updated_at: new Date(),
+        };
+
+        let { error } = await supabase.from("profiles").upsert(updates, {
+          returning: "minimal", // Don't return the value after inserting
+        });
+
+        if (error) throw error;
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        loading.value = false;
+      }
+    }
+
+    async function signOut() {
+      try {
+        loading.value = true;
+        let { error } = await supabase.auth.signOut();
+        if (error) throw error;
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        loading.value = false;
+      }
+    }
+
+    onMounted(() => {
+      getProfile();
+    });
+
+    return {
+      store,
+      loading,
+      username,
+      full_name,
+      phone_number,
+
+      updateProfile,
+      signOut,
+    };
   },
 };
 </script>

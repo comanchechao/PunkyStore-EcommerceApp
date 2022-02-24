@@ -1,13 +1,8 @@
 <template>
   <div class="text-center">
-    <v-dialog class="w-full" v-model="dialog" width="100%" height="75%">
-      <template v-slot:activator="{ on, attrs }">
-        <DefaultButton
-          v-bind="attrs"
-          v-on="on"
-          @click="dialog = true"
-          class="text-white"
-        >
+    <v-dialog class="w-full" v-model="signUpDialog" width="100%" height="60%">
+      <template v-slot:activator="{}">
+        <DefaultButton @click="signUpDialog = true" class="text-white">
           <h4 class="text-lg p-4 text-darkPurple rounded-full bg-goldie">
             ایجاد حساب جدید
           </h4>
@@ -29,17 +24,17 @@
         </v-card-title>
 
         <v-card-text>
-          <div class="w-full h-full flex flex-col justify-center">
-            <form class="flex flex-col justify-center" action="">
+          <div class="w-full h-full flex flex-col z-30 justify-center">
+            <form @submit.prevent class="flex flex-col justify-center">
               <input
-                v-model="email"
+                v-model="signUpEmail"
                 class="border-2 border-b placeholder-black text-right text-start text-1xl outline-0 m-5 p-4 px-12"
                 type="email"
-                placeholder=" ایمیل"
+                placeholder="ایمیل "
               />
               <input
-                v-model="password"
-                class="border-2 placeholder-black text-1xl border-b outline-0 m-5 p-4 px-12"
+                v-model="signUpPassword"
+                class="border-2 border-b placeholder-black text-right text-start text-1xl outline-0 m-5 p-4 px-12"
                 type="password"
                 placeholder="گذرواژه "
               />
@@ -50,7 +45,7 @@
         <v-card-actions class="flex flex-col space-y-3 my-2">
           <DefaultButton
             v-show="!loading"
-            @click="loginAction"
+            @click="createUser"
             :class="{ disabled: loading === true }"
             class="text-lg p-4 text-darkPurple rounded-full bg-goldie"
           >
@@ -76,59 +71,41 @@ import { supabase } from "../supabase";
 import { store } from "../store.js";
 
 export default {
+  name: 'signUpDialog',
   components: {
     DefaultButton,
-    ForgottenPasswordDialog,
   },
 
   setup() {
-    const dialog = ref(false);
-    const email = ref("");
-    const password = ref("");
+    const signUpDialog = ref(false);
+    const signUpEmail = ref("");
+    const signUpPassword = ref("");
     const loading = ref(false);
-    const token = ref("");
     const sessionActive = ref(false);
 
     const createUser = async () => {
       try {
         loading.value = true;
         const { error } = await supabase.auth.signUp({
-          email: email.value,
-          password: password.value,
+          email: signUpEmail.value,
+          password: signUpPassword.value,
         });
         if (error) throw error;
         alert("check your inbox for conformation");
       } catch (error) {
         alert(error.message);
-      }
-    };
-
-    const loginAction = async () => {
-      try {
-        loading.value = true;
-        const { user, session, error } = await supabase.auth.signIn({
-          email: email.value,
-          password: password.value,
-        });
-        if (error) throw error;
-        alert("login successfuly");
-        dialog.value = false;
-      } catch (error) {
-        alert(error.message);
       } finally {
-        loading.value = false;
+        signUpDialog.value = false;
       }
     };
 
     return {
-      dialog,
+      signUpDialog,
       store,
-      email,
-      password,
+      signUpEmail,
+      signUpPassword,
       loading,
       createUser,
-      loginAction,
-      token,
       sessionActive,
     };
   },

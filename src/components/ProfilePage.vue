@@ -1,18 +1,14 @@
 <template>
   <v-dialog
     fullscreen
-    class=""
     v-model="dialog"
-    persistent
     width="100%"
     height="100%"
   >
-    <template v-slot:activator="{ on, attrs }">
+    <template v-slot:activator="{  }">
       <DefaultButton
         class="text-white"
-        v-bind="attrs"
-        v-on="on"
-        @click="dialog = !dialog"
+        @click="dialog = true"
         ><v-icon>mdi-account</v-icon></DefaultButton
       >
     </template>
@@ -69,7 +65,7 @@
 import ordersDetail from "./ordersDetail.vue";
 import Favorites from "./Favorites.vue";
 import EditInfo from "./EditInfo.vue";
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { supabase } from "../supabase";
 import DefaultButton from "./DefaultButton.vue";
 import { store } from "../store";
@@ -79,6 +75,7 @@ export default {
     const dialog = ref(false);
     const displayContainer = ref("");
 
+  
     async function signOut() {
       try {
         let { error } = await supabase.auth.signOut();
@@ -93,7 +90,7 @@ export default {
       }
     }
 
-    return { dialog, displayContainer, signOut, store };
+    return { dialog, displayContainer, signOut };
   },
   components: { DefaultButton, ordersDetail, Favorites, EditInfo },
 };

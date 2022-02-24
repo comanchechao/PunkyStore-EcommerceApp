@@ -1,8 +1,8 @@
 <template>
   <div class="">
     <v-tooltip bottom>
-      <template #activator="{ on, attrs }">
-        <DefaultButton v-bind="attrs" v-on="on" @click="drawer = !drawer">
+      <template v-slot:activator="{}">
+        <DefaultButton @click="drawer = !drawer">
           <v-badge
             :content="cartTotalAmount"
             :value="cartTotalAmount"
@@ -22,7 +22,6 @@
       position="right"
       bottom
       class="drawer"
-      temporary
       color="#4DD0E1"
     >
       <div
@@ -129,17 +128,18 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity';
 import DefaultButton from "./DefaultButton.vue";
 
 export default {
   components: {
     DefaultButton,
   },
-  data() {
-    return {
-      drawer: false,
-    };
-  },
+ setup(){
+   const drawer = ref(false)
+
+    return{drawer}
+ }
 };
 </script>
 
