@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-full h-full">
-    <div class="w-full h-24 bg-mainPink flex justify-between align-center p-5">
+    <div class="w-full h-24 bg-mainBlue flex justify-between align-center p-5">
       <DefaultButton class="text-white">
         <v-icon size="x-large">mdi-login-variant</v-icon>
       </DefaultButton>
