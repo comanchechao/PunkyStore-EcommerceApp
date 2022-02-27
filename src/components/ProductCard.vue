@@ -4,7 +4,7 @@
   >
     <div class="w-full h-full rounded-t-lg"></div>
     <div
-      class="bg-white w-full h-full flex flex-col justify-center space-y-2 align-center"
+      class="bg-gradient-to-r from-white via-mainPurple to-white w-full h-full flex flex-col justify-center space-y-2 align-center"
     >
       <h3 class="text-gray-400">کتگوری کالا</h3>
       <h1 class="text-black font-bold text-2xl">اسم کالا</h1>

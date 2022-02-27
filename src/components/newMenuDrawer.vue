@@ -11,13 +11,13 @@
       <div class="absolute left-0 top-0 z-10 overflow-y-auto">
         <div class="min-h-screen text-center">
           <TransitionChild
-            as="template"
-            enter="duration-300 ease-out"
-            enter-from="translate-x-10"
-            enter-to="translate-x-0"
-            leave="duration-200 ease-in"
-            leave-from="opacity-100"
-            leave-to="opacity-0"
+           as="template"
+            enter="duration-100 ease-out"
+            enter-from="transfrom translate-x-24 "
+            enter-to="opacity-100 scale-100"
+            leave="duration-500 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="transfrom translate-x-24 scale-95"
           >
             <DialogOverlay class="fixed inset-0" />
           </TransitionChild>
@@ -28,12 +28,12 @@
 
           <TransitionChild
             as="template"
-            enter="duration-300 ease-out"
-            enter-from="opacity-0 scale-95"
+            enter="duration-150 ease-out"
+            enter-from="transfrom -translate-x-24 scale-95"
             enter-to="opacity-100 scale-100"
-            leave="duration-200 ease-in"
+            leave="duration-150 ease-in"
             leave-from="opacity-100 scale-100"
-            leave-to="opacity-0 scale-95"
+            leave-to="transfrom -translate-x-24 scale-95"
           >
             <div
               class="inline-block w-full h-screen overflow-hidden text-left align-left transition-all transform bg-Sky-300 shadow-xl"
@@ -82,16 +82,7 @@
                 <DefaultButton class="text-2xl">دیزاین</DefaultButton>
                 <DefaultButton class=" ">بول</DefaultButton>
               </div>
-
-              <div class="mt-4">
-                <button
-                  type="button"
-                  class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                  @click="closeModal"
-                >
-                  Got it, thanks!
-                </button>
-              </div>
+  
             </div>
           </TransitionChild>
         </div>
