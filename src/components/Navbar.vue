@@ -3,7 +3,9 @@
     id="main"
     class="w-screen Navbar h-20 flex justify-center space-x-4 align-center text-3xl border-b border-gray-200 z-10"
   >
-    <MenuDrawer />
+    <div>
+      <NewModal />
+    </div>
     <DefaultButton class="text-white">
       <v-icon>mdi-shopping</v-icon>
     </DefaultButton>
@@ -14,6 +16,7 @@
     <div>
       <LoginDialog />
     </div>
+
     <ShoppingCartDrawer />
   </div>
 </template>
@@ -27,6 +30,7 @@ import { store } from "../store";
 import ProfilePage from "./ProfilePage.vue";
 import { supabase } from "../supabase";
 import { computed, onMounted, ref } from "@vue/runtime-core";
+import NewModal from "./newModal.vue";
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -38,6 +42,7 @@ export default {
     ShoppingCartDrawer,
     LoginDialog,
     ProfilePage,
+    NewModal,
   },
   mounted() {
     // this.animateNavbar();
