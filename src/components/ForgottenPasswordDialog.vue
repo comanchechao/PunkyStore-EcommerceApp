@@ -2,9 +2,12 @@
   <div class="text-center flex w-full justify-center">
     <v-dialog v-model="dialog" width="100%" height="100%">
       <template v-slot:activator="{}">
-        <v-btn @click="dialog = true" color="amber lighten-2" dark>
+        <DefaultButton
+          @click="dialog = true"
+          class="font-bold text-lg px-3 py-1 border-4 border-goldie"
+        >
           بازیابی گذرواژه
-        </v-btn>
+        </DefaultButton>
       </template>
 
       <v-card color="#6A4C93" width="500">
@@ -81,7 +84,6 @@ export default {
     //     alert(error.message);
     //   }
     // },
-
     // async passwordReset() {
     //   try {
     //     const { error } = await supabase.auth.api.updateUser(
