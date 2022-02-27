@@ -28,12 +28,12 @@
 
           <TransitionChild
             as="template"
-            enter="duration-300 ease-out"
-            enter-from="opacity-0 scale-95"
+            enter="duration-150 ease-out"
+            enter-from="transfrom -translate-x-24 scale-95"
             enter-to="opacity-100 scale-100"
-            leave="duration-200 ease-in"
+            leave="duration-150 ease-in"
             leave-from="opacity-100 scale-100"
-            leave-to="opacity-0 scale-95"
+            leave-to="transfrom -translate-x-24 scale-95"
           >
             <div
               class="inline-block w-full h-screen overflow-hidden text-left align-left transition-all transform bg-Sky-300 shadow-xl"

@@ -18,12 +18,12 @@
         <div class="min-h-screen text-center">
           <TransitionChild
             as="template"
-            enter="duration-300 ease-out"
-            enter-from="translate-x-10"
-            enter-to="translate-x-0"
-            leave="duration-200 ease-in"
-            leave-from="opacity-100"
-            leave-to="opacity-0"
+            enter="duration-150 ease-out"
+            enter-from="transfrom -translate-x-24 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-500 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="transfrom -translate-x-24 scale-95"
           >
             <DialogOverlay class="fixed inset-0" />
           </TransitionChild>
