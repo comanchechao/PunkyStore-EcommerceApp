@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-col w-full h-full rounded">
-    <div class="w-full h-24 bg-darkPurple flex justify-between align-center p-5">
+    <div
+      class="w-full h-24 bg-darkPurple flex justify-between align-center p-5"
+    >
       <DefaultButton class="text-white">
         <v-icon size="x-large">mdi-heart</v-icon>
       </DefaultButton>
@@ -9,10 +11,57 @@
     <div
       class="w-full h-full py-4 gap-5 grid px-3 grid-flow-row grid-cols-2 grid-rows-2 place-items-center background"
     >
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
-      <ProductCard />
+      <div
+        class="cardBackground pb-2 w-full h-full flex flex-col justify-center align-center space-y-2"
+      >
+        <div class="w-full h-full rounded-t-lg"></div>
+        <div
+          class="bg-white w-full h-full flex flex-col justify-center space-y-2 align-center"
+        >
+          <h3 class="text-gray-400">نام کالا</h3>
+          <h1 class="text-black font-bold text-2xl">قیمت کالا</h1>
+          <h2 class="text-mainBlue">توضیحات کالا</h2>
+        </div>
+      </div>
+
+      <div
+        class="cardBackground pb-2 w-full h-full flex flex-col justify-center align-center space-y-2"
+      >
+        <div class="w-full h-full rounded-t-lg"></div>
+        <div
+          class="bg-white w-full h-full flex flex-col justify-center space-y-2 align-center"
+        >
+          <h3 class="text-gray-400">نام کالا</h3>
+          <h1 class="text-black font-bold text-2xl">قیمت کالا</h1>
+          <h2 class="text-mainBlue">توضیحات کالا</h2>
+        </div>
+      </div>
+
+      <div
+        class="cardBackground pb-2 w-full h-full flex flex-col justify-center align-center space-y-2"
+      >
+        <div class="w-full h-full rounded-t-lg"></div>
+        <div
+          class="bg-white w-full h-full flex flex-col justify-center space-y-2 align-center"
+        >
+          <h3 class="text-gray-400">نام کالا</h3>
+          <h1 class="text-black font-bold text-2xl">قیمت کالا</h1>
+          <h2 class="text-mainBlue">توضیحات کالا</h2>
+        </div>
+      </div>
+
+      <div
+        class="cardBackground pb-2 w-full h-full flex flex-col justify-center align-center space-y-2"
+      >
+        <div class="w-full h-full rounded-t-lg"></div>
+        <div
+          class="bg-white w-full h-full flex flex-col justify-center space-y-2 align-center"
+        >
+          <h3 class="text-gray-400">نام کالا</h3>
+          <h1 class="text-black font-bold text-2xl">قیمت کالا</h1>
+          <h2 class="text-mainBlue">توضیحات کالا</h2>
+        </div>
+      </div>
     </div>
   </div>
 </template>

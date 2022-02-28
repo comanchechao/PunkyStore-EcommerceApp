@@ -37,11 +37,18 @@
           />
         </div>
         <DefaultButton
+          v-show="!loading"
           @click="updateProfile"
           class="px-4 py-2 rounded bg-mainPink text-white"
         >
           تایید
         </DefaultButton>
+        <v-progress-circular
+          v-show="loading"
+          :size="50"
+          color="red"
+          indeterminate
+        ></v-progress-circular>
       </form>
     </div>
   </div>
@@ -56,7 +63,7 @@ import DefaultButton from "./DefaultButton.vue";
 export default {
   components: { DefaultButton },
   setup() {
-    const user = ref(null)
+    const user = ref(null);
     const loading = ref(true);
     const username = ref("");
     const full_name = ref("");
@@ -109,6 +116,7 @@ export default {
         alert(error.message);
       } finally {
         loading.value = false;
+        alert('profile updated')
       }
     }
 
