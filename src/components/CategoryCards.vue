@@ -1,12 +1,12 @@
 <template>
-  <div class="bg-gradient-to-r from-white via-white to-mainPurple w-full h-72 wrapper rounded-lg p-10 flex space-x-3">
+  <div class="bg-white w-full h-72 wrapper rounded-lg p-10 flex space-x-3">
     <div class="w-full h-full bg-purple-900 p-2">
       <img class="bg-mainPurple" src="" alt="" />
     </div>
     <div
       class="w-full h-full flex flex-col text-center align-center justify-center space-y-4"
     >
-      <h3 class="text-gray-400">کتگوری کالا</h3>
+      <h3 class="text-gray-400">{{ catagory.title }}</h3>
       <h1 class="text-black font-bold text-2xl">اسم کالا</h1>
       <h2 class="text-black font-bold text-1xl">
         یه سری توضیحات راجب کتگوری کالاها
@@ -24,6 +24,10 @@
 import DefaultButton from "./DefaultButton.vue";
 export default {
   components: { DefaultButton },
+
+  props: ["catagory"],
+
+  setup(props) {},
 };
 </script>
 
