@@ -92,11 +92,13 @@
         <div class="w-4/5 h-full flex flex-col justify-center align-end">
           <div class="w-full h-2/3 flex justify-evenly flex-col">
             <div class="flex justify-around">
-              <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
+              <h1
+                class="font-extralight font-mainFont text-2xl text-mainPurple"
+              >
                 Subtotal
               </h1>
               <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
-                Shipping
+                هزینه ی ارسال
               </h1>
 
               <h1 class="font-bold font-mainFont text-3xl text-mainBlue">
@@ -105,14 +107,14 @@
             </div>
             <div class="flex justify-around h-full align-center">
               <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
-                {{ cartTotalPrice }} IRL
+                {{ cartTotalPrice }} تومان
               </h1>
               <h1 class="font-extralight font-mainFont text-2xl text-mainBlue">
-                15 IRL
+                15 تومان
               </h1>
 
               <h1 class="font-bold font-mainFont text-3xl text-mainBlue">
-                {{ total }} IRL
+                {{ total }} تومان
               </h1>
             </div>
           </div>
@@ -128,18 +130,18 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity';
+import { ref } from "@vue/reactivity";
 import DefaultButton from "./DefaultButton.vue";
 
 export default {
   components: {
     DefaultButton,
   },
- setup(){
-   const drawer = ref(false)
+  setup() {
+    const drawer = ref(false);
 
-    return{drawer}
- }
+    return { drawer };
+  },
 };
 </script>
 
