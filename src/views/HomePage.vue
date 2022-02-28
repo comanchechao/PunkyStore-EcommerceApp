@@ -3,32 +3,19 @@
     <div
       class="h-auto w-screen flex flex-col justify-center align-center space-y-5 p-7"
     >
-      <CategoryCards class="NavbarTrigger" />
-      <CategoryCards />
-      <CategoryCards />
+      <CategoryCards
+        v-for="catagory in catagories"
+        :key="catagory.title"
+        :catagory="catagory"
+        class="NavbarTrigger"
+      />
     </div>
     <div
+      v-for="catagory in catagories"
+      :key="catagory.title"
       class="h-screen w-screen p-3 flex flex-col justify-center align-center"
     >
-      <CategoryProductList />
-      <DefaultButton
-        class="rounded-full font-bold text-white bg-mainBlue text-lg p-4 m-5"
-        >نمایش کالاهای بیشتر</DefaultButton
-      >
-    </div>
-    <div
-      class="h-screen w-screen p-3 flex flex-col justify-center align-center"
-    >
-      <CategoryProductList class="" />
-      <DefaultButton
-        class="rounded-full font-bold text-white bg-mainBlue text-lg p-4 m-5"
-        >نمایش کالاهای بیشتر</DefaultButton
-      >
-    </div>
-    <div
-      class="h-screen w-screen p-3 flex flex-col justify-center align-center"
-    >
-      <CategoryProductList />
+      <CategoryProductList :catagory="catagory" />
       <DefaultButton
         class="rounded-full font-bold text-white bg-mainBlue text-lg p-4 m-5"
         >نمایش کالاهای بیشتر</DefaultButton
@@ -41,8 +28,33 @@
 import DefaultButton from "../components/DefaultButton.vue";
 import CategoryCards from "../components/CategoryCards.vue";
 import CategoryProductList from "../components/CategoryProductList.vue";
+import { ref } from "@vue/reactivity";
+import { onMounted } from "@vue/runtime-core";
+import { supabase } from "../supabase";
+
 export default {
   components: { CategoryCards, CategoryProductList, DefaultButton },
+  setup() {
+    const catagories = ref({});
+
+    onMounted(() => {
+      getProducts();
+    });
+
+    async function getProducts() {
+      try {
+        const { data, error } = await supabase
+          .from("product-category")
+          .select("title");
+        if (error) throw error;
+        catagories.value = data;
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+
+    return { catagories };
+  },
 };
 </script>
 
