@@ -7,7 +7,9 @@
         <!-- <ListBox /> -->
         <DropDownMenu />
       </div>
-      <div class="w-full h-full flex flex-col space-y-20">
+      <div
+        class="w-full h-full flex flex-col justify-center sm:p-7 md:justify-start lg:space-x-5 lg:flex-row lg:flex-wrap lg:p-3 items-center lg:space-y-16 space-y-20"
+      >
         <ProductCard
           v-for="product in products"
           :key="product.id"
@@ -59,7 +61,10 @@ export default {
 
 <style scoped>
 .background {
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  background-color: white;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(138, 138, 138, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 </style>

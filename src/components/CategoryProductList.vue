@@ -7,13 +7,13 @@
       <h1 class="text-white text-3xl font-extrabold">{{ catagory.title }}</h1>
     </div>
     <div
-      class="w-full h-full py-4 gap-5 grid px-3 grid-flow-row grid-cols-2 grid-rows-2 place-items-center background"
+      class="w-full h-full py-4 flex flex-col space-y-7 justify-center items-center background"
     >
-      <ProductCard
+      <!-- <ProductCard
         v-for="product in products"
         :key="product.id"
         :product="product"
-      />
+      /> -->
     </div>
   </div>
 </template>
