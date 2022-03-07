@@ -1,14 +1,7 @@
 <template>
-  <v-dialog
-    fullscreen
-    v-model="dialog"
-    width="100%"
-    height="100%"
-  >
-    <template v-slot:activator="{  }">
-      <DefaultButton
-        class="text-white"
-        @click="dialog = true"
+  <v-dialog fullscreen v-model="dialog" width="100%" height="100%">
+    <template v-slot:activator="{}">
+      <DefaultButton class="text-white" @click="dialog = true"
         ><v-icon>mdi-account</v-icon></DefaultButton
       >
     </template>
@@ -75,7 +68,6 @@ export default {
     const dialog = ref(false);
     const displayContainer = ref("");
 
-  
     async function signOut() {
       try {
         let { error } = await supabase.auth.signOut();
@@ -95,3 +87,4 @@ export default {
   components: { DefaultButton, ordersDetail, Favorites, EditInfo },
 };
 </script>
+

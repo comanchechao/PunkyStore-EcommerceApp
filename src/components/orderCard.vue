@@ -14,22 +14,22 @@
     <div class="p-2 mx-1">
       <DefaultButton
         :class="{ hidden: displayName !== 'processing' }"
-        class="text-white self-center bg-Sky-500 text-lg p-3"
+        class="text-white self-center bg-Sky-500 text-lg p-3 rounded-xl shadow-xl"
         >رهگیری</DefaultButton
       >
       <DefaultButton
         :class="{ hidden: displayName !== 'delivered' }"
-        class="text-white bg-mainGreen text-lg p-3"
+        class="text-white bg-mainGreen text-lg p-3 rounded-xl shadow-xl"
         >دریافتی</DefaultButton
       >
       <DefaultButton
         :class="{ hidden: displayName !== 'waitList' }"
-        class="text-white bg-mainPink text-lg p-3"
+        class="text-white bg-mainPink text-lg p-3 rounded-xl shadow-xl"
         >تایید</DefaultButton
       >
     </div>
     <div>
-      <DefaultButton class="text-white bg-mainYellow text-lg p-4"
+      <DefaultButton class="text-white bg-mainYellow text-lg p-4 rounded-xl"
         >بیشتر</DefaultButton
       >
     </div>

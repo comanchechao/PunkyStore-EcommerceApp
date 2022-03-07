@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Navbar class="Navbar" />
+      <Navbar class="fixed   Navbar" />
       <!-- <SubNavbar /> -->
       <!-- <HomePage /> -->
       <router-view />
@@ -29,3 +29,7 @@ export default {
   }),
 };
 </script>
+
+<style scoped>
+
+</style>
