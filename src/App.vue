@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Navbar class="fixed   Navbar" />
+      <Navbar class="   Navbar" />
       <!-- <SubNavbar /> -->
       <!-- <HomePage /> -->
       <router-view />
