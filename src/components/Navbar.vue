@@ -49,10 +49,10 @@ export default {
     MenuDrawer,
     ShoppingCartDrawer,
     LoginDialog,
-    ProfilePage,  
+    ProfilePage,
     NewShoppingDrawer,
-    NewMenuDrawer
-},
+    NewMenuDrawer,
+  },
   mounted() {
     // this.animateNavbar();
   },
@@ -79,9 +79,10 @@ export default {
 </script>
 
 <style scoped>
-.Navbar {
-  z-index: 200 !important;
+#main {
+    background: rgba(0, 151, 19, 0.1);
 }
+
 /* .Navbar {
   animation: 35s ease-in-out infinite alternate-reverse color-change;
 }
