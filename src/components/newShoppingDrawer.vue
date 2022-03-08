@@ -42,15 +42,15 @@
             leave-to="transfrom translate-x-24 scale-95"
           >
             <div
-              class="inline-block w-full h-screen overflow-hidden text-left align-right transition-all transform bg-Sky-300 shadow-xl"
+              class="inline-block w-full h-screen overflow-hidden text-left align-right transition-all transform bg-LightBlue-300 shadow-xl"
             >
               <DialogTitle
                 as="h3"
                 class="text-lg font-mainFont leading-6 text-gray-900"
               >
-               <div class="flex justify-center p-5 mainFont">
-                   <h3 class="text-3xl">سبد خرید</h3>
-               </div>
+                <div class="flex justify-center p-5 mainFont">
+                  <h3 class="text-3xl">سبد خرید</h3>
+                </div>
               </DialogTitle>
               <div
                 class="p-4 w-full h-2/3 flex flex-row lg:flex-col justify-around align-center"
@@ -130,7 +130,9 @@
                 <div
                   class="w-4/5 h-full flex flex-col justify-center align-end"
                 >
-                  <div class="w-full h-2/3 flex justify-evenly flex-col">
+                  <div
+                    class="w-full h-2/3 flex justify-evenly flex-col bg-red-300"
+                  >
                     <div class="flex justify-around">
                       <h1
                         class="font-extralight font-mainFont text-2xl text-mainBlue"
@@ -140,13 +142,13 @@
                       <h1
                         class="font-extralight font-mainFont text-2xl text-mainBlue"
                       >
-                        Shipping
+                        ارسال
                       </h1>
 
                       <h1
                         class="font-bold font-mainFont text-3xl text-mainBlue"
                       >
-                        Total
+                        کل پرداختی
                       </h1>
                     </div>
                     <div class="flex justify-around h-full align-center">

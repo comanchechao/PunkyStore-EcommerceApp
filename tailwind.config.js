@@ -1,12 +1,14 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
+  plugins: [require("tw-elements/dist/plugin")],
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       height: {
         rem26: "26rem",
         dialog: "32rem",
+        carousel: "38rem",
       },
       fontFamily: {
         mainFont: ["LaleZar"],

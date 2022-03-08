@@ -2,7 +2,7 @@
   <div id="main" class="w-screen flex justify-center align-center p-6">
     <div class="w-full background rounded-b-xl mb-8 h-full">
       <div
-        class="w-full h-20 flex justify-center align-center bg-mainYellow mb-3"
+        class="w-full h-20 flex justify-end p-7 align-center bg-mainBlue mb-3"
       >
         <!-- <ListBox /> -->
         <DropDownMenu />
@@ -61,10 +61,10 @@ export default {
 
 <style scoped>
 .background {
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(138, 138, 138, 0.75);
+  backdrop-filter: blur(9px) saturate(109%);
+  -webkit-backdrop-filter: blur(9px) saturate(109%);
+  background-color: rgba(255, 255, 255, 0.76);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
 </style>

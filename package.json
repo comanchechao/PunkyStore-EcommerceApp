@@ -15,6 +15,7 @@
     "daisyui": "^2.1.0",
     "gsap": "^3.9.1",
     "roboto-fontface": "*",
+    "tw-elements": "^1.0.0-alpha11",
     "vue": "^3.2.31",
     "vue-router": "^4.0.12",
     "vuetify": "^3.0.0-alpha.0",

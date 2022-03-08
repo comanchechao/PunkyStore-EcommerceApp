@@ -11,7 +11,7 @@
       <div class="absolute left-0 top-0 z-10 overflow-y-auto">
         <div class="min-h-screen text-center">
           <TransitionChild
-           as="template"
+            as="template"
             enter="duration-100 ease-out"
             enter-from="transfrom translate-x-24 "
             enter-to="opacity-100 scale-100"
@@ -36,14 +36,11 @@
             leave-to="transfrom -translate-x-24 scale-95"
           >
             <div
-              class="inline-block w-full h-screen overflow-hidden text-left align-left transition-all transform bg-Sky-300 shadow-xl"
+              class="inline-block w-full text-white h-screen overflow-hidden text-left align-left transition-all transform bg-mainPink shadow-xl"
             >
-              <DialogTitle
-                as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
-              >
+              <DialogTitle as="h3" class="text-lg font-medium leading-6">
                 <div
-                  class="p-6 flex border-b-2 border-mainYellow flex-row w-full justify-around"
+                  class="p-6 flex border-b-4 border-mainPurple flex-row w-full justify-around"
                 >
                   <DefaultButton
                     @click="bar = 'menu'"
@@ -82,7 +79,6 @@
                 <DefaultButton class="text-2xl">دیزاین</DefaultButton>
                 <DefaultButton class=" ">بول</DefaultButton>
               </div>
-  
             </div>
           </TransitionChild>
         </div>

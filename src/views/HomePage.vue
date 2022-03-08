@@ -10,6 +10,9 @@
         class="NavbarTrigger"
       />
     </div>
+    <!-- <div class="w-3/4 h-96 bg-black"> -->
+    <Carousel />
+    <!-- </div> -->
     <div
       v-for="catagory in catagories"
       :key="catagory.title"
@@ -28,12 +31,13 @@
 import DefaultButton from "../components/DefaultButton.vue";
 import CategoryCards from "../components/CategoryCards.vue";
 import CategoryProductList from "../components/CategoryProductList.vue";
+import Carousel from "../components/Carousel.vue";
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 
 export default {
-  components: { CategoryCards, CategoryProductList, DefaultButton },
+  components: { CategoryCards, CategoryProductList, DefaultButton, Carousel },
   setup() {
     const catagories = ref({});
 
