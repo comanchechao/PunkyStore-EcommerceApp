@@ -58,10 +58,14 @@
                 <div
                   class="max-h-96 lg:max-h-full h-full w-5/6 space-y-3 flex flex-col overflow-x-scroll"
                 >
-                  <ShoppingDrawerItem v-for=" item in cart " :key="item.id" :item="item" />
+                  <ShoppingDrawerItem
+                    v-for="item in cart"
+                    :key="item.id"
+                    :item="item"
+                  />
                 </div>
                 <div
-                  class="checkout w-full lg:h-1/3 flex justify-center align-end p-5"
+                  class="checkout w-full lg:h-1/3 flex justify-center align-end p-5 bg-mainPurple"
                 >
                   <div
                     class="w-4/5 h-full flex flex-col justify-center align-end"
@@ -195,11 +199,11 @@ export default {
   setup() {
     const isOpen = ref(false);
     const drawer = ref(false);
-    const cart = productManagent().cart
+    const cart = productManagent().cart;
 
-    onMounted(() =>{
-      console.log(cart)
-    })
+    onMounted(() => {
+      console.log(cart);
+    });
 
     return {
       isOpen,

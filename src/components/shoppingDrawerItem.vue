@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 w-full justify-around h-28 border-b-2 flex">
+  <div class="p-2 w-full justify-around h-28 roun rounded-2xl bg-gray-100 flex">
     <div class="w-full h-full flex justify-center align-center space-x-3">
       <div
         class="bg-green-300 flex rounded-full w-24 h-24 justify-center align-center"
@@ -9,7 +9,7 @@
       <Menu as="div" class="relative inline-block text-left">
         <div class="flex flex-row justify-center align-center">
           <MenuButton
-            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-mainYellow rounded-md hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            class="inline-flex justify-center transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-mainYellow rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             جزئیات
             <EyeIcon
@@ -33,7 +33,7 @@
           leave-to-class="transform scale-95 opacity-0"
         >
           <MenuItems
-            class="absolute bg-mainYellow z-10 top-0 right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="absolute z-10 top-0 right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <div class="px-1 py-1">
               <MenuItem v-slot="{ active }">
@@ -96,7 +96,7 @@ import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { EyeIcon, TrashIcon } from "@heroicons/vue/solid";
 import DefaultButton from "./DefaultButton.vue";
 import { productManagent } from "../store/productManagment";
-import { ref } from '@vue/reactivity';
+import { ref } from "@vue/reactivity";
 export default {
   props: ["item"],
   components: {
@@ -110,11 +110,11 @@ export default {
   },
   setup(props) {
     const item = ref(props.item);
-    const productManagment = productManagent()
+    const productManagment = productManagent();
 
-    const removeCartProduct = function(){
-      productManagment.removeProduct(item.value)
-    }
+    const removeCartProduct = function () {
+      productManagment.removeProduct(item.value);
+    };
 
     return { item, removeCartProduct };
   },
