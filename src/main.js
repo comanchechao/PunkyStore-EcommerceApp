@@ -5,7 +5,10 @@ import { loadFonts } from "./plugins/webfontloader";
 import "./index.css";
 import router from "./router"; // <---
 import "tw-elements";
+import { createPinia, PiniaVuePlugin } from "pinia";
 
 loadFonts();
 
-createApp(App).use(vuetify).use(router).mount("#app");
+const pinia = createPinia();
+
+createApp(App).use(vuetify).use(router).use(PiniaVuePlugin).use(pinia).mount("#app");
