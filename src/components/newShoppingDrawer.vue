@@ -14,7 +14,7 @@
   </div>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal">
-      <div class="absolute right-0 top-0 z-10 overflow-y-auto">
+      <div class="absolute h-screen right-0 top-0 z-10 overflow-y-auto">
         <div class="max-h-screen text-center">
           <TransitionChild
             as="template"
@@ -48,15 +48,15 @@
                 as="h3"
                 class="text-lg font-mainFont leading-6 text-gray-900"
               >
-                <div class="flex justify-center p-5 mainFont">
+                <div class="flex justify-center p-3 mainFont">
                   <h3 class="text-4xl text-white">سبد خرید</h3>
                 </div>
               </DialogTitle>
               <div
-                class="p-1 w-full h-screen flex flex-col justify-center align-center"
+                class="p-1 w-full h-screen  flex flex-col justify-around align-center "
               >
                 <div
-                  class="max-h-96 lg:max-h-full h-full w-5/6 space-y-3 flex flex-col"
+                  class="max-h-84 lg:max-h-full h-full w-full space-y-3 flex flex-col overflow-y-scroll"
                 >
                   <ShoppingDrawerItem
                     v-for="item in cart"
