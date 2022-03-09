@@ -1,7 +1,7 @@
 <template>
   <div
     id="main"
-    class="w-screen Navbar h-20 flex justify-center space-x-4 align-center text-3xl border-b border-gray-200"
+    class="w-screen bg-opacity-20 z-10 Navbar h-20 flex justify-center space-x-4 align-center text-3xl border-b border-gray-200"
   >
     <div>
       <NewMenuDrawer />

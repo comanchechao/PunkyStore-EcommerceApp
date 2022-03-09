@@ -36,23 +36,41 @@
             leave-to="transfrom -translate-x-24 scale-95"
           >
             <div
-              class="inline-block w-full text-white h-screen overflow-hidden text-left align-left transition-all transform bg-mainPink shadow-xl"
+              class="inline-block w-full text-white w-44 h-screen overflow-hidden text-left align-left transition-all transform bg-LightBlue-300 shadow-xl"
             >
               <DialogTitle as="h3" class="text-lg font-medium leading-6">
-                <div
-                  class="p-6 flex border-b-4 border-mainPurple flex-row w-full justify-around"
-                >
-                  <DefaultButton
-                    @click="bar = 'menu'"
-                    class="px-4 hover:bg-mainYellow ease-in-out transition-colors text-2xl"
-                    >منو</DefaultButton
+                <TabGroup as="div">
+                  <TabList
+                    class="flex flex-col my-4 mx-2 p-1 space-x-1 bg-blue-900/20 rounded"
                   >
-                  <DefaultButton
-                    @click="bar = 'catagories'"
-                    class="hover:bg-mainYellow px-4 transition ease-in-out duration-300 delay-150 text-2xl"
-                    >دسته بندی</DefaultButton
-                  >
-                </div>
+                    <Tab as="div">
+                      <DefaultButton
+                        @click="bar = 'catagories'"
+                        :class="[
+                          'w-full my-1 py-2.5 text-sm leading-5 font-medium text-white rounded-lg',
+                          'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
+                          bar === 'catagories'
+                            ? 'bg-mainYellow shadow'
+                            : 'text-white hover:bg-darkPurple hover:text-white',
+                        ]"
+                      >
+                        دسته بندی
+                      </DefaultButton>
+                      <DefaultButton
+                        @click="bar = 'menu'"
+                        :class="[
+                          'w-full my-1 py-2.5 text-sm leading-5 font-medium text-white rounded-lg',
+                          'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
+                          bar === 'menu'
+                            ? 'bg-mainYellow shadow'
+                            : 'text-white hover:bg-darkPurple hover:text-white',
+                        ]"
+                      >
+                        منو
+                      </DefaultButton>
+                    </Tab>
+                  </TabList>
+                </TabGroup>
               </DialogTitle>
               <div
                 class="h-full w-full p-6 flex flex-col justify-start align-center"
@@ -96,6 +114,9 @@ import {
   Dialog,
   DialogOverlay,
   DialogTitle,
+  Tab,
+  TabGroup,
+  TabList,
 } from "@headlessui/vue";
 
 export default {
@@ -105,6 +126,9 @@ export default {
     Dialog,
     DialogOverlay,
     DialogTitle,
+    TabGroup,
+    Tab,
+    TabList,
     DefaultButton,
   },
 

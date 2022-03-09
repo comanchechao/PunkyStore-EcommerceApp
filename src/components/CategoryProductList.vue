@@ -9,11 +9,11 @@
     <div
       class="w-full h-full py-4 flex flex-col space-y-7 justify-center items-center background"
     >
-      <ProductCard
+      <!-- <ProductCard
         v-for="product in products"
         :key="product.id"
         :product="product"
-      />
+      /> -->
     </div>
   </div>
 </template>
