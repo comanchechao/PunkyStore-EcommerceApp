@@ -21,11 +21,11 @@
             enter="duration-150 ease-out"
             enter-from="transfrom -translate-x-24 scale-95"
             enter-to="opacity-100 scale-100"
-            leave="duration-500 ease-in"
+            leave="duration-200 ease-in"
             leave-from="opacity-100 scale-100"
             leave-to="transfrom -translate-x-24 scale-95"
           >
-            <DialogOverlay class="fixed inset-0" />
+            <DialogOverlay class="fixed inset-0 bg-darkPurple bg-opacity-20" />
           </TransitionChild>
 
           <span class="inline-block h-screen align-left" aria-hidden="true">
@@ -49,14 +49,14 @@
                 class="text-lg font-mainFont leading-6 text-gray-900"
               >
                 <div class="flex justify-center p-5 mainFont">
-                  <h3 class="text-3xl">سبد خرید</h3>
+                  <h3 class="text-4xl text-white">سبد خرید</h3>
                 </div>
               </DialogTitle>
               <div
-                class="p-1 w-full h-screen flex flex-col lg:flex-col justify-around align-center"
+                class="p-1 w-full h-screen flex flex-col justify-center align-center"
               >
                 <div
-                  class="max-h-96 lg:max-h-full h-full w-5/6 space-y-3 flex flex-col overflow-x-scroll"
+                  class="max-h-96 lg:max-h-full h-full w-5/6 space-y-3 flex flex-col"
                 >
                   <ShoppingDrawerItem
                     v-for="item in cart"
@@ -65,103 +65,9 @@
                   />
                 </div>
                 <div
-                  class="checkout w-full lg:h-1/3 flex justify-center align-end p-5 bg-mainPurple"
+                  class="checkout w-full h-80 flex justify-center align-center p-5 bg-mainPurple"
                 >
-                  <div
-                    class="w-4/5 h-full flex flex-col justify-center align-end"
-                  >
-                    <div class="w-full h-2/3 flex justify-evenly flex-col">
-                      <div class="flex justify-around">
-                        <h1
-                          class="font-extralight font-mainFont text-2xl text-mainBlue"
-                        >
-                          Subtotal
-                        </h1>
-                        <h1
-                          class="font-extralight font-mainFont text-2xl text-mainBlue"
-                        >
-                          Shipping
-                        </h1>
-
-                        <h1
-                          class="font-bold font-mainFont text-3xl text-mainBlue"
-                        >
-                          Total
-                        </h1>
-                      </div>
-                      <div class="flex justify-around h-full align-center">
-                        <h1
-                          class="font-extralight font-mainFont text-2xl text-mainBlue"
-                        >
-                          {{ cartTotalPrice }} IRL
-                        </h1>
-                        <h1
-                          class="font-extralight font-mainFont text-2xl text-mainBlue"
-                        >
-                          15 IRL
-                        </h1>
-
-                        <h1
-                          class="font-bold font-mainFont text-3xl text-mainBlue"
-                        >
-                          {{ total }} IRL
-                        </h1>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="checkout w-full lg:h-1/3 flex justify-center align-end p-5"
-              >
-                <div
-                  class="w-4/5 h-full flex flex-col justify-center align-end"
-                >
-                  <div
-                    class="w-full h-2/3 flex justify-evenly flex-col bg-red-300"
-                  >
-                    <div class="flex justify-around">
-                      <h1
-                        class="font-extralight font-mainFont text-2xl text-mainBlue"
-                      >
-                        Subtotal
-                      </h1>
-                      <h1
-                        class="font-extralight font-mainFont text-2xl text-mainBlue"
-                      >
-                        ارسال
-                      </h1>
-
-                      <h1
-                        class="font-bold font-mainFont text-3xl text-mainBlue"
-                      >
-                        کل پرداختی
-                      </h1>
-                    </div>
-                    <div class="flex justify-around h-full align-center">
-                      <h1
-                        class="font-extralight font-mainFont text-2xl text-mainBlue"
-                      >
-                        {{ cartTotalPrice }} IRL
-                      </h1>
-                      <h1
-                        class="font-extralight font-mainFont text-2xl text-mainBlue"
-                      >
-                        15 IRL
-                      </h1>
-
-                      <h1
-                        class="font-bold font-mainFont text-3xl text-mainBlue"
-                      >
-                        {{ total }} IRL
-                      </h1>
-                    </div>
-                  </div>
-                  <div class="h-1/3 w-full flex justify-center align-center">
-                    <!-- <button class="py-2 editBtn">
-              <span class="px-12 font-mainFont text-2xl editText"> Edit </span>
-            </button> -->
-                  </div>
+                  <h1 class="text-3xl text-white">مجموع قیمت کالاها</h1>
                 </div>
               </div>
             </div>

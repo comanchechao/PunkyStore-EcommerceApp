@@ -13,7 +13,6 @@ export default {};
   transition: ease-in-out 0.3s;
 }
 .Button:hover {
-  filter: brightness(80%);
   filter: drop-shadow(1.5);
 }
 .Button:active {

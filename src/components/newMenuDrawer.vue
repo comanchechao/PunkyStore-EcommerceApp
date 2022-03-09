@@ -15,11 +15,11 @@
             enter="duration-100 ease-out"
             enter-from="transfrom translate-x-24 "
             enter-to="opacity-100 scale-100"
-            leave="duration-500 ease-in"
+            leave="duration-200 ease-in"
             leave-from="opacity-100 scale-100"
             leave-to="transfrom translate-x-24 scale-95"
           >
-            <DialogOverlay class="fixed inset-0" />
+            <DialogOverlay class="fixed inset-0 bg-darkPurple bg-opacity-20" />
           </TransitionChild>
 
           <span class="inline-block h-screen align-left" aria-hidden="true">
@@ -50,7 +50,7 @@
                           'w-full my-1 py-2.5 text-sm leading-5 font-medium text-white rounded-lg',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
                           bar === 'catagories'
-                            ? 'bg-mainYellow shadow'
+                            ? 'bg-mainYellow'
                             : 'text-white hover:bg-darkPurple hover:text-white',
                         ]"
                       >

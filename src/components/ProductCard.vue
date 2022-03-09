@@ -70,7 +70,7 @@
               {{ product.price }}
             </p>
             <button
-            @click="addToCart"
+              @click="addToCart"
               class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none"
             >
               <v-icon class="hover:text-white">mdi-shopping-outline</v-icon>
@@ -85,28 +85,25 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity';
+import { ref } from "@vue/reactivity";
 import { productManagent } from "../store/productManagment";
-
 
 export default {
   props: ["product"],
 
-  setup(props){
-
+  setup(props) {
     const Product = ref({
-      item: props.product, 
-      quantity: 1
-    })
-    const productManagment = productManagent()
+      item: props.product,
+      quantity: 1,
+    });
+    const productManagment = productManagent();
 
-    const addToCart = function(){
-      productManagment.addToCart(Product.value)
-    }
+    const addToCart = function () {
+      productManagment.addToCart(Product.value);
+    };
 
-    return{addToCart}
-  }
-
+    return { addToCart };
+  },
 };
 </script>
 

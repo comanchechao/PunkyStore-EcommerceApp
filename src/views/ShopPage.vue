@@ -8,12 +8,13 @@
         <DropDownMenu />
       </div>
       <div
-        class="w-full h-full flex flex-col justify-center sm:p-7 md:justify-start lg:space-x-5 lg:flex-row lg:flex-wrap lg:p-3 items-center lg:space-y-16 space-y-20"
+        class="w-full h-full flex flex-col justify-evenly sm:p-7 md:justify-center lg:space-x-5 lg:flex-row lg:flex-wrap lg:p-3 items-center lg:space-y-16 space-y-20"
       >
         <ProductCard
           v-for="product in products"
           :key="product.id"
           :product="product"
+          class="flex justify-center items-center"
         />
       </div>
     </div>
