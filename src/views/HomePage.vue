@@ -1,7 +1,10 @@
 <template>
-  <div class="w-screen flex justify-center align-center flex-col" id="main">
+  <div
+    class="w-screen flex space-y-16 justify-center align-center flex-col"
+    id="main"
+  >
     <div
-      class="h-auto w-screen flex flex-col justify-center align-center space-y-5 p-7"
+      class="h-auto w-screen flex flex-col justify-center align-center space-y-16 p-7"
     >
       <CategoryCards
         v-for="catagory in catagories"

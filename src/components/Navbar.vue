@@ -1,7 +1,7 @@
 <template>
   <div
     id="main"
-    class="w-screen bg-opacity-20 z-10 Navbar h-20 flex justify-center space-x-4 align-center text-3xl border-b border-gray-200"
+    class="w-screen bg-opacity-20 z-10 Navbar h-20 flex justify-center lg:align-start space-x-4 align-center text-3xl border-b border-gray-200"
   >
     <div>
       <NewMenuDrawer />
@@ -80,7 +80,7 @@ export default {
 
 <style scoped>
 #main {
-    background: rgba(0, 151, 19, 0.1);
+  background: rgba(0, 151, 19, 0.1);
 }
 
 /* .Navbar {

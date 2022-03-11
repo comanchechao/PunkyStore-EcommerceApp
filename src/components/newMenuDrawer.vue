@@ -36,7 +36,7 @@
             leave-to="transfrom -translate-x-24 scale-95"
           >
             <div
-              class="inline-block w-full text-white w-44 h-screen overflow-hidden text-left align-left transition-all transform bg-LightBlue-300 shadow-xl"
+              class="inline-block w-full text-white w-44 h-screen overflow-hidden text-left align-left transition-all transform bg-LightBlue-600 shadow-xl"
             >
               <DialogTitle as="h3" class="text-lg font-medium leading-6">
                 <TabGroup as="div">
@@ -73,14 +73,12 @@
                 </TabGroup>
               </DialogTitle>
               <div
-                class="h-full w-full p-6 flex flex-col justify-start align-center"
+                class="h-full w-full p-6 flex flex-col justify-start align-center focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60"
                 :class="{ hidden: bar !== 'menu' }"
               >
                 <DefaultButton class=" ">خونه</DefaultButton>
                 <DefaultButton class=" ">خرید</DefaultButton>
-                <DefaultButton class="text-2xl"
-                  >درباره ی پانکی مانکی</DefaultButton
-                >
+                <DefaultButton class=" ">درباره ی پانکی مانکی</DefaultButton>
                 <DefaultButton class=" ">ادمین</DefaultButton>
               </div>
 
@@ -88,14 +86,14 @@
                 class="h-full w-full p-6 flex flex-col justify-start align-center"
                 :class="{ hidden: bar !== 'catagories' }"
               >
-                <DefaultButton class=" ">هودی</DefaultButton>
-                <DefaultButton class=" ">آکسسوری</DefaultButton>
-                <DefaultButton class="text-2xl">تیشرت</DefaultButton>
-                <DefaultButton class=" ">کلاه</DefaultButton>
-                <DefaultButton class=" ">پیراهن</DefaultButton>
-                <DefaultButton class=" ">کفش</DefaultButton>
-                <DefaultButton class="text-2xl">دیزاین</DefaultButton>
-                <DefaultButton class=" ">بول</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">هودی</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">آکسسوری</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">تیشرت</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">کلاه</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">پیراهن</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">کفش</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">دیزاین</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">شلوار</DefaultButton>
               </div>
             </div>
           </TransitionChild>

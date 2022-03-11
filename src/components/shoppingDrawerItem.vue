@@ -1,12 +1,14 @@
 <template>
-  <div class="p-2 w-full justify-around h-28 roun rounded-2xl bg-gray-100 flex">
+  <div
+    class="p-2 w-full justify-around h-28 text-right rounded-2xl bg-gray-100 flex"
+  >
     <div class="w-full h-full flex justify-center align-center space-x-3">
       <div
         class="bg-green-300 flex rounded-full w-24 h-24 justify-center align-center"
       >
         {{ item.item.title }}
       </div>
-      <Menu as="div" class="relative inline-block text-left">
+      <Menu as="div" class="relative inline-block text-right">
         <div class="flex flex-row justify-center align-center">
           <MenuButton
             class="inline-flex justify-center transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-yellow-500 rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
@@ -33,13 +35,13 @@
           leave-to-class="transform scale-95 opacity-0"
         >
           <MenuItems
-            class="absolute z-10 top-0 right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="absolute z-10 top-0 text-right right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <div class="px-1 py-1">
               <MenuItem v-slot="{ active }">
                 <DefaultButton
                   :class="[
-                    active ? 'bg-violet-500 text-pink-600' : 'text-gray-900',
+                    active ? '   ' : 'text-gray-900',
                     'group flex rounded-md items-center w-full px-2 py-2 text-sm',
                   ]"
                 >
@@ -54,13 +56,13 @@
               <MenuItem v-slot="{ active }">
                 <DefaultButton
                   :class="[
-                    active ? 'bg-violet-500 text-pink-600' : 'text-gray-900',
+                    active ? '' : 'text-gray-900',
                     'group flex rounded-md items-center w-full px-2 py-2 text-sm',
                   ]"
                 >
                   <DuplicateIcon
                     :active="active"
-                    class="w-5 h-5 mr-2 text-violet-400"
+                    class="w-5 h-5 mr-2 text-right text-violet-400"
                     aria-hidden="true"
                   />
                   قیمت:{{ item.item.price }}
@@ -71,7 +73,7 @@
               <MenuItem v-slot="{ active }">
                 <DefaultButton
                   :class="[
-                    active ? 'bg-violet-500 text-pink-600' : 'text-gray-900',
+                    active ? ' ' : 'text-gray-900',
                     'group flex rounded-md items-center w-full px-2 py-2 text-sm',
                   ]"
                 >

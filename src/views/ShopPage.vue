@@ -8,7 +8,7 @@
         <DropDownMenu />
       </div>
       <div
-        class="w-full h-full flex flex-col justify-evenly sm:p-7 md:justify-center lg:space-x-5 lg:flex-row lg:flex-wrap lg:p-3 items-center lg:space-y-16 space-y-20"
+        class="w-full h-full grid productCard lg:grid-cols-4 space-y-5 grid-cols-1 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
       >
         <ProductCard
           v-for="product in products"

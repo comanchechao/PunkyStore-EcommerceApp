@@ -61,7 +61,10 @@ export default {
 
 <style scoped>
 .background {
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  background-color: #ffffff2a;
+  backdrop-filter: blur(9px) saturate(109%);
+  -webkit-backdrop-filter: blur(9px) saturate(109%);
+  background-color: rgba(255, 255, 255, 0.76);
+  border-radius: 0 0 12px 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
 }
 </style>

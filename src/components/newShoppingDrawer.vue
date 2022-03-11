@@ -42,21 +42,21 @@
             leave-to="transfrom translate-x-32 scale-95"
           >
             <div
-              class="inline-block w-full h-screen overflow-hidden text-left align-right transition-all transform bg-LightBlue-300 shadow-xl"
+              class="inline-block w-full h-screen overflow-hidden text-left align-right transition-all transform bg-gray-100 shadow-xl"
             >
               <DialogTitle
                 as="h3"
                 class="text-lg font-mainFont leading-6 text-gray-900"
               >
                 <div class="flex justify-center p-3 mainFont">
-                  <h3 class="text-4xl text-white">سبد خرید</h3>
+                  <h3 class="text-2xl text-black">خلاصه ی سبد</h3>
                 </div>
               </DialogTitle>
               <div
-                class="p-1 w-full h-screen  flex flex-col justify-around align-center "
+                class="p-1 w-full h-3/4 flex flex-col justify-around align-center"
               >
                 <div
-                  class="max-h-84 lg:max-h-full h-full w-full space-y-3 flex flex-col overflow-y-scroll"
+                  class="h-full w-full space-y-3 flex flex-col overflow-y-scroll"
                 >
                   <ShoppingDrawerItem
                     v-for="item in cart"
@@ -64,11 +64,12 @@
                     :item="item"
                   />
                 </div>
-                <div
-                  class="checkout w-full h-80 flex justify-center align-center p-5 bg-mainPurple"
-                >
-                  <h1 class="text-3xl text-white">مجموع قیمت کالاها</h1>
-                </div>
+              </div>
+              <div
+                class="checkout w-full h-1/4 space-x-4 flex justify-between align-start p-5 bg-mainBlue"
+              >
+                <h1 class="text-xl text-white">2000 تومان</h1>
+                <h1 class="text-xl text-white">جمع سبد خرید</h1>
               </div>
             </div>
           </TransitionChild>

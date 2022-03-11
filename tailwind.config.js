@@ -10,6 +10,9 @@ module.exports = {
         dialog: "32rem",
         carousel: "38rem",
       },
+      width: {
+        carousel: "rem",
+      },
       fontFamily: {
         mainFont: ["LaleZar"],
       },
