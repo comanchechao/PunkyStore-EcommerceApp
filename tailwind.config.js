@@ -8,6 +8,8 @@ module.exports = {
       height: {
         rem26: "26rem",
         dialog: "32rem",
+        rem33: "33rem",
+
         carousel: "38rem",
       },
       width: {

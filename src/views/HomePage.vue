@@ -13,19 +13,20 @@
         class="NavbarTrigger"
       />
     </div>
+    <div
+      class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-800 flex justify-center items-center lg:space-x-4 lg:p-10"
+    >
+      <img src="../assets/images/offer.png" class="lg:order-last" alt="" />
+      <Carousel />
+    </div>
     <!-- <div class="w-3/4 h-96 bg-black"> -->
-    <Carousel />
     <!-- </div> -->
     <div
       v-for="catagory in catagories"
       :key="catagory.title"
-      class="h-screen w-screen p-3 flex flex-col justify-center align-center"
+      class="h-screen w-screen flex flex-col justify-center align-center"
     >
       <CategoryProductList :catagory="catagory" />
-      <DefaultButton
-        class="rounded-full font-bold text-white bg-mainBlue text-lg p-4 m-5"
-        >نمایش کالاهای بیشتر</DefaultButton
-      >
     </div>
   </div>
 </template>

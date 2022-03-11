@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-white w-full h-72 wrapper rounded-lg p-10 flex space-x-3">
+  <div
+    class="bg-white w-full h-72 lg:h-rem33 wrapper rounded-lg p-10 flex space-x-3"
+  >
     <div class="w-full h-full bg-purple-900 p-2">
       <img class="bg-mainPurple" src="" alt="" />
     </div>

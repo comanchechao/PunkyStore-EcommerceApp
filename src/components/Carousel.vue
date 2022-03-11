@@ -32,7 +32,7 @@
       <div class="carousel-item active relative float-left w-full">
         <img
           src="../assets/images/hoodie.jpg"
-          class="block w-screen h-carousel"
+          class="block w-screen h-44 lg:h-dialog"
           alt="..."
         />
         <div class="carousel-caption hidden md:block absolute text-center">
@@ -43,7 +43,7 @@
       <div class="carousel-item relative float-left w-full">
         <img
           src="../assets/images/shirt.jpg"
-          class="block w-screen h-carousel"
+          class="block w-screen h-44 lg:h-dialog"
           alt="..."
         />
         <div class="carousel-caption hidden md:block absolute text-center">
@@ -54,7 +54,7 @@
       <div class="carousel-item relative float-left w-full">
         <img
           src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
-          class="block w-screen h-carousel"
+          class="block w-screen h-44 lg:h-dialog"
           alt="..."
         />
         <div class="carousel-caption hidden md:block absolute text-center">

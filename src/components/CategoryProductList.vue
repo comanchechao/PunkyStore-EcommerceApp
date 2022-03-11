@@ -1,19 +1,23 @@
 <template>
   <div class="flex flex-col w-full h-full">
-    <div class="w-full h-24 bg-mainBlue flex justify-between align-center p-5">
+    <div class="w-full h-24 bg-mainBlue flex justify-between align-center p-7">
       <DefaultButton class="text-white">
         <v-icon size="x-large">mdi-login-variant</v-icon>
       </DefaultButton>
       <h1 class="text-white text-3xl font-extrabold">{{ catagory.title }}</h1>
     </div>
     <div
-      class="w-full h-full py-4 flex flex-col space-y-7 justify-center items-center background"
+      class="w-full h-full py-4 flex flex-col space-y-7 justify-end items-center background"
     >
       <!-- <ProductCard
         v-for="product in products"
         :key="product.id"
         :product="product"
       /> -->
+      <DefaultButton
+        class="rounded-full font-bold text-white bg-mainBlue text-lg p-4 m-5"
+        >نمایش کالاهای بیشتر</DefaultButton
+      >
     </div>
   </div>
 </template>
