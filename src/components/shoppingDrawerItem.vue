@@ -35,21 +35,17 @@
           leave-to-class="transform scale-95 opacity-0"
         >
           <MenuItems
-            class="absolute z-10 top-0 text-right right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="absolute text-right z-10 top-0 right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
-            <div class="px-1 py-1">
+            <div class="px-1 py-1 w-full">
               <MenuItem v-slot="{ active }">
                 <DefaultButton
+                class="text-right"
                   :class="[
                     active ? '   ' : 'text-gray-900',
                     'group flex rounded-md items-center w-full px-2 py-2 text-sm',
                   ]"
                 >
-                  <EditIcon
-                    :active="active"
-                    class="w-5 h-5 mr-2 text-violet-400"
-                    aria-hidden="true"
-                  />
                   تعداد: {{ item.quantity }}
                 </DefaultButton>
               </MenuItem>
@@ -60,11 +56,6 @@
                     'group flex rounded-md items-center w-full px-2 py-2 text-sm',
                   ]"
                 >
-                  <DuplicateIcon
-                    :active="active"
-                    class="w-5 h-5 mr-2 text-right text-violet-400"
-                    aria-hidden="true"
-                  />
                   قیمت:{{ item.item.price }}
                 </DefaultButton>
               </MenuItem>
@@ -77,11 +68,6 @@
                     'group flex rounded-md items-center w-full px-2 py-2 text-sm',
                   ]"
                 >
-                  <ArchiveIcon
-                    :active="active"
-                    class="w-5 h-5 mr-2 text-violet-400"
-                    aria-hidden="true"
-                  />
                   توضیحات کالا {{ item.item.description }}
                 </DefaultButton>
               </MenuItem>

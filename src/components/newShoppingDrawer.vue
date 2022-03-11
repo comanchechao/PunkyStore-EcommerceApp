@@ -2,8 +2,8 @@
   <div class="">
     <DefaultButton @click="openModal">
       <v-badge
-        :content="cartTotalAmount"
-        :value="cartTotalAmount"
+        :content="cartItemCount"
+        :value="cartItemCount"
         color="deep-purple"
         bordered
         location="top-right"
@@ -108,6 +108,11 @@ export default {
     const drawer = ref(false);
     const cart = productManagent().cart;
 
+    const cartTotalAmount = productManagent().cartTotalAmount;
+    const cartTotalPrice = productManagent().cartTotalPrice;
+
+    const cartItemCount = productManagent().cartItemCount
+
     onMounted(() => {
       console.log(cart);
     });
@@ -115,6 +120,9 @@ export default {
     return {
       isOpen,
       cart,
+      cartTotalAmount,
+      cartTotalPrice,
+      cartItemCount,
       drawer,
       closeModal() {
         isOpen.value = false;

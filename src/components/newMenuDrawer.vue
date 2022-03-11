@@ -38,10 +38,10 @@
             <div
               class="inline-block w-full text-white w-44 h-screen overflow-hidden text-left align-left transition-all transform bg-LightBlue-600 shadow-xl"
             >
-              <DialogTitle as="h3" class="text-lg font-medium leading-6">
+              <DialogTitle as="h3" class="text-xl font-medium leading-6">
                 <TabGroup as="div">
                   <TabList
-                    class="flex flex-col my-4 mx-2 p-1 space-x-1 bg-blue-900/20 rounded"
+                    class="flex flex-col my-2 mx-1 p-4 space-x-1 bg-blue-900/20 rounded"
                   >
                     <Tab as="div">
                       <DefaultButton

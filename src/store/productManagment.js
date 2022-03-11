@@ -19,9 +19,27 @@ export const productManagent = defineStore("products", {
     },
   },
 
-  removeProduct(Product) {
-    this.cart = this.cart.filter((item) => {
-      return item.item.id !== Product.item.id;
+  removeProduct(state,product) {
+     state.cart.filter((item) => {
+      return item.item.id !== product.item.id;
     });
+  },
+
+  getters: {
+    cartItemCount(state) {
+      return state.cart.length;
+    },
+
+    cartTotalPrice() {
+      let total = 0 
+
+      this.cart.forEach((item) => {
+        total += item.item.price * item.quantity  
+      })
+
+      return total
+    },
+
+   
   },
 });
