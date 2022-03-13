@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/productDetail">
+  <router-link :to="{ name: 'ProductDetailPage' , params:{id: product.id , product: product.title} }">
     <div class="w-72 flex justify-center items-center text-right card">
       <div class="w-full">
         <div
@@ -74,7 +74,7 @@
                 {{ product.price }}
               </p>
               <button
-                @click="addToCart"
+                @click.prevent="addToCart"
                 class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none"
               >
                 <v-icon class="hover:text-white">mdi-shopping-outline</v-icon>
