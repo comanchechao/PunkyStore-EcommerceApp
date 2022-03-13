@@ -40,10 +40,10 @@
             <div class="px-1 py-1 w-full">
               <MenuItem v-slot="{ active }">
                 <DefaultButton
-                class="text-right"
+                  class="text-left"
                   :class="[
                     active ? '   ' : 'text-gray-900',
-                    'group flex rounded-md items-center w-full px-2 py-2 text-sm',
+                    'group flex justify-end items-center w-full px-2 py-2 text-sm',
                   ]"
                 >
                   تعداد: {{ item.quantity }}
@@ -53,7 +53,7 @@
                 <DefaultButton
                   :class="[
                     active ? '' : 'text-gray-900',
-                    'group flex rounded-md items-center w-full px-2 py-2 text-sm',
+                    'group flex justify-end items-right w-full px-2 py-2 text-sm',
                   ]"
                 >
                   قیمت:{{ item.item.price }}
@@ -65,10 +65,10 @@
                 <DefaultButton
                   :class="[
                     active ? ' ' : 'text-gray-900',
-                    'group flex rounded-md items-center w-full px-2 py-2 text-sm',
+                    'group flex justify-end items-center w-full px-2 py-2 text-sm',
                   ]"
                 >
-                  توضیحات کالا {{ item.item.description }}
+                  {{ item.item.description }}
                 </DefaultButton>
               </MenuItem>
             </div>
