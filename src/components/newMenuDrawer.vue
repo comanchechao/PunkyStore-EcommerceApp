@@ -38,11 +38,7 @@
             <div
               class="inline-block text-white w-60 h-screen overflow-hidden text-xl text-left align-left transition-all transform bg-LightBlue-600 shadow-xl"
             >
-<<<<<<< Updated upstream
               <DialogTitle as="h3" class="text-xl font-medium leading-6">
-=======
-              <DialogTitle as="h3" class="font-medium leading-6">
->>>>>>> Stashed changes
                 <TabGroup as="div">
                   <TabList
                     class="flex flex-col my-2 mx-1 p-4 space-x-1 bg-blue-900/20 rounded"
