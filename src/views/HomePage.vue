@@ -28,6 +28,7 @@
     >
       <CategoryProductList :catagory="catagory" />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -36,12 +37,19 @@ import DefaultButton from "../components/DefaultButton.vue";
 import CategoryCards from "../components/CategoryCards.vue";
 import CategoryProductList from "../components/CategoryProductList.vue";
 import Carousel from "../components/Carousel.vue";
+import Footer from "../components/Footer.vue";
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 
 export default {
-  components: { CategoryCards, CategoryProductList, DefaultButton, Carousel },
+  components: {
+    CategoryCards,
+    CategoryProductList,
+    DefaultButton,
+    Carousel,
+    Footer,
+  },
   setup() {
     const catagories = ref({});
 
