@@ -4,17 +4,17 @@
       <template v-slot:activator="{}">
         <DefaultButton
           @click="dialog = true"
-          class="font-bold text-lg px-3 py-1 border-4 border-goldie"
+          class="font-bold text-lg px-3 py-1"
         >
           بازیابی گذرواژه
         </DefaultButton>
       </template>
 
-      <v-card color="#6A4C93" width="500">
+      <v-card color="#ffffff" width="500">
         <v-card-title
-          class="text-h5 flex justify-center text-center grey lighten-2"
+          class="text-h5 my-4 font-bold flex justify-center text-center grey lighten-2"
         >
-          <h4>نجات پانکی مانکی</h4>
+          <h4>بازگرداندن پسسورد فراموش شده</h4>
         </v-card-title>
 
         <v-card-text>
@@ -25,22 +25,26 @@
               placeholder=""
               solo
             ></v-text-field>
-
+            <!-- 
             <v-text-field
               v-model="password"
-              label="New password"
+              label=""
               hint="pick strong password"
               type="password"
               outlined
-            ></v-text-field>
+            ></v-text-field> -->
           </form>
         </v-card-text>
 
         <v-divider></v-divider>
 
-        <v-card-actions class="flex justify-center text-center w-full">
-          <v-spacer></v-spacer>
-          <DefaultButton @click="resetPasswordRequest"> تایید </DefaultButton>
+        <v-card-actions class="flex text-center w-full">
+          <DefaultButton
+            class="px-6 py-2 rounded-3xl transition ease-in duration-200 bg-black hover:bg-white text-white hover:text-black"
+            @click="resetPasswordRequest"
+          >
+            تایید
+          </DefaultButton>
         </v-card-actions>
       </v-card>
     </v-dialog>

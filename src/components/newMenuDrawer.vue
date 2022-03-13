@@ -36,9 +36,13 @@
             leave-to="transfrom -translate-x-24 scale-95"
           >
             <div
-              class="inline-block w-full text-white w-44 h-screen overflow-hidden text-left align-left transition-all transform bg-LightBlue-600 shadow-xl"
+              class="inline-block text-white w-60 h-screen overflow-hidden text-xl text-left align-left transition-all transform bg-LightBlue-600 shadow-xl"
             >
+<<<<<<< Updated upstream
               <DialogTitle as="h3" class="text-xl font-medium leading-6">
+=======
+              <DialogTitle as="h3" class="font-medium leading-6">
+>>>>>>> Stashed changes
                 <TabGroup as="div">
                   <TabList
                     class="flex flex-col my-2 mx-1 p-4 space-x-1 bg-blue-900/20 rounded"
@@ -47,7 +51,7 @@
                       <DefaultButton
                         @click="bar = 'catagories'"
                         :class="[
-                          'w-full my-1 py-2.5 text-sm leading-5 font-medium text-white rounded-lg',
+                          'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
                           bar === 'catagories'
                             ? 'bg-mainYellow'
@@ -59,11 +63,11 @@
                       <DefaultButton
                         @click="bar = 'menu'"
                         :class="[
-                          'w-full my-1 py-2.5 text-sm leading-5 font-medium text-white rounded-lg',
+                          'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
                           bar === 'menu'
-                            ? 'bg-mainYellow shadow'
-                            : 'text-white hover:bg-darkPurple hover:text-white',
+                            ? 'bg-mainYellow text-gray-800 shadow'
+                            : 'text-gray-800 hover:bg-darkPurple hover:text-white',
                         ]"
                       >
                         منو
@@ -76,10 +80,12 @@
                 class="h-full w-full p-6 flex flex-col justify-start align-center focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60"
                 :class="{ hidden: bar !== 'menu' }"
               >
-                <DefaultButton class=" ">خونه</DefaultButton>
-                <DefaultButton class=" ">خرید</DefaultButton>
-                <DefaultButton class=" ">درباره ی پانکی مانکی</DefaultButton>
-                <DefaultButton class=" ">ادمین</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">خونه</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg">خرید</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg"
+                  >درباره ی پانکی مانکی</DefaultButton
+                >
+                <DefaultButton class="px-6 rounded-lg">ادمین</DefaultButton>
               </div>
 
               <div

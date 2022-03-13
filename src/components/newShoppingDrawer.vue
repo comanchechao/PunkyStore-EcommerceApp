@@ -25,7 +25,7 @@
             leave-from="opacity-100 scale-100"
             leave-to="transfrom -translate-x-24 scale-95"
           >
-            <DialogOverlay class="fixed inset-0 bg-darkPurple bg-opacity-20" />
+            <DialogOverlay class="fixed inset-0 bg-gray-700 bg-opacity-20" />
           </TransitionChild>
 
           <span class="inline-block h-screen align-left" aria-hidden="true">

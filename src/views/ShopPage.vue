@@ -8,7 +8,7 @@
         <DropDownMenu />
       </div>
       <div
-        class="w-full h-full grid productCard lg:grid-cols-4 space-y-5 grid-cols-1 gap-6 p-4 mt-6 place-items-center self-center justify-self-center"
+        class="w-full h-full grid productCard lg:grid-cols-4 space-y-5 grid-cols-1 gap-6 p-10 mt-6 place-items-center self-center justify-self-center"
       >
         <ProductCard
           v-for="product in products"
@@ -16,6 +16,11 @@
           :product="product"
           class="flex justify-center items-center"
         />
+
+        <!-- <DefaultButton
+          class="rounded-full font-bold text-white bg-mainBlue self-center text-lg p-4 m-5"
+          >نمایش کالاهای بیشتر</DefaultButton
+        > -->
       </div>
     </div>
   </div>
@@ -65,7 +70,7 @@ export default {
   backdrop-filter: blur(9px) saturate(109%);
   -webkit-backdrop-filter: blur(9px) saturate(109%);
   background-color: rgba(255, 255, 255, 0.76);
-  border-radius: 12px;
+  border-radius: 0 0 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
 </style>

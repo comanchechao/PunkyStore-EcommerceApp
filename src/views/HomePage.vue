@@ -14,7 +14,7 @@
       />
     </div>
     <div
-      class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-800 flex justify-center items-center lg:space-x-4 lg:p-10"
+      class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-800 flex justify-center items-center lg:space-x-20 lg:p-10"
     >
       <img src="../assets/images/offer.png" class="lg:order-last" alt="" />
       <Carousel />
