@@ -1,5 +1,5 @@
 <template>
-  <button class="Button py-3 cursor-pointer rounded-3xl px-2">
+  <button class="Button py-3 cursor-pointer rounded-full px-2">
     <slot>Default</slot>
   </button>
 </template>
@@ -13,7 +13,10 @@ export default {};
   transition: ease-in 0.3s;
 }
 .Button:hover {
-  background: linear-gradient(rgba(0, 0, 0, 0.452), rgba(0, 0, 0, 0.466));
+  background: linear-gradient(
+    rgba(100, 100, 100, 0.171),
+    rgba(102, 102, 102, 0.199)
+  );
   filter: drop-shadow(1.5);
 }
 .Button:active {

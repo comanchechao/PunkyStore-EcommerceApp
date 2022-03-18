@@ -2,10 +2,7 @@
   <div class="text-center flex w-full justify-center">
     <v-dialog v-model="dialog" width="100%" height="100%">
       <template v-slot:activator="{}">
-        <DefaultButton
-          @click="dialog = true"
-          class="font-bold text-lg px-3 py-1"
-        >
+        <DefaultButton @click="dialog = true" class="font-bold text-lg">
           بازیابی گذرواژه
         </DefaultButton>
       </template>
@@ -38,9 +35,9 @@
 
         <v-divider></v-divider>
 
-        <v-card-actions class="flex text-center w-full">
+        <v-card-actions class="flex text-center w-full flex justify-center">
           <DefaultButton
-            class="px-6 py-2 rounded-3xl transition ease-in duration-200 bg-black hover:bg-white text-white hover:text-black"
+            class="px-6 py-2 m-3 rounded-3xl transition ease-in duration-200 bg-black hover:bg-white text-white hover:text-black"
             @click="resetPasswordRequest"
           >
             تایید

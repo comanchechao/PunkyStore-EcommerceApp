@@ -110,7 +110,7 @@
           <h1
             class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl"
           >
-          {{ this.$route.params.productTitle }}
+            {{ this.$route.params.productTitle }}
           </h1>
         </div>
 
@@ -259,12 +259,12 @@
               </RadioGroup>
             </div>
 
-            <button
+            <DefaultButton
               @click.prevent="addToCart"
-              class="mt-10 w-full bg-mainBlue border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="mt-10 w-full bg-goldie text-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               اضافه کردن
-            </button>
+            </DefaultButton>
           </form>
         </div>
 
@@ -313,6 +313,7 @@
 import { ref } from "vue";
 import { StarIcon } from "@heroicons/vue/solid";
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
+import DefaultButton from "../components/DefaultButton.vue";
 
 const product = {
   name: "تیشرت متالیکایی",
@@ -375,22 +376,23 @@ export default {
     RadioGroup,
     RadioGroupLabel,
     RadioGroupOption,
+    DefaultButton,
     StarIcon,
   },
   setup() {
     const selectedColor = ref(product.colors[0]);
     const selectedSize = ref(product.sizes[2]);
 
-    const addToCart = function (){
-      productManagent.addToCart(this.$route.params.product)
-    }
+    const addToCart = function () {
+      productManagent.addToCart(this.$route.params.product);
+    };
 
     return {
       product,
       reviews,
       selectedColor,
       selectedSize,
-      addToCart
+      addToCart,
     };
   },
 };

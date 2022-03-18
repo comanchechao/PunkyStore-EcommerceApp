@@ -6,15 +6,15 @@
       <img class="bg-mainPurple" src="" alt="" />
     </div>
     <div
-      class="w-full h-full flex flex-col text-center align-center justify-center space-y-4"
+      class="w-full h-full flex flex-col text-center align-center justify-center space-y-4 lg:space-x-9"
     >
-      <h3 class="text-gray-400">{{ catagory.title }}</h3>
-      <h1 class="text-black font-bold text-2xl">اسم کالا</h1>
-      <h2 class="text-black font-bold text-1xl">
+      <h3 class="text-gray-500 lg:text-2xl">{{ catagory.title }}</h3>
+      <h1 class="text-black font-bold text-2xl lg:text-5xl">اسم کالا</h1>
+      <h2 class="text-black font-bold text-1xl lg:text-3xl">
         یه سری توضیحات راجب کتگوری کالاها
       </h2>
       <router-link to="/shop">
-        <DefaultButton class="bg-mainPink text-xl px-4 rounded-full text-white"
+        <DefaultButton class="bg-goldie font-bold text-xl px-4 rounded-full"
           >نشونم بده</DefaultButton
         >
       </router-link>

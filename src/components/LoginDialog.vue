@@ -45,7 +45,7 @@
             v-show="!loadingLogin"
             @click="loginAction"
             :class="{ disabled: loadingLogin === true }"
-            class="text-lg p-4 text-darkPurple rounded-full bg-goldie"
+            class="text-lg text-black font-bold px-4 rounded-full bg-goldie"
           >
             ورود
           </DefaultButton>
@@ -59,7 +59,7 @@
             v-show="!loadingSignUp"
             @click="createUser"
             :class="{ disabled: loadingSignUp === true }"
-            class="text-lg p-4 text-darkPurple rounded-full bg-goldie"
+            class="text-lg text-black font-bold rounded-full bg-goldie"
           >
             ایجاد حساب جدید؟
           </DefaultButton>
@@ -69,11 +69,7 @@
             color="amber"
             indeterminate
           ></v-progress-circular>
-          <DefaultButton class="text-xl text-darkPurple rounded-full">
-            <ForgottenPasswordDialog
-              ref="ForgottenPasswordDialog"
-            />
-          </DefaultButton>
+          <ForgottenPasswordDialog ref="ForgottenPasswordDialog" />
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -116,9 +112,8 @@ export default {
         alert("check your inbox for conformation");
       } catch (error) {
         alert(error.message);
-      }
-      finally{
-        loadingSignUp.value = false
+      } finally {
+        loadingSignUp.value = false;
       }
     };
 
