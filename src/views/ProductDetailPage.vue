@@ -35,7 +35,7 @@
               aria-current="page"
               class="font-medium text-gray-500 hover:text-gray-600"
             >
-              {{ this.$route.params.product }}
+              {{ this.$route.params.productTitle }}
             </a>
           </li>
           <li v-for="breadcrumb in product.breadcrumbs" :key="breadcrumb.id">
@@ -110,7 +110,7 @@
           <h1
             class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl"
           >
-          {{ this.$route.params.product }}
+          {{ this.$route.params.productTitle }}
           </h1>
         </div>
 
@@ -260,7 +260,7 @@
             </div>
 
             <button
-              type="submit"
+              @click.prevent="addToCart"
               class="mt-10 w-full bg-mainBlue border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               اضافه کردن
@@ -368,6 +368,8 @@ const product = {
 };
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
+import { productManagent } from "../store/productManagment";
+
 export default {
   components: {
     RadioGroup,
@@ -379,11 +381,16 @@ export default {
     const selectedColor = ref(product.colors[0]);
     const selectedSize = ref(product.sizes[2]);
 
+    const addToCart = function (){
+      productManagent.addToCart(this.$route.params.product)
+    }
+
     return {
       product,
       reviews,
       selectedColor,
       selectedSize,
+      addToCart
     };
   },
 };

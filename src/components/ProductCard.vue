@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'ProductDetailPage' , params:{id: product.id , product: product.title} }">
+  <router-link :to="{ name: 'ProductDetailPage' , params:{id: product.id , productTitle: product.title , product: product} }">
     <div class="w-72 flex justify-center items-center text-right card">
       <div class="w-full">
         <div
