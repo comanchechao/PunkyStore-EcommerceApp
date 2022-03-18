@@ -1,7 +1,7 @@
 <template>
   <div
     id="main"
-    class="w-screen bg-opacity-20 z-10 Navbar h-20 flex justify-center lg:align-start space-x-4 align-center text-3xl border-b border-gray-200"
+    class="w-screen bg-opacity-20 z-10 Navbar h-20 flex fixed justify-center px-6 lg:justify-center lg:align-start align-center text-3xl border-b border-gray-200"
   >
     <div>
       <NewMenuDrawer />
@@ -39,7 +39,7 @@ import { supabase } from "../supabase";
 import { computed, onMounted, ref } from "@vue/runtime-core";
 import NewShoppingDrawer from "./newShoppingDrawer.vue";
 import NewMenuDrawer from "./newMenuDrawer.vue";
-// import gsap from "gsap";
+import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // gsap.registerPlugin(ScrollTrigger);
@@ -54,21 +54,16 @@ export default {
     NewMenuDrawer,
   },
   mounted() {
-    // this.animateNavbar();
+    this.animateNavbar();
   },
   methods: {
     animateNavbar() {
-      gsap.to(".Navbar", {
-        backgroundColor: "#ff4a68",
-        opacity: 0.8,
+      gsap.from(".Navbar", {
+        y: -200,
+        opacity: 0,
+        duration: 1,
+        delay: 1.5,
         ease: "power4.out",
-        scrollTrigger: {
-          trigger: ".NavbarTrigger",
-          scrub: 2.5,
-          start: "bottom top",
-          end: "bottom bottom",
-          toggleActions: "play none none none none",
-        },
       });
     },
   },

@@ -6,12 +6,20 @@
     <div
       class="h-auto w-screen flex flex-col justify-center align-center space-y-16 p-7"
     >
-      <CategoryCards
-        v-for="catagory in catagories"
-        :key="catagory.title"
-        :catagory="catagory"
-        class="NavbarTrigger"
-      />
+      <transition-group
+        appear
+        class="w-screen"
+        tag="ul"
+        @before-enter="beforeEnter"
+        @enter="enter"
+      >
+        <CategoryCards
+          v-for="catagory in catagories"
+          :key="catagory.title"
+          :catagory="catagory"
+          class="CategoryCards"
+        />
+      </transition-group>
     </div>
     <div
       class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-800 flex justify-center items-center lg:space-x-20 lg:p-10"
@@ -41,6 +49,7 @@ import Footer from "../components/Footer.vue";
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import { supabase } from "../supabase";
+import gsap from "gsap";
 
 export default {
   components: {
@@ -49,6 +58,19 @@ export default {
     DefaultButton,
     Carousel,
     Footer,
+  },
+  mounted() {
+    // this.animateCategoryCards();
+  },
+  methods: {
+    // animateCategoryCards() {
+    //   gsap.from(".CategoryCards", {
+    //     y: 200,
+    //     delay: 2,
+    //     duration: 1,
+    //     ease: "power4.out",
+    //   });
+    // },
   },
   setup() {
     const catagories = ref({});
@@ -68,8 +90,21 @@ export default {
         alert(error.message);
       }
     }
+    const beforeEnter = (el) => {
+      el.style.opacity = 0;
+      el.style.transform = "translateY(100px)";
+    };
+    const enter = (el, done) => {
+      gsap.to(el, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        onComplete: done,
+        delay: 1.5,
+      });
+    };
 
-    return { catagories };
+    return { catagories, beforeEnter, enter };
   },
 };
 </script>
