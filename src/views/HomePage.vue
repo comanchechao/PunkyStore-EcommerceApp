@@ -3,29 +3,25 @@
     class="w-screen flex space-y-16 justify-center align-center flex-col"
     id="main"
   >
-    <div
-      class="h-auto w-screen flex flex-col justify-center align-center space-y-16 p-7"
+    <transition-group
+      appear
+      class="h-auto w-screen flex flex-col justify-center align-center mt-20 space-y-16 p-7"
+      tag="ul"
+      @before-enter="beforeEnter"
+      @enter="enter"
     >
-      <transition-group
-        appear
-        class="w-screen"
-        tag="ul"
-        @before-enter="beforeEnter"
-        @enter="enter"
-      >
-        <CategoryCards
-          v-for="catagory in catagories"
-          :key="catagory.title"
-          :catagory="catagory"
-          class="CategoryCards"
-        />
-      </transition-group>
-    </div>
+      <CategoryCards
+        v-for="catagory in catagories"
+        :key="catagory.title"
+        :catagory="catagory"
+        class="CategoryCards"
+      />
+    </transition-group>
     <div
-      class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-800 flex justify-center items-center lg:space-x-20 lg:p-10"
+      class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-800 flex justify-start items-center lg:space-x-20 lg:p-10"
     >
       <img src="../assets/images/offer.png" class="lg:order-last" alt="" />
-      <Carousel />
+      <Carousel class="lg:px-10" />
     </div>
     <!-- <div class="w-3/4 h-96 bg-black"> -->
     <!-- </div> -->
