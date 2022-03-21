@@ -3,6 +3,41 @@
     class="w-screen flex space-y-16 justify-center align-center flex-col"
     id="main"
   >
+    <div class="w-screen h-screen bg-LightBlue-400 p-6 mt-20">
+      <div class="h-full w-full justify-center align-center flex">
+        <img
+          class="absolute PunkyColor"
+          src="../assets/images/PunkyColor.webp"
+          alt=""
+        />
+        <img
+          class="absolute PunkyHighlights"
+          src="../assets/images/PunkyHighlights.webp"
+          alt=""
+        />
+        <img
+          class="absolute PunkyOutlines"
+          src="../assets/images/PunkyOutlines.webp"
+          alt=""
+        />
+
+        <img
+          class="absolute MonkeyColor"
+          src="../assets/images/MonkeyColors.webp"
+          alt=""
+        />
+        <img
+          class="absolute MonkeyOutlines"
+          src="../assets/images/MonkeyOutlines.webp"
+          alt=""
+        />
+        <img
+          class="absolute MonkeyHead2"
+          src="../assets/images/MonkeyHead2.webp"
+          alt=""
+        />
+      </div>
+    </div>
     <transition-group
       appear
       class="h-auto w-screen flex flex-col justify-center align-center mt-20 space-y-16 p-7"
@@ -56,17 +91,45 @@ export default {
     Footer,
   },
   mounted() {
-    // this.animateCategoryCards();
+    this.animatePunkeyMonkey();
   },
   methods: {
-    // animateCategoryCards() {
-    //   gsap.from(".CategoryCards", {
-    //     y: 200,
-    //     delay: 2,
-    //     duration: 1,
-    //     ease: "power4.out",
-    //   });
-    // },
+    animatePunkeyMonkey() {
+      const tl = gsap.timeline();
+      tl.add();
+      tl.from(".PunkyOutlines", {
+        opacity: 0,
+        duration: 1,
+        ease: "expo.out",
+        delay: 2,
+      });
+      tl.from(".PunkyColor", {
+        opacity: 0,
+        duration: 1,
+        ease: "expo.out",
+      });
+      tl.from(".PunkyHighlights", {
+        opacity: 0,
+        duration: 1,
+        ease: "expo.out",
+      });
+
+      tl.from(".MonkeyOutlines", {
+        opacity: 0,
+        duration: 0.8,
+        ease: "expo.out",
+      });
+      tl.from(".MonkeyColor", {
+        opacity: 0,
+        duration: 0.7,
+        ease: "expo.out",
+      });
+      tl.from(".MonkeyHead2", {
+        opacity: 0,
+        duration: 0.7,
+        ease: "expo.out",
+      });
+    },
   },
   setup() {
     const catagories = ref({});
