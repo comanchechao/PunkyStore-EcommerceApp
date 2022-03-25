@@ -19,42 +19,60 @@
     <h1 class="text-4xl font-bold my-7 text-blueGray-900">
       با ما در تماس باشین
     </h1>
-    <div class="space-x-6">
-      <DefaultButton class="text-3xl">
-        <v-icon x-large class="icon-3d transform lg:scale-150">
-          mdi-telegram</v-icon
+    <div
+      class="lg:space-x-6 space-x-1 flex justify-center flex-col items-center w-screen h-96 bg-darkPurple py-8 rounded-md"
+    >
+      <div class="flex lg:space-x-6 space-x-1 sm:px-6">
+        <img
+          class="filter drop-shadow-2xl cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+          src="../assets/images/mapIcon.webp"
+          alt=""
+        />
+
+        <img
+          class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+          src="../assets/images/instagramIcon.webp"
+          alt=""
+        />
+        <img
+          class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+          src="../assets/images/telegramIcon.webp"
+          alt=""
+        />
+
+        <img
+          class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+          src="../assets/images/whatsappIcon.webp"
+          alt=""
+        />
+      </div>
+      <div class="text-right">
+        <h1 class="lg:text-4xl text-2xl font-bold my-7 text-purple-200">
+          آدرس: اول خیام، دوم خیام، چهارراه ولفولکس، پاساژ لولولند، پانکی مانکی
+          <v-icon color="pink">mdi-map-marker</v-icon>
+        </h1>
+        <h1
+          class="text-4xl font-bold my-7 text-purple-200 flex justify-center items-center"
         >
-      </DefaultButton>
-      <DefaultButton class="text-3xl">
-        <v-icon x-large class="icon-3d transform lg:scale-150"
-          >mdi-google</v-icon
-        >
-      </DefaultButton>
-      <DefaultButton class="text-3xl">
-        <v-icon x-large class="icon-3d transform lg:scale-150"
-          >mdi-instagram</v-icon
-        >
-      </DefaultButton>
-      <DefaultButton class="text-3xl">
-        <v-icon x-large class="icon-3d transform lg:scale-150"
-          >mdi-whatsapp</v-icon
-        >
-      </DefaultButton>
+          شماره تماس: 0215951656
+          <v-icon color="blue">mdi-phone-in-talk</v-icon>
+        </h1>
+      </div>
     </div>
-    <img
+    <!-- <img
       src="../assets/images/Monkey.png"
       class="w-96 self-start object-contain"
       alt=""
-    />
+    /> -->
   </div>
 </template>
 
 <script>
-import DefaultButton from "../components/DefaultButton.vue";
+// import DefaultButton from "../components/DefaultButton.vue";
 import gsap from "gsap";
 export default {
   components: {
-    DefaultButton,
+    // DefaultButton,
   },
   mounted() {
     this.animateMonkey();
@@ -72,4 +90,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.icons:hover {
+  transition: ease-in-out 0.5s;
+  background-color: aquamarine;
+  transform: scale(1.08);
+}
+</style>
