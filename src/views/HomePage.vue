@@ -97,6 +97,11 @@ export default {
     animatePunkeyMonkey() {
       const tl = gsap.timeline();
       tl.add();
+      tl.from(".MonkeyHead2", {
+        opacity: 0,
+        duration: 0.7,
+        ease: "expo.out",
+      });
       tl.from(".PunkyOutlines", {
         opacity: 0,
         duration: 1,
@@ -120,11 +125,6 @@ export default {
         ease: "expo.out",
       });
       tl.from(".MonkeyColor", {
-        opacity: 0,
-        duration: 0.7,
-        ease: "expo.out",
-      });
-      tl.from(".MonkeyHead2", {
         opacity: 0,
         duration: 0.7,
         ease: "expo.out",
