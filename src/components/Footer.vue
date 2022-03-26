@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-auto w-screen bg-gradient-to-b from-yellow-500 flex-col justify-between to-LightBlue-200 flex items-center"
+    class="h-auto w-screen bg-gradient-to-b from-goldie flex-col justify-between to-LightBlue-200 flex items-center"
   >
     <div
       class="w-80 h-80 mt-6 relative flex justify-center align-center NavbarTrigger logo"
@@ -20,7 +20,7 @@
       با ما در تماس باشین
     </h1>
     <div
-      class="lg:space-x-6 space-x-1 flex justify-center flex-col items-center w-screen h-96 bg-darkPurple py-8 rounded-md"
+      class="space-y-9 flex justify-center flex-col items-center w-screen md:h-72 h-96 bg-darkPurple py-8"
     >
       <div class="flex lg:space-x-6 space-x-1 sm:px-6">
         <img
@@ -46,14 +46,14 @@
           alt=""
         />
       </div>
-      <div class="text-right">
-        <h1 class="lg:text-4xl text-2xl font-bold my-7 text-purple-200">
+      <div
+        class="text-center md:text-right flex justify-center items-center flex-col px-6"
+      >
+        <h1 class="lg:text-4xl text-2xl font-bold md:my-7 text-purple-200">
           آدرس: اول خیام، دوم خیام، چهارراه ولفولکس، پاساژ لولولند، پانکی مانکی
           <v-icon color="pink">mdi-map-marker</v-icon>
         </h1>
-        <h1
-          class="text-4xl font-bold my-7 text-purple-200 flex justify-center items-center"
-        >
+        <h1 class="text-4xl font-bold md:my-7 text-purple-200">
           شماره تماس: 0215951656
           <v-icon color="blue">mdi-phone-in-talk</v-icon>
         </h1>
@@ -80,7 +80,7 @@ export default {
   methods: {
     animateMonkey() {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
-      tl.from(".eyes", 2, {
+      tl.from(".eyes", 1.5, {
         ease: "power1.inOut",
         opacity: 0,
         transformOrigin: "50% 100%",

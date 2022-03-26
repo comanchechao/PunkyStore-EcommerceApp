@@ -1,9 +1,9 @@
 <template>
   <div
-    class="w-screen flex space-y-16 justify-center align-center flex-col"
+    class="w-screen h-full flex space-y-16 justify-center align-center pt-10 flex-col"
     id="main"
   >
-    <div class="w-screen h-screen bg-LightBlue-400 p-6 mt-20">
+    <div class="w-screen md::h-screen h-rem33 bg-LightBlue-400 p-6 mt-20">
       <div class="h-full w-full justify-center align-center flex">
         <img
           class="absolute PunkyColor"
@@ -21,6 +21,11 @@
           alt=""
         />
 
+        <img
+          class="absolute PunkyHighlights"
+          src="../assets/images/MonkeyHighlights.webp"
+          alt=""
+        />
         <img
           class="absolute MonkeyColor"
           src="../assets/images/MonkeyColors.webp"
@@ -92,6 +97,7 @@ export default {
   },
   mounted() {
     this.animatePunkeyMonkey();
+    this.animatePunkeyHighlights();
   },
   methods: {
     animatePunkeyMonkey() {
@@ -113,12 +119,6 @@ export default {
         duration: 1,
         ease: "expo.out",
       });
-      tl.from(".PunkyHighlights", {
-        opacity: 0,
-        duration: 1,
-        ease: "expo.out",
-      });
-
       tl.from(".MonkeyOutlines", {
         opacity: 0,
         duration: 0.8,
@@ -128,6 +128,14 @@ export default {
         opacity: 0,
         duration: 0.7,
         ease: "expo.out",
+      });
+    },
+    animatePunkeyHighlights() {
+      const tl = gsap.timeline({ repeat: -1, yoyo: true });
+      tl.from(".PunkyHighlights", 1.5, {
+        ease: "power1.inOut",
+        opacity: 0,
+        transformOrigin: "50% 100%",
       });
     },
   },

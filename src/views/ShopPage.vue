@@ -1,14 +1,17 @@
 <template>
   <div
     id="main"
-    class="w-screen flex flex-col justify-center align-center px-5"
+    class="w-screen flex flex-col justify-center align-center px-5 pt-6"
   >
-    <div class="w-full background rounded-b-xl mb-8 mt-20">
+    <div class="w-full background rounded-b-xl mb-8 mt-24 rounded-t-md">
       <div
-        class="w-full h-20 flex justify-end p-7 align-center bg-mainBlue mb-3"
+        class="w-full h-20 flex justify-between p-7 items-center filter drop-shadow-2xl rounded-t-md bg-blue-400 mb-3"
       >
-        <!-- <ListBox /> -->
         <DropDownMenu />
+        <h1 class="text-3xl font-extrabold bg-blue-500 p-3 bg-opacity-50">
+          هودی ها
+        </h1>
+        <!-- <ListBox /> -->
       </div>
 
       <transition-group
@@ -25,6 +28,16 @@
           class="flex justify-center items-center"
         />
       </transition-group>
+      <div class="px-14 md:px-52">
+        <v-pagination
+          v-model="page"
+          prev-icon="mdi-menu-left"
+          next-icon="mdi-menu-right"
+          class="my-6"
+          rounded="circle"
+          :length="15"
+        ></v-pagination>
+      </div>
 
       <!-- <DefaultButton
           class="rounded-full font-bold text-white bg-mainBlue self-center text-lg p-4 m-5"
@@ -45,6 +58,11 @@ import { supabase } from "../supabase";
 import { onMounted } from "@vue/runtime-core";
 import gsap from "gsap";
 export default {
+  data() {
+    return {
+      page: 1,
+    };
+  },
   components: {
     ListBox,
     DropDownMenu,
