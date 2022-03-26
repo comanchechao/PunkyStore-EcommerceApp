@@ -3,7 +3,7 @@
     class="w-screen h-full flex space-y-16 justify-center align-center pt-10 flex-col"
     id="main"
   >
-    <div class="w-screen md::h-screen h-rem33 bg-LightBlue-400 p-6 mt-20">
+    <div class="w-screen md::h-screen h-rem33 p-6 mt-20">
       <div class="h-full w-full justify-center align-center flex">
         <img
           class="absolute PunkyColor"
