@@ -8,7 +8,7 @@
         bordered
         location="top-right"
       >
-        <v-icon class="text-white">mdi-shopping-outline</v-icon>
+        <v-icon class="text-white">mdi-cart</v-icon>
       </v-badge>
     </DefaultButton>
   </div>
@@ -111,7 +111,7 @@ export default {
     const cartTotalAmount = productManagent().cartTotalAmount;
     const cartTotalPrice = productManagent().cartTotalPrice;
 
-    const cartItemCount = productManagent().cartItemCount
+    const cartItemCount = productManagent().cartItemCount;
 
     onMounted(() => {
       console.log(cart);

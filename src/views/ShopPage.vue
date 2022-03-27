@@ -44,21 +44,9 @@
         </h1>
         <!-- <ListBox /> -->
       </div>
-      <h1
-        class="text-lg font-black flex items-center justify-end text-gray-500 text-right mr-8 mt-6"
-      >
-        <span
-          class="border-b-4 rounded-lg cursor-pointer transition ease-in duration-300 hover:bg-white border-LightBlue-900 px-4 pb-2"
-        >
-          <v-icon color="grey darken-4" size="x-large">mdi-menu-down</v-icon>
-          هودی
-        </span>
-        <img
-          class="ml-3 rounded-lg cursor-pointer transition ease-in duration-300 p-2 hover:bg-white"
-          src="../assets/images/HoodieIcon.webp"
-          alt=""
-        />
-      </h1>
+      <div class="w-full flex justify-end p-2">
+        <DropDown />
+      </div>
 
       <transition-group
         appear
@@ -100,6 +88,7 @@
 <script>
 import ListBox from "../components/ListBox.vue";
 // import DropDownMenu from "../components/DropDownMenu.vue";
+import DropDown from "../components/DropDown.vue";
 import ProductCard from "../components/ProductCard.vue";
 import Footer from "../components/Footer.vue";
 import { ref } from "@vue/reactivity";
@@ -115,6 +104,7 @@ export default {
   components: {
     ListBox,
     // DropDownMenu,
+    DropDown,
     ProductCard,
     Footer,
   },

@@ -3,7 +3,7 @@
     <v-dialog class="w-full" v-model="dialog" width="100%" height="75%">
       <template v-slot:activator="{}">
         <DefaultButton @click="dialog = true" class="text-white">
-          <v-icon>mdi-login-variant</v-icon>
+          <v-icon>mdi-login</v-icon>
         </DefaultButton>
       </template>
 
