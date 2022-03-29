@@ -91,6 +91,7 @@ import {
 } from "@headlessui/vue";
 import ShoppingDrawerItem from "./shoppingDrawerItem.vue";
 import { productManagent } from "../store/productManagment";
+import { storeToRefs } from "pinia";
 
 export default {
   components: {
@@ -106,12 +107,9 @@ export default {
   setup() {
     const isOpen = ref(false);
     const drawer = ref(false);
-    const cart = productManagent().cart;
+    const manageProducts = productManagent();
+    let {cart , cartTotalAmount , cartTotalPrice , cartItemCount} = storeToRefs(manageProducts)
 
-    const cartTotalAmount = productManagent().cartTotalAmount;
-    const cartTotalPrice = productManagent().cartTotalPrice;
-
-    const cartItemCount = productManagent().cartItemCount;
 
     onMounted(() => {
       console.log(cart);

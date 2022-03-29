@@ -17,12 +17,11 @@ export const productManagent = defineStore("products", {
         this.cart.push(product);
       }
     },
-  },
-
-  removeProduct(state,product) {
-     state.cart.filter((item) => {
-      return item.item.id !== product.item.id;
-    });
+    removeProduct( Product) {
+      this.cart = this.cart.filter((item) => {
+        return item.item.id !== Product.item.id;
+      });
+    },
   },
 
   getters: {
@@ -31,15 +30,16 @@ export const productManagent = defineStore("products", {
     },
 
     cartTotalPrice() {
-      let total = 0 
+      let total = 0;
 
       this.cart.forEach((item) => {
-        total += item.item.price * item.quantity  
-      })
+        total += item.item.price * item.quantity;
+      });
 
-      return total
+      return total;
     },
-
-   
+  },
+  persist: {
+    enabled: true,
   },
 });

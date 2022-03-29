@@ -45,9 +45,9 @@
             v-show="!loadingLogin"
             @click="loginAction"
             :class="{ disabled: loadingLogin === true }"
-            class="text-lg text-black font-bold px-4 rounded-full bg-goldie"
+            class="text-lg text-black font-bold px-4 rounded-full bg-goldie px-4"
           >
-            ورود
+            ورود به حساب
           </DefaultButton>
           <v-progress-circular
             v-show="loadingLogin"
@@ -59,9 +59,9 @@
             v-show="!loadingSignUp"
             @click="createUser"
             :class="{ disabled: loadingSignUp === true }"
-            class="text-lg text-black font-bold rounded-full bg-goldie"
+            class="text-lg text-black font-bold rounded-full bg-goldie px-4"
           >
-            ایجاد حساب جدید؟
+          ایجاد حساب جدید
           </DefaultButton>
           <v-progress-circular
             v-show="loadingSignUp"
@@ -83,6 +83,8 @@ import DefaultButton from "./DefaultButton.vue";
 import { ref, onMounted, computed } from "vue";
 import { supabase } from "../supabase";
 import { store } from "../store.js";
+import { UserManagement} from "../store/UserManagement"
+
 
 export default {
   components: {
@@ -97,9 +99,7 @@ export default {
     const password = ref("");
     const loadingSignUp = ref(false);
     const loadingLogin = ref(false);
-    const user = computed(() => {
-      return supabase.auth.user();
-    });
+
 
     const createUser = async () => {
       try {
@@ -126,17 +126,18 @@ export default {
         });
         if (error) throw error;
         alert("login successfuly");
+        UserManagement().setUser(user)
         dialog.value = false;
       } catch (error) {
         alert(error.message);
       } finally {
         loadingLogin.value = false;
+        console.log(UserManagement().user)
       }
     };
 
     return {
       dialog,
-      user,
       email,
       password,
       loadingSignUp,

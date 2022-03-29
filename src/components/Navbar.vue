@@ -17,8 +17,8 @@
       </DefaultButton>
     </router-link>
 
-    <div><ProfilePage /></div>
-    <div>
+    <div v-show="user"><ProfilePage /></div>
+    <div v-show="!user">
       <LoginDialog />
     </div>
 
@@ -40,6 +40,8 @@ import { computed, onMounted, ref } from "@vue/runtime-core";
 import NewShoppingDrawer from "./newShoppingDrawer.vue";
 import NewMenuDrawer from "./newMenuDrawer.vue";
 import gsap from "gsap";
+import { UserManagement, } from "../store/UserManagement";
+import { storeToRefs } from "pinia";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // gsap.registerPlugin(ScrollTrigger);
@@ -68,7 +70,11 @@ export default {
     },
   },
   setup() {
-    return {};
+
+    const manageUser = UserManagement()
+    let {user} = storeToRefs(manageUser)
+
+    return {user};
   },
 };
 </script>

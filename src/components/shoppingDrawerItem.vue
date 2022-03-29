@@ -85,6 +85,7 @@ import { EyeIcon, TrashIcon } from "@heroicons/vue/solid";
 import DefaultButton from "./DefaultButton.vue";
 import { productManagent } from "../store/productManagment";
 import { ref } from "@vue/reactivity";
+import { onMounted } from '@vue/runtime-core';
 export default {
   props: ["item"],
   components: {
@@ -99,6 +100,10 @@ export default {
   setup(props) {
     const item = ref(props.item);
     const productManagment = productManagent();
+
+    onMounted(() => {
+      console.log(item.value)
+    })
 
     const removeCartProduct = function () {
       productManagment.removeProduct(item.value);
