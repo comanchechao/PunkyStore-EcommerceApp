@@ -2,7 +2,7 @@
   <div class="">
     <DefaultButton @click="openModal">
       <v-badge
-        :content="cartItemCount"
+        :content="cartItemCount.toString()"
         :value="cartItemCount"
         color="deep-purple"
         bordered
@@ -66,10 +66,21 @@
                 </div>
               </div>
               <div
-                class="checkout w-full h-1/4 space-x-4 flex justify-between align-start p-5 bg-mainBlue"
+                class="checkout w-full h-1/4 flex flex-col justify-around align-start p-5 bg-mainBlue"
               >
-                <h1 class="text-xl text-white">2000 تومان</h1>
-                <h1 class="text-xl text-white">جمع سبد خرید</h1>
+                <div class="flex flex-row space-x-4">
+                  <h1 class="text-xl text-white">{{ cartTotalPrice }} تومان</h1>
+                  <h1 class="text-xl text-white">جمع سبد خرید</h1>
+                </div>
+                <div
+                  class="flex justify-center align-center content-center w-full h-full"
+                >
+                  <router-link to="/checkoutPage">
+                    <DefaultButton class="px-6 text-white bg-mainYellow">
+                      ادامه
+                    </DefaultButton>
+                  </router-link>
+                </div>
               </div>
             </div>
           </TransitionChild>
@@ -108,8 +119,8 @@ export default {
     const isOpen = ref(false);
     const drawer = ref(false);
     const manageProducts = productManagent();
-    let {cart , cartTotalAmount , cartTotalPrice , cartItemCount} = storeToRefs(manageProducts)
-
+    let { cart, cartTotalAmount, cartTotalPrice, cartItemCount } =
+      storeToRefs(manageProducts);
 
     onMounted(() => {
       console.log(cart);

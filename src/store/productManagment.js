@@ -7,7 +7,6 @@ export const productManagent = defineStore("products", {
 
   actions: {
     addToCart(product) {
-      console.log(product.item.id);
       const productInCart = this.cart.find(
         (item) => item.item.id === product.item.id
       );
@@ -17,9 +16,9 @@ export const productManagent = defineStore("products", {
         this.cart.push(product);
       }
     },
-    removeProduct( Product) {
+    deleteProduct(product) {
       this.cart = this.cart.filter((item) => {
-        return item.item.id !== Product.item.id;
+        return item.item.id !== product.item.id;
       });
     },
   },

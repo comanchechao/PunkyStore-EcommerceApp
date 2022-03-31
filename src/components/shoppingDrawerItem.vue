@@ -106,7 +106,7 @@ export default {
     })
 
     const removeCartProduct = function () {
-      productManagment.removeProduct(item.value);
+      productManagment.deleteProduct(item.value);
     };
 
     return { item, removeCartProduct };
