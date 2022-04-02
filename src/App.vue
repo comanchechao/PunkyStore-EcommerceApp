@@ -46,13 +46,13 @@ export default {
       });
       tl.set(el, {
         autoAlpha: 0,
-        x: 400,
+        y: 400,
         transformOrigin: "50% 50%",
       });
 
       tl.to(el, {
         autoAlpha: 1,
-        x: 0,
+        y: 0,
         ease: "Power2.easeOut",
       });
     };
@@ -64,11 +64,11 @@ export default {
     const  leave = (el, done) => {
       gsap.fromTo(el, {
         autoAlpha: 1,
-        x: 0,
+        y: 0,
       }, {
         autoAlpha: 0,
-        x: 400,
-        duration: .5,
+        y: 400,
+        duration: 0.3,
         ease: 'Power2.easeOut',
         onComplete: done
       });

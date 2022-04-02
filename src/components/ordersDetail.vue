@@ -1,35 +1,35 @@
 <template>
   <div class="displayContainer flex w-full h-full flex-col">
     <div
-      class="barContainer bg-darkPurple h-24 text-white p-3 flex flex-row my-2 w-full items-center align-center content-center justify-between border-b-2 border-mainYellow"
+      class="barContainer h-20 text-white px-3 flex flex-row my-2 w-full items-center align-start content-center justify-between border-b-2 border-mainYellow"
     >
-      <h3
+      <DefaultButton
         @click="display = 'waitList'"
-        class="cursor-pointer"
+        class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         :class="{
           'border-b-4 border-mainYellow': display === 'waitList',
         }"
       >
-        در انتظار تایید
-      </h3>
-      <h3
+        در انتظار 
+      </DefaultButton>
+      <DefaultButton
         @click="display = 'processing'"
-        class="cursor-pointer"
+        class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         :class="{
           'border-b-4 border-mainYellow': display === 'processing',
         }"
       >
         درحال پردازش
-      </h3>
-      <h3
+      </DefaultButton>
+      <DefaultButton
         @click="display = 'delivered'"
-        class="cursor-pointer"
+        class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         :class="{
           'border-b-4 border-mainYellow': display === 'delivered',
         }"
       >
         دریافت شده
-      </h3>
+      </DefaultButton>
     </div>
 
     <!-- delivered orders container change by click from barContainer  -->

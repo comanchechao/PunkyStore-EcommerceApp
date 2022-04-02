@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col w-full h-full rounded">
     <div
-      class="w-full h-24 bg-darkPurple flex justify-between align-center p-5"
+      class="w-full h-24 bg-Sky-400 flex justify-between align-center p-5"
     >
       <DefaultButton class="text-white">
         <v-icon size="x-large">mdi-account</v-icon>

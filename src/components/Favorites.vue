@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-col w-full h-full rounded">
     <div
-      class="w-full h-24 bg-darkPurple flex justify-between align-center p-5"
+      class="w-full h-24 flex justify-between align-center p-5 border-b-2 border-mainYellow"
     >
-      <DefaultButton class="text-white">
-        <v-icon size="x-large">mdi-heart</v-icon>
+      <DefaultButton class="text-white p-4 rounded-lg ">
+        <v-icon class="" size="x-large">mdi-heart</v-icon>
       </DefaultButton>
-      <h1 class="text-white text-3xl font-extrabold">برگزیده</h1>
+      <h1 class="bg-Sky-300 p-4  rounded-lg text-white text-3xl font-extrabold">برگزیده</h1>
     </div>
     <div
       class="w-full h-full py-4 gap-5 grid px-3 grid-flow-row grid-cols-2 grid-rows-2 place-items-center background"
