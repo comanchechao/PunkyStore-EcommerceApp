@@ -46,7 +46,7 @@ export default {
       });
       tl.set(el, {
         autoAlpha: 0,
-        x: 200,
+        x: 400,
         transformOrigin: "50% 50%",
       });
 
@@ -67,7 +67,7 @@ export default {
         x: 0,
       }, {
         autoAlpha: 0,
-        x: 200,
+        x: 400,
         duration: .5,
         ease: 'Power2.easeOut',
         onComplete: done
