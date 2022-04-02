@@ -59,7 +59,7 @@
                   class="h-full w-full space-y-3 flex flex-col overflow-y-scroll"
                 >
                   <ShoppingDrawerItem
-                    v-for="item in cart"
+                    v-for="item in getCart"
                     :key="item.id"
                     :item="item"
                   />
@@ -76,7 +76,7 @@
                   class="flex justify-center align-center content-center w-full h-full"
                 >
                   <router-link to="/checkoutPage">
-                    <DefaultButton class="px-6 text-white bg-mainYellow">
+                    <DefaultButton @click="drawer = false" class="px-6 text-white bg-mainYellow">
                       ادامه
                     </DefaultButton>
                   </router-link>
@@ -119,16 +119,13 @@ export default {
     const isOpen = ref(false);
     const drawer = ref(false);
     const manageProducts = productManagent();
-    let { cart, cartTotalAmount, cartTotalPrice, cartItemCount } =
+    let { getCart, cartTotalAmount, cartTotalPrice, cartItemCount } =
       storeToRefs(manageProducts);
 
-    onMounted(() => {
-      console.log(cart);
-    });
 
     return {
       isOpen,
-      cart,
+      getCart,
       cartTotalAmount,
       cartTotalPrice,
       cartItemCount,

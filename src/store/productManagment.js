@@ -20,10 +20,14 @@ export const productManagent = defineStore("products", {
       this.cart = this.cart.filter((item) => {
         return item.item.id !== product.item.id;
       });
+      console.log(this.cart)
     },
   },
 
   getters: {
+    getCart(state){
+      return state.cart
+    },
     cartItemCount(state) {
       return state.cart.length;
     },
