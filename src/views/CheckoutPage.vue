@@ -11,7 +11,7 @@
         مرحله قبلی
       </DefaultButton>
     </div>
-    <transition @before-enter="beforeEnter" @enter="enter" @leave="leave" name="route" appear>
+    <transition  @enter="enter" @leave="leave" name="route" appear>
       <component :is="component"></component>
     </transition>
 
@@ -31,12 +31,9 @@ export default {
   setup() {
     const component = ref("CheckoutInfo");
     
-    const beforeEnter = (el , done) =>{
-      gsap.to(el , {
-        opacity: 0
-      })
 
-    }
+
+    
     const enter = (el, done) => {
       const tl = gsap.timeline({
         onComplete: done,
@@ -44,8 +41,8 @@ export default {
       tl.set(el, {
         autoAlpha: 0,
         opacity: 0 ,
-        x: -400,
-        transformOrigin: "50% 50%",
+        x: 400,
+        transformOrigin: "100% 50%",
       });
 
       tl.to(el, {
@@ -66,6 +63,7 @@ export default {
         {
           autoAlpha: 0,
           x: 400,
+          opacity: 0 ,
           duration: 0.5,
           ease: "Power2.easeOut",
           onComplete: done,
@@ -73,7 +71,7 @@ export default {
       );
     };
 
-    return { component, leave, enter , beforeEnter};
+    return { component, leave, enter };
   },
 };
 </script>

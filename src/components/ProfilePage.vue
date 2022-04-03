@@ -8,50 +8,59 @@
     <v-card class="w-full h-auto bg-Sky-200">
       <div
         id="ball"
-        class="z-10 ball absolute right-0 bg-mainPurple rounded-full transform translate-x-28 -translate-y-28 w-64 h-64"
+        class="z-10 ball absolute right-0 bg-mainPurple rounded-full transform translate-x-28 -translate-y-28 w-64 h-64 lg:w-80 lg:h-80"
       ></div>
       <div
         id="ball"
-        class="z-0 ball absolute right-0 bg-mainYellow rounded-full transform -translate-x-8 -translate-y-28 w-64 h-64"
+        class="z-0 ball absolute right-0 bg-mainYellow rounded-full transform -translate-x-8 -translate-y-28 w-64 h-64 lg:w-80 lg:h-80"
       ></div>
       <div
-        class=" p-4 lg:p-8 lg:px-0 lg:py-8 bg-mainPurple font-mainFont text-xl font-bold cardMain h-full"
+        class="p-4 lg:p-8 lg:px-0 lg:py-8 font-mainFont text-xl font-bold cardMain h-full"
       >
         <div class="flex flex-row-reverse w-full justify-between align-center">
           <div
-            class="z-20  w-full lg:w-1/6 flex items-end justify-end align-center lg:align-start rounded-xl text-right px-1 lg:px-5 text-xl text-white"
+            class="z-20 w-full lg:w-1/6 flex items-end justify-end align-center lg:align-start rounded-xl text-right px-1 lg:px-5 text-xl text-white"
           >
-           
-                   <DefaultButton
+            <DefaultButton
               @click="displayContainer = 'EditInfo'"
-              class="'  text-white px-10 lg:px-10 lg:mr-6 sm:ml-10 transition transform hover:scale-125 motion-reduce:transition-none motion-reduce:hover:transform-none ': displayContainer === 'EditInfo',"
+              class="' text-white px-10 lg:px-10 lg:mr-20 sm:ml-8 transition transform hover:scale-125 motion-reduce:transition-none motion-reduce:hover:transform-none ': displayContainer === 'EditInfo',"
               >ویرایش اطلاعات</DefaultButton
             >
-             <h2 class="z-50 w-1/2 rounded p-4 text-right">
+            <h2 class="z-50 w-1/2 rounded p-4 text-right">
               {{ username }}
             </h2>
           </div>
           <div class="exitContainer flex justify-start h-full align-start">
             <DefaultButton
-              class="text-white lg:mx-4 text-lg  rounded-full w-full"
+              class="text-white lg:mx-4 text-lg rounded-full w-full"
             >
-              <v-icon class="text-mainPink" @click="dialog = false">mdi-close</v-icon></DefaultButton
+              <v-icon class="text-mainPink" @click="dialog = false"
+                >mdi-close</v-icon
+              ></DefaultButton
             >
           </div>
         </div>
       </div>
-      <div
-        class="cardBody mt-10 flex flex-row w-full h-full justify-evenly"
-      >
-        <component class="py-2" :is="displayContainer"></component>
+      <div class="cardBody mt-10 flex flex-row w-full h-full justify-around">
+        <transition
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @leave="leave"
+          mode="out-in"
+          name="route"
+          appear
+        >
+          <component class="py-2" :is="displayContainer"></component>
+        </transition>
+
         <div
-          class="navContainer self-center flex flex-col p-2 lg:w-1/6  w-1/3 h-auto justify-between rounded shadow-2xl align-end"
+          class="navContainer self-center flex flex-col p-2 lg:w-1/6 w-1/3 h-auto justify-between rounded shadow-2xl align-end"
         >
           <DefaultButton
             @click="displayContainer = 'ordersDetail'"
             class="'text-lg text-white bg-Sky-300 hover:bg-Sky-500 px-7 lg:w-full lg:p-2 w-24 my-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none ': displayContainer === 'ordersDetail',"
-            >سفارش </DefaultButton
-          >
+            >سفارش
+          </DefaultButton>
           <DefaultButton
             @click="displayContainer = 'Favorites'"
             class="'text-lg text-white bg-Sky-300 hover:bg-Sky-500 px-7 lg:w-full lg:p-2 w-24 my-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none ': displayContainer === 'Favorites',"
@@ -79,6 +88,7 @@ import DefaultButton from "./DefaultButton.vue";
 import { store } from "../store";
 import { UserManagement } from "../store/UserManagement";
 import { storeToRefs } from "pinia";
+import gsap from "gsap";
 
 export default {
   setup() {
@@ -94,7 +104,9 @@ export default {
     const { user } = storeToRefs(manageUser);
 
     onMounted(() => {
-      getProfile();
+      if (user.value) {
+        getProfile();
+      }
     });
 
     async function getProfile() {
@@ -136,7 +148,45 @@ export default {
       }
     }
 
-    return { user, username, dialog, displayContainer, signOut };
+     const enter = (el, done) => {
+      const tl = gsap.timeline({
+        onComplete: done,
+      });
+      tl.set(el, {
+        autoAlpha: 0,
+        opacity: 0 ,
+        x: -500,
+        transformOrigin: "100% 100%",
+      });
+
+      tl.to(el, {
+        autoAlpha: 1,
+        x: 0,
+        opacity: 1,
+        ease: "Power4.easeOut",
+      });
+    };
+
+    const leave = (el, done) => {
+      gsap.fromTo(
+        el,
+        {
+
+          x: 0,
+          opacity: 1,
+        },
+        {
+
+          x: -400,
+          opacity: 0 ,
+          duration: 0.5,
+          ease: "Power2.easeOut",
+          onComplete: done,
+        }
+      );
+    };
+
+    return { user, username, dialog, displayContainer, signOut, leave , enter };
   },
   components: { DefaultButton, ordersDetail, Favorites, EditInfo },
 };
