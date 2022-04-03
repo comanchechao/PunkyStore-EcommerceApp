@@ -1,6 +1,6 @@
 <template>
-  <div class="w-screen h-full bg-Sky-500" >
-    <div class="w-full flex mt-20 justify-center align-end content">
+  <div class="flex flex-col w-screen h-full bg-Sky-500 overflow-hidden" >
+    <div class="w-full flex mt-20 justify-center align-center content">
       <DefaultButton
       class="m-2 px-6 py-4 rounded bg-darkPurple text-white" @click="component = 'CheckoutSubmit'">
         مرحله بعدی

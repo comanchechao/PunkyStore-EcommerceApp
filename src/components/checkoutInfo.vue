@@ -1,14 +1,14 @@
 <template>
   <div
-    class="h-full lg:h-screen mt-20 w-full items-center content-center flex flex-col lg:flex-row-reverse justify-center"
+    class="h-full overflow-hidden lg:h-screen mt-20 w-full items-center align-start flex flex-col lg:flex-row-reverse justify-center"
   >
     <div
-      class="h-1/2 justify-start align-center w-full bg-mainY space-y-3 flex flex-col overflow-y-scroll p-5"
+      class="max-h-1/2 justify-start align-start w-full space-y-3 flex flex-col overflow-y-scroll px-5"
     >
       <ShoppingDrawerItem v-for="item in cart" :key="item.id" :item="item" />
     </div>
 
-    <div class="theContainer h-full w-full">
+    <div class="theContainer h-screen w-full">
       <form @submit.prevent="" class="font-mainFont h-screen">
         <div class="flex flex-wrap flex-col justify-center p-5">
           <div class="bg-mainYellow flex justify-center rounded p-8 text-white">
@@ -41,6 +41,24 @@
               placeholder="ادرس ایمیل"
             />
           </div>
+           <div class="mx-1">
+              <input
+                v-model="fullName"
+                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="inline-full-name"
+                type="text"
+                placeholder="شهر"
+              />
+            </div>
+             <div class="mx-1">
+              <input
+                v-model="fullName"
+                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                id="inline-full-name"
+                type="text"
+                placeholder="استان"
+              />
+            </div>
           <div class="">
             <input
               v-model="fullAddress"
