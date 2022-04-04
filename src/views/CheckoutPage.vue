@@ -42,7 +42,7 @@ export default {
         autoAlpha: 0,
         opacity: 0 ,
         x: 400,
-        transformOrigin: "100% 50%",
+        transformOrigin: "100% ",
       });
 
       tl.to(el, {
