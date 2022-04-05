@@ -3,6 +3,7 @@ import Home from "../views/HomePage.vue";
 import ShopPage from "../views/ShopPage.vue";
 import ProductDetailPage from "../views/ProductDetailPage.vue";
 import CheckoutPage from "../views/CheckoutPage.vue";
+import AdminPage from '../views/AdminPage.vue'
 
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
     path: "/Shop",
     name: "ShopPage",
     component: ShopPage,
+  },
+  {
+    path: "/admin",
+    name: "AdminPage",
+    component: AdminPage,
   },
   {
     path: "/ProductDetail/:id",
