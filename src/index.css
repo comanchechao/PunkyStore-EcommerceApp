@@ -52,21 +52,21 @@ html {
   }
 
   100% {
-    background-color: #2318b8;
+    background-color: #2b53d4;
   }
 }
 
 @keyframes color-change {
   0% {
-    background-color: #4900af;
+    background-color: #2b53d4;
   }
 
   50% {
-    background-color: #802073;
+    background-color: #58a8da;
   }
 
   100% {
-    background-color: #e95157;
+    background-color: #85e294;
   }
 }
 /* Chrome, Edge, and Safari */
