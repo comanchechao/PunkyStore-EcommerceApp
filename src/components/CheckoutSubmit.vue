@@ -8,82 +8,111 @@
           <div class="bg-mainGreen flex justify-center rounded p-8 text-white">
             <h1>اطلاعات ارسال</h1>
           </div>
-          <div class="">
-            <div class="flex justify-center my-2">
-              <DefaultButton
-                v-show="!loading"
-                @click="updateProfile"
-                class="px-6 py-4 rounded bg-mainPink text-white cursor-pointer"
-              >
-                ویرایش
-              </DefaultButton>
-              <v-progress-circular
-                v-show="loading"
-                :size="50"
-                color="red"
-                indeterminate
-              ></v-progress-circular>
-            </div>
-          </div>
-          <div class="flex flex-col lg:flex-row justify-around p-2">
-            <div class="mx-1">
-              <input
-                v-model="fullName"
-                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                id="inline-full-name"
-                type="text"
-                placeholder="نام کامل"
+
+          <Disclosure v-slot="{ open }">
+            <DisclosureButton
+              class="flex max-h-16 text-white mt-6 justify-between w-full px-4 py-2 text-sm font-medium text-left text-black bg-mainYellow rounded-lg focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+            >
+              <span>نمایش اطلاعات</span>
+              <ChevronUpIcon
+                :class="open ? 'transform rotate-180' : ''"
+                class="w-5 h-5 text-white"
               />
-            </div>
-             <div class="mx-1">
-              <input
-                v-model="fullName"
-                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                id="inline-full-name"
-                type="text"
-                placeholder="شهر"
-              />
-            </div>
-             <div class="mx-1">
-              <input
-                v-model="fullName"
-                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                id="inline-full-name"
-                type="text"
-                placeholder="استان"
-              />
-            </div>
-            <div class="mx-1">
-              <input
-                v-model="phoneNumber"
-                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                id="inline-full-name"
-                type="text"
-                placeholder="شماره همراه"
-              />
-            </div>
-            <div class="mx-1">
-              <input
-                v-model="emailAddress"
-                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                id="inline-full-name"
-                type="email"
-                placeholder="ادرس ایمیل"
-              />
-            </div>
-            <div class="mx-1">
-              <input
-                v-model="fullAddress"
-                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                id="inline-full-name"
-                type="text"
-                placeholder="آدرس کامل"
-              />
-            </div>
-          </div>
+            </DisclosureButton>
+            <DisclosurePanel
+              class="p-4 align-center justify-center divide-y-2 text-sm text-black flex flex-col"
+            >
+              <div class="flex flex-col lg:flex-row justify-around p-2">
+                <div class="mx-1">
+                  <input
+                    v-model="fullName"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="inline-full-name"
+                    type="text"
+                    placeholder="نام کامل"
+                  />
+                </div>
+                <div class="mx-1">
+                  <input
+                    v-model="fullName"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="inline-full-name"
+                    type="text"
+                    placeholder="شهر"
+                  />
+                </div>
+                <div class="mx-1">
+                  <input
+                    v-model="fullName"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="inline-full-name"
+                    type="text"
+                    placeholder="استان"
+                  />
+                </div>
+                <div class="mx-1">
+                  <input
+                    v-model="phoneNumber"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="inline-full-name"
+                    type="text"
+                    placeholder="شماره همراه"
+                  />
+                </div>
+                <div class="mx-1">
+                  <input
+                    v-model="emailAddress"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="inline-full-name"
+                    type="email"
+                    placeholder="ادرس ایمیل"
+                  />
+                </div>
+                <div class="mx-1">
+                  <input
+                    v-model="fullAddress"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="inline-full-name"
+                    type="text"
+                    placeholder="آدرس کامل"
+                  />
+                </div>
+              </div>
+              <div class="">
+                <div class="flex justify-center">
+                  <DefaultButton
+                    v-show="!loading"
+                    @click="updateProfile"
+                    class="disabled px-6 py-4 rounded bg-mainPink text-white cursor-pointer"
+                  >
+                    ویرایش
+                  </DefaultButton>
+                  <v-progress-circular
+                    v-show="loading"
+                    :size="50"
+                    color="red"
+                    indeterminate
+                  ></v-progress-circular>
+                </div>
+              </div>
+            </DisclosurePanel>
+          </Disclosure>
         </form>
       </div>
-      <ShoppingDrawerItem v-for="item in getCart" :key="item.id" :item="item" />
+      <div class="flex flex-col w-full h-full p-5">
+        <div class="bg-Emerald-500 flex justify-center rounded p-8 text-white">
+          <h1>سبد خرید</h1>
+        </div>
+        <div
+          class="mt-5 max-h-1/2 justify-start align-start w-full space-y-3 flex flex-col overflow-y-scroll px-5"
+        >
+          <ShoppingDrawerItem
+            v-for="item in getCart"
+            :key="item.id"
+            :item="item"
+          />
+        </div>
+      </div>
 
       <div class="w-full flex justify-center align-center">
         <DefaultButton
@@ -108,9 +137,19 @@
 import ShoppingDrawerItem from "./shoppingDrawerItem.vue";
 import { productManagent } from "../store/productManagment";
 import { storeToRefs } from "pinia";
+import { ChevronDownIcon } from "@heroicons/vue/solid";
+import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+import { ChevronUpIcon } from "@heroicons/vue/solid";
 
 export default {
-  components: { ShoppingDrawerItem },
+  components: {
+    ShoppingDrawerItem,
+    Disclosure,
+    DisclosureButton,
+    DisclosurePanel,
+    ChevronDownIcon,
+    ChevronUpIcon,
+  },
 
   setup() {
     const manageProducts = productManagent();

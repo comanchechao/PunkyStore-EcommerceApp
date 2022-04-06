@@ -1,10 +1,7 @@
 <template>
   <div class="flex flex-col p-5 bg-Indigo-200 overflow-hidden">
     <div class="flex flex-row justify-around w-full">
-      <button class="bg-mainYellow w-28 h-28 shadow-2xl rounded-xl">
-        <v-icon>mdi-card-plus</v-icon>
-        <h2>کالا</h2>
-      </button>
+    <Adminastration />
 
       <button class="bg-mainGreen w-28 h-28 shadow-2xl rounded-xl">
         <v-icon>mdi-card-plus</v-icon>
@@ -99,9 +96,11 @@ import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { ChevronUpIcon } from "@heroicons/vue/solid";
+import Adminastration from '../components/Adminastration.vue'
 
 export default {
   components: {
+    Adminastration,
     Menu,
     MenuButton,
     MenuItems,

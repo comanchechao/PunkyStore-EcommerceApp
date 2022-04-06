@@ -2,12 +2,12 @@
   <div class="flex flex-col w-screen h-full bg-Sky-500 overflow-hidden" >
     <div class="w-full flex mt-20 justify-center align-center content">
       <DefaultButton
-      class="m-2 px-6 py-4 rounded bg-darkPurple text-white" @click="component = 'CheckoutSubmit'">
+      class="m-2 px-6 py-4 rounded bg-Cyan-700 text-white" @click="component = 'CheckoutSubmit'">
         مرحله بعدی
       </DefaultButton>
 
       <DefaultButton
-      class="m-2 px-6 py-4 rounded bg-darkPurple text-white" @click="component = 'CheckoutInfo'">
+      class="m-2 px-6 py-4 rounded bg-Cyan-700 text-white" @click="component = 'CheckoutInfo'">
         مرحله قبلی
       </DefaultButton>
     </div>

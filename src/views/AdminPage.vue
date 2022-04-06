@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center main w-full h-full bg-pink-200">
+  <div class="flex justify-center main w-full h-full bg-pink-200 ">
     <div class="flex flex-col w-full h-screen mt-20">
       <div class="topBar w-full bg-Indigo-900">
         <div
@@ -8,6 +8,22 @@
           <div class="profileImage w-24 h-24 bg-gray-500 rounded-full"></div>
           <div class="adminName font-bold text-white text-2xl text-right">
             <h2>کیارش کینگ</h2>
+          </div>
+        </div>
+
+        <div class="flex flex-row justify-around my-2 ">
+          <div class="flex flex-col align-center bg-Indigo-200 text-Indigo-900 rounded p-3">
+            <h3 class="">سفارشات ثبث شده</h3>
+            <div>
+              2
+            </div>
+          </div>
+
+          <div class="flex flex-col align-center bg-Indigo-200 text-Indigo-900 rounded p-3">
+            <h3 class="">سفارشات ثبث شده</h3>
+            <div>
+              2
+            </div>
           </div>
         </div>
 
@@ -28,7 +44,7 @@
             مدیریت کالا
           </button>
         </div>
-        <div class="w-full h-full">
+        <div class="w-full h-screen">
           <transition @enter="enter" mode="out-in" appear>
             <component class="" :is="adminManagement"></component>
           </transition>
