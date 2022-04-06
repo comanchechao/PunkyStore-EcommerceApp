@@ -18,16 +18,7 @@
         </DefaultButton>
       </router-link>
     </div>
-    <router-link to="/shop">
-      <DefaultButton class="text-white">
-        <v-icon>mdi-shopping</v-icon>
-      </DefaultButton>
-    </router-link>
-    <router-link to="/">
-      <DefaultButton class="text-white">
-        <v-icon>mdi-home</v-icon>
-      </DefaultButton>
-    </router-link>
+
     <router-link to="/admin">
       <DefaultButton class="text-white">
         <v-icon>mdi-account-cowboy-hat</v-icon>
