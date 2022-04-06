@@ -1,28 +1,29 @@
 <template>
   <div
     id="main"
-    class="w-screen bg-opacity-20 z-10 Navbar h-20 flex fixed justify-center px-6 lg:justify-center lg:align-start align-center text-3xl border-b border-gray-200"
+    class="w-screen bg-opacity-20 z-10 Navbar h-20 flex fixed px-2 justify-center lg:justify-around align-center text-3xl border-b border-gray-200"
   >
-    <div>
+    <div class="flex">
       <NewMenuDrawer />
-    </div>
-    <router-link to="/shop">
-      <DefaultButton class="text-white">
-        <v-icon>mdi-shopping</v-icon>
-      </DefaultButton>
-    </router-link>
-    <router-link to="/">
-      <DefaultButton class="text-white">
-        <v-icon>mdi-home</v-icon>
-      </DefaultButton>
-    </router-link>
-
-    <div v-show="user"><ProfilePage /></div>
-    <div v-show="!user">
-      <LoginDialog />
+      <router-link to="/shop">
+        <DefaultButton class="text-white font-extrabold flex align-center">
+          <h1 class="text-2xl hidden md:flex mr-2">خرید</h1>
+          <v-icon>mdi-shopping</v-icon>
+        </DefaultButton>
+      </router-link>
+      <router-link to="/">
+        <DefaultButton class="text-white font-extrabold flex align-center">
+          <h1 class="text-2xl hidden mr-2">خونه</h1>
+          <v-icon>mdi-home</v-icon>
+        </DefaultButton>
+      </router-link>
     </div>
 
-    <div>
+    <div class="flex pr-2">
+      <div v-show="user"><ProfilePage /></div>
+      <div v-show="!user">
+        <LoginDialog />
+      </div>
       <NewShoppingDrawer />
     </div>
   </div>
@@ -30,8 +31,6 @@
 
 <script>
 import DefaultButton from "./DefaultButton.vue";
-import MenuDrawer from "./MenuDrawer.vue";
-import ShoppingCartDrawer from "./ShoppingCartDrawer.vue";
 import LoginDialog from "./LoginDialog.vue";
 import { store } from "../store";
 import ProfilePage from "./ProfilePage.vue";
@@ -40,7 +39,7 @@ import { computed, onMounted, ref } from "@vue/runtime-core";
 import NewShoppingDrawer from "./newShoppingDrawer.vue";
 import NewMenuDrawer from "./newMenuDrawer.vue";
 import gsap from "gsap";
-import { UserManagement, } from "../store/UserManagement";
+import { UserManagement } from "../store/UserManagement";
 import { storeToRefs } from "pinia";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -48,8 +47,6 @@ import { storeToRefs } from "pinia";
 export default {
   components: {
     DefaultButton,
-    MenuDrawer,
-    ShoppingCartDrawer,
     LoginDialog,
     ProfilePage,
     NewShoppingDrawer,
@@ -70,20 +67,15 @@ export default {
     },
   },
   setup() {
+    const manageUser = UserManagement();
+    let { user } = storeToRefs(manageUser);
 
-    const manageUser = UserManagement()
-    let {user} = storeToRefs(manageUser)
-
-    return {user};
+    return { user };
   },
 };
 </script>
 
 <style scoped>
-#main {
-  background: rgba(0, 151, 19, 0.1);
-}
-
 /* .Navbar {
   animation: 35s ease-in-out infinite alternate-reverse color-change;
 }

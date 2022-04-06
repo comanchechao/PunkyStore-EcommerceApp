@@ -1,7 +1,7 @@
 <template>
   <div
     id="main"
-    class="w-screen flex flex-col justify-center align-center px-8 pt-6"
+    class="w-screen flex flex-col justify-center align-center px-3 pt-6"
   >
     <div class="w-full background rounded-b-xl mb-8 mt-24">
       <div
@@ -44,8 +44,48 @@
         </h1>
         <!-- <ListBox /> -->
       </div>
-      <div class="w-full flex justify-end p-2">
-        <DropDown />
+      <div class="w-full flex items-center space-x-3 justify-end p-2">
+        <DropDown>
+          ><template #title> فیلترها </template>
+
+          <template #firstOption> جدیدترین </template>
+
+          <template #secondOption> پربازدیدترین </template>
+
+          <template #thirdOption> گرانترین </template>
+          <template #forthOption> ارزانترین </template>
+        </DropDown>
+
+        <DropDown
+          ><template #title> هودی </template>
+          <template #titlePicture>
+            <img
+              class="ml-3 rounded-lg cursor-pointer transition ease-in duration-300 p-2 hover:bg-white"
+              src="../assets/images/HoodieIcon.webp"
+              alt=""
+            />
+          </template>
+
+          <template #firstOption> شلوار </template>
+          <template #firstPicture>
+            <img
+              class="ml-15 mr-2"
+              src="../assets/images/PantsIcon.webp"
+              alt=""
+            />
+          </template>
+          <template #secondOption> پیراهن </template>
+          <template #secondPicture>
+            <img
+              class="ml-15 mr-0"
+              src="../assets/images/ShirtIcon.webp"
+              alt=""
+            />
+          </template>
+
+          <template #thirdOption> هودی </template>
+          <template #forthOption> هودی </template></DropDown
+        >
       </div>
 
       <transition-group

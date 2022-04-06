@@ -13,13 +13,9 @@
             <v-icon class="text-gray-500" aria-hidden="true" size="x-large"
               >mdi-menu-down</v-icon
             >
-            هودی
+            <slot name="title"></slot>
           </span>
-          <img
-            class="ml-3 rounded-lg cursor-pointer transition ease-in duration-300 p-2 hover:bg-white"
-            src="../assets/images/HoodieIcon.webp"
-            alt=""
-          />
+          <slot name="titlePicture"></slot>
         </h1>
       </MenuButton>
     </div>
@@ -40,55 +36,58 @@
             <a
               href="#"
               :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-500',
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
                 ' px-4 py-2 text-lg font-extrabold flex justify-end',
               ]"
-              >شلوار
-              <img
-                class="ml-15 mr-2"
-                src="../assets/images/PantsIcon.webp"
-                alt=""
-              />
-            </a>
-          </MenuItem>
-          <MenuItem v-slot="{ active }">
-            <a
-              href="#"
-              :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-500',
-                ' px-4 py-2 text-lg font-extrabold flex justify-end',
-              ]"
-              >پیراهن
-              <img
-                class="ml-15 mr-0"
-                src="../assets/images/ShirtIcon.webp"
-                alt=""
-              />
-            </a>
-          </MenuItem>
-          <MenuItem v-slot="{ active }">
-            <a
-              href="#"
-              :class="[
-                active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                'block px-4 py-2 text-sm',
-              ]"
-              >اکسسوری</a
             >
+              <slot name="firstOption"></slot>
+              <slot name="firstPicture"></slot>
+            </a>
           </MenuItem>
-          <form method="POST" action="#">
-            <MenuItem v-slot="{ active }">
-              <button
-                type="submit"
-                :class="[
-                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                  'block w-full text-left px-4 py-2 text-sm',
-                ]"
-              >
-                کلاه
-              </button>
-            </MenuItem>
-          </form>
+          <MenuItem v-slot="{ active }">
+            <a
+              href="#"
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2 text-lg font-extrabold flex justify-end',
+              ]"
+            >
+              <slot name="secondOption"></slot>
+              <slot name="secondPicture"></slot>
+            </a>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a
+              href="#"
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2 text-lg font-extrabold flex justify-end',
+              ]"
+            >
+              <slot name="thirdOption"></slot>
+              <slot name="thirdPicture"></slot>
+            </a>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a
+              type="submit"
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900 '
+                  : 'text-gray-500',
+                ' px-4 py-2 text-lg font-extrabold flex justify-end',
+              ]"
+            >
+              <slot name="forthOption"></slot>
+              <slot name="forthPicture"></slot>
+            </a>
+          </MenuItem>
         </div>
       </MenuItems>
     </transition>

@@ -69,11 +69,25 @@
         <div
           class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block"
         >
-          <img
+          <v-carousel
+            cycle
+            height="400"
+            hide-delimiter-background
+            show-arrows="hover"
+          >
+            <v-carousel-item
+              v-for="(image, i) in images"
+              :key="i"
+              :src="image.src"
+              cover
+            ></v-carousel-item>
+          </v-carousel>
+
+          <!-- <img
             :src="product.images[0].src"
             :alt="product.images[0].alt"
             class="w-full h-full object-center object-cover"
-          />
+          /> -->
         </div>
         <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
           <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
@@ -372,6 +386,28 @@ const reviews = { href: "#", average: 4, totalCount: 117 };
 import { productManagent } from "../store/productManagment";
 
 export default {
+  data() {
+    return {
+      images: [
+        {
+          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+          alt: "Two each of gray, white, and black shirts laying flat.",
+        },
+        {
+          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
+          alt: "Model wearing plain black basic tee.",
+        },
+        {
+          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
+          alt: "Model wearing plain gray basic tee.",
+        },
+        {
+          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
+          alt: "Model wearing plain white basic tee.",
+        },
+      ],
+    };
+  },
   components: {
     RadioGroup,
     RadioGroupLabel,
