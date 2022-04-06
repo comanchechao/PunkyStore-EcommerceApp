@@ -2,10 +2,16 @@
   <div
     class="h-full overflow-hidden lg:h-screen mt-20 w-full items-center align-start flex flex-col lg:flex-row-reverse justify-center"
   >
-    <div
-      class="max-h-1/2 justify-start align-start w-full space-y-3 flex flex-col overflow-y-scroll px-5"
-    >
-      <ShoppingDrawerItem v-for="item in cart" :key="item.id" :item="item" />
+    <div class="flex flex-col w-full h-full p-4">
+
+      <div class="bg-Emerald-500 flex justify-center rounded p-8 text-white">
+            <h1>سبد خرید</h1>
+          </div>
+      <div
+        class="mt-2 max-h-1/2 justify-start align-start w-full space-y-3 flex flex-col overflow-y-scroll px-5"
+      >
+        <ShoppingDrawerItem v-for="item in cart" :key="item.id" :item="item" />
+      </div>
     </div>
 
     <div class="theContainer h-screen w-full">
@@ -41,24 +47,24 @@
               placeholder="ادرس ایمیل"
             />
           </div>
-           <div class="mx-1">
-              <input
-                v-model="fullName"
-                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                id="inline-full-name"
-                type="text"
-                placeholder="شهر"
-              />
-            </div>
-             <div class="mx-1">
-              <input
-                v-model="fullName"
-                class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                id="inline-full-name"
-                type="text"
-                placeholder="استان"
-              />
-            </div>
+          <div class="mx-1">
+            <input
+              v-model="fullName"
+              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-full-name"
+              type="text"
+              placeholder="شهر"
+            />
+          </div>
+          <div class="mx-1">
+            <input
+              v-model="fullName"
+              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              id="inline-full-name"
+              type="text"
+              placeholder="استان"
+            />
+          </div>
           <div class="">
             <input
               v-model="fullAddress"

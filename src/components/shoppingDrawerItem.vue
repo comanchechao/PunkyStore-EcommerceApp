@@ -1,14 +1,14 @@
 <template>
   <div
-    class="p-2 w-full justify-around h-28 text-right rounded-2xl bg-gray-100 flex"
+    class="p-2 w-full justify-around h-28 text-right rounded-2xl bg-gray-100 flex "
   >
-    <div class="w-full h-full flex justify-center align-center space-x-3">
+    <div class="w-full h-full flex justify-center align-center space-x-3 flex-row-reverse">
       <div
         class="bg-green-300 flex rounded-full w-24 h-24 justify-center align-center"
       >
         {{ item.item.title }}
       </div>
-      <Menu as="div" class="relative inline-block text-right">
+      <Menu as="div" class="relative inline-block text-right mr-2">
         <div class="flex flex-row justify-center align-center">
           <MenuButton
             class="inline-flex justify-center transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-yellow-500 rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
@@ -19,11 +19,7 @@
               aria-hidden="true"
             />
           </MenuButton>
-          <DefaultButton @click="removeCartProduct">
-            <TrashIcon
-              class="w-5 h-5 ml-2 cursor-pointer -mr-1 text-red-500 hover:text-violet-100"
-              aria-hidden="true"
-          /></DefaultButton>
+         
         </div>
 
         <transition
@@ -75,6 +71,11 @@
           </MenuItems>
         </transition>
       </Menu>
+       <DefaultButton @click="removeCartProduct">
+            <TrashIcon
+              class="w-5 h-5 cursor-pointer text-red-500 hover:text-violet-100"
+              aria-hidden="true"
+          /></DefaultButton>
     </div>
   </div>
 </template>

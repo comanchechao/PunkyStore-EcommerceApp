@@ -2,14 +2,9 @@
   <div
     class="flex flex-wrap p-3 shadow-2xl rounded flex-row-reverse lg:px-6 h-36 bg-gray-100 items-center justify-between align-center my-1"
   >
-    <div>
-      <h2>نام کامل</h2>
-    </div>
     <div><h2 class="border-b-2 border-mainYellow">2022/21/2</h2></div>
     <div>
-      <h2 class="text-black border-b-2 border-mainYellow">
-        <v-icon>mdi-check</v-icon>
-      </h2>
+      <h2>نام کامل</h2>
     </div>
     <div class="p-2 mx-1">
       <DefaultButton
