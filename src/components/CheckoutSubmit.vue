@@ -24,7 +24,7 @@
                 <div class="mx-1">
                   <input
                     v-model="fullName"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                     placeholder="نام کامل"
@@ -33,7 +33,7 @@
                 <div class="mx-1">
                   <input
                     v-model="fullName"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                     placeholder="شهر"
@@ -42,7 +42,7 @@
                 <div class="mx-1">
                   <input
                     v-model="fullName"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                     placeholder="استان"
@@ -51,7 +51,7 @@
                 <div class="mx-1">
                   <input
                     v-model="phoneNumber"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                     placeholder="شماره همراه"
@@ -60,7 +60,7 @@
                 <div class="mx-1">
                   <input
                     v-model="emailAddress"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="email"
                     placeholder="ادرس ایمیل"
@@ -69,7 +69,7 @@
                 <div class="mx-1">
                   <input
                     v-model="fullAddress"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                     placeholder="آدرس کامل"

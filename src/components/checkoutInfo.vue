@@ -1,6 +1,6 @@
 <template>
   <div
-    class="h-full overflow-hidden lg:h-screen mt-20 w-full items-center align-start flex flex-col lg:flex-row-reverse justify-center"
+    class="h-full lg:h-screen w-full items-center flex flex-col lg:flex-row-reverse justify-center"
   >
     <div class="flex flex-col w-full h-full p-4">
 

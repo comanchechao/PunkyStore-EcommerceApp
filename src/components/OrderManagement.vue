@@ -1,90 +1,24 @@
 <template>
-  <div class="flex flex-col p-5 bg-Indigo-200 overflow-hidden">
-    <div class="flex flex-row justify-around w-full">
-      <button class="bg-mainYellow w-28 h-28 shadow-2xl rounded-xl">
-        <v-icon>mdi-card-plus</v-icon>
-        <h2>کالا</h2>
-      </button>
-
-      <button class="bg-mainPink w-28 h-28 shadow-2xl rounded-xl">
-        <v-icon>mdi-card-plus</v-icon>
-        <h2>دسته</h2>
-      </button>
-    </div>
-
-    <div
-      class="flex flex-col align-center h-screen justify-around p-4 text-right w-full"
-    >
-      <Menu as="div" class="text-right">
-        <div>
-          <MenuButton
-            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-pink-500 rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-          >
-            دسته ها
-            <ChevronDownIcon
-              class="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
-              aria-hidden="true"
-            />
-          </MenuButton>
+  <div class="flex bg-Indigo-200 w-full h-full">
+    <div class="w-full h-full p-5">
+      <div
+        class="flex bg-Indigo-200 w-full text-white flex-col justify-center align-center"
+      >
+        <div
+          class="flex w-full lg:w-1/2 h-16 align-center justify-center bg-darkPurple rounded m-4"
+        >
+          <h2>سفارش های ثبت شده</h2>
         </div>
 
-        <transition
-          enter-active-class="transition duration-100 ease-out"
-          enter-from-class="transform scale-95 opacity-0"
-          enter-to-class="transform scale-100 opacity-100"
-          leave-active-class="transition duration-75 ease-in"
-          leave-from-class="transform scale-100 opacity-100"
-          leave-to-class="transform scale-95 opacity-0"
-        >
-          <MenuItems
-            class="right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-          >
-            <div v-for="item in catagories" :key="item.title" class="px-1 py-1">
-              <MenuItem v-slot="{ active }">
-                <button
-                  class="text-right"
-                  :class="[
-                    active ? 'bg-violet-500 text-white' : 'text-gray-900',
-                    'group flex rounded-md items-center w-full px-2 py-2 text-sm',
-                  ]"
-                >
-                  <EditIcon
-                    :active="active"
-                    class="w-5 text-right h-5 mr-2 text-violet-400"
-                    aria-hidden="true"
-                  />
-                  {{ item.title }}
-                </button>
-              </MenuItem>
-            </div>
-          </MenuItems>
-        </transition>
-      </Menu>
-      <div class="mt-10 flex flex-col w-full h-full">
-        <Disclosure v-slot="{ open }">
-          <DisclosureButton
-            class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-black bg-purple-100 rounded-lg hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
-          >
-            <span>نمایش سفارش ها</span>
-            <ChevronUpIcon
-              :class="open ? 'transform rotate-180' : ''"
-              class="w-5 h-5 text-white"
-            />
-          </DisclosureButton>
-          <DisclosurePanel
-            class="p-4 align-center justify-center bg-white divide-y-2 text-sm text-black flex flex-col"
-          >
-            <div
-              v-for="item in products"
-              :key="item.id"
-              class="w-full flex align-center h-12"
-            >
-              <h2>
-                {{ item.title }}
-              </h2>
-            </div>
-          </DisclosurePanel>
-        </Disclosure>
+        <div class="flex flex-col w-full h-full divide-y divide-dashed hover:divide-solid">
+          <CustomerOrder />
+          <CustomerOrder />
+          <CustomerOrder />
+          <CustomerOrder />
+          <CustomerOrder />
+          <CustomerOrder />
+          <CustomerOrder />
+        </div>
       </div>
     </div>
   </div>
@@ -99,6 +33,7 @@ import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { ChevronUpIcon } from "@heroicons/vue/solid";
+import CustomerOrder from "./CustomerOrder.vue";
 
 export default {
   components: {
@@ -111,6 +46,7 @@ export default {
     DisclosureButton,
     DisclosurePanel,
     ChevronUpIcon,
+    CustomerOrder,
   },
   setup() {
     const catagories = ref([]);
