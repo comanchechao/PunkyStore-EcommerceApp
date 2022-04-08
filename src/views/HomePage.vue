@@ -58,9 +58,13 @@
       />
     </transition-group>
     <div
-      class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-800 flex justify-start items-center lg:space-x-20 lg:p-10"
+      class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-900 flex justify-start items-center lg:space-x-20 lg:p-10"
     >
-      <img src="../assets/images/offer.png" class="lg:order-last" alt="" />
+      <img
+        src="../assets/images/offer.png"
+        class="lg:order-last w-72 lg:w-96 mt-6"
+        alt=""
+      />
       <Carousel class="lg:px-10" />
     </div>
     <!-- <div class="w-3/4 h-96 bg-black"> -->
@@ -68,7 +72,7 @@
     <div
       v-for="catagory in catagories"
       :key="catagory.title"
-      class="h-screen w-screen flex flex-col justify-center align-center"
+      class="h-auto w-screen flex flex-col justify-center align-center"
     >
       <CategoryProductList :catagory="catagory" />
     </div>

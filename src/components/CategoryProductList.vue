@@ -1,21 +1,35 @@
 <template>
-  <div class="flex flex-col w-full h-full">
-    <div class="w-full h-24 bg-mainBlue flex justify-between align-center p-7">
+  <div class="flex flex-col w-full h-auto">
+    <div
+      class="w-full h-24 bg-darkPurple flex justify-between align-center p-7"
+    >
       <DefaultButton class="text-white">
-        <v-icon size="x-large">mdi-login-variant</v-icon>
+        <v-icon
+          class="text-5xl transition ease-in duration-200 hover:bg-purple-700 rounded-full"
+          >mdi-arrow-left</v-icon
+        >
       </DefaultButton>
-      <h1 class="text-white text-3xl font-extrabold">{{ catagory.title }}</h1>
+      <h1
+        class="text-white transition ease-in duration-200 hover:bg-purple-700 cursor-pointer text-3xl border-b-8 border-purple-700 flex justify-center items-center rounded-lg filter drop-shadow-lg p-4 font-extrabold"
+      >
+        {{ catagory.title }}
+      </h1>
     </div>
     <div
-      class="w-full h-full py-4 flex flex-col space-y-7 justify-end items-center background"
+      class="w-full h-full py-4 px-4 flex flex-col bg-gray-50 space-y-7 justify-between items-center background"
     >
-      <!-- <ProductCard
-        v-for="product in products"
-        :key="product.id"
-        :product="product"
-      /> -->
+      <DropDown class="self-end mr-8">
+        <template #title> جدیدترین </template>
+
+        <template #secondOption> پربازدیدترین </template>
+
+        <template #thirdOption> گرانترین </template>
+        <template #forthOption> ارزانترین </template>
+      </DropDown>
+      <CategoryProductListCard />
+      <CategoryProductListCard />
       <DefaultButton
-        class="rounded-full font-bold text-white bg-mainBlue text-lg p-4 m-5"
+        class="rounded-full font-bold text-black justify-self-start bg-goldie text-lg px-4 m-5"
         >نمایش کالاهای بیشتر</DefaultButton
       >
     </div>
@@ -23,7 +37,8 @@
 </template>
 
 <script>
-import ProductCard from "./ProductCard.vue";
+import DropDown from "./DropDown.vue";
+import CategoryProductListCard from "./CategoryProductListCard.vue";
 import DefaultButton from "./DefaultButton.vue";
 import { ref } from "@vue/reactivity";
 import { supabase } from "../supabase";
@@ -31,8 +46,9 @@ import { onMounted } from "@vue/runtime-core";
 
 export default {
   components: {
-    ProductCard,
+    CategoryProductListCard,
     DefaultButton,
+    DropDown,
   },
 
   props: ["catagory"],
@@ -63,12 +79,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.background {
-  backdrop-filter: blur(9px) saturate(109%);
-  -webkit-backdrop-filter: blur(9px) saturate(109%);
-  background-color: rgba(255, 255, 255, 0.76);
-  border-radius: 0 0 12px 12px;
-  border: 1px solid rgba(209, 213, 219, 0.3);
-}
-</style>
+<style scoped></style>
