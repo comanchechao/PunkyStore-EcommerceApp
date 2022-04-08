@@ -1,16 +1,20 @@
 <template>
-  <div class="flex flex-row-reverse justify-between w-full h-16 text-gray-900 rounded my-1 border-white align-center">
-    <div  :class="{ 'bg-mainPink' : displayedTab === 'SentOrders'}" class="date bg-mainYellow text-white px-4 py-2 rounded flex">2022/2/2</div>
+  <div
+    class="flex flex-row-reverse justify-between w-full h-16 text-gray-900 rounded my-1 border-white align-center"
+  >
+    <div
+      :class="{ 'bg-mainPink': displayedTab === 'SentOrders' }"
+      class="date bg-mainYellow text-black px-4 py-2 rounded flex"
+    >
+      2022/2/2
+    </div>
     <div class="customerInfo">
       <Menu as="div" class="relative inline-block text-right mr-2">
         <div class="flex w-full flex-row justify-center align-center">
           <MenuButton
-         
             class="inline-flex w-full flex-row-reverse justify-between align-center transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-mainGreen rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
-            <div class="flex">
-                کالا
-            </div>
+            <div class="flex">کالا</div>
             <EyeIcon
               class="w-5 h-5 mr-2 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
@@ -66,7 +70,7 @@
     </div>
 
     <div class="orderInfo">
-        <Menu as="div" class="relative inline-block text-right mr-2">
+      <Menu as="div" class="relative inline-block text-right mr-2">
         <div class="flex flex-row justify-center align-center">
           <MenuButton
             class="inline-flex flex-row-reverse align-center justify-between transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-mainGreen rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
@@ -77,7 +81,6 @@
               aria-hidden="true"
             />
           </MenuButton>
-         
         </div>
 
         <transition
@@ -97,7 +100,7 @@
                     'group flex justify-end items-center w-full px-2 py-2 text-sm',
                   ]"
                 >
-نام کامل: بهمیکس
+                  نام کامل: بهمیکس
                 </DefaultButton>
               </MenuItem>
               <MenuItem v-slot="{ active }">
@@ -107,27 +110,27 @@
                     'group flex justify-end items-right w-full px-2 py-2 text-sm',
                   ]"
                 >
-شهر:دولچکبانا
+                  شهر:دولچکبانا
                 </DefaultButton>
               </MenuItem>
-                 <MenuItem v-slot="{ active }">
+              <MenuItem v-slot="{ active }">
                 <DefaultButton
                   :class="[
                     active ? '' : 'text-gray-900',
                     'group flex justify-end items-right w-full px-2 py-2 text-sm',
                   ]"
                 >
-همراه:0935 599 4849
+                  همراه:0935 599 4849
                 </DefaultButton>
               </MenuItem>
-                 <MenuItem v-slot="{ active }">
+              <MenuItem v-slot="{ active }">
                 <DefaultButton
                   :class="[
                     active ? '' : 'text-gray-900',
                     'group flex justify-end w-full px-2 py-2 text-sm',
                   ]"
                 >
-شهر:دولچکبانا
+                  شهر:دولچکبانا
                 </DefaultButton>
               </MenuItem>
             </div>
@@ -148,16 +151,15 @@
       </Menu>
     </div>
   </div>
-
 </template>
 
 <script>
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { EyeIcon, TrashIcon } from "@heroicons/vue/solid";
 import DefaultButton from "./DefaultButton.vue";
-import { computed, onMounted } from 'vue';
+import { computed, onMounted } from "vue";
 export default {
-    props: ['tab'],
+  props: ["tab"],
   components: {
     Menu,
     MenuButton,
@@ -167,14 +169,14 @@ export default {
     TrashIcon,
     DefaultButton,
   },
-   setup(props) {
+  setup(props) {
     const displayedTab = computed(() => {
       return props.tab;
     });
 
-    onMounted(() =>{
-        console.log(displayedTab.value    )
-    })
+    onMounted(() => {
+      console.log(displayedTab.value);
+    });
 
     return { displayedTab };
   },
