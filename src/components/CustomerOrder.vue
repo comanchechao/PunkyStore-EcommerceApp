@@ -1,15 +1,18 @@
 <template>
-  <div class="flex flex-row-reverse justify-around w-full h-16 bg-darkPurple border-white align-center">
-    <div class="date flex">2022/2/2</div>
+  <div class="flex flex-row-reverse justify-between w-full h-16 text-gray-900 rounded my-1 border-white align-center">
+    <div  :class="{ 'bg-mainPink' : displayedTab === 'SentOrders'}" class="date bg-mainYellow text-white px-4 py-2 rounded flex">2022/2/2</div>
     <div class="customerInfo">
       <Menu as="div" class="relative inline-block text-right mr-2">
-        <div class="flex flex-row justify-center align-center">
+        <div class="flex w-full flex-row justify-center align-center">
           <MenuButton
-            class="inline-flex justify-center transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-yellow-500 rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+         
+            class="inline-flex w-full flex-row-reverse justify-between align-center transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-mainGreen rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
-            کالا ها
+            <div class="flex">
+                کالا
+            </div>
             <EyeIcon
-              class="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
+              class="w-5 h-5 mr-2 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
             />
           </MenuButton>
@@ -19,9 +22,6 @@
           enter-active-class="transition duration-100 ease-out"
           enter-from-class="transform scale-95 opacity-0"
           enter-to-class="transform scale-100 opacity-100"
-          leave-active-class="transition duration-75 ease-in"
-          leave-from-class="transform scale-100 opacity-100"
-          leave-to-class="transform scale-95 opacity-0"
         >
           <MenuItems
             class="absolute text-right z-10 top-0 right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
@@ -69,11 +69,11 @@
         <Menu as="div" class="relative inline-block text-right mr-2">
         <div class="flex flex-row justify-center align-center">
           <MenuButton
-            class="inline-flex justify-center transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-mainGreen rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            class="inline-flex flex-row-reverse align-center justify-between transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-mainGreen rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             اطلاعات ارسال
             <EyeIcon
-              class="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
+              class="w-5 h-5 mr-1 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
             />
           </MenuButton>
@@ -84,12 +84,9 @@
           enter-active-class="transition duration-100 ease-out"
           enter-from-class="transform scale-95 opacity-0"
           enter-to-class="transform scale-100 opacity-100"
-          leave-active-class="transition duration-75 ease-in"
-          leave-from-class="transform scale-100 opacity-100"
-          leave-to-class="transform scale-95 opacity-0"
         >
           <MenuItems
-            class="absolute text-right z-10 top-0 right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="absolute text-right z-10 top-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <div class="px-1 py-1 w-full">
               <MenuItem v-slot="{ active }">
@@ -158,7 +155,9 @@
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { EyeIcon, TrashIcon } from "@heroicons/vue/solid";
 import DefaultButton from "./DefaultButton.vue";
+import { computed, onMounted } from 'vue';
 export default {
+    props: ['tab'],
   components: {
     Menu,
     MenuButton,
@@ -167,6 +166,17 @@ export default {
     EyeIcon,
     TrashIcon,
     DefaultButton,
+  },
+   setup(props) {
+    const displayedTab = computed(() => {
+      return props.tab;
+    });
+
+    onMounted(() =>{
+        console.log(displayedTab.value    )
+    })
+
+    return { displayedTab };
   },
 };
 </script>

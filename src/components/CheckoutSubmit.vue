@@ -18,62 +18,69 @@
               />
             </DisclosureButton>
             <DisclosurePanel
-              class="p-4 align-center justify-center divide-y-2 text-sm text-black flex flex-col"
+              class="p-2 lg:p-5 align-center justify-center divide-y-2 text-sm text-black flex flex-col"
             >
-              <div class="flex flex-col lg:flex-row justify-around p-2">
-                <div class="mx-1">
+              <div class="flex flex-col w-full lg:flex-row justify-around p-2">
+                <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
+                   <label class="w-24 self-center text-right" for="">نام کامل</label>
                   <input
                     v-model="fullName"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
-                    placeholder="نام کامل"
                   />
+                 
                 </div>
-                <div class="mx-1">
+                <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
+                   <label class="w-24 self-center text-right" for="">نام کامل</label>
                   <input
                     v-model="fullName"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
-                    placeholder="شهر"
                   />
+                 
                 </div>
-                <div class="mx-1">
+                <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
+                   <label class="w-24 self-center text-right" for="">نام کامل</label>
                   <input
                     v-model="fullName"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
-                    placeholder="استان"
                   />
+                 
                 </div>
-                <div class="mx-1">
+                <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
+                   <label class="w-24 self-center text-right" for="">نام کامل</label>
                   <input
-                    v-model="phoneNumber"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    v-model="fullName"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
-                    placeholder="شماره همراه"
                   />
+                 
                 </div>
-                <div class="mx-1">
+                 <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
+                   <label class="w-24 self-center text-right" for="">نام کامل</label>
                   <input
-                    v-model="emailAddress"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                    id="inline-full-name"
-                    type="email"
-                    placeholder="ادرس ایمیل"
-                  />
-                </div>
-                <div class="mx-1">
-                  <input
-                    v-model="fullAddress"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-16 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    v-model="fullName"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
-                    placeholder="آدرس کامل"
                   />
+                 
+                </div>
+                
+               <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
+                   <label class="w-24 self-center text-right" for="">نام کامل</label>
+                  <input
+                    v-model="fullName"
+                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    id="inline-full-name"
+                    type="text"
+                  />
+                 
                 </div>
               </div>
               <div class="">

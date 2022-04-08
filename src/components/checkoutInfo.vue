@@ -17,13 +17,13 @@
     <div class="theContainer h-screen w-full">
       <form @submit.prevent="" class="font-mainFont h-screen">
         <div class="flex flex-wrap flex-col justify-center p-5">
-          <div class="bg-mainYellow flex justify-center rounded p-8 text-white">
+          <div class="bg-mainYellow flex justify-center rounded my-2 p-8 text-white">
             <h1>تکمیل اطلاعات</h1>
           </div>
           <div class="">
             <input
               v-model="fullName"
-              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               id="inline-full-name"
               type="text"
               placeholder="نام کامل"
@@ -32,7 +32,7 @@
           <div class="">
             <input
               v-model="phoneNumber"
-              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               id="inline-full-name"
               type="text"
               placeholder="شماره همراه"
@@ -41,7 +41,7 @@
           <div class="">
             <input
               v-model="emailAddress"
-              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               id="inline-full-name"
               type="email"
               placeholder="ادرس ایمیل"
@@ -68,7 +68,7 @@
           <div class="">
             <input
               v-model="fullAddress"
-              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+              class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
               id="inline-full-name"
               type="text"
               placeholder="آدرس کامل"

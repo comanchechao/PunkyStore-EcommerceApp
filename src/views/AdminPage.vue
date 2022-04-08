@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center main w-full h-full bg-pink-200 ">
+  <div class="flex justify-center main w-full h-full bg-pink-200">
     <div class="flex flex-col w-full h-screen mt-20">
       <div class="topBar w-full bg-Indigo-900">
         <div
@@ -11,35 +11,29 @@
           <div class="profileImage w-24 h-24 bg-gray-500 rounded-full"></div>
         </div>
 
-        <div class="flex flex-row justify-around my-2 ">
-          <div class="flex flex-col align-center bg-Indigo-200 text-Indigo-900 rounded w-full mx-1">
-            <h3 class="">سفارشات ثبث شده</h3>
-            <div>
-              2
-            </div>
-          </div>
+      
 
-          <div class="flex flex-col align-center bg-Indigo-200 text-Indigo-900 rounded w-full mx-1">
-            <h3 class="">دریافتی ماه</h3>
-            <div>
-              40
-            </div>
-          </div>
-        </div>
-
-        <div class="componentSwitch w-full flex justify-between align-center">
+        <div
+          class="componentSwitch w-full flex justify-between align-center p-4"
+        >
           <button
             @click="adminManagement = 'OrderManagement'"
-            :class="{ 'bg-pink-500': adminManagement === 'OrderManagement' }"
-            class="bg-Lime-500 w-full h-full text-white py-5 hover:bg-pink-500 transition focus:bg-pink-500 transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+            :class="{ 'bg-green-500': adminManagement === 'OrderManagement' }"
+            class="bg-Sky-500 w-full rounded mx-2 h-full text-white py-5 hover:bg-green-400 transition focus:bg-green-500 transform motion-reduce:transition-none motion-reduce:hover:transform-none"
           >
-            مدیریت سفارش
+            سفارش ها
           </button>
-
+          <button
+            @click="adminManagement = ''"
+            :class="{ 'bg-green-500': adminManagement === 'mountlyReview' }"
+            class="bg-Sky-500 w-full rounded mx-2 h-full text-white py-5 hover:bg-green-400 transition focus:bg-green-500 transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+          >
+            گزارش ماهانه
+          </button>
           <button
             @click="adminManagement = 'ProductManagement'"
-            :class="{ 'bg-pink-500': adminManagement === 'ProductManagement' }"
-            class="bg-Lime-500 w-full h-full text-white py-5 hover:bg-pink-500 active:bg-pink-600 focus:bg-pink-500 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+            :class="{ 'bg-green-500': adminManagement === 'ProductManagement' }"
+            class="bg-Sky-500 w-full rounded mx-2 h-full text-white py-5 hover:bg-green-400 active:bg-pink-600 focus:bg-green-500 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
           >
             مدیریت کالا
           </button>
