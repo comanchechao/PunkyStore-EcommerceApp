@@ -6,7 +6,7 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'NewOrders'"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 rounded text-gray-900 bg-green-200 hover:text-gray-100 transition transform hover:bg-green-600"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-900 bg-green-200 hover:text-gray-100 transition transform hover:bg-green-600"
             >
               سفارش های ثبت شده
             </button>
@@ -14,7 +14,7 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'SentOrders'"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 rounded text-gray-900 bg-green-200 hover:text-gray-100 transition transform hover:bg-green-600"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-900 bg-green-200 hover:text-gray-100 transition transform hover:bg-green-600"
             >
               سفارش های ارسال شده
             </button>
@@ -22,7 +22,7 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'allOrders'"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 rounded text-gray-900 bg-green-200 hover:text-gray-100 transition transform hover:bg-green-600"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-900 bg-green-200 hover:text-gray-100 transition transform hover:bg-green-600"
             >
               تمامی سفارش ها
             </button>

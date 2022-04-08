@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col p-5 bg-Indigo-200 overflow-hidden">
     <div class="flex flex-row justify-around w-full">
-    <Adminastration />
+      <Adminastration />
 
-      <button class="bg-mainGreen w-28 h-28 shadow-2xl rounded-xl">
+      <button class="bg-mainGreen w-28 h-28 shadow-xl rounded-xl">
         <v-icon>mdi-card-plus</v-icon>
         <h2>دسته</h2>
       </button>
@@ -15,7 +15,7 @@
       <Menu as="div" class="text-right">
         <div>
           <MenuButton
-            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-pink-500 rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-50 bg-purple-600 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             دسته ها
             <ChevronDownIcon
@@ -96,7 +96,7 @@ import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { ChevronUpIcon } from "@heroicons/vue/solid";
-import Adminastration from '../components/Adminastration.vue'
+import Adminastration from "../components/Adminastration.vue";
 
 export default {
   components: {

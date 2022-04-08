@@ -14,7 +14,7 @@
           <MenuButton
             class="inline-flex w-full flex-row-reverse justify-between align-center transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-mainGreen rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
-            <div class="flex">کالا</div>
+            <div class="flex text-black text-lg font-black">کالا</div>
             <EyeIcon
               class="w-5 h-5 mr-2 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
@@ -73,13 +73,13 @@
       <Menu as="div" class="relative inline-block text-right mr-2">
         <div class="flex flex-row justify-center align-center">
           <MenuButton
-            class="inline-flex flex-row-reverse align-center justify-between transition ease-in duration-200 w-full px-4 py-2 text-sm font-medium text-white bg-mainGreen rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            class="inline-flex flex-row-reverse text-black text-md font-black align-center justify-between transition ease-in duration-200 w-full px-4 py-2 bg-mainGreen rounded-md hover:bg-Amber-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             اطلاعات ارسال
-            <EyeIcon
+            <!-- <EyeIcon
               class="w-5 h-5 mr-1 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
-            />
+            /> -->
           </MenuButton>
         </div>
 
