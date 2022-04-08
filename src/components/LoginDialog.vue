@@ -40,6 +40,8 @@
           </div>
         </v-card-text>
 
+        <v-alert v-show="loggedIn" dismissible outlined shaped text type="success"></v-alert>
+
         <v-card-actions class="flex flex-col space-y-3 my-2">
           <DefaultButton
             v-show="!loadingLogin"
@@ -61,7 +63,7 @@
             :class="{ disabled: loadingSignUp === true }"
             class="text-lg text-black font-bold rounded-full bg-goldie px-4"
           >
-          ایجاد حساب جدید
+            ایجاد حساب جدید
           </DefaultButton>
           <v-progress-circular
             v-show="loadingSignUp"
@@ -83,8 +85,7 @@ import DefaultButton from "./DefaultButton.vue";
 import { ref, onMounted, computed } from "vue";
 import { supabase } from "../supabase";
 import { store } from "../store.js";
-import { UserManagement} from "../store/UserManagement"
-
+import { UserManagement } from "../store/UserManagement";
 
 export default {
   components: {
@@ -99,7 +100,7 @@ export default {
     const password = ref("");
     const loadingSignUp = ref(false);
     const loadingLogin = ref(false);
-
+    const loggedIn = ref(false);
 
     const createUser = async () => {
       try {
@@ -125,14 +126,14 @@ export default {
           password: password.value,
         });
         if (error) throw error;
-        alert("login successfuly");
-        UserManagement().setUser(user)
+        loggedIn.value = true;
+        UserManagement().setUser(user);
         dialog.value = false;
       } catch (error) {
         alert(error.message);
       } finally {
         loadingLogin.value = false;
-        console.log(UserManagement().user)
+        console.log(UserManagement().user);
       }
     };
 
@@ -144,6 +145,7 @@ export default {
       loadingLogin,
       createUser,
       loginAction,
+      loggedIn
     };
   },
 
