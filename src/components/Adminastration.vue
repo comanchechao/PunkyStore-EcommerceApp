@@ -213,6 +213,7 @@
 
 <script>
 import { ref } from "vue";
+import DefaultButton from '../components/DefaultButton.vue'
 import {
   TransitionRoot,
   TransitionChild,
@@ -224,6 +225,7 @@ import {
 export default {
   components: {
     TransitionRoot,
+    DefaultButton,
     TransitionChild,
     Dialog,
     DialogOverlay,

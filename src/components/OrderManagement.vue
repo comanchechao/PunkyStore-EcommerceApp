@@ -6,7 +6,7 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'NewOrders'"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-900 bg-green-200 hover:text-gray-100 transition transform hover:bg-green-600"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-mainGreen"
             >
               سفارش های ثبت شده
             </button>
@@ -14,15 +14,15 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'SentOrders'"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-900 bg-green-200 hover:text-gray-100 transition transform hover:bg-green-600"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-Amber-500"
             >
               سفارش های ارسال شده
             </button>
           </div>
           <div class="w-full flex justify-center h-full">
             <button
-              @click="tab = 'allOrders'"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-900 bg-green-200 hover:text-gray-100 transition transform hover:bg-green-600"
+              @click="tab = 'AllOrders'"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-green-600"
             >
               تمامی سفارش ها
             </button>
@@ -36,7 +36,7 @@
           as="div"
         >
           <div
-            class="flex flex-col w-full h-full divide-y divide-dashed hover:divide-solid"
+            class="flex flex-col w-full z-50  h-full divide-y divide-dashed "
           >
             <TransitionChild
               as="div"
