@@ -45,18 +45,28 @@
                 class="flex flex-row justify-around text-lg font-medium leading-6 text-white"
               >
                 <button
-                  @click="tab = 'catagory'"
-                  :class="{ 'bg-pink-500': tab === 'catagory' }"
-                  class="w-full bg-mainYellow h-full py-5"
-                >
-                  <h1>کالا</h1>
-                </button>
-                <button
                   @click="tab = 'product'"
                   :class="{ 'bg-pink-500': tab === 'product' }"
-                  class="w-full bg-mainYellow h-full py-5"
+                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-pink-500 active:ring-2"
                 >
-                  <h1>دسته</h1>
+                  <h1
+                    class="active:scale-125 transition"
+                    :class="{ 'scale-150': tab === 'product' }"
+                  >
+                    کالا
+                  </h1>
+                </button>
+                <button
+                  @click="tab = 'catagory'"
+                  :class="{ 'bg-pink-500': tab === 'catagory' }"
+                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-pink-500 active:ring-2"
+                >
+                  <h1
+                    class="active:scale-125 transition"
+                    :class="{ 'scale-150': tab === 'catagory' }"
+                  >
+                    دسته
+                  </h1>
                 </button>
               </DialogTitle>
               <div class="mt-2 p-5">
@@ -71,14 +81,108 @@
                     >
                       <h1>کالا جدید</h1>
                     </div>
-                    <div class="">
-                      <input
-                        v-model="fullName"
-                        class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                        id="inline-full-name"
-                        type="text"
-                        placeholder="نام کامل"
-                      />
+                    <div class="flex flex-row flex-wrap">
+                      <div class="flex justify-center p-5">
+                        <label
+                          for="file"
+                          class="inputLabel w-full h-14 flex flex-col justify-center align-center p-2"
+                        >
+                          <v-icon>mdi-upload</v-icon>
+                          عکس اول
+                        </label>
+                        <input
+                          type="file"
+                          id="file"
+                          aria-label="File browser example"
+                          class="inputfile rounded bg-mainPink"
+                        />
+                      </div>
+                      <div class="flex justify-center p-5">
+                        <label
+                          for="file"
+                          class="inputLabel w-full h-14 flex flex-col justify-center align-center p-2"
+                        >
+                          <v-icon>mdi-upload</v-icon>
+                          عکس دوم
+                        </label>
+                        <input
+                          type="file"
+                          id="file"
+                          aria-label="File browser example"
+                          class="inputfile rounded bg-mainPink"
+                        />
+                      </div>
+                      <div class="flex justify-center p-5">
+                        <label
+                          for="file"
+                          class="inputLabel w-full h-14 flex flex-col justify-center align-center p-2"
+                        >
+                          <v-icon>mdi-upload</v-icon>
+                          عکس سوم
+                        </label>
+                        <input
+                          type="file"
+                          id="file"
+                          aria-label="File browser example"
+                          class="inputfile rounded bg-mainPink"
+                        />
+                      </div>
+                      <div class="flex justify-center p-5">
+                        <label
+                          for="file"
+                          class="inputLabel w-full h-14 flex flex-col justify-center align-center p-2"
+                        >
+                          <v-icon>mdi-upload</v-icon>
+                          عکس چهار
+                        </label>
+                        <input
+                          type="file"
+                          id="file"
+                          aria-label="File browser example"
+                          class="inputfile rounded bg-mainPink"
+                        />
+                      </div>
+                    </div>
+                    <div class="mx-1 flex flex-row justify-around align-center">
+                      <div
+                        class="flex flex-col justify-center align-center content-center items-center"
+                      >
+                        <input
+                          class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                          type="checkbox"
+                          value=""
+                          checked
+                        /><span class="text-gray-700">xl</span>
+                      </div>
+                      <div
+                        class="flex flex-col justify-center align-center content-center items-center"
+                      >
+                        <input
+                          class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                          type="checkbox"
+                          
+                        /><span class="text-gray-700">lg</span>
+                      </div>
+                      <div
+                        class="flex flex-col justify-center align-center content-center items-center"
+                      >
+                        <input
+                          class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                          type="checkbox"
+                          value=""
+                          checked
+                        /><span class="text-gray-700">md</span>
+                      </div>
+                      <div
+                        class="flex flex-col justify-center align-center content-center items-center"
+                      >
+                        <input
+                          class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
+                          type="checkbox"
+                          value=""
+                          checked
+                        /><span class="text-gray-700">sm</span>
+                      </div>
                     </div>
                     <div class="">
                       <input
@@ -98,14 +202,7 @@
                         placeholder="ادرس ایمیل"
                       />
                     </div>
-                    <div class="mx-1">
-                      <input
-                        class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
-                        type="checkbox"
-                        value=""
-                        checked
-                      /><span class="ml-2 text-gray-700">xl</span>
-                    </div>
+                    
                     <div class="mx-1">
                       <input
                         v-model="fullName"
@@ -213,7 +310,7 @@
 
 <script>
 import { ref } from "vue";
-import DefaultButton from '../components/DefaultButton.vue'
+import DefaultButton from "../components/DefaultButton.vue";
 import {
   TransitionRoot,
   TransitionChild,
@@ -234,6 +331,7 @@ export default {
   setup() {
     const tab = ref("product");
     const isOpen = ref(false);
+    const uploading = ref(false);
 
     function closeModal() {
       isOpen.value = false;
@@ -242,7 +340,25 @@ export default {
       isOpen.value = true;
     }
 
-    return { closeModal, openModal, isOpen, tab };
+    return { closeModal, openModal, isOpen, tab, uploading };
   },
 };
 </script>
+
+<style scoped>
+.inputfile {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+.inputLabel {
+  background: linear-gradient(40deg, #00ff00, #eaff00);
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+</style>

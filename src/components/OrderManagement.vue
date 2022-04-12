@@ -6,6 +6,7 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'NewOrders'"
+              :class="{ 'bg-mainGreen': tab === 'NewOrders' }"
               class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-mainGreen"
             >
               سفارش های ثبت شده
@@ -14,6 +15,7 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'SentOrders'"
+              :class="{ 'bg-Amber-500': tab === 'SentOrders' }"
               class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-Amber-500"
             >
               سفارش های ارسال شده
@@ -22,7 +24,8 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'AllOrders'"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-green-600"
+              :class="{ 'bg-blue-600': tab === 'AllOrders' }"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-blue-600"
             >
               تمامی سفارش ها
             </button>
@@ -36,7 +39,7 @@
           as="div"
         >
           <div
-            class="flex flex-col w-full z-50  h-full divide-y divide-dashed "
+            class="flex flex-col w-full z-0 h-96 divide-y divide-dashed overflow-y-scroll"
           >
             <TransitionChild
               as="div"
@@ -47,13 +50,21 @@
               leave-from="opacity-100 scale-100"
               leave-to="transfrom translate-y-80 scale-95"
             >
-              <CustomerOrder />
-              <CustomerOrder />
-              <CustomerOrder />
-              <CustomerOrder />
-              <CustomerOrder />
-              <CustomerOrder />
-              <CustomerOrder />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
             </TransitionChild>
           </div>
         </TransitionRoot>
@@ -75,11 +86,38 @@
               leave-from="opacity-100 scale-100"
               leave-to="transfrom translate-y-80 scale-95"
             >
-              <CustomerOrder :tab="tab" />
-              <CustomerOrder :tab="tab" />
-              <CustomerOrder :tab="tab" />
-              <CustomerOrder :tab="tab" />
-              <CustomerOrder :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+            </TransitionChild>
+          </div>
+        </TransitionRoot>
+
+        <TransitionRoot
+          class="w-full"
+          appear
+          :show="tab === 'AllOrders'"
+          as="div"
+        >
+          <div
+            class="flex flex-col w-full h-full divide-y divide-dashed hover:divide-solid"
+          >
+            <TransitionChild
+              as="div"
+              enter="duration-150 ease-out"
+              enter-from="transfrom -translate-y-24 scale-95"
+              enter-to="opacity-100 scale-100"
+              leave="duration-200 ease-in"
+              leave-from="opacity-100 scale-100"
+              leave-to="transfrom translate-y-80 scale-95"
+            >
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder class="customerOrder" :tab="tab" />
             </TransitionChild>
           </div>
         </TransitionRoot>
@@ -161,4 +199,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>
