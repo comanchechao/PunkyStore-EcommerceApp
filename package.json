@@ -26,7 +26,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.4",
     "@vue/cli-plugin-babel": "5.0.0-beta.7",
-    "@vue/cli-service": "5.0.0-beta.7",
+    "@vue/cli-service": "^5.0.4",
     "@vuetify/vite-plugin": "^1.0.0-alpha.3",
     "autoprefixer": "^10.4.2",
     "init": "^0.1.2",

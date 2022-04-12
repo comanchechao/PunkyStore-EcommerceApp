@@ -16,9 +16,9 @@
       </h1>
     </div>
     <div
-      class="w-full h-full py-4 px-4 flex flex-col bg-gray-50 space-y-7 justify-between items-center background"
+      class="w-full h-full py-4 flex flex-col bg-gray-50 justify-around items-center background"
     >
-      <DropDown class="self-end mr-8">
+      <DropDown class="self-end m-8">
         <template #title> جدیدترین </template>
 
         <template #secondOption> پربازدیدترین </template>
@@ -26,12 +26,22 @@
         <template #thirdOption> گرانترین </template>
         <template #forthOption> ارزانترین </template>
       </DropDown>
-      <CategoryProductListCard />
-      <CategoryProductListCard />
+      <div class="lg:px-8 h-full bg-goldie w-full">
+        <CategoryProductListCard />
+      </div>
+      <div class="lg:px-8 h-full bg-goldie w-full">
+        <CategoryProductListCard />
+      </div>
+
       <DefaultButton
         class="rounded-full font-bold text-black justify-self-start bg-goldie text-lg px-4 m-5"
-        >نمایش کالاهای بیشتر</DefaultButton
       >
+        <v-icon
+          class="text-5xl transition ease-in duration-200 hover:bg-purple-700 rounded-full"
+          >mdi-arrow-left</v-icon
+        >
+        نمایش کالاهای بیشتر
+      </DefaultButton>
     </div>
   </div>
 </template>

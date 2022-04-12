@@ -76,12 +76,18 @@
                 class="h-full w-full p-6 flex flex-col justify-start align-center focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60"
                 :class="{ hidden: bar !== 'menu' }"
               >
-                <DefaultButton class="px-6 rounded-lg">خونه</DefaultButton>
-                <DefaultButton class="px-6 rounded-lg">خرید</DefaultButton>
+                <router-link to="/">
+                  <DefaultButton class="px-6 rounded-lg">خونه</DefaultButton>
+                </router-link>
+                <router-link to="/shop">
+                  <DefaultButton class="px-6 rounded-lg">خرید</DefaultButton>
+                </router-link>
                 <DefaultButton class="px-6 rounded-lg"
                   >درباره ی پانکی مانکی</DefaultButton
                 >
-                <DefaultButton class="px-6 rounded-lg">ادمین</DefaultButton>
+                <router-link to="/admin">
+                  <DefaultButton class="px-6 rounded-lg">ادمین</DefaultButton>
+                </router-link>
               </div>
 
               <div
