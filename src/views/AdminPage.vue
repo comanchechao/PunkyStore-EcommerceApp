@@ -38,7 +38,7 @@
             مدیریت کالا
           </button>
         </div>
-        <div class="w-full h-screen">
+        <div class="w-full h-full">
           <transition @enter="enter" mode="out-in" appear>
             <component class="" :is="adminManagement"></component>
           </transition>
