@@ -15,9 +15,9 @@
             >
               دسته ها
               <ChevronDownIcon
-                class="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
-                aria-hidden="true"
-              />
+              :class="open ? 'transform rotate-180' : ''"
+              class="w-5 h-5 text-white transition transform"
+            />
             </MenuButton>
           </div>
 
@@ -57,14 +57,14 @@
             </MenuItems>
           </transition>
         </Menu>
-        <Disclosure v-slot="{ open }">
+        <Disclosure as="div" class="bg-mainGreen w-1/2 self-center" v-slot="{ open }">
           <DisclosureButton
-            class="flex justify-between w-full px-4 py-2 text-sm font-medium text-left text-black bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+            class="flex justify-center text-center transition w-full px-4 py-2 text-sm font-medium text-left text-black bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
           >
-            <span>نمایش کالا ها</span>
-            <ChevronUpIcon
+            <span class="self-center">نمایش کالا ها</span>
+            <ChevronDownIcon
               :class="open ? 'transform rotate-180' : ''"
-              class="w-5 h-5 text-white"
+              class="w-5 h-5 text-white transition transform"
             />
           </DisclosureButton>
           <DisclosurePanel

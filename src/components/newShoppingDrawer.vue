@@ -14,7 +14,7 @@
   </div>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal">
-      <div class="absolute h-screen right-0 top-0 z-10 overflow-y-auto">
+      <div class="absolute overflow-hidden h-screen right-0 top-0 z-10">
         <div class="max-h-screen text-center">
           <TransitionChild
             as="template"
@@ -46,17 +46,19 @@
             >
               <DialogTitle
                 as="h3"
-                class="text-lg font-mainFont leading-6 text-gray-900"
+                class="text-lg font-mainFont leading-6 text-gray-50"
               >
-                <div class="flex justify-center p-3 mainFont">
-                  <h3 class="text-2xl text-black">خلاصه ی سبد</h3>
+                <div
+                  class="flex h-24 align-center bg-mainPurple justify-center p-3 mainFont"
+                >
+                  <h3 class="text-2xl">خلاصه ی سبد</h3>
                 </div>
               </DialogTitle>
               <div
-                class="p-1 w-full h-3/4 flex flex-col justify-around align-center"
+                class=" w-full h-full flex flex-col justify-around align-center"
               >
                 <div
-                  class="h-full w-full space-y-3 flex flex-col overflow-y-scroll"
+                  class="h-full w-full space-y-1 flex flex-col overflow-y-scroll divide-double divide-zinc-600  divide-y-8"
                 >
                   <ShoppingDrawerItem
                     v-for="item in getCart"
@@ -64,22 +66,31 @@
                     :item="item"
                   />
                 </div>
-              </div>
-              <div
-                class="checkout w-full h-1/4 flex flex-col justify-around align-start p-5 bg-mainBlue"
-              >
-                <div class="flex flex-row space-x-4">
-                  <h1 class="text-xl text-white">{{ cartTotalPrice }} تومان</h1>
-                  <h1 class="text-xl text-white">جمع سبد خرید</h1>
-                </div>
                 <div
-                  class="flex justify-center align-center content-center w-full h-full"
+                  class="checkout w-full h-1/2 flex justify-center align-center bg-mainBlue"
                 >
-                  <router-link to="/checkoutPage">
-                    <DefaultButton @click="drawer = false" class="px-6 text-white bg-mainYellow">
-                      ادامه
-                    </DefaultButton>
-                  </router-link>
+                  <div class=" flex flex-row-reverse w-full h-full space-x-4 justify-around mt-10 align-start">
+                    <div class="mx-1 flex flex-col rounded-full  h-1/3  justify-center w-1/2   align-center transition border-b-2 transform hover:bg-mainYellow ">
+                    
+                      <h1 class="text-xl text-white">
+                        {{ cartTotalPrice }}
+                      </h1>
+                        <h1 class="text-xl text-white">تومان</h1>
+                    </div>
+                   
+                    <div
+                      class="mx-1 flex justify-center align-center content-center  w-1/2   rounded-full transition border-b-2 transform hover:bg-mainYellow   h-1/3 "
+                    >
+                      <router-link to="/checkoutPage">
+                        <DefaultButton
+                          @click="drawer = false"
+                          class="px-6 text-2xl font-bold text-white  w-full h-full"
+                        >
+                          ادامه
+                        </DefaultButton>
+                      </router-link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -121,7 +132,6 @@ export default {
     const manageProducts = productManagent();
     let { getCart, cartTotalAmount, cartTotalPrice, cartItemCount } =
       storeToRefs(manageProducts);
-
 
     return {
       isOpen,
