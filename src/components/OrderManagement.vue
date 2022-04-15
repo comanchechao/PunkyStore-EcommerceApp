@@ -48,20 +48,6 @@
               enter-to="opacity-100 scale-100"
             >
               <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
             </TransitionChild>
           </div>
         </TransitionRoot>
@@ -80,11 +66,7 @@
               enter-from="transfrom -translate-y-24 scale-95"
               enter-to="opacity-100 scale-100"
             >
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
+              <CustomerOrder v-for="order in people2 " :key="order.name" class="customerOrder" :tab="tab" />
             </TransitionChild>
           </div>
         </TransitionRoot>
@@ -104,10 +86,6 @@
               enter-from="transfrom -translate-y-24 scale-95"
               enter-to="opacity-100 scale-100"
             >
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
-              <CustomerOrder class="customerOrder" :tab="tab" />
               <CustomerOrder class="customerOrder" :tab="tab" />
             </TransitionChild>
           </div>
@@ -133,6 +111,16 @@ import {
 } from "@headlessui/vue";
 import { ChevronUpIcon } from "@heroicons/vue/solid";
 import CustomerOrder from "./CustomerOrder.vue";
+
+
+const people2 = [
+  { name: "2xl" },
+  { name: "xl" },
+  { name: "lg" },
+  { name: "md" },
+  { name: "sm" },
+  { name: "xl" },
+];
 
 export default {
   components: {
@@ -185,7 +173,7 @@ export default {
         alert(error.message);
       }
     }
-    return { catagories, products, tab };
+    return { catagories, products, tab , people2 };
   },
 };
 </script>

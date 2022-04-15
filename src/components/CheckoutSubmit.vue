@@ -3,7 +3,7 @@
     <div
       class="h-full justify-start align-center w-full bg-mainY space-y-3 flex flex-col overflow-y-scroll p-5"
     >
-      <div class="flex w-full flex-row justify-center ">
+      <div class="flex w-full flex-row justify-center">
         <form @submit.prevent="" class="font-mainFont w-full h-1/3">
           <Disclosure v-slot="{ open }">
             <DisclosureButton
@@ -21,73 +21,89 @@
               class="p-2 lg:p-5 align-center justify-center divide-y-2 text-sm text-black flex flex-col"
             >
               <div class="flex flex-col w-full lg:flex-row justify-around p-2">
-                <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
-                   <label class="w-24 self-center text-right" for="">نام کامل</label>
+                <div
+                  class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
+                >
+                  <label class="w-24 self-center text-right" for=""
+                    >نام کامل</label
+                  >
                   <input
                     v-model="fullName"
                     class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                   />
-                 
                 </div>
-                <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
-                   <label class="w-24 self-center text-right" for="">نام کامل</label>
+                <div
+                  class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
+                >
+                  <label class="w-24 self-center text-right" for=""
+                    >شماره همراه</label
+                  >
                   <input
-                    v-model="fullName"
+                    v-model="phoneNumber"
                     class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                   />
-                 
                 </div>
-                <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
-                   <label class="w-24 self-center text-right" for="">نام کامل</label>
+                <div
+                  class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
+                >
+                  <label class="w-24 self-center text-right" for=""
+                    >آدرس ایمیل</label
+                  >
                   <input
-                    v-model="fullName"
+                    v-model="emailAddress"
                     class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
-                    type="text"
+                    type="email"
                   />
-                 
                 </div>
-                <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
-                   <label class="w-24 self-center text-right" for="">نام کامل</label>
+                <div
+                  class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
+                >
+                  <label class="w-24 self-center text-right" for="">شهر</label>
                   <input
-                    v-model="fullName"
+                    v-model="city"
                     class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                   />
-                 
                 </div>
-                 <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
-                   <label class="w-24 self-center text-right" for="">نام کامل</label>
+                <div
+                  class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
+                >
+                  <label class="w-24 self-center text-right" for=""
+                    >استان</label
+                  >
                   <input
-                    v-model="fullName"
+                    v-model="province"
                     class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                   />
-                 
                 </div>
-                
-               <div class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white">
-                   <label class="w-24 self-center text-right" for="">نام کامل</label>
+
+                <div
+                  class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
+                >
+                  <label class="w-24 self-center text-right" for=""
+                    >آدرس کامل</label
+                  >
                   <input
-                    v-model="fullName"
+                    v-model="fullAddress"
                     class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                   />
-                 
                 </div>
               </div>
               <div class="">
                 <div class="flex justify-center">
                   <DefaultButton
                     v-show="!loading"
-                    @click="updateProfile"
+                    @click="editInfo"
                     class="disabled px-6 py-4 rounded bg-mainPink text-white cursor-pointer"
                   >
                     ویرایش
@@ -118,7 +134,7 @@
             />
           </DisclosureButton>
           <DisclosurePanel
-            class=" align-center justify-center divide-y-2 text-sm text-black flex flex-col"
+            class="align-center justify-center divide-y-2 text-sm text-black flex flex-col"
           >
             <div
               class="mt-5 max-h-1/2 justify-start align-start w-full space-y-3 flex flex-col overflow-y-scroll px-5"
@@ -155,11 +171,12 @@
 import ShoppingDrawerItem from "./shoppingDrawerItem.vue";
 import DefaultButton from "./DefaultButton.vue";
 import { productManagent } from "../store/productManagment";
+import { orderManagement } from "../store/orderManagement";
 import { storeToRefs } from "pinia";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { ChevronUpIcon } from "@heroicons/vue/solid";
-import { ref } from 'vue-demi';
+import { ref } from "vue";
 
 export default {
   components: {
@@ -173,11 +190,23 @@ export default {
   },
 
   setup() {
-    const loading = ref(false)
+    const loading = ref(false);
     const manageProducts = productManagent();
+    const manageOrders = orderManagement();
+    let { fullName, phoneNumber, emailAddress, city, province, fullAddress } =
+      storeToRefs(manageOrders);
     let { getCart } = storeToRefs(manageProducts);
 
-    return { getCart , loading};
+    return {
+      getCart,
+      loading,
+      fullName,
+      phoneNumber,
+      emailAddress,
+      city,
+      province,
+      fullAddress,
+    };
   },
 };
 </script>

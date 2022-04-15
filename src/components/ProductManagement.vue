@@ -57,7 +57,7 @@
             </MenuItems>
           </transition>
         </Menu>
-        <Disclosure as="div" class="bg-mainGreen w-1/2 self-center" v-slot="{ open }">
+        <Disclosure as="div" class="bg-mainGreen w-full lg:w-1/2 self-center" v-slot="{ open }">
           <DisclosureButton
             class="flex justify-center text-center transition w-full px-4 py-2 text-sm font-medium text-left text-black bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
           >
