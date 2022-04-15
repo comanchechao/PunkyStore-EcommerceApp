@@ -45,11 +45,11 @@
                   >
                     <Tab as="div">
                       <DefaultButton
-                        @click="bar = 'catagories'"
+                        @click="bar = 'categories'"
                         :class="[
                           'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
-                          bar === 'catagories'
+                          bar === 'categories'
                             ? 'bg-mainYellow'
                             : 'text-white hover:bg-darkPurple hover:text-white',
                         ]"
@@ -92,7 +92,7 @@
 
               <div
                 class="h-full w-full p-6 flex flex-col justify-start align-center"
-                :class="{ hidden: bar !== 'catagories' }"
+                :class="{ hidden: bar !== 'categories' }"
               >
                 <DefaultButton class="px-6 rounded-lg">هودی</DefaultButton>
                 <DefaultButton class="px-6 rounded-lg">آکسسوری</DefaultButton>

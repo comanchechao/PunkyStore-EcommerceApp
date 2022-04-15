@@ -21,7 +21,7 @@
           >منو</DefaultButton
         >
         <DefaultButton
-          @click="bar = 'catagories'"
+          @click="bar = 'categories'"
           class="hover:bg-mainYellow px-4 transition ease-in-out duration-300 delay-150 text-2xl"
           >دسته بندی</DefaultButton
         >
@@ -38,7 +38,7 @@
 
       <div
         class="h-full w-full p-6 flex flex-col justify-start align-center"
-        :class="{ hidden: bar !== 'catagories' }"
+        :class="{ hidden: bar !== 'categories' }"
       >
         <DefaultButton class=" ">هودی</DefaultButton>
         <DefaultButton class=" ">آکسسوری</DefaultButton>
@@ -69,5 +69,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

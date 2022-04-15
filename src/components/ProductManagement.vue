@@ -15,9 +15,9 @@
             >
               دسته ها
               <ChevronDownIcon
-              :class="open ? 'transform rotate-180' : ''"
-              class="w-5 h-5 text-white transition transform"
-            />
+                :class="open ? 'transform rotate-180' : ''"
+                class="w-5 h-5 text-white transition transform"
+              />
             </MenuButton>
           </div>
 
@@ -33,7 +33,7 @@
               class="right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             >
               <div
-                v-for="item in catagories"
+                v-for="item in categories"
                 :key="item.title"
                 class="px-1 py-1"
               >
@@ -57,7 +57,11 @@
             </MenuItems>
           </transition>
         </Menu>
-        <Disclosure as="div" class="bg-mainGreen w-full lg:w-1/2 self-center" v-slot="{ open }">
+        <Disclosure
+          as="div"
+          class="bg-mainGreen w-full lg:w-1/2 self-center"
+          v-slot="{ open }"
+        >
           <DisclosureButton
             class="flex justify-center text-center transition w-full px-4 py-2 text-sm font-medium text-left text-black bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
           >
@@ -75,17 +79,19 @@
               :key="item.id"
               class="w-full flex align-round justify-between h-12"
             >
-          <div class="flex flex-row justify-between w-1/2">
+              <div class="flex flex-row justify-between w-1/2">
                 <h2>
-                {{ item.title }}
-              </h2>
-              <h2>
-                {{item.price}}
-              </h2>
-          </div>
+                  {{ item.title }}
+                </h2>
+                <h2>
+                  {{ item.price }}
+                </h2>
+              </div>
               <div class="flex flex-row">
                 <button>
-                  <v-icon class="font-bold text-mainPurple">mdi-circle-edit-outline</v-icon>
+                  <v-icon class="font-bold text-mainPurple"
+                    >mdi-circle-edit-outline</v-icon
+                  >
                 </button>
                 <button>
                   <v-icon class="font-bold text-red-800">mdi-delete</v-icon>
@@ -124,18 +130,18 @@ export default {
     ChevronUpIcon,
   },
   setup() {
-    const catagories = ref([]);
+    const categories = ref([]);
     const products = ref([]);
 
     onMounted(() => {
-      getCatagories();
+      getcategories();
       getProducts();
     });
 
     async function getProducts() {
       try {
         const { data, error } = await supabase.from("products");
-        // .eq("product-category", props.catagory.title);
+        // .eq("product-category", props.category.title);
 
         if (error) throw error;
         products.value = data;
@@ -144,20 +150,20 @@ export default {
       }
     }
 
-    async function getCatagories() {
+    async function getcategories() {
       try {
         const { data, error } = await supabase
           .from("product-category")
           .select("title");
-        // .eq("product-category", props.catagory.title);
+        // .eq("product-category", props.category.title);
 
         if (error) throw error;
-        catagories.value = data;
+        categories.value = data;
       } catch (error) {
         alert(error.message);
       }
     }
-    return { catagories, products };
+    return { categories, products };
   },
 };
 </script>

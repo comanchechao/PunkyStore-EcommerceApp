@@ -66,7 +66,12 @@
               enter-from="transfrom -translate-y-24 scale-95"
               enter-to="opacity-100 scale-100"
             >
-              <CustomerOrder v-for="order in people2 " :key="order.name" class="customerOrder" :tab="tab" />
+              <CustomerOrder
+                v-for="order in people2"
+                :key="order.name"
+                class="customerOrder"
+                :tab="tab"
+              />
             </TransitionChild>
           </div>
         </TransitionRoot>
@@ -112,7 +117,6 @@ import {
 import { ChevronUpIcon } from "@heroicons/vue/solid";
 import CustomerOrder from "./CustomerOrder.vue";
 
-
 const people2 = [
   { name: "2xl" },
   { name: "xl" },
@@ -139,19 +143,19 @@ export default {
     TransitionChild,
   },
   setup() {
-    const catagories = ref([]);
+    const categories = ref([]);
     const products = ref([]);
     const tab = ref("NewOrders");
 
     onMounted(() => {
-      getCatagories();
+      getcategories();
       getProducts();
     });
 
     async function getProducts() {
       try {
         const { data, error } = await supabase.from("products");
-        // .eq("product-category", props.catagory.title);
+        // .eq("product-category", props.category.title);
 
         if (error) throw error;
         products.value = data;
@@ -160,20 +164,20 @@ export default {
       }
     }
 
-    async function getCatagories() {
+    async function getcategories() {
       try {
         const { data, error } = await supabase
           .from("product-category")
           .select("title");
-        // .eq("product-category", props.catagory.title);
+        // .eq("product-category", props.category.title);
 
         if (error) throw error;
-        catagories.value = data;
+        categories.value = data;
       } catch (error) {
         alert(error.message);
       }
     }
-    return { catagories, products, tab , people2 };
+    return { categories, products, tab, people2 };
   },
 };
 </script>

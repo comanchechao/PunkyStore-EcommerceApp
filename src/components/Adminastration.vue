@@ -57,13 +57,13 @@
                   </h1>
                 </button>
                 <button
-                  @click="tab = 'catagory'"
-                  :class="{ 'bg-pink-500': tab === 'catagory' }"
+                  @click="tab = 'category'"
+                  :class="{ 'bg-pink-500': tab === 'category' }"
                   class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-pink-500 active:ring-2"
                 >
                   <h1
                     class="active:scale-125 transition"
-                    :class="{ 'scale-150': tab === 'catagory' }"
+                    :class="{ 'scale-150': tab === 'category' }"
                   >
                     دسته
                   </h1>
@@ -72,7 +72,7 @@
               <div class="">
                 <button
                   type="button"
-                  class="inline-flex w-full justify-center px-4 py-2 text-sm font-medium text-red-900 transition-all bg-red-100 border border-transparent hover:bg-red-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  class="inline-flex w-full justify-center text-lg font-semibold px-4 py-2 hover:text-white font-medium text-red-600 transition-all bg-red-100 border border-transparent hover:bg-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                   @click="closeModal"
                 >
                   <v-icon>mdi-close </v-icon>
@@ -154,7 +154,9 @@
                         />
                       </div>
                     </div>
-                    <div class="mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10">
+                    <div
+                      class="mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
+                    >
                       <div class="m-1">
                         <Switch
                           v-model="sm"
@@ -215,7 +217,7 @@
                           >
                         </Switch>
                       </div>
-                       <div class="m-1">
+                      <div class="m-1">
                         <Switch
                           v-model="xxl"
                           :class="xxl ? 'bg-Sky-200' : 'bg-gray-300'"
@@ -242,7 +244,9 @@
                           <ListboxButton
                             class="relative w-full bg-gray-200 rounded-md shadow-sm pl-3 pr-10 py-2 text-right cursor-pointer focus:outline-none focus:ring-1 focus:ring-mainPurple focus:border-mainPurple sm:text-sm"
                           >
-                            <span class="flex items-center justify-start flex-row-reverse">
+                            <span
+                              class="flex items-center justify-start flex-row-reverse"
+                            >
                               <img
                                 :src="selected.avatar"
                                 alt=""
@@ -374,7 +378,7 @@
                 </form>
 
                 <form
-                  v-show="tab === 'catagory'"
+                  v-show="tab === 'category'"
                   @submit.prevent=""
                   class="font-mainFont h-screen"
                 >
@@ -386,7 +390,7 @@
                     </div>
                     <div class="">
                       <input
-                        v-model="catagoryTitle"
+                        v-model="categoryTitle"
                         class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                         id="inline-full-name"
                         type="text"

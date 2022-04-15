@@ -51,9 +51,9 @@
       @enter="enter"
     >
       <CategoryCards
-        v-for="catagory in catagories"
-        :key="catagory.title"
-        :catagory="catagory"
+        v-for="category in categories"
+        :key="category.title"
+        :category="category"
         class="CategoryCards"
       />
     </transition-group>
@@ -70,11 +70,11 @@
     <!-- <div class="w-3/4 h-96 bg-black"> -->
     <!-- </div> -->
     <div
-      v-for="catagory in catagories"
-      :key="catagory.title"
+      v-for="category in categories"
+      :key="category.title"
       class="h-auto w-screen flex flex-col justify-center align-center"
     >
-      <CategoryProductList :catagory="catagory" />
+      <CategoryProductList :category="category" />
     </div>
     <Footer />
   </div>
@@ -144,7 +144,7 @@ export default {
     },
   },
   setup() {
-    const catagories = ref({});
+    const categories = ref({});
 
     onMounted(() => {
       getProducts();
@@ -156,7 +156,7 @@ export default {
           .from("product-category")
           .select("title");
         if (error) throw error;
-        catagories.value = data;
+        categories.value = data;
       } catch (error) {
         alert(error.message);
       }
@@ -175,7 +175,7 @@ export default {
       });
     };
 
-    return { catagories, beforeEnter, enter };
+    return { categories, beforeEnter, enter };
   },
 };
 </script>

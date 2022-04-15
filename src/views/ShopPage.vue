@@ -45,6 +45,32 @@
         <!-- <ListBox /> -->
       </div>
       <div class="w-full flex items-center space-x-3 justify-end p-2">
+        <Switch
+          v-model="available"
+          :class="available ? 'bg-Sky-400' : 'bg-gray-300'"
+          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        >
+          <span
+            aria-hidden="true"
+            :class="available ? 'translate-x-9' : 'translate-x-0'"
+            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+          >
+          </span>
+        </Switch>
+        <h1 class="font-bold text-lg text-gray-500">کالاهای موجود</h1>
+        <Switch
+          v-model="discount"
+          :class="discount ? 'bg-Sky-400' : 'bg-gray-300'"
+          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        >
+          <span
+            aria-hidden="true"
+            :class="discount ? 'translate-x-9' : 'translate-x-0'"
+            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+          >
+          </span>
+        </Switch>
+        <h1 class="font-bold text-lg text-gray-500">تخفیف دارها</h1>
         <DropDown>
           ><template #title> فیلترها </template>
 
@@ -131,10 +157,12 @@ import ListBox from "../components/ListBox.vue";
 import DropDown from "../components/DropDown.vue";
 import ProductCard from "../components/ProductCard.vue";
 import Footer from "../components/Footer.vue";
-import { ref } from "@vue/reactivity";
+import { ref } from "vue";
 import { supabase } from "../supabase";
 import { onMounted } from "@vue/runtime-core";
 import gsap from "gsap";
+import { Switch } from "@headlessui/vue";
+
 export default {
   data() {
     return {
@@ -143,14 +171,17 @@ export default {
   },
   components: {
     ListBox,
-    // DropDownMenu,
+    Switch,
     DropDown,
     ProductCard,
     Footer,
   },
-  // props: ["catagory"],
+  // props: ["category"],
 
-  setup(props) {
+  setup() {
+    const discount = ref(false);
+    const available = ref(false);
+
     const products = ref([]);
 
     onMounted(() => {
@@ -160,7 +191,7 @@ export default {
     async function getProducts() {
       try {
         const { data, error } = await supabase.from("products").select();
-        // .eq("product-category", props.catagory.title);
+        // .eq("product-category", props.category.title);
 
         if (error) throw error;
         products.value = data;
@@ -182,7 +213,7 @@ export default {
       });
     };
 
-    return { products, beforeEnter, enter };
+    return { products, beforeEnter, enter, discount, available };
   },
 };
 </script>
