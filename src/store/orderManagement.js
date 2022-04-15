@@ -19,12 +19,6 @@ export const orderManagement = defineStore("orders", {
       this.city = city;
       this.province = province;
     },
-    deleteProduct(product) {
-      this.cart = this.cart.filter((item) => {
-        return item.item.id !== product.item.id;
-      });
-      console.log(this.cart);
-    },
   },
 
   getters: {},

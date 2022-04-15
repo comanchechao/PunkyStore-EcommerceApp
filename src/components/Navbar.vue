@@ -7,13 +7,13 @@
       <NewMenuDrawer />
       <router-link to="/shop">
         <DefaultButton class="text-white font-extrabold flex align-center">
-          <h1 class="text-2xl hidden md:flex mr-2">خرید</h1>
+          <h1 class="text-2xl hidden lg:flex mr-2">خرید</h1>
           <v-icon>mdi-shopping</v-icon>
         </DefaultButton>
       </router-link>
       <router-link to="/">
         <DefaultButton class="text-white font-extrabold flex align-center">
-          <h1 class="text-2xl hidden mr-2">خونه</h1>
+          <h1 class="text-2xl hidden mr-2 lg:flex">خونه</h1>
           <v-icon>mdi-home</v-icon>
         </DefaultButton>
       </router-link>
