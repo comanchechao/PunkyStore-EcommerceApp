@@ -49,16 +49,17 @@
           />
         </div>
       </div>
-
-      <DefaultButton
-        class="rounded-full font-bold text-black justify-self-start bg-goldie text-lg px-4 m-5"
-      >
-        <v-icon
-          class="text-5xl transition ease-in duration-200 hover:bg-purple-700 rounded-full"
-          >mdi-arrow-left</v-icon
+      <router-link to="/shop">
+        <DefaultButton
+          class="rounded-full font-bold text-black justify-self-start bg-goldie text-lg px-4 m-5"
         >
-        نمایش کالاهای بیشتر
-      </DefaultButton>
+          <v-icon
+            class="text-5xl transition ease-in duration-200 hover:bg-purple-700 rounded-full"
+            >mdi-arrow-left</v-icon
+          >
+          نمایش کالاهای بیشتر
+        </DefaultButton>
+      </router-link>
     </div>
   </div>
 </template>
