@@ -82,9 +82,12 @@
                 <router-link to="/shop">
                   <DefaultButton class="px-6 rounded-lg">خرید</DefaultButton>
                 </router-link>
-                <DefaultButton class="px-6 rounded-lg"
-                  >درباره ی پانکی مانکی</DefaultButton
-                >
+                <router-link to="/AboutUs">
+                  <DefaultButton class="px-6 rounded-lg"
+                    >درباره ی پانکی مانکی</DefaultButton
+                  >
+                </router-link>
+
                 <router-link to="/admin">
                   <DefaultButton class="px-6 rounded-lg">ادمین</DefaultButton>
                 </router-link>

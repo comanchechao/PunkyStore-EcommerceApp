@@ -3,7 +3,8 @@ import Home from "../views/HomePage.vue";
 import ShopPage from "../views/ShopPage.vue";
 import ProductDetailPage from "../views/ProductDetailPage.vue";
 import CheckoutPage from "../views/CheckoutPage.vue";
-import AdminPage from '../views/AdminPage.vue'
+import AdminPage from "../views/AdminPage.vue";
+import AboutUs from "../views/AboutUs.vue";
 
 const routes = [
   {
@@ -31,11 +32,16 @@ const routes = [
     name: "CheckoutPage",
     component: CheckoutPage,
   },
+  {
+    path: "/AboutUs",
+    name: "AboutUs",
+    component: AboutUs,
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  mode: 'hash',
+  mode: "hash",
   routes,
 });
 
