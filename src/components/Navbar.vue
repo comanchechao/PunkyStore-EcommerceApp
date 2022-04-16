@@ -1,24 +1,36 @@
 <template>
   <div
     id="main"
-    class="w-screen bg-opacity-20 z-10 Navbar h-24 flex fixed lg:px-8 lg:justify-between sm:justify-center align-center text-3xl border-b border-gray-200"
+    class="w-screen bg-opacity-20 z-10 Navbar h-24 flex fixed lg:px-8 lg:justify-between justify-between align-center text-3xl border-b border-gray-200"
   >
     <div class="flex">
       <NewMenuDrawer />
       <router-link to="/shop">
-        <DefaultButton class="text-white font-extrabold flex align-center">
-          <h1 class="text-2xl hidden lg:flex mr-2">خرید</h1>
+        <DefaultButton
+          class="text-white font-extrabold hidden lg:flex align-center"
+        >
+          <h1 class="text-2xl mr-2">خرید</h1>
           <v-icon>mdi-shopping</v-icon>
         </DefaultButton>
       </router-link>
       <router-link to="/">
-        <DefaultButton class="text-white font-extrabold flex align-center">
-          <h1 class="text-2xl hidden mr-2 lg:flex">خونه</h1>
+        <DefaultButton
+          class="text-white font-extrabold hidden lg:flex align-center"
+        >
+          <h1 class="text-2xl mr-2">خونه</h1>
           <v-icon>mdi-home</v-icon>
         </DefaultButton>
       </router-link>
     </div>
-
+    <router-link to="/">
+      <div class="lg:hidden">
+        <img
+          class="transition ease-in duration-200 hover:bg-darkPurple p-3 rounded-lg cursor-pointer"
+          src="../assets/images/SmallPunkyMonkeyLogo.webp"
+          alt=""
+        />
+      </div>
+    </router-link>
     <div class="flex pr-2">
       <router-link to="/admin">
         <DefaultButton class="text-white">
