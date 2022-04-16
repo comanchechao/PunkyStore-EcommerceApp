@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-full h-auto">
+  <div class="flex flex-col w-full">
     <div
       class="w-full h-24 bg-darkPurple flex justify-between align-center p-7"
     >
@@ -16,39 +16,46 @@
       </h1>
     </div>
     <div
-      class="w-full h-full py-4 flex flex-col bg-gray-50 justify-around items-center background"
+      class="w-screen h-screen flex flex-col bg-gray-50 items-center justify-around background"
     >
-      <Switch
-        v-model="enabled"
-        :class="enabled ? 'bg-Sky-200' : 'bg-gray-300'"
-        class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+      <div
+        class="h-24 w-full items-center justify-center lg:justify-end space-x-4 lg:pr-8 px-4 flex"
       >
-        <span
-          aria-hidden="true"
-          :class="enabled ? 'translate-x-9' : 'translate-x-0'"
-          class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+        <Switch
+          v-model="enabled"
+          :class="enabled ? 'bg-pink-600' : 'bg-gray-300'"
+          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
-        </span>
-      </Switch>
-      <h1 class="font-bold text-lg text-gray-500">تخفیف دارها</h1>
-      <DropDown class="self-end m-8">
-        <template #title> جدیدترین </template>
+          <span
+            aria-hidden="true"
+            :class="enabled ? 'translate-x-9' : 'translate-x-0'"
+            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+          >
+          </span>
+        </Switch>
+        <h1 class="font-bold text-lg text-gray-500">تخفیف دارها</h1>
+        <DropDown class=" ">
+          <template #title> جدیدترین </template>
 
-        <template #secondOption> پربازدیدترین </template>
+          <template #secondOption> پربازدیدترین </template>
 
-        <template #thirdOption> گرانترین </template>
-        <template #forthOption> ارزانترین </template>
-      </DropDown>
-      <div class="flex flex-col lg:flex-row">
-        <div class="lg:px-8 h-full bg-goldie w-full">
-          <CategoryProductListCard
-            v-for="product in products"
-            :key="product.id"
-            :product="product"
-            class="flex justify-center items-center"
-          />
-        </div>
+          <template #thirdOption> گرانترین </template>
+          <template #forthOption> ارزانترین </template>
+        </DropDown>
       </div>
+      <div
+        class="w-full h-full grid bg-purple-700 productCard lg:grid-cols-4 space-y-5 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
+      >
+        <!-- <CategoryProductListCard
+          v-for="product in products"
+          :key="product.id"
+          :product="product"
+          class=" "
+        /> -->
+      </div>
+      <!-- <div class="bg-purple-700 grid">
+       
+      </div> -->
       <router-link to="/shop">
         <DefaultButton
           class="rounded-full font-bold text-black justify-self-start bg-goldie text-lg px-4 m-5"
@@ -103,7 +110,7 @@ export default {
         alert(error.message);
       }
     }
-    return { products };
+    return { products, enabled };
   },
 };
 </script>

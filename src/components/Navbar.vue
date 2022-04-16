@@ -1,7 +1,7 @@
 <template>
   <div
     id="main"
-    class="w-screen bg-opacity-20 z-10 Navbar h-20 flex fixed px-2 justify-center lg:justify-around align-center text-3xl border-b border-gray-200"
+    class="w-screen bg-opacity-20 z-10 Navbar h-24 flex fixed lg:px-8 lg:justify-between sm:justify-center align-center text-3xl border-b border-gray-200"
   >
     <div class="flex">
       <NewMenuDrawer />
@@ -19,13 +19,12 @@
       </router-link>
     </div>
 
-    <router-link to="/admin">
-      <DefaultButton class="text-white">
-        <v-icon>mdi-account-cowboy-hat</v-icon>
-      </DefaultButton>
-    </router-link>
-
     <div class="flex pr-2">
+      <router-link to="/admin">
+        <DefaultButton class="text-white">
+          <v-icon>mdi-account-cowboy-hat</v-icon>
+        </DefaultButton>
+      </router-link>
       <div v-show="user"><ProfilePage /></div>
       <div v-show="!user">
         <LoginDialog />

@@ -80,7 +80,7 @@ export default {
   methods: {
     animateMonkey() {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
-      tl.from(".eyes", 1.5, {
+      tl.from(".eyes", 1, {
         ease: "power1.inOut",
         opacity: 0,
         transformOrigin: "50% 100%",
