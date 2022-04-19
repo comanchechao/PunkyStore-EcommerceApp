@@ -1,24 +1,18 @@
 <template>
   <div class="flex flex-col w-screen h-full bg-Sky-500 overflow-hidden">
-    <div class="w-full flex mt-20 justify-center align-center content">
+    <div class="mt-20">
+      <transition @enter="enter" @leave="leave" name="route" appear>
+        <component :is="component"></component>
+      </transition>
+    </div>
+
+    <div v-show="component === 'CheckoutInfo'" class="w-full flex justify-center align-center content">
       <DefaultButton
         class="m-2 px-6 py-4 rounded bg-Cyan-700 text-white"
         @click="component = 'CheckoutSubmit'"
       >
         مرحله بعدی
       </DefaultButton>
-
-      <DefaultButton
-        class="m-2 px-6 py-4 rounded bg-Cyan-700 text-white"
-        @click="component = 'CheckoutInfo'"
-      >
-        مرحله قبلی
-      </DefaultButton>
-    </div>
-    <div class="mb-8">
-      <transition @enter="enter" @leave="leave" name="route" appear>
-        <component :is="component"></component>
-      </transition>
     </div>
   </div>
 </template>
@@ -33,7 +27,7 @@ import CheckoutSubmit from "../components/CheckoutSubmit.vue";
 export default {
   components: { CheckoutInfo, DefaultButton, CheckoutSubmit },
   setup() {
-    const component = ref("CheckoutInfo");
+    const component = ref("CheckoutSubmit");
 
     const enter = (el, done) => {
       const tl = gsap.timeline({

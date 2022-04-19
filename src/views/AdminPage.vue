@@ -33,7 +33,7 @@
           <button
             @click="adminManagement = 'ProductManagement'"
             :class="{ 'bg-green-500': adminManagement === 'ProductManagement' }"
-            class="bg-Sky-500 w-full rounded mx-2 h-full text-white py-5 hover:bg-green-400 active:bg-pink-600 focus:bg-green-500 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+            class="bg-Sky-500 w-full rounded mx-2 h-full text-white py-5 hover:bg-green-400  focus:bg-green-500 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
           >
             مدیریت کالا
           </button>

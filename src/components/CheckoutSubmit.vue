@@ -14,7 +14,7 @@
               </div>
               <ChevronUpIcon
                 :class="open ? 'transform rotate-180' : ''"
-                class="w-5 h-5 text-white"
+                class="w-5 h-5 transition text-white"
               />
             </DisclosureButton>
             <DisclosurePanel
@@ -93,20 +93,27 @@
                   >
                   <input
                     v-model="fullAddress"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none  text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                   />
                 </div>
               </div>
-              <div class="">
-                <div class="flex justify-center">
+              <div class=" flex justiy-around w-full">
+                <div class="mt-5 flex justify-around w-full">
                   <DefaultButton
                     v-show="!loading"
                     @click="editInfo"
                     class="disabled px-6 py-4 rounded bg-mainPink text-white cursor-pointer"
                   >
                     ویرایش
+                  </DefaultButton>
+                      <DefaultButton
+                    v-show="!loading"
+                    @click="editInfo"
+                    class="disabled px-6 py-4 rounded bg-mainYellow text-white cursor-pointer"
+                  >
+                    تایید
                   </DefaultButton>
                   <v-progress-circular
                     v-show="loading"
@@ -130,7 +137,7 @@
             </div>
             <ChevronUpIcon
               :class="open ? 'transform rotate-180' : ''"
-              class="w-5 h-5 text-white"
+              class="w-5 h-5 transition text-white"
             />
           </DisclosureButton>
           <DisclosurePanel

@@ -39,7 +39,7 @@
           as="div"
         >
           <div
-            class="flex flex-col w-full z-0 h-96 divide-y divide-dashed overflow-y-scroll"
+            class="flex bg-Emerald-100 flex-col w-full z-0 h-1/3 divide-y divide-dashed overflow-y-scroll"
           >
             <TransitionChild
               as="div"
@@ -47,7 +47,12 @@
               enter-from="transfrom -translate-y-24 scale-95"
               enter-to="opacity-100 scale-100"
             >
-              <CustomerOrder class="customerOrder" :tab="tab" />
+               <CustomerOrder
+                v-for="order in people2"
+                :key="order.name"
+                class="customerOrder"
+                :tab="tab"
+              />
             </TransitionChild>
           </div>
         </TransitionRoot>
@@ -58,7 +63,7 @@
           as="div"
         >
           <div
-            class="flex flex-col w-full h-full divide-y divide-dashed hover:divide-solid"
+            class="flex bg-Amber-100 p-2 flex-col w-full h-full divide-y divide-dashed hover:divide-solid"
           >
             <TransitionChild
               as="div"
@@ -83,7 +88,7 @@
           as="div"
         >
           <div
-            class="flex flex-col w-full h-full divide-y divide-dashed hover:divide-solid"
+            class="flex flex-col bg-blue-200 h-1/3 w-full h-full divide-y divide-dashed hover:divide-solid"
           >
             <TransitionChild
               as="div"
@@ -91,7 +96,12 @@
               enter-from="transfrom -translate-y-24 scale-95"
               enter-to="opacity-100 scale-100"
             >
-              <CustomerOrder class="customerOrder" :tab="tab" />
+                <CustomerOrder
+                v-for="order in people2"
+                :key="order.name"
+                class="customerOrder"
+                :tab="tab"
+              />
             </TransitionChild>
           </div>
         </TransitionRoot>

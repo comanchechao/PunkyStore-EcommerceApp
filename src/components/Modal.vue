@@ -32,11 +32,11 @@
             leave-to="opacity-0 scale-95"
           >
             <div
-              class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+              class="inline-block bg-blue-200 w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-Sky-600 shadow-xl rounded-2xl"
             >
               <DialogTitle
                 as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
+                class="text-2xl font-bold text-center text-white leading-6 text-gray-900"
               >
                 <slot name="modalTitle"></slot>
               </DialogTitle>
