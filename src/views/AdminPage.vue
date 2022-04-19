@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center main w-full h-full bg-pink-200">
-    <div class="flex flex-col w-full h-screen mt-20">
+  <div class="flex justify-center main w-full h-full bg-Indigo-200">
+    <div class="flex flex-col w-full h-screen mt-24">
       <div class="topBar w-full bg-Indigo-900">
         <div
           class="adminSection p-5 w-full flex flex-row justify-around align-center"
@@ -10,39 +10,34 @@
           </div>
           <div class="profileImage w-24 h-24 bg-gray-500 rounded-full"></div>
         </div>
-
-      
-
-        <div
-          class="componentSwitch w-full flex justify-between align-center p-4"
+      </div>
+      <div class="componentSwitch bg-Indigo-100 my-2 w-11/12 w-full flex self-center rounded justify-between align-center p-4">
+        <button
+          @click="adminManagement = 'OrderManagement'"
+          :class="{ 'bg-green-200': adminManagement === 'OrderManagement' }"
+          class="bg-Indigo-300 w-full rounded mx-2 h-full text-white py-5 hover:bg-Indigo-500 transition focus:bg-Indigo-500 transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         >
-          <button
-            @click="adminManagement = 'OrderManagement'"
-            :class="{ 'bg-green-500': adminManagement === 'OrderManagement' }"
-            class="bg-Sky-500 w-full rounded mx-2 h-full text-white py-5 hover:bg-green-400 transition focus:bg-green-500 transform motion-reduce:transition-none motion-reduce:hover:transform-none"
-          >
-            سفارش ها
-          </button>
-          <button
-            @click="adminManagement = ''"
-            :class="{ 'bg-green-500': adminManagement === 'mountlyReview' }"
-            class="bg-Sky-500 w-full rounded mx-2 h-full text-white py-5 hover:bg-green-400 transition focus:bg-green-500 transform motion-reduce:transition-none motion-reduce:hover:transform-none"
-          >
-            گزارش ماهانه
-          </button>
-          <button
-            @click="adminManagement = 'ProductManagement'"
-            :class="{ 'bg-green-500': adminManagement === 'ProductManagement' }"
-            class="bg-Sky-500 w-full rounded mx-2 h-full text-white py-5 hover:bg-green-400  focus:bg-green-500 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
-          >
-            مدیریت کالا
-          </button>
-        </div>
-        <div class="w-full h-full">
-          <transition @enter="enter" mode="out-in" appear>
-            <component class="" :is="adminManagement"></component>
-          </transition>
-        </div>
+          سفارش ها
+        </button>
+        <button
+          @click="adminManagement = ''"
+          :class="{ 'bg-green-200': adminManagement === 'mountlyReview' }"
+          class="bg-Indigo-300 w-full rounded mx-2 h-full text-white py-5 hover:bg-Indigo-500 transition focus:bg-Indigo-500 transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+        >
+          گزارش ماهانه
+        </button>
+        <button
+          @click="adminManagement = 'ProductManagement'"
+          :class="{ 'bg-green-200': adminManagement === 'ProductManagement' }"
+          class="bg-Indigo-300 w-full rounded mx-2 h-full text-white py-5 hover:bg-Indigo-500 focus:bg-Indigo-500 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+        >
+          مدیریت کالا
+        </button>
+      </div>
+      <div class="w-full h-full">
+        <transition @enter="enter" mode="out-in" appear>
+          <component class="" :is="adminManagement"></component>
+        </transition>
       </div>
     </div>
   </div>
