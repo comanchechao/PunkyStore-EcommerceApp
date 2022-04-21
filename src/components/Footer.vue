@@ -50,13 +50,20 @@
         class="text-center md:text-right flex justify-center items-center flex-col px-6"
       >
         <h1 class="lg:text-4xl text-2xl font-bold md:my-7 text-purple-200">
-          آدرس: اول خیام، دوم خیام، چهارراه ولفولکس، پاساژ لولولند، پانکی مانکی
+          آدرس: ارومیه، خیابان خیام جنوبی، سنگ فرش پاساژ اخوان، زیر زمین، پلاک
+          ۴، بوتیک پانکی مانکی
           <v-icon color="pink">mdi-map-marker</v-icon>
         </h1>
-        <h1 class="lg:text-4xl my-4 text-2xl font-bold md:my-7 text-purple-200">
-          شماره تماس: 0215951656
-          <v-icon color="blue">mdi-phone-in-talk</v-icon>
-        </h1>
+        <div class="flex">
+          <h1
+            class="lg:text-4xl my-4 flex space-x-5 text-2xl justify-start font-bold md:my-7 text-purple-200"
+          >
+            <span> ۰۴۴۳۲۲۵۶۲۱۶ </span>
+            <span> ۰۴۴۳۲۲۵۹۰۰۴ </span>
+            <span> :شماره تماس </span>
+            <v-icon color="blue">mdi-phone-in-talk</v-icon>
+          </h1>
+        </div>
       </div>
     </div>
     <!-- <img
