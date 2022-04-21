@@ -1,105 +1,126 @@
 <template>
   <div class="w-full h-full flex flex-col p-5 bg-Indigo-200">
     <div
-      class="flex flex-col align-center h-screen justify-around p-4 text-right w-full"
+      class="flex flex-col align-center h-full justify-around px-4 text-right w-full"
     >
-      <div class="flex flex-row justify-around align-center w-full h-24">
-        <Adminastration />
-      </div>
+      <div class="flex flex-col justify-start align-around w-full h-full">
+        <div>
+             <Adminastration />
+        </div>
 
-      <div class="mt-10 flex flex-col w-full h-full">
-        <Menu as="div" class="text-right my-2 w-1/2 self-center">
-          <div>
-            <MenuButton
-              class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-50 bg-purple-600 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        <modal>
+          <template #openButton>
+            <button
+              @click="openModal"
+              class="bg-mainGreen w-28 h-28 shadow-2xl rounded-xl"
             >
-              دسته ها
-              <ChevronDownIcon
-                :class="open ? 'transform rotate-180' : ''"
-                class="w-5 h-5 text-white transition transform"
-              />
-            </MenuButton>
-          </div>
+              <v-icon>mdi-card-plus</v-icon>
+              <h2>نمایش کالا</h2>
+            </button>
+          </template>
+          <template #modalTitle> کالا ها </template>
 
-          <transition
-            enter-active-class="transition duration-100 ease-out"
-            enter-from-class="transform scale-95 opacity-0"
-            enter-to-class="transform scale-100 opacity-100"
-            leave-active-class="transition duration-75 ease-in"
-            leave-from-class="transform scale-100 opacity-100"
-            leave-to-class="transform scale-95 opacity-0"
-          >
-            <MenuItems
-              class="right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-            >
-              <div
-                v-for="item in categories"
-                :key="item.title"
-                class="px-1 py-1"
-              >
-                <MenuItem v-slot="{ active }">
-                  <button
-                    class="text-right"
-                    :class="[
-                      active ? 'bg-violet-500 text-white' : 'text-gray-900',
-                      'group flex rounded-md items-center w-full px-2 py-2 text-sm',
-                    ]"
+          <template #modalBody>
+            <div class="mt-10 flex flex-col w-full h-full">
+              <Menu as="div" class="text-right my-2 w-1/2 self-center">
+                <div>
+                  <MenuButton
+                    class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-50 bg-purple-600 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                   >
-                    <EditIcon
-                      :active="active"
-                      class="w-5 text-right h-5 mr-2 text-violet-400"
-                      aria-hidden="true"
+                    دسته ها
+                    <ChevronDownIcon
+                      :class="open ? 'transform rotate-180' : ''"
+                      class="w-5 h-5 text-white transition transform"
                     />
-                    {{ item.title }}
-                  </button>
-                </MenuItem>
-              </div>
-            </MenuItems>
-          </transition>
-        </Menu>
-        <Disclosure
-          as="div"
-          class="bg-mainGreen w-full lg:w-1/2 self-center"
-          v-slot="{ open }"
-        >
-          <DisclosureButton
-            class="flex justify-center text-center transition w-full px-4 py-2 text-sm font-medium text-left text-black bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
-          >
-            <span class="self-center">نمایش کالا ها</span>
-            <ChevronDownIcon
-              :class="open ? 'transform rotate-180' : ''"
-              class="w-5 h-5 text-white transition transform"
-            />
-          </DisclosureButton>
-          <DisclosurePanel
-            class="p-4 align-center justify-center bg-white divide-y-2 text-sm text-black flex flex-col"
-          >
-            <div
-              v-for="item in products"
-              :key="item.id"
-              class="w-full flex align-round justify-between h-12"
-            >
-              <div class="flex flex-row justify-between w-1/2">
-                <h2>
-                  {{ item.title }}
-                </h2>
-                <h2>
-                  {{ item.price }}
-                </h2>
-              </div>
-              <div class="flex flex-row">
-                <button>
-                  <v-icon class="font-bold text-mainPurple"
-                    >mdi-circle-edit-outline</v-icon
+                  </MenuButton>
+                </div>
+
+                <transition
+                  enter-active-class="transition duration-100 ease-out"
+                  enter-from-class="transform scale-95 opacity-0"
+                  enter-to-class="transform scale-100 opacity-100"
+                  leave-active-class="transition duration-75 ease-in"
+                  leave-from-class="transform scale-100 opacity-100"
+                  leave-to-class="transform scale-95 opacity-0"
+                >
+                  <MenuItems
+                    class="right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                   >
-                </button>
-                <button>
-                  <v-icon class="font-bold text-red-800">mdi-delete</v-icon>
-                </button>
-              </div>
+                    <div
+                      v-for="item in categories"
+                      :key="item.title"
+                      class="px-1 py-1"
+                    >
+                      <MenuItem v-slot="{ active }">
+                        <button
+                          class="text-right"
+                          :class="[
+                            active
+                              ? 'bg-violet-500 text-white'
+                              : 'text-gray-900',
+                            'group flex rounded-md items-center w-full px-2 py-2 text-sm',
+                          ]"
+                        >
+                          <EditIcon
+                            :active="active"
+                            class="w-5 text-right h-5 mr-2 text-violet-400"
+                            aria-hidden="true"
+                          />
+                          {{ item.title }}
+                        </button>
+                      </MenuItem>
+                    </div>
+                  </MenuItems>
+                </transition>
+              </Menu>
+              <Disclosure
+                as="div"
+                class="bg-mainGreen w-full lg:w-1/2 self-center"
+                v-slot="{ open }"
+              >
+                <DisclosureButton
+                  class="flex justify-center text-center transition w-full px-4 py-2 text-sm font-medium text-left text-black bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+                >
+                  <span class="self-center">نمایش کالا ها</span>
+                  <ChevronDownIcon
+                    :class="open ? 'transform rotate-180' : ''"
+                    class="w-5 h-5 text-white transition transform"
+                  />
+                </DisclosureButton>
+                <DisclosurePanel
+                  class="p-4 align-center justify-center bg-white divide-y-2 text-sm text-black flex flex-col"
+                >
+                  <div
+                    v-for="item in products"
+                    :key="item.id"
+                    class="w-full flex align-round justify-between h-12"
+                  >
+                    <div class="flex flex-row justify-between w-1/2">
+                      <h2>
+                        {{ item.title }}
+                      </h2>
+                      <h2>
+                        {{ item.price }}
+                      </h2>
+                    </div>
+                    <div class="flex flex-row">
+                      <button>
+                        <v-icon class="font-bold text-mainPurple"
+                          >mdi-circle-edit-outline</v-icon
+                        >
+                      </button>
+                      <button>
+                        <v-icon class="font-bold text-red-800"
+                          >mdi-delete</v-icon
+                        >
+                      </button>
+                    </div>
+                  </div>
+                </DisclosurePanel>
+              </Disclosure>
             </div>
-          </DisclosurePanel>
-        </Disclosure>
+          </template>
+        </modal>
       </div>
     </div>
   </div>
@@ -109,6 +130,7 @@
 import { onMounted } from "vue";
 import { ref } from "vue";
 import { supabase } from "../supabase";
+import modal from "../components/Modal.vue";
 import { storeToRefs } from "pinia";
 import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
@@ -121,6 +143,7 @@ export default {
     Adminastration,
     Menu,
     MenuButton,
+    modal,
     MenuItems,
     MenuItem,
     ChevronDownIcon,

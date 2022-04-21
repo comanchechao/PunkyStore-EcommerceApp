@@ -14,7 +14,7 @@
               </div>
               <ChevronUpIcon
                 :class="open ? 'transform rotate-180' : ''"
-                class="w-5 h-5 text-white"
+                class="w-5 h-5 transition text-white"
               />
             </DisclosureButton>
             <DisclosurePanel
@@ -44,7 +44,7 @@
                     v-model="phoneNumber"
                     class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
-                    type="text"
+                    type="number"
                   />
                 </div>
                 <div
@@ -93,20 +93,27 @@
                   >
                   <input
                     v-model="fullAddress"
-                    class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                   />
                 </div>
               </div>
-              <div class="">
-                <div class="flex justify-center">
+              <div class="flex justiy-around w-full">
+                <div class="mt-5 flex justify-around w-full">
                   <DefaultButton
                     v-show="!loading"
                     @click="editInfo"
                     class="disabled px-6 py-4 rounded bg-mainPink text-white cursor-pointer"
                   >
                     ویرایش
+                  </DefaultButton>
+                  <DefaultButton
+                    v-show="!loading"
+                    @click="editInfo"
+                    class="disabled px-6 py-4 rounded bg-mainYellow text-white cursor-pointer"
+                  >
+                    تایید
                   </DefaultButton>
                   <v-progress-circular
                     v-show="loading"
@@ -130,7 +137,7 @@
             </div>
             <ChevronUpIcon
               :class="open ? 'transform rotate-180' : ''"
-              class="w-5 h-5 text-white"
+              class="w-5 h-5 transition text-white"
             />
           </DisclosureButton>
           <DisclosurePanel
@@ -150,14 +157,14 @@
         <div class="w-full flex justify-center align-center">
           <DefaultButton
             class="m-2 px-6 py-4 rounded bg-mainYellow text-white"
-            @click="component = 'CheckoutSubmit'"
+            @click="orderItemSubmit"
           >
             اضافه به لیست انتظار
           </DefaultButton>
 
           <DefaultButton
             class="m-2 px-6 py-4 rounded bg-mainGreen text-white"
-            @click="component = 'CheckoutInfo'"
+            @click="orderDetailSubmit"
           >
             ادامه به درگاه پرداخت
           </DefaultButton>
@@ -172,11 +179,13 @@ import ShoppingDrawerItem from "./shoppingDrawerItem.vue";
 import DefaultButton from "./DefaultButton.vue";
 import { productManagent } from "../store/productManagment";
 import { orderManagement } from "../store/orderManagement";
+import { UserManagement } from "../store/UserManagement";
 import { storeToRefs } from "pinia";
 import { ChevronDownIcon } from "@heroicons/vue/solid";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { ChevronUpIcon } from "@heroicons/vue/solid";
 import { ref } from "vue";
+import { supabase } from "../supabase";
 
 export default {
   components: {
@@ -190,12 +199,70 @@ export default {
   },
 
   setup() {
+    const manageUser = UserManagement();
+    let { user } = storeToRefs(manageUser);
     const loading = ref(false);
     const manageProducts = productManagent();
     const manageOrders = orderManagement();
-    let { fullName, phoneNumber, emailAddress, city, province, fullAddress } =
-      storeToRefs(manageOrders);
-    let { getCart } = storeToRefs(manageProducts);
+    const fullName = ref("");
+    const phoneNumber = ref();
+    const fullAddress = ref("");
+    const emailAddress = ref("");
+    const city = ref("");
+    const province = ref("");
+    let cartItems = ref([])
+    let orderDetailId = ref()
+    let { getCart, cartTotalPrice } = storeToRefs(manageProducts);
+
+
+    const orderDetailSubmit = async function () {
+      if (user) {
+        try {
+          const { data, error } = await supabase.from("order_detail").insert([
+            {
+              user_id: user.value.id,
+              email_address: emailAddress.value,
+              fullname: fullName.value,
+              phone_number: phoneNumber.value,
+              province: province.value,
+              city: city.value,
+              full_address: fullAddress.value,
+            },
+          ]);
+
+          if (error) throw error;
+          console.log(data);
+          alert("orderDetailAdded to database")
+          orderDetailId.value = data[0].id
+        } catch (error) {
+            alert(error.error_description || error.message)
+        } finally{
+          orderItemSubmit()
+        }
+      }
+    };
+
+    const orderItemSubmit = async function () {
+      if (user) {
+      
+        console.log(orderDetailId.value)
+        try {
+          const { data, error } = await supabase.from("order_items").insert([
+            {
+              order_detail_id: orderDetailId.value,
+              // latter on add the gas fee as well !!!!!IMPORTANTEEEE!!!!!!!!!!
+              order_total_price: cartTotalPrice.value,
+              cart_items: [ getCart.value ]
+            },
+          ]);
+
+          if (error) throw error;
+          console.log(data);
+        } catch (error) {
+            alert(error.error_description || error.message)
+        }
+      }
+    };
 
     return {
       getCart,
@@ -206,6 +273,8 @@ export default {
       city,
       province,
       fullAddress,
+      orderDetailSubmit,
+      orderItemSubmit
     };
   },
 };
