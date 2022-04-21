@@ -210,8 +210,10 @@ export default {
     const emailAddress = ref("");
     const city = ref("");
     const province = ref("");
-    let orderDetailId = ref('')
-    let { getCart } = storeToRefs(manageProducts);
+    let cartItems = ref([])
+    let orderDetailId = ref()
+    let { getCart, cartTotalPrice } = storeToRefs(manageProducts);
+
 
     const orderDetailSubmit = async function () {
       if (user) {
@@ -230,6 +232,8 @@ export default {
 
           if (error) throw error;
           console.log(data);
+          alert("orderDetailAdded to database")
+          orderDetailId.value = data[0].id
         } catch (error) {
             alert(error.error_description || error.message)
         } finally{
@@ -238,14 +242,17 @@ export default {
       }
     };
 
-    const orderItemSubmit = async function (orderDetailId) {
+    const orderItemSubmit = async function () {
       if (user) {
-        console.log(getCart)
+      
+        console.log(orderDetailId.value)
         try {
           const { data, error } = await supabase.from("order_items").insert([
             {
-              order_detail_id: orderDetailId,
-              cart_items: [ ]
+              order_detail_id: orderDetailId.value,
+              // latter on add the gas fee as well !!!!!IMPORTANTEEEE!!!!!!!!!!
+              order_total_price: cartTotalPrice.value,
+              cart_items: [ getCart.value ]
             },
           ]);
 
