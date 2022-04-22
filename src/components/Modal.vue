@@ -1,6 +1,6 @@
 <template>
   <div @click="openModal" class="">
-      <slot name="openButton"></slot>
+    <slot name="openButton"></slot>
   </div>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog disablePortal as="div" @close="closeModal">
@@ -41,7 +41,7 @@
                 <slot name="modalTitle"></slot>
               </DialogTitle>
               <div class="mt-2">
-                  <slot name="modalBody"></slot>
+                <slot name="modalBody"></slot>
               </div>
 
               <div class="mt-4">
@@ -50,7 +50,7 @@
                   class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                   @click="closeModal"
                 >
-                  Got it, thanks!
+                  تایید
                 </button>
               </div>
             </div>
