@@ -7,7 +7,7 @@
         <form @submit.prevent="" class="font-mainFont w-full h-1/3">
           <Disclosure v-slot="{ open }">
             <DisclosureButton
-              class="flex max-h-16 text-white mt-6 justify-center align-center w-full px-4 py-8 text-sm font-medium text-left text-black bg-mainGreen rounded-lg focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+              class="flex max-h-16 mt-6 justify-center font-black align-center w-full px-4 py-8 text-sm font-medium text-left text-black bg-green-800 rounded-lg focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
             >
               <div class="flex w-full justify-center rounded text-white">
                 <h1>اطلاعات ارسال</h1>
@@ -156,14 +156,14 @@
         </Disclosure>
         <div class="w-full flex justify-center align-center">
           <DefaultButton
-            class="m-2 px-6 py-4 rounded bg-mainYellow text-white"
+            class="m-2 px-6 py-4 rounded bg-goldie text-white"
             @click="orderItemSubmit"
           >
             اضافه به لیست انتظار
           </DefaultButton>
 
           <DefaultButton
-            class="m-2 px-6 py-4 rounded bg-mainGreen text-white"
+            class="m-2 px-6 py-4 rounded bg-Indigo-700 text-white"
             @click="orderDetailSubmit"
           >
             ادامه به درگاه پرداخت
@@ -210,10 +210,9 @@ export default {
     const emailAddress = ref("");
     const city = ref("");
     const province = ref("");
-    let cartItems = ref([])
-    let orderDetailId = ref()
+    let cartItems = ref([]);
+    let orderDetailId = ref();
     let { getCart, cartTotalPrice } = storeToRefs(manageProducts);
-
 
     const orderDetailSubmit = async function () {
       if (user) {
@@ -232,34 +231,33 @@ export default {
 
           if (error) throw error;
           console.log(data);
-          alert("orderDetailAdded to database")
-          orderDetailId.value = data[0].id
+          alert("orderDetailAdded to database");
+          orderDetailId.value = data[0].id;
         } catch (error) {
-            alert(error.error_description || error.message)
-        } finally{
-          orderItemSubmit()
+          alert(error.error_description || error.message);
+        } finally {
+          orderItemSubmit();
         }
       }
     };
 
     const orderItemSubmit = async function () {
       if (user) {
-      
-        console.log(orderDetailId.value)
+        console.log(orderDetailId.value);
         try {
           const { data, error } = await supabase.from("order_items").insert([
             {
               order_detail_id: orderDetailId.value,
               // latter on add the gas fee as well !!!!!IMPORTANTEEEE!!!!!!!!!!
               order_total_price: cartTotalPrice.value,
-              cart_items: [ getCart.value ]
+              cart_items: [getCart.value],
             },
           ]);
 
           if (error) throw error;
           console.log(data);
         } catch (error) {
-            alert(error.error_description || error.message)
+          alert(error.error_description || error.message);
         }
       }
     };
@@ -274,7 +272,7 @@ export default {
       province,
       fullAddress,
       orderDetailSubmit,
-      orderItemSubmit
+      orderItemSubmit,
     };
   },
 };

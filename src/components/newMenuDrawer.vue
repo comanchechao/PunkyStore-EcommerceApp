@@ -77,19 +77,26 @@
                 :class="{ hidden: bar !== 'menu' }"
               >
                 <router-link to="/">
-                  <DefaultButton class="px-6 rounded-lg">خونه</DefaultButton>
+                  <DefaultButton
+                    class="px-6 rounded-lg text-2xl shadow-2xl border-2 border-blue-900"
+                    >خونه</DefaultButton
+                  >
                 </router-link>
                 <router-link to="/shop">
-                  <DefaultButton class="px-6 rounded-lg">خرید</DefaultButton>
+                  <DefaultButton class="px-6 rounded-lg text-2xl shadow-2xl"
+                    >خرید</DefaultButton
+                  >
                 </router-link>
                 <router-link to="/AboutUs">
-                  <DefaultButton class="px-6 rounded-lg"
+                  <DefaultButton class="px-6 rounded-lg text-2xl shadow-2xl"
                     >درباره ی پانکی مانکی</DefaultButton
                   >
                 </router-link>
 
                 <router-link to="/admin">
-                  <DefaultButton class="px-6 rounded-lg">ادمین</DefaultButton>
+                  <DefaultButton class="px-6 rounded-lg text-2xl shadow-2xl"
+                    >ادمین</DefaultButton
+                  >
                 </router-link>
               </div>
 

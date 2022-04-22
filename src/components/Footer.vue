@@ -20,9 +20,11 @@
       با ما در تماس باشین
     </h1>
     <div
-      class="space-y-9 flex justify-center flex-col items-center w-screen md:h-72 h-96 bg-darkPurple py-8"
+      class="flex space-y-4 justify-center flex-col items-center w-screen md:h-72 h-96 bg-darkPurple"
     >
-      <div class="flex lg:space-x-6 space-x-1 sm:px-6">
+      <div
+        class="flex w-screen justify-center items-center lg:space-x-6 space-x-1"
+      >
         <img
           class="filter drop-shadow-2xl cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
           src="../assets/images/mapIcon.webp"
@@ -46,24 +48,21 @@
           alt=""
         />
       </div>
-      <div
-        class="text-center md:text-right flex justify-center items-center flex-col px-6"
-      >
-        <h1 class="lg:text-4xl text-2xl font-bold md:my-7 text-purple-200">
+      <div class="text-center flex justify-center items-center px-5 flex-col">
+        <h1 class="lg:text-4xl flex text-xl font-bold text-purple-200">
           آدرس: ارومیه، خیابان خیام جنوبی، سنگ فرش پاساژ اخوان، زیر زمین، پلاک
           ۴، بوتیک پانکی مانکی
           <v-icon color="pink">mdi-map-marker</v-icon>
         </h1>
-        <div class="flex">
-          <h1
-            class="lg:text-4xl my-4 flex space-x-5 text-2xl justify-start font-bold md:my-7 text-purple-200"
-          >
-            <span> ۰۴۴۳۲۲۵۶۲۱۶ </span>
-            <span> ۰۴۴۳۲۲۵۹۰۰۴ </span>
-            <span> :شماره تماس </span>
-            <v-icon color="blue">mdi-phone-in-talk</v-icon>
-          </h1>
-        </div>
+        <h1
+          class="lg:text-4xl flex lg:flex-row-reverse flex-col space-x-5 lg:space-x-7 text-xl justify-start text-left items-center font-bold text-purple-200"
+        >
+          <span class="lg:ml-4">
+            :شماره تماس <v-icon color="blue">mdi-phone-in-talk</v-icon>
+          </span>
+          <span>۰۴۴۳۲۲۵۶۲۱۶</span>
+          <span>۰۴۴۳۲۲۵۹۰۰۴</span>
+        </h1>
       </div>
     </div>
     <!-- <img
