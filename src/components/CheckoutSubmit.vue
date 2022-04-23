@@ -20,7 +20,7 @@
             <DisclosurePanel
               class="p-2 lg:p-5 align-center justify-center divide-y-2 text-sm text-black flex flex-col"
             >
-              <div class="flex flex-col w-full lg:flex-row justify-around p-2">
+              <div class="flex flex-col w-full lg:flex-row-reverse justify-around p-2">
                 <div
                   class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
                 >

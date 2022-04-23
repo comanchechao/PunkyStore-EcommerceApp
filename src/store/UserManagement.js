@@ -18,4 +18,7 @@ export const UserManagement = defineStore("user", {
       return this.user;
     },
   },
+  persist: {
+    enabled: true,
+  },
 });

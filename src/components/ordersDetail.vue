@@ -10,7 +10,7 @@
           'border-b-4 border-mainYellow': display === 'waitList',
         }"
       >
-        در انتظار 
+        در انتظار
       </DefaultButton>
       <DefaultButton
         @click="display = 'processing'"
@@ -37,13 +37,12 @@
       :class="{ hidden: display !== 'delivered' }"
       class="deliveredContainer max-h-96 overflow-y-scroll"
     >
-      <OrderCard :display="display"/>
-      <OrderCard :display="display"/>
-      <OrderCard :display="display"/>
-      <OrderCard :display="display"/>
-      <OrderCard :display="display"/>
-      <OrderCard :display="display"/>
-      <OrderCard :display="display"/>
+      <!-- <OrderCard
+        v-for="order in allOrders"
+        :order="order"
+        :key="order.id"
+        :display="display"
+      /> -->
     </div>
 
     <!-- wait list container change by click from barContainer  -->
@@ -51,7 +50,7 @@
       :class="{ hidden: display !== 'waitList' }"
       class="waitListContainer h-full"
     >
-      <OrderCard :display="display"/>
+    
     </div>
 
     <!-- processing orders container change by click from barContainer  -->
@@ -60,21 +59,57 @@
       :class="{ hidden: display !== 'processing' }"
       class="processingContainer h-full"
     >
-      <OrderCard :display="display"/>
+      <OrderCard
+        v-for="order in allOrders"
+        :order="order"
+        :key="order.id"
+        :display="display"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import { ref, onMounted } from "vue";
 import DefaultButton from "./DefaultButton.vue";
 import OrderCard from "./orderCard.vue";
+import { supabase } from "../supabase";
 
 export default {
   setup() {
     const display = ref("processing");
+    const allOrders = ref();
+    const user = ref(null);
 
-    return { display };
+    onMounted(() => {
+      userOrders();
+      console.log(allOrders.value);
+    });
+
+    async function userOrders() {
+      try {
+        user.value = supabase.auth.user();
+
+        let { data, error, status } = await supabase
+          .from("order_detail")
+          .select()
+          .eq("user_id", user.value.id);
+
+        if (error && status !== 406) throw error;
+
+        if (data) {
+          console.log(data);
+          allOrders.value = data;
+          alert("orders fetched");
+        }
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        loading.value = false;
+      }
+    }
+
+    return { display, allOrders };
   },
   components: { DefaultButton, OrderCard },
 };
