@@ -50,7 +50,7 @@
                           'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
                           bar === 'categories'
-                            ? 'bg-mainYellow'
+                            ? 'bg-mainPink'
                             : 'text-white hover:bg-darkPurple hover:text-white',
                         ]"
                       >
@@ -62,7 +62,7 @@
                           'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
                           bar === 'menu'
-                            ? 'bg-mainYellow text-gray-800 shadow'
+                            ? 'bg-mainPink text-black shadow'
                             : 'text-gray-800 hover:bg-darkPurple hover:text-white',
                         ]"
                       >
@@ -77,8 +77,7 @@
                 :class="{ hidden: bar !== 'menu' }"
               >
                 <router-link to="/">
-                  <DefaultButton
-                    class="px-6 rounded-lg text-2xl shadow-2xl border-2 border-blue-900"
+                  <DefaultButton class="px-6 rounded-lg text-2xl shadow-2xl"
                     >خونه</DefaultButton
                   >
                 </router-link>

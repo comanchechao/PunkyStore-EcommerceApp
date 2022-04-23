@@ -183,14 +183,26 @@ export default {
     const available = ref(false);
 
     const products = ref([]);
+    const getPagination = (page, size) => {
+      const limit = size ? +size : 3;
+      const from = page ? page * limit : 0;
+      const to = page ? from + size - 1 : size - 1;
 
+      return { from, to };
+    };
     onMounted(() => {
       getProducts();
     });
 
-    async function getProducts() {
+    async function getProducts(page) {
       try {
-        const { data, error } = await supabase.from("products").select();
+        const { from, to } = getPagination(page, 4);
+
+        const { data, error } = await supabase
+          .from("products")
+          .select()
+          .order("price", { ascending: false })
+          .range(from, to);
         // .eq("product-category", props.category.title);
 
         if (error) throw error;

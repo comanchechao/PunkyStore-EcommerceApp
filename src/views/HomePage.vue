@@ -22,13 +22,13 @@
         />
 
         <img
-          class="absolute PunkyHighlights"
-          src="../assets/images/MonkeyHighlights.webp"
+          class="absolute MonkeyColor"
+          src="../assets/images/MonkeyColors.webp"
           alt=""
         />
         <img
-          class="absolute MonkeyColor"
-          src="../assets/images/MonkeyColors.webp"
+          class="absolute PunkyHighlights"
+          src="../assets/images/MonkeyHighlights.webp"
           alt=""
         />
         <img
