@@ -4,14 +4,10 @@
       class="flex flex-row-reverse justify-around w-full h-16 text-gray-900 border-b-2 hover:bg-Sky-100 hover:border-b-4 transition transform p-1 rounded my-1 border-white align-center"
     >
       <DisclosureButton>
-          <DisclosureButton>
-
-            بازکن
-            <ChevronDownIcon
-              :class="open ? 'transform rotate-180' : ''"
-              class="w-5 h-5 transition text-black"
-            />
-          </DisclosureButton>
+        <ChevronDownIcon
+          :class="open ? 'transform rotate-180' : ''"
+          class="w-5 h-5 transition text-black"
+        />
       </DisclosureButton>
 
       <div
@@ -20,7 +16,7 @@
         2022/2/2
       </div>
       <div
-        class=" w-32 flex-col text-center text-black text-lg font-black align-center justify-center transition ease-in duration-200 w-full py-2 bg-mainGreen rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        class="w-32 flex-col text-center text-black text-lg font-black align-center justify-center transition ease-in duration-200 w-full py-2 bg-mainGreen rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
         <h1
           class="self-center align-center transition ease-in duration-200 hover:text-white"
@@ -52,8 +48,16 @@
         </div>
       </div>
     </div>
+    
     <DisclosurePanel>
-      {{order}}
+     <div class="flex border-b-2 border-Amber-400 justify-center w-full transform transition bg-Sky-100 py-5 h-full">
+       <div class="flex w-full justify-around">
+         <h2 class="border-b-2  transition">{{ order.email_address}}</h2>
+           <h2 class="border-b-2  transition">{{ order.province}}</h2>
+             <h2 class="border-b-2  transition">{{ order.full_address}}</h2>
+               <h2 class="border-b-2  transition">{{ order.email_address}}</h2>
+       </div>
+     </div>
     </DisclosurePanel>
   </Disclosure>
 </template>
@@ -73,7 +77,7 @@ export default {
     Disclosure,
     DisclosureButton,
     DisclosurePanel,
-    ChevronDownIcon
+    ChevronDownIcon,
   },
   setup(props) {
     const displayName = computed(() => {

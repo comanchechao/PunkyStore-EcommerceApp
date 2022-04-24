@@ -46,8 +46,8 @@
               >
                 <button
                   @click="tab = 'product'"
-                  :class="{ 'bg-pink-500': tab === 'product' }"
-                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-pink-500 active:ring-2"
+                  :class="{ 'bg-pink-500 w-1/2': tab === 'product' }"
+                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-yellow-300 active:ring-2"
                 >
                   <h1
                     class="active:scale-125 transition"
@@ -58,14 +58,14 @@
                 </button>
                 <button
                   @click="tab = 'category'"
-                  :class="{ 'bg-pink-500': tab === 'category' }"
-                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-pink-500 active:ring-2"
+                  :class="{ 'bg-pink-500 w-1/2': tab === 'category' }"
+                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-yellow-300 active:ring-2"
                 >
                   <h1
                     class="active:scale-125 transition"
                     :class="{ 'scale-150': tab === 'category' }"
                   >
-                    دسته
+                   هوم
                   </h1>
                 </button>
               </DialogTitle>

@@ -3,33 +3,60 @@
     <div
       class="barContainer h-20 text-white px-3 flex flex-row my-2 w-full items-center align-start content-center justify-between border-b-2 border-mainYellow"
     >
-      <DefaultButton
-        @click="display = 'waitList'"
-        class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
-        :class="{
-          'border-b-4 border-mainYellow': display === 'waitList',
-        }"
-      >
-        در انتظار
-      </DefaultButton>
-      <DefaultButton
-        @click="display = 'processing'"
-        class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
-        :class="{
-          'border-b-4 border-mainYellow': display === 'processing',
-        }"
-      >
-        درحال پردازش
-      </DefaultButton>
-      <DefaultButton
-        @click="display = 'delivered'"
-        class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
-        :class="{
-          'border-b-4 border-mainYellow': display === 'delivered',
-        }"
-      >
-        دریافت شده
-      </DefaultButton>
+      <div>
+        <DefaultButton
+        v-show="!loading"
+          @click="display = 'waitList'"
+          class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+          :class="{
+            'border-b-4 border-mainYellow': display === 'waitList',
+          }"
+        >
+          در انتظار
+        </DefaultButton>
+          <v-progress-circular
+          v-show="loading"
+          :size="50"
+          color="amber"
+          indeterminate
+        ></v-progress-circular>
+      </div>
+      <div>
+        <DefaultButton
+        v-show="!loading"
+          @click="display = 'processing'"
+          class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+          :class="{
+            'border-b-4 border-mainYellow': display === 'processing',
+          }"
+        >
+          درحال پردازش
+        </DefaultButton>
+          <v-progress-circular
+          v-show="loading"
+          :size="50"
+          color="amber"
+          indeterminate
+        ></v-progress-circular>
+      </div>
+      <div>
+        <DefaultButton
+        v-show="!loading"
+          @click="display = 'delivered'"
+          class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+          :class="{
+            'border-b-4 border-mainYellow': display === 'delivered',
+          }"
+        >
+          دریافت شده
+        </DefaultButton>
+          <v-progress-circular
+          v-show="loading"
+          :size="50"
+          color="amber"
+          indeterminate
+        ></v-progress-circular>
+      </div>
     </div>
 
     <!-- delivered orders container change by click from barContainer  -->
@@ -49,9 +76,7 @@
     <div
       :class="{ hidden: display !== 'waitList' }"
       class="waitListContainer h-full"
-    >
-    
-    </div>
+    ></div>
 
     <!-- processing orders container change by click from barContainer  -->
 
@@ -80,6 +105,7 @@ export default {
     const display = ref("processing");
     const allOrders = ref();
     const user = ref(null);
+    const loading = ref(false)
 
     onMounted(() => {
       userOrders();
@@ -89,6 +115,7 @@ export default {
     async function userOrders() {
       try {
         user.value = supabase.auth.user();
+        loading.value = true
 
         let { data, error, status } = await supabase
           .from("order_detail")
@@ -109,7 +136,7 @@ export default {
       }
     }
 
-    return { display, allOrders };
+    return { display, allOrders , loading };
   },
   components: { DefaultButton, OrderCard },
 };

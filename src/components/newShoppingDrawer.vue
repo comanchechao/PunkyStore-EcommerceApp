@@ -29,7 +29,7 @@
           </TransitionChild>
 
           <span
-            class="inline-block h-screen w-24 align-left"
+            class="inline-block h-screen align-left"
             aria-hidden="true"
           >
             &#8203;
