@@ -34,7 +34,6 @@
         <div class="py-1">
           <MenuItem v-slot="{ active }">
             <a
-              href="#"
               :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
@@ -42,7 +41,7 @@
                 ' px-4 py-2 text-lg font-extrabold flex justify-end',
               ]"
             >
-              <slot name="firstOption"></slot>
+              <slot name="firstOption"> </slot>
               <slot name="firstPicture"></slot>
             </a>
           </MenuItem>

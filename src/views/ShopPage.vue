@@ -74,12 +74,16 @@
         <DropDown>
           ><template #title> فیلترها </template>
 
-          <template #firstOption> جدیدترین </template>
+          <template #firstOption @click="getProducts(page, 'price')">
+            جدیدترین
+          </template>
 
           <template #secondOption> پربازدیدترین </template>
 
           <template #thirdOption> گرانترین </template>
-          <template #forthOption> ارزانترین </template>
+          <template #forthOption @click="getProducts(page, 'price', true)">
+            ارزانترین
+          </template>
         </DropDown>
 
         <DropDown
@@ -194,14 +198,15 @@ export default {
       getProducts();
     });
 
-    async function getProducts(page) {
+    async function getProducts(page, order) {
+      order = "created_at";
+      // ascendtion = false;
       try {
         const { from, to } = getPagination(page, 4);
-
         const { data, error } = await supabase
           .from("products")
           .select()
-          .order("price", { ascending: false })
+          .order(order, { ascending: false })
           .range(from, to);
         // .eq("product-category", props.category.title);
 
