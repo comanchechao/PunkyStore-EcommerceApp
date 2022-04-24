@@ -1,10 +1,16 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  plugins: [require("tw-elements/dist/plugin")],
+  plugins: [
+    require("tw-elements/dist/plugin"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      gridTemplateRows: {
+        "[auto,auto,1fr]": "auto auto 1fr",
+      },
       height: {
         rem26: "26rem",
         dialog: "32rem",

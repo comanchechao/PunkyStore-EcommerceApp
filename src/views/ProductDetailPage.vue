@@ -23,7 +23,7 @@
 -->
 <template>
   <div class="p-8" id="main">
-    <div class="pt-6 background">
+    <div class="pt-6 mt-32 background">
       <nav aria-label="Breadcrumb">
         <ol
           role="list"
@@ -320,6 +320,15 @@
         </div>
       </div>
     </div>
+    <section
+      class="comments my-10 bg-darkPurple p-10 rounded-2xl"
+      aria-labelledby="comment"
+    >
+      <h2 id="comment" class="text-white text-right text-3xl font-black">
+        نظرات
+      </h2>
+      <Disqus />
+    </section>
   </div>
 </template>
 
