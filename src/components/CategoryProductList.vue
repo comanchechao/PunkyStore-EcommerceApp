@@ -22,25 +22,38 @@
         class="h-24 w-full items-center justify-center lg:justify-end space-x-4 lg:pr-8 px-4 flex"
       >
         <Switch
-          v-model="enabled"
-          :class="enabled ? 'bg-pink-600' : 'bg-gray-300'"
+          v-model="inStock"
+          @click="(order = 'inStock')((ascention = !ascention))"
+          :class="inStock ? 'bg-pink-700' : 'bg-gray-300'"
           class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
           <span
             aria-hidden="true"
-            :class="enabled ? 'translate-x-9' : 'translate-x-0'"
+            :class="inStock ? 'translate-x-9' : 'translate-x-0'"
             class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
           >
           </span>
         </Switch>
         <h1 class="font-bold text-lg text-gray-500">تخفیف دارها</h1>
-        <DropDown class=" ">
-          <template #title> جدیدترین </template>
+        <DropDown>
+          ><template #title> فیلترها </template>
+
+          <template #firstOption>
+            <p @click="order = 'created_at'">جدیدترین</p>
+          </template>
 
           <template #secondOption> پربازدیدترین </template>
 
-          <template #thirdOption> گرانترین </template>
-          <template #forthOption> ارزانترین </template>
+          <template #thirdOption>
+            <span @click="(ascention = false)((order = 'price'))">
+              گرانترین
+            </span>
+          </template>
+          <template #forthOption>
+            <span @click="(ascention = true)((order = 'price'))">
+              ارزانترین
+            </span>
+          </template>
         </DropDown>
       </div>
       <div
@@ -91,10 +104,22 @@ export default {
   props: ["category"],
 
   setup(props) {
-    const enabled = ref(false);
+    const inStock = ref(false);
+    const order = ref("price");
+    const ascention = ref();
 
     const products = ref([]);
-
+    watch(order, () => {
+      getProducts();
+      console.log(order);
+    }),
+      watch(inStock, () => {
+        getProducts();
+        console.log(order);
+      }),
+      watch(ascention, () => {
+        getProducts();
+      });
     onMounted(() => {
       getProducts();
     });
@@ -103,6 +128,7 @@ export default {
         const { data, error } = await supabase
           .from("products")
           .select()
+          .order(order.value, { ascending: ascention.value })
           .eq("product-category", props.category.title);
         if (error) throw error;
         products.value = data;
@@ -110,7 +136,7 @@ export default {
         alert(error.message);
       }
     }
-    return { products, enabled };
+    return { products, inStock, order, ascention };
   },
 };
 </script>

@@ -46,13 +46,14 @@
       </div>
       <div class="w-full flex items-center space-x-3 justify-end p-2">
         <Switch
-          v-model="available"
-          :class="available ? 'bg-Sky-400' : 'bg-gray-300'"
+          v-model="inStock"
+          @click="(order = 'inStock')((ascention = !ascention))"
+          :class="inStock ? 'bg-Sky-400' : 'bg-gray-300'"
           class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
           <span
             aria-hidden="true"
-            :class="available ? 'translate-x-9' : 'translate-x-0'"
+            :class="inStock ? 'translate-x-9' : 'translate-x-0'"
             class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
           >
           </span>
@@ -81,10 +82,12 @@
           <template #secondOption> پربازدیدترین </template>
 
           <template #thirdOption>
-            <span @click="(ascention = !ascention) (order = 'price')"> گرانترین </span>
+            <span @click="(ascention = false)((order = 'price'))">
+              گرانترین
+            </span>
           </template>
           <template #forthOption>
-            <span @click="(ascention = !ascention) (order = 'price')">
+            <span @click="(ascention = true)((order = 'price'))">
               ارزانترین
             </span>
           </template>
@@ -188,9 +191,9 @@ export default {
 
   setup() {
     const discount = ref(false);
-    const available = ref(false);
+    const inStock = ref(false);
     const order = ref("price");
-    const ascention = ref(false);
+    const ascention = ref();
     const products = ref([]);
     const getPagination = (page, size) => {
       const limit = size ? +size : 3;
@@ -204,6 +207,10 @@ export default {
       getProducts();
       console.log(order);
     }),
+      watch(inStock, () => {
+        getProducts();
+        console.log(order);
+      }),
       watch(ascention, () => {
         getProducts();
       });
@@ -213,8 +220,7 @@ export default {
 
     async function getProducts(page) {
       console.log("bull", order);
-      console.log(ascention)
-      // ascendtion = false;
+      console.log(ascention);
       try {
         const { from, to } = getPagination(page, 4);
         const { data, error } = await supabase
@@ -249,7 +255,7 @@ export default {
       beforeEnter,
       enter,
       discount,
-      available,
+      inStock,
       getProducts,
       order,
       ascention,
