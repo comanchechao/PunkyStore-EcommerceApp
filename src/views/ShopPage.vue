@@ -74,15 +74,19 @@
         <DropDown>
           ><template #title> فیلترها </template>
 
-          <template #firstOption @click="getProducts(page, 'price')">
-            جدیدترین
+          <template #firstOption>
+            <p @click="order = 'created_at'">جدیدترین</p>
           </template>
 
           <template #secondOption> پربازدیدترین </template>
 
-          <template #thirdOption> گرانترین </template>
-          <template #forthOption @click="getProducts(page, 'price', true)">
-            ارزانترین
+          <template #thirdOption>
+            <span @click="(ascention = !ascention) (order = 'price')"> گرانترین </span>
+          </template>
+          <template #forthOption>
+            <span @click="(ascention = !ascention) (order = 'price')">
+              ارزانترین
+            </span>
           </template>
         </DropDown>
 
@@ -163,7 +167,7 @@ import ProductCard from "../components/ProductCard.vue";
 import Footer from "../components/Footer.vue";
 import { ref } from "vue";
 import { supabase } from "../supabase";
-import { onMounted } from "@vue/runtime-core";
+import { onMounted, watch } from "@vue/runtime-core";
 import gsap from "gsap";
 import { Switch } from "@headlessui/vue";
 
@@ -185,7 +189,8 @@ export default {
   setup() {
     const discount = ref(false);
     const available = ref(false);
-
+    const order = ref("price");
+    const ascention = ref(false);
     const products = ref([]);
     const getPagination = (page, size) => {
       const limit = size ? +size : 3;
@@ -194,19 +199,28 @@ export default {
 
       return { from, to };
     };
+
+    watch(order, () => {
+      getProducts();
+      console.log(order);
+    }),
+      watch(ascention, () => {
+        getProducts();
+      });
     onMounted(() => {
       getProducts();
     });
 
-    async function getProducts(page, order) {
-      order = "created_at";
+    async function getProducts(page) {
+      console.log("bull", order);
+      console.log(ascention)
       // ascendtion = false;
       try {
         const { from, to } = getPagination(page, 4);
         const { data, error } = await supabase
           .from("products")
           .select()
-          .order(order, { ascending: false })
+          .order(order.value, { ascending: ascention.value })
           .range(from, to);
         // .eq("product-category", props.category.title);
 
@@ -230,7 +244,16 @@ export default {
       });
     };
 
-    return { products, beforeEnter, enter, discount, available };
+    return {
+      products,
+      beforeEnter,
+      enter,
+      discount,
+      available,
+      getProducts,
+      order,
+      ascention,
+    };
   },
 };
 </script>

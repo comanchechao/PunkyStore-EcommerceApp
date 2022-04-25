@@ -47,7 +47,6 @@
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <a
-              href="#"
               :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
@@ -61,8 +60,7 @@
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <a
-              href="#"
-              :class="[
+               :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
