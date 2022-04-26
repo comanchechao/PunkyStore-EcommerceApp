@@ -34,7 +34,7 @@
           >
           </span>
         </Switch>
-        <h1 class="font-bold text-lg text-gray-500">تخفیف دارها</h1>
+        <h1 class="font-bold text-lg text-gray-500">کالاهای موجود</h1>
         <DropDown>
           ><template #title> فیلترها </template>
 
