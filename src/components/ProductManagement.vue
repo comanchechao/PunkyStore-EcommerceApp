@@ -5,7 +5,7 @@
     >
       <div class="flex flex-col justify-start align-around w-full h-full">
         <div>
-             <Adminastration />
+          <Adminastration />
         </div>
 
         <modal>
@@ -49,6 +49,7 @@
                     <div
                       v-for="item in categories"
                       :key="item.title"
+                      @click="category = item.title"
                       class="px-1 py-1"
                     >
                       <MenuItem v-slot="{ active }">
@@ -127,7 +128,7 @@
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, watch } from "vue";
 import { ref } from "vue";
 import { supabase } from "../supabase";
 import modal from "../components/Modal.vue";
@@ -155,15 +156,24 @@ export default {
   setup() {
     const categories = ref([]);
     const products = ref([]);
+    const category = ref("");
 
     onMounted(() => {
       getcategories();
       getProducts();
     });
 
+    watch(category, () => {
+      console.log(category);
+      getProducts();
+    });
+
     async function getProducts() {
       try {
-        const { data, error } = await supabase.from("products");
+        const { data, error } = await supabase
+          .from("products")
+          .select()
+          .eq("product-category", category.value);
         // .eq("product-category", props.category.title);
 
         if (error) throw error;
@@ -186,7 +196,7 @@ export default {
         alert(error.message);
       }
     }
-    return { categories, products };
+    return { categories, products, category };
   },
 };
 </script>

@@ -127,7 +127,6 @@ export default {
         if (data) {
           console.log(data);
           allOrders.value = data;
-          alert("orders fetched");
         }
       } catch (error) {
         alert(error.message);

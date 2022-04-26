@@ -11,12 +11,12 @@
       </DisclosureButton>
 
       <div
-        class="date bg-mainGreen hover:text-gray-50 transition text-black px-4 py-2 rounded flex"
+        class="xs:w-28 date bg-mainGreen hover:text-gray-50 transition text-black px-4 py-2 rounded flex"
       >
         2022/2/2
       </div>
       <div
-        class="w-32 flex-col text-center text-black text-lg font-black align-center justify-center transition ease-in duration-200 w-full py-2 bg-mainGreen rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        class="xs:w-28 w-32 flex-col text-center text-black text-md font-black align-center justify-center transition ease-in duration-200 w-full py-2 bg-mainGreen rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
         <h1
           class="self-center align-center transition ease-in duration-200 hover:text-white"
@@ -26,7 +26,7 @@
       </div>
       <div class="customerInfo">
         <div
-          class="w-32 flex-col text-center text-black text-lg font-black align-center justify-center transition ease-in duration-200 w-full py-2 bg-mainGreen rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+          class="xs:w-28 w-32 flex-col text-center text-black text-ld font-black align-center justify-center transition ease-in duration-200 w-full py-2 bg-mainGreen rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
           <h1
             class="self-center align-center transition ease-in duration-200 hover:text-white"
@@ -51,11 +51,11 @@
     
     <DisclosurePanel>
      <div class="flex border-b-2 border-Amber-400 justify-center w-full transform transition bg-Sky-100 py-5 h-full">
-       <div class="flex w-full justify-around">
-         <h2 class="border-b-2  transition">{{ order.email_address}}</h2>
-           <h2 class="border-b-2  transition">{{ order.province}}</h2>
-             <h2 class="border-b-2  transition">{{ order.full_address}}</h2>
-               <h2 class="border-b-2  transition">{{ order.email_address}}</h2>
+       <div class="flex w-full flex-wrap justify-around">
+         <h2 class="border-b-2 m-1 transition">{{ order.email_address}}</h2>
+           <h2 class="border-b-2 m-1 transition">{{ order.province}}</h2>
+             <h2 class="border-b-2 m-1 transition">{{ order.full_address}}</h2>
+               <h2 class="border-b-2 m-1 transition">{{ order.email_address}}</h2>
        </div>
      </div>
     </DisclosurePanel>

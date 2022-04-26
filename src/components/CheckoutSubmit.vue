@@ -20,11 +20,13 @@
             <DisclosurePanel
               class="p-2 lg:p-5 align-center justify-center divide-y-2 text-sm text-black flex flex-col"
             >
-              <div class="flex flex-col w-full lg:flex-row-reverse justify-around p-2">
+              <div
+                class="flex flex-col w-full lg:flex-row-reverse justify-around p-2"
+              >
                 <div
                   class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
                 >
-                  <label class="w-24 self-center text-right" for=""
+                  <label class="w-full self-center text-right" for=""
                     >نام کامل</label
                   >
                   <input
@@ -37,7 +39,7 @@
                 <div
                   class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
                 >
-                  <label class="w-24 self-center text-right" for=""
+                  <label class="w-full self-center text-right" for=""
                     >شماره همراه</label
                   >
                   <input
@@ -50,7 +52,7 @@
                 <div
                   class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
                 >
-                  <label class="w-24 self-center text-right" for=""
+                  <label class="w-full self-center text-right" for=""
                     >آدرس ایمیل</label
                   >
                   <input
@@ -63,7 +65,9 @@
                 <div
                   class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
                 >
-                  <label class="w-24 self-center text-right" for="">شهر</label>
+                  <label class="w-full self-center text-right" for=""
+                    >شهر</label
+                  >
                   <input
                     v-model="city"
                     class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
@@ -74,7 +78,7 @@
                 <div
                   class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
                 >
-                  <label class="w-24 self-center text-right" for=""
+                  <label class="w-full self-center text-right" for=""
                     >استان</label
                   >
                   <input
@@ -88,39 +92,15 @@
                 <div
                   class="mx-1 flex w-full flex-row-reverse align-center justify-between text-white"
                 >
-                  <label class="w-24 self-center text-right" for=""
+                  <label class="w-full self-center text-right" for=""
                     >آدرس کامل</label
                   >
-                  <input
+                  <textarea
                     v-model="fullAddress"
                     class="bg-gray-200 appearance-none text-right border-gray-200 rounded w-full my-2 py-4 lg:py-6 px-5 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     id="inline-full-name"
                     type="text"
                   />
-                </div>
-              </div>
-              <div class="flex justiy-around w-full">
-                <div class="mt-5 flex justify-around w-full">
-                  <DefaultButton
-                    v-show="!loading"
-                    @click="editInfo"
-                    class="disabled px-6 py-4 rounded bg-mainPink text-white cursor-pointer"
-                  >
-                    ویرایش
-                  </DefaultButton>
-                  <DefaultButton
-                    v-show="!loading"
-                    @click="editInfo"
-                    class="disabled px-6 py-4 rounded bg-mainYellow text-white cursor-pointer"
-                  >
-                    تایید
-                  </DefaultButton>
-                  <v-progress-circular
-                    v-show="loading"
-                    :size="50"
-                    color="red"
-                    indeterminate
-                  ></v-progress-circular>
                 </div>
               </div>
             </DisclosurePanel>
@@ -144,6 +124,7 @@
             class="align-center justify-center divide-y-2 text-sm text-black flex flex-col"
           >
             <div
+              v-show="getCart !== null"
               class="mt-5 max-h-1/2 justify-start align-start w-full space-y-3 flex flex-col overflow-y-scroll px-5"
             >
               <ShoppingDrawerItem
@@ -151,6 +132,12 @@
                 :key="item.id"
                 :item="item"
               />
+            </div>
+            <div
+              v-show="cartTotalPrice === 0"
+              class="mt-1 bg-gray-200 h-full justify-center align-center w-full flex flex-col p-5"
+            >
+              <h2>کالایی در سبد خرید وجود ندارد</h2>
             </div>
           </DisclosurePanel>
         </Disclosure>

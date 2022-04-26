@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-dialog class="w-full" v-model="dialog" width="100%" height="75%">
+    <v-dialog class="w-full" v-model="dialog" width="50%" height="75%">
       <template v-slot:activator="{}">
         <DefaultButton @click="dialog = true" class="text-white">
           <v-icon>mdi-login</v-icon>
@@ -10,7 +10,7 @@
       <v-card class="p-5 w-full justify-center">
         <div
           id="ball"
-          class="ball absolute bg-mainPink rounded-full transform -translate-x-28 -translate-y-28 w-80 h-80"
+          class="ball absolute bg-mainPink rounded-full transform -translate-x-28 -translate-y-64 w-80 h-80"
         ></div>
         <v-card-title class="text-5xl grey lighten-2">
           <div
