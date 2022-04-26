@@ -18,7 +18,7 @@
             <DialogOverlay class="fixed inset-0" />
           </TransitionChild>
 
-          <span class="inline-block h-screen align-middle" aria-hidden="true">
+          <span class=" h-screen align-middle" aria-hidden="true">
             &#8203;
           </span>
 

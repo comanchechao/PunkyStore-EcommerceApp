@@ -1,8 +1,8 @@
 <template>
-  <div class="fixed flex items-center justify-center">
+  <div class="">
     <button
       @click="openModal"
-      class="bg-mainYellow w-28 h-28 shadow-2xl rounded-xl"
+      class="bg-mainYellow w-24 h-24 shadow-2xl rounded-xl"
     >
       <v-icon>mdi-card-plus</v-icon>
       <h2>کالا</h2>

@@ -1,35 +1,37 @@
 <template>
-  <div class="flex justify-center main w-full h-full bg-Indigo-200">
+  <div class="flex justify-center main w-full h-full bg-pink-100">
     <div class="flex flex-col w-full h-screen mt-24">
-      <div class="topBar w-full bg-Indigo-900">
+      <div class="topBar w-full bg-pink-700">
         <div
           class="adminSection p-5 w-full flex flex-row justify-around align-center"
         >
           <div class="adminName font-bold text-white text-2xl text-right">
             <h2>کیارش کینگ</h2>
           </div>
-          <div class="profileImage w-24 h-24 bg-gray-500 rounded-full"></div>
+          <div class="profileImage w-24 h-24 bg-yellow-500 rounded-full"></div>
         </div>
       </div>
-      <div class="componentSwitch bg-Indigo-100 my-2 w-11/12 w-full flex self-center rounded justify-between align-center p-4">
+      <div
+        class="componentSwitch bg-white my-2 w-11/12 flex self-center rounded justify-between align-center p-3 shadow-2xl"
+      >
         <button
           @click="adminManagement = 'OrderManagement'"
-          :class="{ 'bg-green-200': adminManagement === 'OrderManagement' }"
-          class="bg-Indigo-300 w-full rounded mx-2 h-full text-white py-5 hover:bg-Indigo-500 transition focus:bg-Indigo-500 transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+          :class="{ 'bg-pink-200': adminManagement === 'OrderManagement' }"
+          class="bg-pink-300 w-full rounded mx-2 h-full hover:text-white px-2 lg:py-5 md:py-4 sm:py-2 hover:bg-pink-500 hover:text-gray-50 transition focus:bg-pink-500 focus:text-white transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         >
           سفارش ها
         </button>
         <button
           @click="adminManagement = ''"
-          :class="{ 'bg-green-200': adminManagement === 'mountlyReview' }"
-          class="bg-Indigo-300 w-full rounded mx-2 h-full text-white py-5 hover:bg-Indigo-500 transition focus:bg-Indigo-500 transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+          :class="{ 'bg-pink-200': adminManagement === 'mountlyReview' }"
+          class="bg-pink-300 w-full rounded mx-2 h-full px-2 lg:py-5 md:py-4 sm:py-2 hover:bg-pink-500 hover:text-gray-50 transition focus:bg-pink-500 focus:text-white transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         >
           گزارش ماهانه
         </button>
         <button
           @click="adminManagement = 'ProductManagement'"
-          :class="{ 'bg-green-200': adminManagement === 'ProductManagement' }"
-          class="bg-Indigo-300 w-full rounded mx-2 h-full text-white py-5 hover:bg-Indigo-500 focus:bg-Indigo-500 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+          :class="{ 'bg-pink-200': adminManagement === 'ProductManagement' }"
+          class="bg-pink-300 w-full rounded mx-2 h-full px-2 lg:py-5 md:py-4 sm:py-2 hover:bg-pink-500 hover:text-gray-50 focus:bg-pink-500 focus:text-white transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         >
           مدیریت کالا
         </button>
