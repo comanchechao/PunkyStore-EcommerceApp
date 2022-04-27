@@ -15,7 +15,6 @@
             >
             <slot name="title"></slot>
           </span>
-          <slot name="titlePicture"></slot>
         </h1>
       </MenuButton>
     </div>
@@ -42,7 +41,6 @@
               ]"
             >
               <slot name="firstOption"> </slot>
-              <slot name="firstPicture"></slot>
             </a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
@@ -60,7 +58,7 @@
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <a
-               :class="[
+              :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
@@ -68,7 +66,6 @@
               ]"
             >
               <slot name="thirdOption"></slot>
-              <slot name="thirdPicture"></slot>
             </a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
@@ -82,7 +79,19 @@
               ]"
             >
               <slot name="forthOption"></slot>
-              <slot name="forthPicture"></slot>
+            </a>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <a
+              type="submit"
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900 '
+                  : 'text-gray-500',
+                ' px-4 py-2 text-lg font-extrabold flex justify-end',
+              ]"
+            >
+              <slot name="fifthOption"></slot>
             </a>
           </MenuItem>
         </div>

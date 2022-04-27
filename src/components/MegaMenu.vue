@@ -1,256 +1,143 @@
 <template>
-  <nav
-    class="navbar navbar-expand-lg shadow-lg py-2 bg-gray-50 relative flex items-center w-full justify-between"
-  >
-    <div class="px-6">
-      <button
-        class="navbar-toggler border-0 py-3 lg:hidden leading-none text-xl bg-transparent text-gray-600 hover:text-gray-700 focus:text-gray-700 transition-shadow duration-150 ease-in-out"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContentU"
-        aria-controls="navbarSupportedContentU"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
+  <Menu as="div" class="relative inline-block text-right">
+    <div>
+      <MenuButton
+        class="inline-flex justify-center w-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
       >
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          data-prefix="fas"
-          class="w-5"
-          role="img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 448 512"
+        <h1
+          class="text-lg font-black flex items-center justify-center text-gray-500 text-right"
         >
-          <path
-            fill="currentColor"
-            d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"
-          ></path>
-        </svg>
-      </button>
-      <div
-        class="navbar-collapse collapse grow items-center"
-        id="navbarSupportedContentU"
-      >
-        <ul class="navbar-nav mr-auto flex flex-row">
-          <li class="nav-item">
-            <a
-              class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out"
-              href="#!"
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light"
-              >Regular link</a
+          <span
+            class="rounded-lg cursor-pointer transition ease-in duration-300 hover:bg-white px-4 pb-2"
+          >
+            <h1
+              class="nav-link text-2xl font-extrabold flex text-Indigo-800 cursor-pointer"
             >
-          </li>
-          <li class="nav-item dropdown static">
-            <a
-              class="nav-link block pr-2 lg:px-2 py-2 text-gray-600 hover:text-gray-700 focus:text-gray-700 transition duration-150 ease-in-out dropdown-toggle flex items-center whitespace-nowrap"
-              href="#"
-              data-mdb-ripple="true"
-              data-mdb-ripple-color="light"
-              type="button"
-              id="dropdownMenuButtonU"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              >Mega menu
-              <svg
-                aria-hidden="true"
-                focusable="false"
-                data-prefix="fas"
-                data-icon="caret-down"
-                class="w-2 ml-2"
-                role="img"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 320 512"
-              >
-                <path
-                  fill="currentColor"
-                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                ></path>
-              </svg>
-            </a>
-            <div
-              class="dropdown-menu w-full mt-0 hidden shadow-lg bg-white absolute left-0 top-full"
-              aria-labelledby="dropdownMenuButtonU"
-            >
-              <div class="px-6 lg:px-8 py-5">
-                <div class="grid md:grid-cols-3 gap-6">
-                  <div class="bg-white">
-                    <p
-                      class="block pt-2 w-full uppercase font-semibold text-gray-700"
-                    >
-                      Lorem ipsum
-                    </p>
-                    <div
-                      class="relative overflow-hidden bg-no-repeat bg-cover py-4"
-                      data-mdb-ripple="true"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp"
-                        class="w-full rounded-md shadow-lg"
-                        alt="Louvre"
-                      />
-                      <a href="#!">
-                        <div
-                          class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                          style="background-color: rgba(251, 251, 251, 0.2)"
-                        ></div>
-                      </a>
-                    </div>
-                    <div class="flex items-center justify-between mt-1 mb-3">
-                      <p class="flex items-center text-blue-400">
-                        <svg
-                          aria-hidden="true"
-                          focusable="false"
-                          data-prefix="fas"
-                          class="w-4 mr-2"
-                          role="img"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 576 512"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M480 192H365.71L260.61 8.06A16.014 16.014 0 0 0 246.71 0h-65.5c-10.63 0-18.3 10.17-15.38 20.39L214.86 192H112l-43.2-57.6c-3.02-4.03-7.77-6.4-12.8-6.4H16.01C5.6 128-2.04 137.78.49 147.88L32 256 .49 364.12C-2.04 374.22 5.6 384 16.01 384H56c5.04 0 9.78-2.37 12.8-6.4L112 320h102.86l-49.03 171.6c-2.92 10.22 4.75 20.4 15.38 20.4h65.5c5.74 0 11.04-3.08 13.89-8.06L365.71 320H480c35.35 0 96-28.65 96-64s-60.65-64-96-64z"
-                          ></path>
-                        </svg>
-                        Travels
-                      </p>
-                      <p class="text-gray-700"><u>15.07.2021</u></p>
-                    </div>
-                    <a href="#!">
-                      <h5 class="text-xl mb-2 text-gray-700 font-semibold">
-                        This is title of the news
-                      </h5>
-                      <p class="text-gray-700">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Odit, iste aliquid. Sed id nihil magni, sint vero
-                        provident esse numquam perferendis ducimus dicta
-                        adipisci iusto nam temporibus modi animi laboriosam.
-                      </p>
-                    </a>
-                  </div>
-                  <div class="bg-white">
-                    <p
-                      class="block pt-2 w-full uppercase font-semibold text-gray-700"
-                    >
-                      Explit voluptas
-                    </p>
-                    <div
-                      class="relative overflow-hidden bg-no-repeat bg-cover py-4"
-                      data-mdb-ripple="true"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/new/fluid/city/011.webp"
-                        class="w-full rounded-md shadow-lg"
-                        alt="Louvre"
-                      />
-                      <a href="#!">
-                        <div
-                          class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                          style="background-color: rgba(251, 251, 251, 0.2)"
-                        ></div>
-                      </a>
-                    </div>
-                    <div class="flex items-center justify-between mt-1 mb-3">
-                      <p class="flex items-center text-red-500">
-                        <svg
-                          aria-hidden="true"
-                          focusable="false"
-                          data-prefix="fas"
-                          class="w-4 mr-2"
-                          role="img"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 544 512"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M527.79 288H290.5l158.03 158.03c6.04 6.04 15.98 6.53 22.19.68 38.7-36.46 65.32-85.61 73.13-140.86 1.34-9.46-6.51-17.85-16.06-17.85zm-15.83-64.8C503.72 103.74 408.26 8.28 288.8.04 279.68-.59 272 7.1 272 16.24V240h223.77c9.14 0 16.82-7.68 16.19-16.8zM224 288V50.71c0-9.55-8.39-17.4-17.84-16.06C86.99 51.49-4.1 155.6.14 280.37 4.5 408.51 114.83 513.59 243.03 511.98c50.4-.63 96.97-16.87 135.26-44.03 7.9-5.6 8.42-17.23 1.57-24.08L224 288z"
-                          ></path>
-                        </svg>
-                        Business
-                      </p>
-                      <p class="text-gray-700"><u>15.07.2021</u></p>
-                    </div>
-                    <a href="#!">
-                      <h5 class="text-xl mb-2 text-gray-700 font-semibold">
-                        This is title of the news
-                      </h5>
-                      <p class="text-gray-700">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Odit, iste aliquid. Sed id nihil magni, sint vero
-                        provident esse numquam perferendis ducimus dicta
-                        adipisci iusto nam temporibus modi animi laboriosam.
-                      </p>
-                    </a>
-                  </div>
-                  <div class="bg-white">
-                    <p
-                      class="block pt-2 w-full uppercase font-semibold text-gray-700"
-                    >
-                      Cras justo odio
-                    </p>
-                    <div
-                      class="relative overflow-hidden bg-no-repeat bg-cover py-4"
-                      data-mdb-ripple="true"
-                      data-mdb-ripple-color="light"
-                    >
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/new/fluid/city/018.webp"
-                        class="w-full rounded-md shadow-lg"
-                        alt="Louvre"
-                      />
-                      <a href="#!">
-                        <div
-                          class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
-                          style="background-color: rgba(251, 251, 251, 0.2)"
-                        ></div>
-                      </a>
-                    </div>
-                    <div class="flex items-center justify-between mt-1 mb-3">
-                      <p class="flex items-center text-yellow-500">
-                        <svg
-                          aria-hidden="true"
-                          focusable="false"
-                          data-prefix="fas"
-                          class="w-4 mr-2"
-                          role="img"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 640 512"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z"
-                          ></path>
-                        </svg>
-                        Technology
-                      </p>
-                      <p class="text-gray-700"><u>15.07.2021</u></p>
-                    </div>
-                    <a href="#!">
-                      <h5 class="text-xl mb-2 text-gray-700 font-semibold">
-                        This is title of the news
-                      </h5>
-                      <p class="text-gray-700">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Odit, iste aliquid. Sed id nihil magni, sint vero
-                        provident esse numquam perferendis ducimus dicta
-                        adipisci iusto nam temporibus modi animi laboriosam.
-                      </p>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+              <span class="hidden lg:flex"> دسته بندی ها </span>
+              <v-icon>mdi-menu</v-icon>
+            </h1>
+          </span>
+        </h1>
+      </MenuButton>
     </div>
-  </nav>
+
+    <transition
+      enter-active-class="transition ease-out duration-100"
+      enter-from-class="transform opacity-0 scale-95"
+      enter-to-class="transform opacity-100 scale-100"
+      leave-active-class="transition ease-in duration-75"
+      leave-from-class="transform opacity-100 scale-100"
+      leave-to-class="transform opacity-0 scale-95"
+    >
+      <MenuItems
+        class="origin-top-right flex flex-col absolute right-0 mt-2 w-carousel h-rem33 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+      >
+        <div class="w-full flex h-3/6">
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+              ]"
+            ></div>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+              ]"
+            ></div>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+              ]"
+            ></div>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+              ]"
+            ></div>
+          </MenuItem>
+        </div>
+        <div class="w-full flex h-3/6">
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+              ]"
+            ></div>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+              ]"
+            ></div>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+              ]"
+            ></div>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+              ]"
+            ></div>
+          </MenuItem>
+        </div>
+      </MenuItems>
+    </transition>
+  </Menu>
 </template>
 
 <script>
-export default {};
+import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import { ChevronDownIcon } from "@heroicons/vue/solid";
+
+export default {
+  components: {
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    ChevronDownIcon,
+  },
+};
 </script>
 
-<style></style>
+<style scoped>
+.Menu {
+  z-index: 9999 !important;
+}
+</style>
