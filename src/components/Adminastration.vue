@@ -2,7 +2,7 @@
   <div class="">
     <button
       @click="openModal"
-      class="bg-mainYellow w-24 h-24 shadow-2xl rounded-xl"
+      class="bg-mainYellow w-24 h-24 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
     >
       <v-icon>mdi-card-plus</v-icon>
       <h2>کالا</h2>
@@ -65,7 +65,7 @@
                     class="active:scale-125 transition"
                     :class="{ 'scale-150': tab === 'category' }"
                   >
-                   هوم
+                    هوم
                   </h1>
                 </button>
               </DialogTitle>
@@ -95,21 +95,31 @@
                     >
                       <div class="flex justify-center p-5">
                         <label
+                          v-show="!uploading1"
                           for="file"
                           class="inputLabel bg-Sky-800 cursor-pointer text-white rounded w-full h-14 flex flex-col justify-center align-center p-2 lg:p-5"
                         >
                           <v-icon>mdi-upload</v-icon>
                           عکس اول
                         </label>
+                        <v-progress-circular
+                          v-show="uploading1"
+                          :size="50"
+                          color="amber"
+                          indeterminate
+                        ></v-progress-circular>
                         <input
                           type="file"
                           id="file"
                           aria-label="File browser example"
                           class="inputfile rounded bg-mainPink"
+                          accept="image/*"
+                          @change="uploadImage1"
                         />
                       </div>
                       <div class="flex justify-center p-5">
                         <label
+                          v-show="!uploading2"
                           for="file"
                           class="inputLabel bg-Sky-800 cursor-pointer text-white rounded w-full h-14 flex flex-col justify-center align-center p-2 lg:p-5"
                         >
@@ -121,36 +131,56 @@
                           id="file"
                           aria-label="File browser example"
                           class="inputfile rounded bg-mainPink"
+                          accept="image/*"
+                          @change="uploadImage2"
                         />
                       </div>
                       <div class="flex justify-center p-5">
                         <label
+                          v-show="!uploading3"
                           for="file"
                           class="inputLabel bg-Sky-800 cursor-pointer text-white rounded w-full h-14 flex flex-col justify-center align-center p-2 lg:p-5"
                         >
                           <v-icon>mdi-upload</v-icon>
                           عکس سوم
                         </label>
+                        <v-progress-circular
+                          v-show="uploading3"
+                          :size="50"
+                          color="amber"
+                          indeterminate
+                        ></v-progress-circular>
                         <input
                           type="file"
                           id="file"
                           aria-label="File browser example"
                           class="inputfile rounded bg-mainPink"
+                          accept="image/*"
+                          @change="uploadImage3"
                         />
                       </div>
                       <div class="flex justify-center p-5">
                         <label
+                          v-show="!uploading4"
                           for="file"
                           class="inputLabel bg-Sky-800 cursor-pointer text-white rounded w-full h-14 flex flex-col justify-center align-center p-2 lg:p-5"
                         >
                           <v-icon>mdi-upload</v-icon>
                           عکس چهار
                         </label>
+                        <v-progress-circular
+                          v-show="uploading4"
+                          :size="50"
+                          color="amber"
+                          indeterminate
+                        ></v-progress-circular>
                         <input
                           type="file"
                           id="file"
                           aria-label="File browser example"
                           class="inputfile rounded bg-mainPink"
+                          accept="image/*"
+                          @change="uploadImage4"
                         />
                       </div>
                     </div>
@@ -331,10 +361,10 @@
 
                     <div class="">
                       <input
-                        v-model="productTitle"
+                        v-model="title"
                         class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded transition w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-gray-200 focus:bg-white focus:border-purple-500"
                         id="inline-full-name"
-                        type="email"
+                        type="text"
                         placeholder="نام کالا"
                       />
                     </div>
@@ -361,6 +391,7 @@
                     <div class="mb-4">
                       <div class="flex justify-center my-2">
                         <DefaultButton
+                        @click="addProduct"
                           v-show="!loading"
                           class="px-6 py-4 rounded bg-Sky-500 text-white"
                         >
@@ -390,7 +421,6 @@
                     </div>
                     <div class="">
                       <input
-                        v-model="categoryTitle"
                         class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                         id="inline-full-name"
                         type="text"
@@ -409,6 +439,7 @@
                     <div class="">
                       <div class="flex justify-center my-2">
                         <DefaultButton
+                          @click.prevent="addProduct"
                           v-show="!loading"
                           class="px-6 py-4 rounded bg-Sky-500 text-white"
                         >
@@ -437,6 +468,7 @@
 import { ref } from "vue";
 import DefaultButton from "../components/DefaultButton.vue";
 import { CheckIcon, SelectorIcon } from "@heroicons/vue/solid";
+import { supabase } from "../supabase";
 import {
   TransitionRoot,
   TransitionChild,
@@ -543,11 +575,17 @@ export default {
   setup() {
     const tab = ref("product");
     const isOpen = ref(false);
-    const uploading = ref(false);
+    const loading = ref(false);
+    const uploading1 = ref(false);
+    const uploading2 = ref(false);
+    const uploading3 = ref(false);
+    const uploading4 = ref(false);
     const selected = ref(people[3]);
-    const productTitle = ref("");
+    const title = ref("");
     const price = ref();
+    const category = ref(null)
     const description = ref("");
+    const inStock = ref(false)
     const sm = ref(false);
     const md = ref(false);
     const lg = ref(false);
@@ -555,6 +593,12 @@ export default {
     const xxl = ref(false);
     const productColor = ref([]);
     const selectedPerson = ref(people[0]);
+    let first_image = ref(null);
+    let second_image = ref(null);
+    let third_image = ref(null);
+    let forth_image = ref(null);
+    let firstUrl = ref(null);
+    let secondUrl = ref(null);
 
     function closeModal() {
       isOpen.value = false;
@@ -563,15 +607,169 @@ export default {
       isOpen.value = true;
     }
 
+    const addProduct = async function () {
+      try {
+        loading.value = true;
+        const { error } = await supabase.from("products").insert([
+          {
+            title: title.value,
+            price: price.value,
+            inStock: inStock.value,
+            'product-category': category.value,
+            first_image: first_image.value,
+            second_image: second_image.value,
+            third_image: third_image.value,
+            forth_image: forth_image.value,
+          },
+        ]);
+        if (error) throw error;
+        alert("product added");
+      } catch (error) {
+        alert(error.error_description || error.message);
+      } finally {
+        title.value = null;
+        price.value = null;
+        inStock.value = null;
+        loading.value = false;
+      }
+    };
+
+    const uploadImage1 = async function (event) {
+      first_image.value = event.target.files[0];
+      // eslint-disable-next-line no-console
+      console.log(first_image.value);
+      try {
+        uploading1.value = true;
+        if (!first_image.value || first_image.value.length === 0) {
+          throw new Error("You must select an image to upload.");
+        }
+        // eslint-disable-next-line no-console
+        console.log(first_image.value);
+        const file = first_image.value;
+        const fileExt = file.name.split(".").pop();
+        const fileName = `${Math.random()}.${fileExt}`;
+        const filePath = `${fileName}`;
+        first_image.value = filePath;
+
+        const { error: uploadError } = await supabase.storage
+          .from("product-images")
+          .upload(filePath, file, { returning: "minimal" });
+
+        if (uploadError) throw uploadError;
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        // eslint-disable-next-line no-console
+        console.log(first_image.value);
+        uploading1.value = false;
+      }
+    };
+
+    const uploadImage2 = async function (event) {
+      second_image.value = event.target.files[0];
+      // eslint-disable-next-line no-console
+      console.log(this.image);
+      try {
+        uploading2.value = true;
+        if (!second_image.value || second_image.value.length === 0) {
+          throw new Error("You must select an image to upload.");
+        }
+        // eslint-disable-next-line no-console
+        console.log(second_image.value);
+        const file = second_image.value;
+        const fileExt = file.name.split(".").pop();
+        const fileName = `${Math.random()}.${fileExt}`;
+        const filePath = `${fileName}`;
+        filePath = second_image.value;
+
+        const { error: uploadError } = await this.$supabase.storage
+          .from("product-images")
+          .upload(filePath, file);
+
+        if (uploadError) throw uploadError;
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        // eslint-disable-next-line no-console
+        console.log(second_image.value);
+        uploading2.value = false;
+      }
+    };
+
+    const uploadImage3 = async function (event) {
+      third_image.value = event.target.files[0];
+      // eslint-disable-next-line no-console
+      console.log(this.image);
+      try {
+        uploading3.value = true;
+        if (!third_image.value || third_image.value.length === 0) {
+          throw new Error("You must select an image to upload.");
+        }
+        // eslint-disable-next-line no-console
+        console.log(third_image.value);
+        const file = third_image.value;
+        const fileExt = file.name.split(".").pop();
+        const fileName = `${Math.random()}.${fileExt}`;
+        const filePath = `${fileName}`;
+        filePath = third_image.value;
+
+        const { error: uploadError } = await supabase.storage
+          .from("product-images")
+          .upload(filePath, file);
+
+        if (uploadError) throw uploadError;
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        // eslint-disable-next-line no-console
+        console.log(third_image.value);
+        uploading3.value = false;
+      }
+    };
+
+    const uploadImage4 = async function (event) {
+      forth_image.value = event.target.files[0];
+      // eslint-disable-next-line no-console
+      console.log(forth_image.value);
+      try {
+        uploading4.value = true;
+        if (!forth_image.value || forth_image.value.length === 0) {
+          throw new Error("You must select an image to upload.");
+        }
+        // eslint-disable-next-line no-console
+        console.log(forth_image.value);
+        const file = forth_image.value;
+        const fileExt = file.name.split(".").pop();
+        const fileName = `${Math.random()}.${fileExt}`;
+        const filePath = `${fileName}`;
+        forth_image.value = filePath;
+
+        const { error: uploadError } = await this.$supabase.storage
+          .from("product-images")
+          .upload(filePath, file);
+
+        if (uploadError) throw uploadError;
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        // eslint-disable-next-line no-console
+        console.log(forth_image.value);
+        uploading4.value = false;
+      }
+    };
+
     return {
       closeModal,
       openModal,
       isOpen,
       tab,
-      uploading,
+      uploading1,
+      uploading2,
+      uploading3,
+      uploading4,
       selected,
       people,
-      productTitle,
+      title,
       price,
       sm,
       md,
@@ -581,6 +779,12 @@ export default {
       description,
       selectedPerson,
       people2,
+      uploadImage1,
+      uploadImage2,
+      uploadImage3,
+      uploadImage4,
+      addProduct,
+      loading,
     };
   },
 };

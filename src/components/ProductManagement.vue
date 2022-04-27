@@ -4,7 +4,7 @@
       class="flex flex-col align-center my-5 bg-pink-100 h-full justify-start text-right w-full"
     >
       <div
-        class="flex bg-white shadow-2xl flex-row-reverse justify-around align-center px-4 w-full lg:w-full md:w-1/2 h-32"
+        class="flex bg-white shadow-2xl flex-row-reverse justify-around align-center px-4 w-full lg:w-11/12 rounded md:w-1/2 h-32"
       >
         <div>
           <Adminastration />
@@ -14,7 +14,7 @@
             <template #openButton>
               <button
                 @click="openModal"
-                class="bg-mainGreen w-24 h-24 shadow-2xl rounded-xl"
+                class="bg-mainGreen w-24 h-24 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
               >
                 <v-icon>mdi-card</v-icon>
                 <h2>انبار کالا</h2>
@@ -128,7 +128,7 @@
             <template #openButton>
               <button
                 @click="openModal"
-                class="bg-mainPink w-24 h-24 shadow-2xl rounded-xl"
+                class="bg-mainPink w-24 h-24 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
               >
                 <v-icon>mdi-card</v-icon>
                 <h2>حذف کالا</h2>
