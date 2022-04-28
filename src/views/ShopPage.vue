@@ -48,7 +48,7 @@
           <Switch
             v-model="inStock"
             @click="(order = 'inStock')((ascention = !ascention))"
-            :class="inStock ? 'bg-pink-700' : 'bg-gray-300'"
+            :class="inStock ? 'bg-green-500' : 'bg-gray-300'"
             class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             <span
@@ -62,7 +62,7 @@
           <Switch
             v-model="discount"
             @click="order = 'discount'"
-            :class="discount ? 'bg-pink-700' : 'bg-gray-300'"
+            :class="discount ? 'bg-green-500' : 'bg-gray-300'"
             class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             <span
