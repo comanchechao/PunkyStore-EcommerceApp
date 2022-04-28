@@ -29,6 +29,7 @@
           </svg>
         </button>
         <input
+          v-model="SearchIndex"
           class="border-2 placeholder-white transition ease-in duration-300 text-darkPurple hover:bg-white border-gray-300 bg-mainBlue h-10 px-5 pr-4 md:pr-16 rounded-full text-md focus:outline-none"
           type="search"
           name="search"
@@ -57,7 +58,7 @@
             >
             </span>
           </Switch>
-          <h1 class="font-bold text-lg text-gray-500">کالاهای موجود</h1>
+          <h1 class="font-bold text-lg text-gray-700">کالاهای موجود</h1>
           <Switch
             v-model="discount"
             @click="order = 'discount'"
@@ -71,7 +72,7 @@
             >
             </span>
           </Switch>
-          <h1 class="font-bold text-lg text-gray-500">تخفیف دارها</h1>
+          <h1 class="font-bold text-lg text-gray-700">تخفیف دارها</h1>
         </div>
         <div class="flex items-center justify-center space-x-3">
           <DropDown>
@@ -178,6 +179,7 @@ export default {
     const discount = ref(false);
     const inStock = ref(false);
     const order = ref("price");
+    const SearchIndex = ref("");
     const ascention = ref();
     const page = ref();
 
@@ -205,13 +207,32 @@ export default {
       watch(ascention, () => {
         getProducts();
       });
+    watch(SearchIndex, () => {
+      SearchProducts();
+    });
     onMounted(() => {
       getProducts();
     });
+    async function SearchProducts() {
+      try {
+        const { data, error } = await supabase
+          .from("products")
+          .select()
+          .textSearch("title", SearchIndex.value, {
+            config: "english",
+          });
+        // .eq("product-category", props.category.title);
 
+        if (error) throw error;
+        products.value = data;
+      } catch (error) {
+        alert(error.message);
+      }
+    }
     async function getProducts(page) {
       console.log("bull", order);
       console.log(ascention);
+      console.log(SearchIndex);
       try {
         const { from, to } = getPagination(page, 4);
         const { data, error } = await supabase
@@ -251,6 +272,7 @@ export default {
       order,
       ascention,
       page,
+      SearchIndex,
     };
   },
 };

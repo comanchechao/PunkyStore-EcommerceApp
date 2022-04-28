@@ -5,12 +5,12 @@
         class="inline-flex justify-center w-full text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
       >
         <h1
-          class="text-lg font-black flex items-center justify-end text-gray-500 text-right"
+          class="text-lg font-black flex items-center justify-end text-gray-700 text-right"
         >
           <span
             class="border-b-4 rounded-lg cursor-pointer transition ease-in duration-300 hover:bg-white border-LightBlue-900 px-4 pb-2"
           >
-            <v-icon class="text-gray-500" aria-hidden="true" size="x-large"
+            <v-icon class="text-gray-700" aria-hidden="true" size="x-large"
               >mdi-menu-down</v-icon
             >
             <slot name="title"></slot>
@@ -36,7 +36,7 @@
               :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
-                  : 'text-gray-500',
+                  : 'text-gray-700',
                 ' px-4 py-2 text-lg font-extrabold flex justify-end',
               ]"
             >
@@ -48,7 +48,7 @@
               :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
-                  : 'text-gray-500',
+                  : 'text-gray-700',
                 ' px-4 py-2 text-lg font-extrabold flex justify-end',
               ]"
             >
@@ -61,7 +61,7 @@
               :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
-                  : 'text-gray-500',
+                  : 'text-gray-700',
                 ' px-4 py-2 text-lg font-extrabold flex justify-end',
               ]"
             >
@@ -74,7 +74,7 @@
               :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900 '
-                  : 'text-gray-500',
+                  : 'text-gray-700',
                 ' px-4 py-2 text-lg font-extrabold flex justify-end',
               ]"
             >
@@ -87,7 +87,7 @@
               :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900 '
-                  : 'text-gray-500',
+                  : 'text-gray-700',
                 ' px-4 py-2 text-lg font-extrabold flex justify-end',
               ]"
             >

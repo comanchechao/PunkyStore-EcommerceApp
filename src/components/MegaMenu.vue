@@ -30,7 +30,7 @@
       leave-to-class="transform opacity-0 scale-95"
     >
       <MenuItems
-        class="origin-top-right flex flex-col absolute right-0 mt-2 w-carousel h-rem33 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+        class="origin-top-right flex flex-col absolute right-0 mt-2 lg:w-carousel h-96 w-80 lg:h-rem33 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
       >
         <div class="w-full flex h-3/6">
           <MenuItem v-slot="{ active }">
@@ -39,9 +39,20 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
-            ></div>
+            >
+              <img
+                src="../assets/images/Shoe.webp"
+                class="object-contain h-36"
+                alt=""
+              />
+              <h1
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+              >
+                کفش
+              </h1>
+            </div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <div
@@ -49,9 +60,20 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
-            ></div>
+            >
+              <img
+                src="../assets/images/Hat.webp"
+                class="object-contain h-36"
+                alt=""
+              />
+              <h1
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+              >
+                کلاه
+              </h1>
+            </div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <div
@@ -59,9 +81,20 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
-            ></div>
+            >
+              <img
+                src="../assets/images/Pants.webp"
+                class="object-contain h-36"
+                alt=""
+              />
+              <h1
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+              >
+                شلوار
+              </h1>
+            </div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <div
@@ -69,9 +102,20 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
-            ></div>
+            >
+              <img
+                src="../assets/images/Shirt.webp"
+                class="object-contain h-36"
+                alt=""
+              />
+              <h1
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+              >
+                پیراهن
+              </h1>
+            </div>
           </MenuItem>
         </div>
         <div class="w-full flex h-3/6">
@@ -81,9 +125,20 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
-            ></div>
+            >
+              <img
+                src="../assets/images/Hoodie.webp"
+                class="object-contain h-36"
+                alt=""
+              />
+              <h1
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+              >
+                هودی
+              </h1>
+            </div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <div
@@ -91,9 +146,20 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
-            ></div>
+            >
+              <img
+                src="../assets/images/Socks.webp"
+                class="object-contain h-36"
+                alt=""
+              />
+              <h1
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+              >
+                جوراب
+              </h1>
+            </div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <div
