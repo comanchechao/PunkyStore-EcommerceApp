@@ -114,7 +114,7 @@
                           aria-label="File browser example"
                           class="inputfile rounded bg-mainPink"
                           accept="image/*"
-                          @change="uploadImage1"
+                          @change="firstUpload('first')"
                         />
                       </div>
                       <div class="flex justify-center p-5">
@@ -132,7 +132,7 @@
                           aria-label="File browser example"
                           class="inputfile rounded bg-mainPink"
                           accept="image/*"
-                          @change="uploadImage2"
+                          @change="secondUpload"
                         />
                       </div>
                       <div class="flex justify-center p-5">
@@ -391,7 +391,7 @@
                     <div class="mb-4">
                       <div class="flex justify-center my-2">
                         <DefaultButton
-                        @click="addProduct"
+                          @click="addProduct"
                           v-show="!loading"
                           class="px-6 py-4 rounded bg-Sky-500 text-white"
                         >
@@ -583,9 +583,9 @@ export default {
     const selected = ref(people[3]);
     const title = ref("");
     const price = ref();
-    const category = ref(null)
+    const category = ref(null);
     const description = ref("");
-    const inStock = ref(false)
+    const inStock = ref(false);
     const sm = ref(false);
     const md = ref(false);
     const lg = ref(false);
@@ -615,7 +615,7 @@ export default {
             title: title.value,
             price: price.value,
             inStock: inStock.value,
-            'product-category': category.value,
+            "product-category": category.value,
             first_image: first_image.value,
             second_image: second_image.value,
             third_image: third_image.value,
@@ -634,7 +634,7 @@ export default {
       }
     };
 
-    const uploadImage1 = async function (event) {
+    const firstUpload = async function (event) {
       first_image.value = event.target.files[0];
       // eslint-disable-next-line no-console
       console.log(first_image.value);
@@ -665,10 +665,11 @@ export default {
       }
     };
 
-    const uploadImage2 = async function (event) {
+    const secondUpload = async function (event) {
       second_image.value = event.target.files[0];
+      console.log(event.target.files);
       // eslint-disable-next-line no-console
-      console.log(this.image);
+      console.log(second_image.value);
       try {
         uploading2.value = true;
         if (!second_image.value || second_image.value.length === 0) {
@@ -680,11 +681,11 @@ export default {
         const fileExt = file.name.split(".").pop();
         const fileName = `${Math.random()}.${fileExt}`;
         const filePath = `${fileName}`;
-        filePath = second_image.value;
+        second_image.value = filePath;
 
-        const { error: uploadError } = await this.$supabase.storage
+        const { error: uploadError } = await supabase.storage
           .from("product-images")
-          .upload(filePath, file);
+          .upload(filePath, file, { returning: "minimal" });
 
         if (uploadError) throw uploadError;
       } catch (error) {
@@ -744,7 +745,7 @@ export default {
         const filePath = `${fileName}`;
         forth_image.value = filePath;
 
-        const { error: uploadError } = await this.$supabase.storage
+        const { error: uploadError } = await supabase.storage
           .from("product-images")
           .upload(filePath, file);
 
@@ -779,8 +780,8 @@ export default {
       description,
       selectedPerson,
       people2,
-      uploadImage1,
-      uploadImage2,
+      firstUpload,
+      secondUpload,
       uploadImage3,
       uploadImage4,
       addProduct,

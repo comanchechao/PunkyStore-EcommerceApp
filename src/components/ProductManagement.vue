@@ -178,11 +178,6 @@
                               'group flex rounded-md items-center w-full px-2 py-2 text-sm',
                             ]"
                           >
-                            <EditIcon
-                              :active="active"
-                              class="w-5 text-right h-5 mr-2 text-violet-400"
-                              aria-hidden="true"
-                            />
                             {{ item.title }}
                           </button>
                         </MenuItem>
@@ -192,7 +187,7 @@
                 </Menu>
                 <Disclosure
                   as="div"
-                  class="bg-mainGreen w-full lg:w-1/2 self-center"
+                  class="bg-mainPink w-full lg:w-1/2 self-center"
                   v-slot="{ open }"
                 >
                   <DisclosureButton
@@ -205,7 +200,7 @@
                     />
                   </DisclosureButton>
                   <DisclosurePanel
-                    class="p-4 align-center justify-center bg-white divide-y-2 text-sm text-black flex flex-col"
+                    class="p-4 align-center bg-red-500 justify-center bg-white divide-y-2 text-sm text-black flex flex-col"
                   >
                     <div
                       v-for="item in products"
@@ -221,11 +216,7 @@
                         </h2>
                       </div>
                       <div class="flex flex-row">
-                        <button>
-                          <v-icon class="font-bold text-mainPurple"
-                            >mdi-circle-edit-outline</v-icon
-                          >
-                        </button>
+                    
                         <button>
                           <v-icon class="font-bold text-red-800"
                             >mdi-delete</v-icon

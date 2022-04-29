@@ -48,8 +48,9 @@
               enter-to="opacity-100 scale-100"
             >
                <CustomerOrder
-                v-for="order in people2"
-                :key="order.name"
+                v-for="order in orders"
+                :key="order.id"
+                :order="order"
                 class="customerOrder"
                 :tab="tab"
               />
@@ -72,8 +73,9 @@
               enter-to="opacity-100 scale-100"
             >
               <CustomerOrder
-                v-for="order in people2"
-                :key="order.name"
+                v-for="order in orders"
+                :key="order.id"
+                :order="order"
                 class="customerOrder"
                 :tab="tab"
               />
@@ -97,8 +99,9 @@
               enter-to="opacity-100 scale-100"
             >
                 <CustomerOrder
-                v-for="order in people2"
-                :key="order.name"
+                v-for="order in orders"
+                :key="order.id"
+                :order="order"
                 class="customerOrder"
                 :tab="tab"
               />
@@ -155,11 +158,13 @@ export default {
   setup() {
     const categories = ref([]);
     const products = ref([]);
+    const orders = ref([])
     const tab = ref("NewOrders");
 
     onMounted(() => {
       getcategories();
       getProducts();
+      getOrders()
     });
 
     async function getProducts() {
@@ -174,6 +179,21 @@ export default {
       }
     }
 
+
+     async function getOrders() {
+      try {
+        const { data, error } = await supabase.from("order_detail");
+        // .eq("product-category", props.category.title);
+
+        if (error) throw error;
+        orders.value = data;
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+
+
+
     async function getcategories() {
       try {
         const { data, error } = await supabase
@@ -187,7 +207,7 @@ export default {
         alert(error.message);
       }
     }
-    return { categories, products, tab, people2 };
+    return { categories, products, tab, people2 , orders };
   },
 };
 </script>
