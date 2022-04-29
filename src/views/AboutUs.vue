@@ -25,7 +25,7 @@
       <h1 class="font-black text-4xl">پانکی مانکی کیه؟</h1>
     </div>
     <div
-      class="w-full h-full flex justify-start space-y-8 py-8 items-center flex-col bg-goldie"
+      class="w-full h-full flex justify-start space-y-8 py-8 items-center flex-col bg-goldie mainTextDiv"
     >
       <div
         class="w-3/4 h-auto text-center flex items-start justify-center bg-gray-200 rounded-3xl textDiv"
@@ -61,21 +61,31 @@
       >
         <div class="space-y-7 flex flex-col items-center">
           <div class="w-40 h-40 bg-white rounded-full"></div>
-          <h1 class="text-3xl font-black text-white">کیارش کینگ</h1>
+          <h1 class="text-3xl font-black text-white">کیارش واحدی</h1>
+          <h3 class="text-2xl font-light text-LightBlue-400">
+            عضو تیم پانکی مانکی
+          </h3>
         </div>
         <div class="space-y-7 flex flex-col items-center">
           <div class="w-40 h-40 bg-white rounded-full"></div>
-          <h1 class="text-3xl font-black text-white">رلی</h1>
+          <h1 class="text-3xl font-black text-white">روح الله موسوی</h1>
+          <h3 class="text-2xl font-light text-LightBlue-400">بنیان گذار</h3>
         </div>
         <div class="space-y-7 flex flex-col items-center">
           <div class="w-40 h-40 bg-white rounded-full"></div>
-          <h1 class="text-3xl font-black text-white">بهمیکس</h1>
+          <h1 class="text-3xl font-black text-white">بهرام</h1>
+          <h3 class="text-2xl font-light text-LightBlue-400">
+            عضو تیم پانکی مانکی
+          </h3>
         </div>
       </div>
       <h1 class="text-7xl">و</h1>
       <div class="space-y-7 flex flex-col items-center">
         <div class="w-36 h-36 bg-white rounded-full"></div>
         <h1 class="text-3xl font-black text-black">پاتریک مقدس</h1>
+        <h3 class="text-2xl font-light text-purple-900">
+          عضو ویژه ی تیم پانکی مانکی
+        </h3>
       </div>
     </div>
   </div>
@@ -125,14 +135,14 @@ export default {
       const tl = gsap.timeline();
       tl.from(".textDiv", {
         opacity: 0,
-        y: 700,
+        y: 900,
         ease: "expo.out",
         scrollTrigger: {
           scrub: 1.5,
           start: "top bottom",
-          end: "top 60%",
-          trigger: ".textDiv",
-          toggleActions: "play none none reverse",
+          end: "top top",
+          trigger: ".mainTextDiv",
+          toggleActions: "play none none reset",
         },
       });
     },

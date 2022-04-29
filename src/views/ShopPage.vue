@@ -230,6 +230,7 @@ export default {
       console.log(category);
     });
     watch(page, () => {
+      // from.value = page.value * 2;
       to.value = page.value * 4;
       getProducts();
 
