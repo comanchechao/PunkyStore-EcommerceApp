@@ -8,7 +8,16 @@
     >
       <!-- <DropDownMenu /> -->
       <div class="pt-2 relative text-white">
-        <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
+        <button
+          type="submit"
+          class="absolute flex items-center right-0 top-0 mt-5 mr-4"
+        >
+          <v-progress-circular
+            v-show="loading"
+            :size="25"
+            color="blue"
+            indeterminate
+          ></v-progress-circular>
           <svg
             class="text-white h-4 w-4 fill-current"
             xmlns="http://www.w3.org/2000/svg"
@@ -28,6 +37,7 @@
             />
           </svg>
         </button>
+
         <input
           v-model="SearchIndex"
           class="border-2 placeholder-white transition ease-in duration-300 text-darkPurple hover:bg-white border-gray-300 bg-mainBlue h-10 px-5 pr-4 md:pr-16 rounded-full text-md focus:outline-none"
@@ -96,16 +106,24 @@
             </template>
           </DropDown>
 
-          <DropDown
-            ><template #title> دسته بندی ها </template>
+          <DropDown>
+            <template #title> دسته بندی ها </template>
 
-            <template #firstOption> شلوار </template>
-
-            <template #secondOption> پیراهن </template>
-
-            <template #thirdOption> کلاه </template>
-            <template #forthOption> کفش </template>
-            <template #fifthOption> هودی </template>
+            <template #firstOption>
+              <p @click="category = 'شلوار'">شلوار</p>
+            </template>
+            <template #secondOption>
+              <p @click="category = 'پیراهن'">پیراهن</p>
+            </template>
+            <template #thirdOption>
+              <p @click="category = 'کلاه'">کلاه</p>
+            </template>
+            <template #forthOption>
+              <p @click="category = 'کفش'">کفش</p>
+            </template>
+            <template #fifthOption>
+              <p @click="category = 'هودی'">هودی</p>
+            </template>
           </DropDown>
         </div>
       </div>
@@ -182,15 +200,11 @@ export default {
     const SearchIndex = ref("");
     const ascention = ref();
     const page = ref();
-
+    const loading = ref(false);
     const products = ref([]);
-    const getPagination = (page, size) => {
-      const limit = size ? +size : 3;
-      const from = page ? page * limit : 0;
-      const to = page ? from + size - 1 : size - 1;
-
-      return { from, to };
-    };
+    const category = ref("");
+    const from = ref(1);
+    const to = ref(4);
 
     watch(order, () => {
       getProducts();
@@ -210,11 +224,26 @@ export default {
     watch(SearchIndex, () => {
       SearchProducts();
     });
+
+    watch(category, () => {
+      changeCategories();
+      console.log(category);
+    });
+    watch(page, () => {
+      to.value = page.value * 4;
+      getProducts();
+
+      console.log(from, to);
+    });
     onMounted(() => {
+      // getcategories();
+      console.log(category);
       getProducts();
     });
     async function SearchProducts() {
       try {
+        loading.value = true;
+
         const { data, error } = await supabase
           .from("products")
           .select()
@@ -227,19 +256,46 @@ export default {
         products.value = data;
       } catch (error) {
         alert(error.message);
+      } finally {
+        loading.value = false;
       }
     }
-    async function getProducts(page) {
-      console.log("bull", order);
-      console.log(ascention);
-      console.log(SearchIndex);
+    // async function getcategories() {
+    //   try {
+    //     const { data, error } = await supabase
+    //       .from("product-category")
+    //       .select("title");
+    //     console.log(categories);
+    //     // .eq("product-category", props.category.title);
+
+    //     if (error) throw error;
+    //     categories.value = data;
+    //   } catch (error) {
+    //     alert(error.message);
+    //   }
+    // }
+    async function changeCategories() {
       try {
-        const { from, to } = getPagination(page, 4);
+        const { data, error } = await supabase
+          .from("products")
+          .select()
+          .eq("product-category", category.value);
+        // .eq("product-category", props.category.title);
+
+        if (error) throw error;
+        products.value = data;
+      } catch (error) {
+        alert(error.message);
+      }
+    }
+
+    async function getProducts() {
+      try {
         const { data, error } = await supabase
           .from("products")
           .select()
           .order(order.value, { ascending: ascention.value })
-          .range(from, to);
+          .range(from.value, to.value);
         // .eq("product-category", props.category.title);
 
         if (error) throw error;
@@ -273,6 +329,10 @@ export default {
       ascention,
       page,
       SearchIndex,
+      loading,
+      category,
+      from,
+      to,
     };
   },
 };

@@ -53,7 +53,6 @@
               ]"
             >
               <slot name="secondOption"></slot>
-              <slot name="secondPicture"></slot>
             </a>
           </MenuItem>
           <MenuItem v-slot="{ active }">
