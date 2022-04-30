@@ -38,7 +38,7 @@
             leave-to="opacity-0 scale-95"
           >
             <div
-              class="inline-block w-full h-full max-w-md my-4 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+              class="inline-block w-full h-full max-w-md my-4 overflow-hidden text-left align-middle transition-all transform bg-purple-100 shadow-xl rounded-2xl"
             >
               <DialogTitle
                 as="div"
@@ -47,10 +47,10 @@
                 <button
                   @click="tab = 'product'"
                   :class="{ 'bg-pink-500 w-1/2': tab === 'product' }"
-                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-yellow-300 active:ring-2"
+                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-pink-500 hover:text-black active:ring-2"
                 >
                   <h1
-                    class="active:scale-125 transition"
+                    class="active:scale-125 transition hover:scale-125"
                     :class="{ 'scale-150': tab === 'product' }"
                   >
                     کالا
@@ -59,10 +59,10 @@
                 <button
                   @click="tab = 'category'"
                   :class="{ 'bg-pink-500 w-1/2': tab === 'category' }"
-                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-yellow-300 active:ring-2"
+                  class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-pink-500 hover:text-black active:ring-2"
                 >
                   <h1
-                    class="active:scale-125 transition"
+                    class="active:scale-125 transition hover:scale-125"
                     :class="{ 'scale-150': tab === 'category' }"
                   >
                     هوم
@@ -272,16 +272,41 @@
                         </ListboxLabel>
                         <div class="mt-1 relative text-right">
                           <ListboxButton
+                            :class="{
+                              'focus:ring-pink-500': selected.name === 'صورتی',
+                              'focus:ring-blue-500': selected.name === 'آبی',
+                              'focus:ring-red-500': selected.name === 'قرمز',
+                              'focus:ring-yellow-500': selected.name === 'زرد',
+                              'focus:ring-purple-500': selected.name === 'بنفش',
+                              'focus:ring-green-500': selected.name === 'سبز',
+                              'focus:ring-purple-700': selected.name === 'نیلی',
+                              'focus:ring-red-700': selected.name === 'یاقوتی',
+                              'focus:ring-goldie': selected.name === 'طلایی',
+                              'focus:ring-black': selected.name === 'سیاه',
+                              'focus:ring-white': selected.name === 'سفید',
+                            }"
                             class="relative w-full bg-gray-200 rounded-md shadow-sm pl-3 pr-10 py-2 text-right cursor-pointer focus:outline-none focus:ring-1 focus:ring-mainPurple focus:border-mainPurple sm:text-sm"
                           >
                             <span
                               class="flex items-center justify-start flex-row-reverse"
                             >
-                              <img
-                                :src="selected.avatar"
+                              <div
+                                :class="{
+                                  'bg-pink-500': selected.name === 'صورتی',
+                                  'bg-blue-500': selected.name === 'آبی',
+                                  'bg-red-500': selected.name === 'قرمز',
+                                  'bg-yellow-500': selected.name === 'زرد',
+                                  'bg-purple-500': selected.name === 'بنفش',
+                                  'bg-green-500': selected.name === 'سبز',
+                                  'bg-purple-700': selected.name === 'نیلی',
+                                  'bg-red-700': selected.name === 'یاقوتی',
+                                  'bg-goldie': selected.name === 'طلایی',
+                                  'bg-black': selected.name === 'سیاه',
+                                  'bg-white': selected.name === 'سفید',
+                                }"
                                 alt=""
                                 class="flex-shrink-0 h-6 w-6 rounded-full"
-                              />
+                              ></div>
                               <span class="mr-3 block truncate text-right">{{
                                 selected.name
                               }}</span>
@@ -306,7 +331,7 @@
                             >
                               <ListboxOption
                                 as="template"
-                                v-for="person in people"
+                                v-for="person in colors"
                                 :key="person.id"
                                 :value="person"
                                 v-slot="{ active, selected }"
@@ -320,11 +345,23 @@
                                   ]"
                                 >
                                   <div class="flex items-center">
-                                    <img
-                                      :src="person.avatar"
+                                    <div
+                                      :class="{
+                                        'bg-pink-500': person.name === 'صورتی',
+                                        'bg-blue-500': person.name === 'آبی',
+                                        'bg-red-500': person.name === 'قرمز',
+                                        'bg-yellow-500': person.name === 'زرد',
+                                        'bg-purple-500': person.name === 'بنفش',
+                                        'bg-green-500': person.name === 'سبز',
+                                        'bg-purple-700': person.name === 'نیلی',
+                                        'bg-red-700': person.name === 'یاقوتی',
+                                        'bg-goldie': person.name === 'طلایی',
+                                        'bg-black': person.name === 'سیاه',
+                                        'bg-white': person.name === 'سفید',
+                                      }"
                                       alt=""
                                       class="flex-shrink-0 h-6 w-6 rounded-full"
-                                    />
+                                    ></div>
                                     <span
                                       :class="[
                                         selected
@@ -417,29 +454,39 @@
                     <div
                       class="bg-Sky-500 flex justify-center rounded p-4 font-bold text-white"
                     >
-                      <h1>دسته جدید</h1>
+                      <h1>کتگوری جدید</h1>
                     </div>
                     <div class="">
                       <input
-                        class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded w-full my-4 py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                        v-model="categoryTitle"
+                        class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded transition w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-gray-200 focus:bg-white focus:border-purple-500"
                         id="inline-full-name"
                         type="text"
-                        placeholder="نام دسته"
+                        placeholder="نام کتگوری"
+                      />
+                    </div>
+                    <div class="flex justify-center p-5">
+                      <label
+                        v-show="!uploadingCategory"
+                        for="file"
+                        class="inputLabel bg-Sky-800 cursor-pointer text-white rounded w-full h-14 flex flex-col justify-center align-center p-2 lg:p-5"
+                      >
+                        <v-icon>mdi-upload</v-icon>
+                        عکس کتگوری
+                      </label>
+                      <input
+                        type="file"
+                        id="file"
+                        aria-label="File browser example"
+                        class="inputfile rounded bg-mainPink"
+                        accept="image/*"
+                        @change="categoryImageUpload"
                       />
                     </div>
 
-                    <div class="mx-1">
-                      <input
-                        class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 my-1 align-top bg-no-repeat bg-center bg-contain float-left cursor-pointer"
-                        type="checkbox"
-                        value=""
-                        checked
-                      /><span class="ml-2 text-gray-700">xl</span>
-                    </div>
                     <div class="">
                       <div class="flex justify-center my-2">
                         <DefaultButton
-                          @click.prevent="addProduct"
                           v-show="!loading"
                           class="px-6 py-4 rounded bg-Sky-500 text-white"
                         >
@@ -483,66 +530,50 @@ import {
   DialogTitle,
 } from "@headlessui/vue";
 
-const people = [
+const colors = [
   {
     id: 1,
     name: "آبی",
-    avatar:
-      "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     id: 2,
     name: "قرمز",
-    avatar:
-      "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     id: 3,
     name: "صورتی",
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80",
   },
   {
     id: 4,
     name: "زرد",
-    avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     id: 5,
     name: "بنفش",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     id: 6,
     name: "سبز",
-    avatar:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     id: 7,
     name: "نیلی",
-    avatar:
-      "https://images.unsplash.com/photo-1568409938619-12e139227838?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     id: 8,
     name: "یاقوتی",
-    avatar:
-      "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     id: 9,
     name: "طلایی",
-    avatar:
-      "https://images.unsplash.com/photo-1584486520270-19eca1efcce5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   {
     id: 10,
     name: "سیاه",
-    avatar:
-      "https://images.unsplash.com/photo-1561505457-3bcad021f8ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+  },
+  {
+    id: 11,
+    name: "سفید",
   },
 ];
 
@@ -580,7 +611,7 @@ export default {
     const uploading2 = ref(false);
     const uploading3 = ref(false);
     const uploading4 = ref(false);
-    const selected = ref(people[3]);
+    const selected = ref(colors[3]);
     const title = ref("");
     const price = ref();
     const category = ref(null);
@@ -592,7 +623,7 @@ export default {
     const xl = ref(false);
     const xxl = ref(false);
     const productColor = ref([]);
-    const selectedPerson = ref(people[0]);
+    const selectedPerson = ref(colors[0]);
     let first_image = ref(null);
     let second_image = ref(null);
     let third_image = ref(null);
@@ -769,7 +800,7 @@ export default {
       uploading3,
       uploading4,
       selected,
-      people,
+      colors,
       title,
       price,
       sm,

@@ -26,9 +26,10 @@
           class="exitContainer z-50 lg:w-full w-1/2 flex items-end justify-end w-full h-full align-start"
         >
           <DefaultButton
+           @click="dialog = false"
             class="text-left text-white lg:mx-4 text-lg rounded-full w-full"
           >
-            <v-icon class="text-mainPink" @click="dialog = false"
+            <v-icon class="text-mainPink"
               >mdi-close</v-icon
             ></DefaultButton
           >
