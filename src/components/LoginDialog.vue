@@ -80,7 +80,7 @@
 
 <script>
 import SignUpDialogVue from "./SignUpDialog.vue";
-import ForgottenPasswordDialog from "./ForgottenPasswordDialog.vue";
+import { defineAsyncComponent } from 'vue'
 import DefaultButton from "./DefaultButton.vue";
 import { ref, onMounted, computed } from "vue";
 import { supabase } from "../supabase";
@@ -91,7 +91,7 @@ export default {
   components: {
     DefaultButton,
     SignUpDialogVue,
-    ForgottenPasswordDialog,
+    ForgottenPasswordDialog: defineAsyncComponent(() => import('./ForgottenPasswordDialog.vue')),
   },
 
   setup() {

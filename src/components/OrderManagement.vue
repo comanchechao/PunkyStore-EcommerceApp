@@ -128,7 +128,7 @@ import {
   TransitionChild,
 } from "@headlessui/vue";
 import { ChevronUpIcon } from "@heroicons/vue/solid";
-import CustomerOrder from "./CustomerOrder.vue";
+import { defineAsyncComponent } from "vue";
 
 const people2 = [
   { name: "2xl" },
@@ -150,7 +150,7 @@ export default {
     DisclosureButton,
     DisclosurePanel,
     ChevronUpIcon,
-    CustomerOrder,
+    CustomerOrder: defineAsyncComponent(() => import("../components/CustomerOrder.vue")),
 
     TransitionRoot,
     TransitionChild,

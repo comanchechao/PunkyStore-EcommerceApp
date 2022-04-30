@@ -86,7 +86,7 @@
 
 <script>
 import DropDown from "./DropDown.vue";
-import CategoryProductListCard from "./CategoryProductListCard.vue";
+import { defineAsyncComponent } from "vue";
 import DefaultButton from "./DefaultButton.vue";
 import { ref } from "@vue/reactivity";
 import { supabase } from "../supabase";
@@ -95,7 +95,7 @@ import { Switch } from "@headlessui/vue";
 
 export default {
   components: {
-    CategoryProductListCard,
+    CategoryProductListCard: defineAsyncComponent(() => import('./CategoryProductListCard.vue')),
     DefaultButton,
     DropDown,
     Switch,

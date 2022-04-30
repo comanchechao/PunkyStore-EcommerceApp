@@ -5,7 +5,7 @@
     >
       <div>
         <DefaultButton
-        v-show="!loading"
+          v-show="!loading"
           @click="display = 'waitList'"
           class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
           :class="{
@@ -14,7 +14,7 @@
         >
           در انتظار
         </DefaultButton>
-          <v-progress-circular
+        <v-progress-circular
           v-show="loading"
           :size="50"
           color="amber"
@@ -23,7 +23,7 @@
       </div>
       <div>
         <DefaultButton
-        v-show="!loading"
+          v-show="!loading"
           @click="display = 'processing'"
           class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
           :class="{
@@ -32,7 +32,7 @@
         >
           درحال پردازش
         </DefaultButton>
-          <v-progress-circular
+        <v-progress-circular
           v-show="loading"
           :size="50"
           color="amber"
@@ -41,7 +41,7 @@
       </div>
       <div>
         <DefaultButton
-        v-show="!loading"
+          v-show="!loading"
           @click="display = 'delivered'"
           class="cursor-pointer bg-Sky-300 hover:bg-Sky-500 px-2 w-16 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
           :class="{
@@ -50,7 +50,7 @@
         >
           دریافت شده
         </DefaultButton>
-          <v-progress-circular
+        <v-progress-circular
           v-show="loading"
           :size="50"
           color="amber"
@@ -97,15 +97,21 @@
 <script>
 import { ref, onMounted } from "vue";
 import DefaultButton from "./DefaultButton.vue";
-import OrderCard from "./orderCard.vue";
+import { defineAsyncComponent } from "vue";
 import { supabase } from "../supabase";
 
 export default {
+  components: {
+    DefaultButton,
+    OrderCard: defineAsyncComponent(() =>
+      import("../components/orderCard.vue")
+    ),
+  },
   setup() {
     const display = ref("processing");
     const allOrders = ref();
     const user = ref(null);
-    const loading = ref(false)
+    const loading = ref(false);
 
     onMounted(() => {
       userOrders();
@@ -115,7 +121,7 @@ export default {
     async function userOrders() {
       try {
         user.value = supabase.auth.user();
-        loading.value = true
+        loading.value = true;
 
         let { data, error, status } = await supabase
           .from("order_detail")
@@ -135,9 +141,8 @@ export default {
       }
     }
 
-    return { display, allOrders , loading };
+    return { display, allOrders, loading };
   },
-  components: { DefaultButton, OrderCard },
 };
 </script>
 

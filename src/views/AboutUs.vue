@@ -94,14 +94,14 @@
 
 <script>
 import gsap from "gsap";
-import Footer from "../components/Footer.vue";
+import { defineAsyncComponent } from "vue";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
   components: {
-    Footer,
+    Footer: defineAsyncComponent(() => import("../components/Footer.vue")),
   },
   mounted() {
     this.animateMonkey();

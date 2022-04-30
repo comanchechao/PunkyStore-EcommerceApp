@@ -55,7 +55,7 @@
         </template>
 
         <template #modalBody>
-          <RadioGroup>
+          <RadioGroup v-model="selected">
             <RadioGroupLabel class="sr-only">Server size</RadioGroupLabel>
             <div class="space-y-2 text-right" v-if="items">
               <RadioGroupOption
@@ -151,44 +151,49 @@
         </template>
 
         <template #modalBody>
-          <div
-            class="flex flex-col align-center justify-between p-5 bg-gray-50 rounded-lg divide-solid space-y-2 mt-5"
-          >
+          <div class="w-full h-full flex flex-col">
             <div
-              class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
+              class="flex flex-col align-center justify-between p-5 bg-gray-50 rounded-lg divide-solid space-y-2 mt-5"
             >
-              <span>نام کاربری</span>
-              <span>{{ order.fullname }}</span>
+              <div
+                class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
+              >
+                <span>نام کاربری</span>
+                <span>{{ order.fullname }}</span>
+              </div>
+              <div
+                class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
+              >
+                <span>شماره تلفن</span>
+                <span>{{ order.phone_number }}</span>
+              </div>
+              <div
+                class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
+              >
+                <span>شهر </span>
+                <span>{{ order.city }}</span>
+              </div>
+              <div
+                class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
+              >
+                <span>استان</span>
+                <span>{{ order.province }}</span>
+              </div>
+              <div
+                class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
+              >
+                <span>استان</span>
+                <span>{{ order.full_address }}</span>
+              </div>
+              <div
+                class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
+              >
+                <span>استان</span>
+                <span>{{ order.email }}</span>
+              </div>
             </div>
-            <div
-              class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
-            >
-              <span>شماره تلفن</span>
-              <span>{{ order.phone_number }}</span>
-            </div>
-            <div
-              class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
-            >
-              <span>شهر </span>
-              <span>{{ order.city }}</span>
-            </div>
-            <div
-              class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
-            >
-              <span>استان</span>
-              <span>{{ order.province }}</span>
-            </div>
-            <div
-              class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
-            >
-              <span>استان</span>
-              <span>{{ order.full_address }}</span>
-            </div>
-            <div
-              class="flex flex-row-reverse border-b-2 my-1 justify-between w-full"
-            >
-              <span>استان</span>
-              <span>{{ order.email }}</span>
+            <div class="flex w-full my-2 justify-around">
+              <button class="p-3 transition rounded shadow-xl bg-green-400 hover:bg-green-300">انتقال به ارسال شده </button>
             </div>
           </div>
         </template>
@@ -198,7 +203,7 @@
 </template>
 
 <script>
-import modal from "../components/Modal.vue";
+import { defineAsyncComponent } from "vue";
 import {
   Menu,
   MenuButton,
@@ -217,7 +222,7 @@ import { supabase } from "../supabase";
 export default {
   props: ["tab", "order"],
   components: {
-    modal,
+    modal: defineAsyncComponent(() => import("./Modal.vue")),
     Menu,
     MenuButton,
     MenuItems,
@@ -231,6 +236,7 @@ export default {
     RadioGroupOption,
   },
   setup(props) {
+    const selected = ref(null);
     const items = ref([]);
     const displayedTab = computed(() => {
       return props.tab;
@@ -262,7 +268,7 @@ export default {
       }
     }
 
-    return { displayedTab, items };
+    return { displayedTab, items, selected };
   },
 };
 </script>

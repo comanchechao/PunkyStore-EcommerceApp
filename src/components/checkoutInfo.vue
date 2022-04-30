@@ -101,13 +101,18 @@
 <script>
 import { productManagent } from "../store/productManagment";
 import { orderManagement } from "../store/orderManagement";
-import ShoppingDrawerItem from "../components/shoppingDrawerItem.vue";
+import { defineAsyncComponent } from "vue";
 import DefaultButton from "../components/DefaultButton.vue";
 import { ref } from "vue";
 import { storeToRefs } from "pinia";
 
 export default {
-  components: { ShoppingDrawerItem, DefaultButton },
+  components: {
+    ShoppingDrawerItem: defineAsyncComponent(() =>
+      import("./shoppingDrawerItem.vue")
+    ),
+    DefaultButton,
+  },
   setup() {
     const manageProducts = productManagent();
     const manageOrders = orderManagement();

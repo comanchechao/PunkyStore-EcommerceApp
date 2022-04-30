@@ -67,7 +67,7 @@
             @click="displayContainer = 'EditInfo'"
             class="'Button rounded py-4 text-lg text-white bg-Sky-300 hover:bg-Sky-500 px-6 lg:w-full lg:p-2 mx-1 w-11/12 my-10 transition transform motion-reduce:transition-none motion-reduce:hover:transform-none ': displayContainer === 'EditInfo',"
           >
-            ویرایش 
+            ویرایش
           </button>
         </div>
       </div>
@@ -76,6 +76,7 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import ordersDetail from "./ordersDetail.vue";
 import Favorites from "./Favorites.vue";
 import EditInfo from "./EditInfo.vue";
@@ -183,7 +184,12 @@ export default {
 
     return { user, username, dialog, displayContainer, signOut, leave, enter };
   },
-  components: { DefaultButton, ordersDetail, Favorites, EditInfo },
+  components: {
+    DefaultButton,
+    ordersDetail: defineAsyncComponent(() => import("./ordersDetail.vue")),
+    Favorites: defineAsyncComponent(() => import("./Favorites.vue")),
+    EditInfo: defineAsyncComponent(() => import('./EditInfo.vue')),
+  },
 };
 </script>
 

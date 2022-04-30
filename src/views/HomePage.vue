@@ -81,11 +81,8 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import DefaultButton from "../components/DefaultButton.vue";
-import CategoryCards from "../components/CategoryCards.vue";
-import CategoryProductList from "../components/CategoryProductList.vue";
-import Carousel from "../components/Carousel.vue";
-import Footer from "../components/Footer.vue";
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import { supabase } from "../supabase";
@@ -93,11 +90,15 @@ import gsap from "gsap";
 
 export default {
   components: {
-    CategoryCards,
-    CategoryProductList,
+    CategoryCards: defineAsyncComponent(() =>
+      import("../components/CategoryCards.vue")
+    ),
+    CategoryProductList: defineAsyncComponent(() =>
+      import("../components/CategoryProductList.vue")
+    ),
     DefaultButton,
-    Carousel,
-    Footer,
+    Carousel: defineAsyncComponent(() => import("../components/Carousel.vue")),
+    Footer: defineAsyncComponent(() => import("../components/Footer.vue")),
   },
   mounted() {
     this.animatePunkeyMonkey();

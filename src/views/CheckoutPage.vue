@@ -18,14 +18,13 @@
 </template>
 
 <script>
-import CheckoutInfo from "../components/checkoutInfo.vue";
 import { ref } from "vue";
 import gsap from "gsap";
 import DefaultButton from "../components/DefaultButton.vue";
-import CheckoutSubmit from "../components/CheckoutSubmit.vue";
+import { defineAsyncComponent } from 'vue'
 
 export default {
-  components: { CheckoutInfo, DefaultButton, CheckoutSubmit },
+  components: {  DefaultButton, CheckoutSubmit : defineAsyncComponent(() => import('../components/CheckoutSubmit.vue'))  },
   setup() {
     const component = ref("CheckoutSubmit");
 

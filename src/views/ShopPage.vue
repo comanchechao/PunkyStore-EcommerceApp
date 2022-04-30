@@ -166,6 +166,7 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import ListBox from "../components/ListBox.vue";
 import MegaMenu from "../components/MegaMenu.vue";
 import DropDown from "../components/DropDown.vue";
@@ -184,12 +185,14 @@ export default {
     // };
   },
   components: {
-    ListBox,
+    ListBox: defineAsyncComponent(() => import("../components/ListBox.vue")),
     Switch,
     DropDown,
-    ProductCard,
-    Footer,
-    MegaMenu,
+    ProductCard: defineAsyncComponent(() =>
+      import("../components/ProductCard.vue")
+    ),
+    Footer: defineAsyncComponent(() => import("../components/Footer.vue")),
+    MegaMenu: defineAsyncComponent(() => import("../components/MegaMenu.vue")),
   },
   // props: ["category"],
 
