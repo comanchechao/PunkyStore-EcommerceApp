@@ -1,14 +1,14 @@
 <template>
-  <v-dialog fullscreen v-model="dialog" width="100%" height="100%">
+  <v-dialog fullscreen v-model="dialog" class="overflow-x-hidden" width="100%" height="100%">
     <template v-slot:activator="{}">
       <DefaultButton class="text-white" @click="dialog = true"
         ><v-icon>mdi-account</v-icon></DefaultButton
       >
     </template>
-    <v-card class="w-full h-auto bg-Sky-200">
+    <v-card class="w-full overflow-x-hidden h-auto bg-Sky-200">
       <div
         id="ball"
-        class="z-10 ball absolute right-0 bg-mainPink rounded-full transform translate-x-28 -translate-y-28 w-64 h-64 lg:w-80 lg:h-80"
+        class="z-10 overflow-hidden ball absolute right-0 bg-mainPink rounded-full transform translate-x-28 -translate-y-28 w-64 h-64 lg:w-80 lg:h-80"
       ></div>
       <div
         id="ball"

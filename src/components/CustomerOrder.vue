@@ -253,6 +253,7 @@ export default {
 
     async function getOrderItems() {
       try {
+        console.log(orderDetailId.value)
         const { data, error } = await supabase
           .from("order_items")
           .select()
