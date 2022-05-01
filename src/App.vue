@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app>
     <v-main>
       <Navbar class="Navbar" />
       <!-- <SubNavbar /> -->

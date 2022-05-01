@@ -39,7 +39,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
               <img
@@ -60,7 +60,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
               <img
@@ -81,28 +81,29 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
               <img
-                src="../assets/images/Pants.webp"
+                src="../assets/images/Cap.webp"
                 class="object-contain h-36"
                 alt=""
               />
               <h1
                 class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
               >
-                شلوار
+                کپ
               </h1>
             </div>
           </MenuItem>
+
           <MenuItem v-slot="{ active }">
             <div
               :class="[
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
               <img
@@ -125,7 +126,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
               <img
@@ -146,7 +147,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
               <img
@@ -167,20 +168,9 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
               ]"
-            >
-              <img
-                src="../assets/images/Cap.webp"
-                class="object-contain h-36"
-                alt=""
-              />
-              <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
-              >
-                کپ
-              </h1>
-            </div>
+            ></div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <div
@@ -188,9 +178,20 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 py-2   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
-            ></div>
+            >
+              <img
+                src="../assets/images/Pants.webp"
+                class="object-contain h-36"
+                alt=""
+              />
+              <h1
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+              >
+                شلوار
+              </h1>
+            </div>
           </MenuItem>
         </div>
       </MenuItems>

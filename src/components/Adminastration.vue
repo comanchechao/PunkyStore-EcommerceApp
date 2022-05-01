@@ -42,7 +42,7 @@
             >
               <DialogTitle
                 as="div"
-                class="flex flex-row justify-around text-lg font-medium leading-6 text-white"
+                class="flex flex-row justify-around text-lg font-medium leading-6"
               >
                 <button
                   @click="tab = 'product'"
@@ -62,7 +62,7 @@
                   class="w-full bg-mainYellow h-full py-5 transition transform hover:bg-pink-500 hover:text-black active:ring-2"
                 >
                   <h1
-                    class="active:scale-125 transition hover:scale-125"
+                    class="active:scale-125 text-black transition hover:scale-125"
                     :class="{ 'scale-150': tab === 'category' }"
                   >
                     هوم
@@ -424,7 +424,9 @@
                       />
                     </div>
 
-                    <div class="m-1 flex w-full justify-center space-x-4 align-center">
+                    <div
+                      class="m-1 flex w-full justify-center space-x-4 align-center"
+                    >
                       <Switch
                         v-model="inStock"
                         :class="inStock ? 'bg-Sky-200' : 'bg-gray-300'"
@@ -435,8 +437,8 @@
                           :class="inStock ? 'translate-x-9' : 'translate-x-0'"
                           class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
                         >
-                          <span class=""></span></span
-                        >
+                          <span class=""></span
+                        ></span>
                       </Switch>
                       <span class="text-xl font-bold">:موجودی</span>
                     </div>
@@ -679,7 +681,7 @@ export default {
     };
 
     const firstUpload = async function (event) {
-      console.log(event)
+      console.log(event);
       first_image.value = event.target.files[0];
       // eslint-disable-next-line no-console
       console.log(first_image.value);

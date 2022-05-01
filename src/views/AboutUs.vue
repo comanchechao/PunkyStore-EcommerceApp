@@ -60,24 +60,24 @@
         class="w-full lg:h-72 h-screen bg-Indigo-900 flex flex-col lg:flex-row justify-around items-center"
       >
         <div class="space-y-7 flex flex-col items-center">
+          <div class="space-y-7 flex flex-col items-center">
+            <div class="w-40 h-40 bg-white rounded-full"></div>
+            <h1 class="text-3xl font-black text-white">روح الله موسوی</h1>
+            <h3 class="text-2xl font-light text-LightBlue-400">بنیان گذار</h3>
+          </div>
           <div class="w-40 h-40 bg-white rounded-full"></div>
           <h1 class="text-3xl font-black text-white">کیارش واحدی</h1>
           <h3 class="text-2xl font-light text-LightBlue-400">
             عضو تیم پانکی مانکی
           </h3>
         </div>
-        <div class="space-y-7 flex flex-col items-center">
-          <div class="w-40 h-40 bg-white rounded-full"></div>
-          <h1 class="text-3xl font-black text-white">روح الله موسوی</h1>
-          <h3 class="text-2xl font-light text-LightBlue-400">بنیان گذار</h3>
-        </div>
-        <div class="space-y-7 flex flex-col items-center">
+        <!-- <div class="space-y-7 flex flex-col items-center">
           <div class="w-40 h-40 bg-white rounded-full"></div>
           <h1 class="text-3xl font-black text-white">بهرام</h1>
           <h3 class="text-2xl font-light text-LightBlue-400">
             عضو تیم پانکی مانکی
           </h3>
-        </div>
+        </div> -->
       </div>
       <h1 class="text-7xl">و</h1>
       <div class="space-y-7 flex flex-col items-center">
