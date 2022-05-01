@@ -693,7 +693,7 @@ export default {
         const file = first_image.value;
         const fileExt = file.name.split(".").pop();
         const fileName = `${Math.random()}.${fileExt}`;
-        const filePath = `${fileName}`;
+        let filePath = `${fileName}`;
         first_image.value = filePath;
 
         const { error: uploadError } = await supabase.storage
@@ -725,7 +725,7 @@ export default {
         const file = second_image.value;
         const fileExt = file.name.split(".").pop();
         const fileName = `${Math.random()}.${fileExt}`;
-        const filePath = `${fileName}`;
+        let filePath = `${fileName}`;
         second_image.value = filePath;
 
         const { error: uploadError } = await supabase.storage
@@ -756,7 +756,7 @@ export default {
         const file = third_image.value;
         const fileExt = file.name.split(".").pop();
         const fileName = `${Math.random()}.${fileExt}`;
-        const filePath = `${fileName}`;
+        let filePath = `${fileName}`;
         filePath = third_image.value;
 
         const { error: uploadError } = await supabase.storage
@@ -787,7 +787,7 @@ export default {
         const file = forth_image.value;
         const fileExt = file.name.split(".").pop();
         const fileName = `${Math.random()}.${fileExt}`;
-        const filePath = `${fileName}`;
+        let filePath = `${fileName}`;
         forth_image.value = filePath;
 
         const { error: uploadError } = await supabase.storage

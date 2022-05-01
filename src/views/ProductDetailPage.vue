@@ -69,7 +69,11 @@
         <div
           class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block"
         >
-          <v-carousel
+          <!-- <ProductZoomer
+            :base-images="images"
+            :base-zoomer-options="zoomerOptions"
+          /> -->
+          <!-- <v-carousel
             cycle
             height="400"
             hide-delimiter-background
@@ -81,7 +85,7 @@
               :src="image.src"
               cover
             ></v-carousel-item>
-          </v-carousel>
+          </v-carousel> -->
 
           <!-- <img
             :src="product.images[0].src"
@@ -89,7 +93,7 @@
             class="w-full h-full object-center object-cover"
           /> -->
         </div>
-        <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+        <!-- <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
           <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
             <img
               :src="product.images[1].src"
@@ -113,7 +117,7 @@
             :alt="product.images[3].alt"
             class="w-full h-full object-center object-cover"
           />
-        </div>
+        </div> -->
       </div>
 
       <!-- Product info -->
@@ -346,6 +350,7 @@ const product = {
     { id: 1, name: "کتگوری", href: "/shopPage" },
     { id: 2, name: "خونه", href: "/" },
   ],
+
   images: [
     {
       src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
@@ -397,24 +402,67 @@ import { productManagent } from "../store/productManagment";
 export default {
   data() {
     return {
-      images: [
-        {
-          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
-      ],
+      // zoomerOptions: {
+      //   zoomFactor: 3,
+      //   pane: "pane",
+      //   hoverDelay: 300,
+      //   namespace: "zoomer-bottom",
+      //   move_by_click: false,
+      //   scroll_items: 4,
+      //   choosed_thumb_border_color: "#dd2c00",
+      //   scroller_position: "bottom",
+      //   zoomer_pane_position: "right",
+      // },
+      // images: {
+      //   thumbs: [
+      //     {
+      //       id: 1,
+      //       url: "http://yoohooworld.com/images/vue-product-zoomer/images/thumbs/1.jpeg",
+      //     },
+      //     {
+      //       id: 2,
+      //       url: "http://yoohooworld.com/images/vue-product-zoomer/images/thumbs/2.jpeg",
+      //     },
+      //   ],
+      //   normal_size: [
+      //     {
+      //       id: 1,
+      //       url: "http://yoohooworld.com/images/vue-product-zoomer/images/normal_size/1.jpeg",
+      //     },
+      //     {
+      //       id: 2,
+      //       url: "http://yoohooworld.com/images/vue-product-zoomer/images/normal_size/2.jpeg",
+      //     },
+      //   ],
+      //   large_size: [
+      //     {
+      //       id: 1,
+      //       url: "http://yoohooworld.com/images/vue-product-zoomer/images/large_size/1.jpeg",
+      //     },
+      //     {
+      //       id: 2,
+      //       url: "http://yoohooworld.com/images/vue-product-zoomer/images/large_size/2.jpeg",
+      //     },
+      //   ],
+      // },
+      // images: [
+      //   {
+      //     src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+      //     alt: "Two each of gray, white, and black shirts laying flat.",
+      //   },
+      //   {
+      //     src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
+      //     alt: "Model wearing plain black basic tee.",
+      //   },
+      //   {
+      //     src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
+      //     alt: "Model wearing plain gray basic tee.",
+      //   },
+      //   {
+      //     src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
+      //     alt: "Model wearing plain white basic tee.",
+      //   },
+      // ],
     };
   },
   components: {

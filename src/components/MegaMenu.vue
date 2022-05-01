@@ -48,7 +48,7 @@
                 alt=""
               />
               <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
               >
                 کفش
               </h1>
@@ -69,7 +69,7 @@
                 alt=""
               />
               <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
               >
                 کلاه
               </h1>
@@ -90,7 +90,7 @@
                 alt=""
               />
               <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
               >
                 شلوار
               </h1>
@@ -111,7 +111,7 @@
                 alt=""
               />
               <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
               >
                 پیراهن
               </h1>
@@ -134,7 +134,7 @@
                 alt=""
               />
               <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
               >
                 هودی
               </h1>
@@ -155,7 +155,7 @@
                 alt=""
               />
               <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
               >
                 جوراب
               </h1>
@@ -176,7 +176,7 @@
                 alt=""
               />
               <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-mainBlue border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
               >
                 کپ
               </h1>

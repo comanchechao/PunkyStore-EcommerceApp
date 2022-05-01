@@ -104,8 +104,8 @@ export default {
     Footer: defineAsyncComponent(() => import("../components/Footer.vue")),
   },
   mounted() {
-    this.animateMonkey();
     this.animateTextDiv();
+    this.animateMonkey();
   },
   methods: {
     animateMonkey() {

@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <v-main>
       <Navbar class="Navbar" />
       <!-- <SubNavbar /> -->
@@ -61,17 +61,21 @@ export default {
       console.log("before leave");
     };
 
-    const  leave = (el, done) => {
-      gsap.fromTo(el, {
-        autoAlpha: 1,
-        y: 0,
-      }, {
-        autoAlpha: 0,
-        y: 400,
-        duration: 0.3,
-        ease: 'Power2.easeOut',
-        onComplete: done
-      });
+    const leave = (el, done) => {
+      gsap.fromTo(
+        el,
+        {
+          autoAlpha: 1,
+          y: 0,
+        },
+        {
+          autoAlpha: 0,
+          y: 400,
+          duration: 0.3,
+          ease: "Power2.easeOut",
+          onComplete: done,
+        }
+      );
     };
 
     return { beforeEnter, enter, beforeLeave, leave };
