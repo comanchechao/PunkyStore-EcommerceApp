@@ -81,14 +81,29 @@ export default {
     // DefaultButton,
   },
   mounted() {
-    this.animateMonkey();
+    this.animateMonkeyEyes();
+    this.animateMonkeyHead();
   },
   methods: {
-    animateMonkey() {
+    animateMonkeyEyes() {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
-      tl.from(".eyes", 1, {
+      tl.from(".eyes", 0.6, {
         ease: "power1.inOut",
         opacity: 0,
+        rotation: -20,
+        x: 10,
+        transformOrigin: "50% 100%",
+        delay: 0.09,
+      });
+    },
+    animateMonkeyHead() {
+      const tl = gsap.timeline({ repeat: -1, yoyo: true });
+      tl.from(".head", 0.6, {
+        ease: "power1.inOut",
+        rotation: -20,
+        x: 10,
+        delay: 0.09,
+
         transformOrigin: "50% 100%",
       });
     },
