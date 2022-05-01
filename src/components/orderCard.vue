@@ -1,7 +1,7 @@
 <template>
   <Disclosure v-slot="{ open }">
     <div
-      class="flex flex-row-reverse justify-around w-full h-16 text-gray-900 border-b-2 hover:bg-Sky-100 hover:border-b-4 transition transform p-1 rounded my-1 border-white align-center"
+      class="flex flex-row-reverse space-x-1 justify-around w-full h-16 text-gray-900 border-b-2 hover:bg-Sky-100 hover:border-b-4 transition transform p-1 rounded my-1 border-white align-center"
     >
       <DisclosureButton>
         <v-progress-circular
@@ -11,7 +11,7 @@
           indeterminate
         ></v-progress-circular>
         <ChevronDownIcon
-        v-show="!loading"
+          v-show="!loading"
           :class="open ? 'transform rotate-180' : ''"
           class="w-5 h-5 transition text-black"
         />
@@ -89,25 +89,38 @@
               ]"
               class="relative h-28 transition-all w-full flex px-5 py-4 rounded-lg shadow-md cursor-pointer focus:outline-none"
             >
-              <div
-                class="flex flex-row-reverse items-center justify-between w-full"
-              >
-                <div class="flex items-center">
-                  <div class="text-sm">
+              <div class="flex flex-row-reverse items-center w-full">
+                <div
+                  class="flex w-full flex-row-reverse justify-around items-center"
+                >
+                  <div class="text-sm w-full">
                     <RadioGroupLabel
-                      as="p"
+                      as="div"
                       :class="checked ? 'text-white' : 'text-gray-900'"
-                      class="font-medium"
+                      class="font-medium flex justify-between align-center text-right"
                     >
-                      {{ item.item.title }}
+                      <div class="w-12 h-12 bg-yellow-200 rounded-full"></div>
+                      <span>
+                        {{ item.item.title }}
+                      </span>
                     </RadioGroupLabel>
                     <RadioGroupDescription
                       as="div"
                       :class="checked ? 'text-white' : 'text-gray-500'"
-                      class="flex justify-around"
+                      class="flex justify-around w-full"
                     >
-                      {{ item.item.description }}
-                      <span aria-hidden="true"> &middot; </span>
+                      <span>
+                        قیمت:
+                        {{ item.item.price }}
+                      </span>
+                      <span>
+                        تعداد:
+                        {{ item.quantity }}
+                      </span>
+                      <span>
+                        موجود:
+                        {{ item.item.productategory }}
+                      </span>
                     </RadioGroupDescription>
                   </div>
                 </div>

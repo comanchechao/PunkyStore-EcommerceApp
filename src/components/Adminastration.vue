@@ -111,10 +111,9 @@
                         <input
                           type="file"
                           id="file"
-                          aria-label="File browser example"
                           class="inputfile rounded bg-mainPink"
                           accept="image/*"
-                          @change="firstUpload('first')"
+                          @change="firstUpload"
                         />
                       </div>
                       <div class="flex justify-center p-5">
@@ -128,10 +127,10 @@
                         </label>
                         <input
                           type="file"
-                          id="file"
-                          aria-label="File browser example"
+                          id="file2"
                           class="inputfile rounded bg-mainPink"
                           accept="image/*"
+                          :value="second_image"
                           @change="secondUpload"
                         />
                       </div>
@@ -152,7 +151,7 @@
                         ></v-progress-circular>
                         <input
                           type="file"
-                          id="file"
+                          id="file3"
                           aria-label="File browser example"
                           class="inputfile rounded bg-mainPink"
                           accept="image/*"
@@ -176,8 +175,7 @@
                         ></v-progress-circular>
                         <input
                           type="file"
-                          id="file"
-                          aria-label="File browser example"
+                          id="file4"
                           class="inputfile rounded bg-mainPink"
                           accept="image/*"
                           @change="uploadImage4"
@@ -425,6 +423,23 @@
                         placeholder="جزئیات کالا"
                       />
                     </div>
+
+                    <div class="m-1 flex w-full justify-center space-x-4 align-center">
+                      <Switch
+                        v-model="inStock"
+                        :class="inStock ? 'bg-Sky-200' : 'bg-gray-300'"
+                        class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                      >
+                        <span
+                          aria-hidden="true"
+                          :class="inStock ? 'translate-x-9' : 'translate-x-0'"
+                          class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                        >
+                          <span class=""></span></span
+                        >
+                      </Switch>
+                      <span class="text-xl font-bold">:موجودی</span>
+                    </div>
                     <div class="mb-4">
                       <div class="flex justify-center my-2">
                         <DefaultButton
@@ -577,7 +592,7 @@ const colors = [
   },
 ];
 
-const people2 = [
+const size = [
   { name: "2xl" },
   { name: "xl" },
   { name: "lg" },
@@ -623,13 +638,11 @@ export default {
     const xl = ref(false);
     const xxl = ref(false);
     const productColor = ref([]);
-    const selectedPerson = ref(colors[0]);
+    const selectedColor = ref(colors[0]);
     let first_image = ref(null);
     let second_image = ref(null);
     let third_image = ref(null);
     let forth_image = ref(null);
-    let firstUrl = ref(null);
-    let secondUrl = ref(null);
 
     function closeModal() {
       isOpen.value = false;
@@ -666,6 +679,7 @@ export default {
     };
 
     const firstUpload = async function (event) {
+      console.log(event)
       first_image.value = event.target.files[0];
       // eslint-disable-next-line no-console
       console.log(first_image.value);
@@ -808,9 +822,10 @@ export default {
       lg,
       xl,
       xxl,
+      inStock,
       description,
-      selectedPerson,
-      people2,
+      selectedColor,
+      size,
       firstUpload,
       secondUpload,
       uploadImage3,

@@ -75,28 +75,45 @@
                   ]"
                   class="relative transition-all flex px-5 py-4 rounded-lg shadow-md cursor-pointer focus:outline-none"
                 >
-                  <div
-                    class="flex flex-row-reverse items-center justify-between w-full"
-                  >
-                    <div class="flex items-center">
-                      <div class="text-sm">
-                        <RadioGroupLabel
-                          as="p"
-                          :class="checked ? 'text-white' : 'text-gray-900'"
-                          class="font-medium"
-                        >
-                          {{ item.item.title }}
-                        </RadioGroupLabel>
-                        <RadioGroupDescription
-                          as="div"
-                          :class="checked ? 'text-white' : 'text-gray-500'"
-                          class="flex justify-around"
-                        >
-                          {{ item.item.description }}
-                          <span aria-hidden="true"> &middot; </span>
-                        </RadioGroupDescription>
-                      </div>
-                    </div>
+                  <div class="flex flex-row-reverse items-center w-full">
+                <div
+                  class="flex w-full flex-row-reverse justify-around items-center"
+                >
+                  <div class="text-sm w-full">
+                    <RadioGroupLabel
+                      as="div"
+                      :class="checked ? 'text-white' : 'text-gray-900'"
+                      class="font-medium flex justify-between align-center text-right"
+                    >
+                      <div class="w-12 h-12 bg-yellow-200 rounded-full"></div>
+                      <span>
+                        {{ item.item.title }}
+                      </span>
+                    </RadioGroupLabel>
+                    <RadioGroupDescription
+                      as="div"
+                      :class="checked ? 'text-white' : 'text-gray-500'"
+                      class="flex justify-around w-full"
+                    >
+                      <span>
+                        قیمت:
+                        {{ item.item.price }}
+                      </span>
+                      <span>
+                        تعداد:
+                        {{ item.quantity }}
+                      </span>
+                      <span>
+                        موجود:
+                        {{ item.item.inStock }}
+                      </span>
+                      <span>
+                        جزئیات:
+                        {{ item.item.description }}
+                      </span>
+                    </RadioGroupDescription>
+                  </div>
+                </div>
                     <div v-show="checked" class="flex-shrink-0 text-white">
                       <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
                         <circle
