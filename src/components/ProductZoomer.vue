@@ -1,20 +1,20 @@
 <template>
   <div class="h-carousel w-carousel bg-mainBlue">
-    <image-zoom
-      regular="../assets/images/Socks.webp"
-      img-class="img-fluid"
-      alt="Sky"
-    >
-    </image-zoom>
+    <inner-image-zoom
+      class="w-96 h-96 bg-mainPurple"
+      src="../src/assets/images/PunkyColor.webp"
+      zoomSrc="../src/assets/images/PunkyHighlights.webp"
+    />
   </div>
 </template>
 
 <script>
-import ImageZoom from "vue-image-zoomer";
+import "vue-inner-image-zoom/lib/vue-inner-image-zoom.css";
+import InnerImageZoom from "vue-inner-image-zoom";
 
 export default {
   components: {
-    ImageZoom,
+    "inner-image-zoom": InnerImageZoom,
   },
   data() {
     return {};

@@ -69,10 +69,10 @@
         <div
           class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block"
         >
-          <!-- <ProductZoomer
-            :base-images="images"
-            :base-zoomer-options="zoomerOptions"
-          /> -->
+          <inner-image-zoom
+            src="../src/assets/images/PunkyColor.webp"
+            zoomSrc="../src/assets/images/PunkyHighlights.webp"
+          />
           <!-- <v-carousel
             cycle
             height="400"
@@ -398,7 +398,8 @@ const product = {
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
 import { productManagent } from "../store/productManagment";
-
+import "vue-inner-image-zoom/lib/vue-inner-image-zoom.css";
+import InnerImageZoom from "vue-inner-image-zoom";
 export default {
   data() {
     return {
@@ -471,6 +472,7 @@ export default {
     RadioGroupOption,
     DefaultButton,
     StarIcon,
+    "inner-image-zoom": InnerImageZoom,
   },
   setup() {
     const selectedColor = ref(product.colors[0]);
