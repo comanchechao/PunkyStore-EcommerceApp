@@ -111,15 +111,16 @@
                         <input
                           type="file"
                           id="file"
+                          multiple
                           class="inputfile rounded bg-mainPink"
                           accept="image/*"
-                          @change="firstUpload"
+                          @input="uploadImage1"
                         />
                       </div>
                       <div class="flex justify-center p-5">
                         <label
                           v-show="!uploading2"
-                          for="file"
+                          for="file2"
                           class="inputLabel bg-Sky-800 cursor-pointer text-white rounded w-full h-14 flex flex-col justify-center align-center p-2 lg:p-5"
                         >
                           <v-icon>mdi-upload</v-icon>
@@ -130,14 +131,13 @@
                           id="file2"
                           class="inputfile rounded bg-mainPink"
                           accept="image/*"
-                          :value="second_image"
-                          @change="secondUpload"
+                          @change="uploadImage2"
                         />
                       </div>
                       <div class="flex justify-center p-5">
                         <label
                           v-show="!uploading3"
-                          for="file"
+                          for="file3"
                           class="inputLabel bg-Sky-800 cursor-pointer text-white rounded w-full h-14 flex flex-col justify-center align-center p-2 lg:p-5"
                         >
                           <v-icon>mdi-upload</v-icon>
@@ -161,7 +161,7 @@
                       <div class="flex justify-center p-5">
                         <label
                           v-show="!uploading4"
-                          for="file"
+                          for="file4"
                           class="inputLabel bg-Sky-800 cursor-pointer text-white rounded w-full h-14 flex flex-col justify-center align-center p-2 lg:p-5"
                         >
                           <v-icon>mdi-upload</v-icon>
@@ -176,7 +176,7 @@
                         <input
                           type="file"
                           id="file4"
-                          class="inputfile rounded bg-mainPink"
+                          class="hidden rounded bg-mainPink"
                           accept="image/*"
                           @change="uploadImage4"
                         />
@@ -680,8 +680,9 @@ export default {
       }
     };
 
-    const firstUpload = async function (event) {
+    const uploadImage1 = async function (event) {
       console.log(event);
+
       first_image.value = event.target.files[0];
       // eslint-disable-next-line no-console
       console.log(first_image.value);
@@ -712,7 +713,7 @@ export default {
       }
     };
 
-    const secondUpload = async function (event) {
+    const uploadImage2 = async function (event) {
       second_image.value = event.target.files[0];
       console.log(event.target.files);
       // eslint-disable-next-line no-console
@@ -776,6 +777,7 @@ export default {
     };
 
     const uploadImage4 = async function (event) {
+      console.log(event);
       forth_image.value = event.target.files[0];
       // eslint-disable-next-line no-console
       console.log(forth_image.value);
@@ -828,8 +830,8 @@ export default {
       description,
       selectedColor,
       size,
-      firstUpload,
-      secondUpload,
+      uploadImage1,
+      uploadImage2,
       uploadImage3,
       uploadImage4,
       addProduct,
