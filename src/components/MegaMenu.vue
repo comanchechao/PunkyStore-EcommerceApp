@@ -42,16 +42,7 @@
                 ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
-              <img
-                src="../assets/images/Shoe.webp"
-                class="object-contain h-36"
-                alt=""
-              />
-              <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
-              >
-                کفش
-              </h1>
+              <slot name="Shoes"> </slot>
             </div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
@@ -63,16 +54,7 @@
                 ' px-4 lg:lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
-              <img
-                src="../assets/images/Hat.webp"
-                class="object-contain h-36"
-                alt=""
-              />
-              <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
-              >
-                کلاه
-              </h1>
+              <slot name="Hat"> </slot>
             </div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
@@ -84,16 +66,7 @@
                 ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
-              <img
-                src="../assets/images/Cap.webp"
-                class="object-contain h-36"
-                alt=""
-              />
-              <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
-              >
-                کپ
-              </h1>
+              <slot name="Cap"> </slot>
             </div>
           </MenuItem>
 
@@ -106,16 +79,7 @@
                 ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
-              <img
-                src="../assets/images/Shirt.webp"
-                class="object-contain h-36"
-                alt=""
-              />
-              <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
-              >
-                پیراهن
-              </h1>
+              <slot name="Shirt"> </slot>
             </div>
           </MenuItem>
         </div>
@@ -129,16 +93,7 @@
                 ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
-              <img
-                src="../assets/images/Hoodie.webp"
-                class="object-contain h-36"
-                alt=""
-              />
-              <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
-              >
-                هودی
-              </h1>
+              <slot name="Hoodie"> </slot>
             </div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
@@ -150,19 +105,10 @@
                 ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
-              <img
-                src="../assets/images/Socks.webp"
-                class="object-contain h-36"
-                alt=""
-              />
-              <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
-              >
-                جوراب
-              </h1>
+              <slot name="Socks"> </slot>
             </div>
           </MenuItem>
-          <MenuItem v-slot="{ active }">
+          <!-- <MenuItem v-slot="{ active }">
             <div
               :class="[
                 active
@@ -171,6 +117,18 @@
                 ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-end',
               ]"
             ></div>
+          </MenuItem> -->
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+              ]"
+            >
+              <slot name="Accessory"> </slot>
+            </div>
           </MenuItem>
           <MenuItem v-slot="{ active }">
             <div
@@ -181,16 +139,7 @@
                 ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
-              <img
-                src="../assets/images/Pants.webp"
-                class="object-contain h-36"
-                alt=""
-              />
-              <h1
-                class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
-              >
-                شلوار
-              </h1>
+              <slot name="Pants"> </slot>
             </div>
           </MenuItem>
         </div>

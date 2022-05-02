@@ -79,14 +79,14 @@
           </h3>
         </div> -->
       </div>
-      <h1 class="text-7xl">و</h1>
+      <!-- <h1 class="text-7xl">و</h1>
       <div class="space-y-7 flex flex-col items-center">
         <div class="w-36 h-36 bg-white rounded-full"></div>
         <h1 class="text-3xl font-black text-black">پاتریک مقدس</h1>
         <h3 class="text-2xl font-light text-purple-900">
           عضو ویژه ی تیم پانکی مانکی
         </h3>
-      </div>
+      </div> -->
     </div>
   </div>
   <Footer />

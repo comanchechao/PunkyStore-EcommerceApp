@@ -57,14 +57,13 @@
         </DropDown>
       </div>
       <div
-        class="w-full h-full grid bg-purple-700 productCard lg:grid-cols-4 space-y-5 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
+        class="w-full h-full grid overflow-y-scroll bg-purple-700 productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
       >
-        <!-- <CategoryProductListCard
+        <CategoryProductListCard
           v-for="product in products"
           :key="product.id"
           :product="product"
-          class=" "
-        /> -->
+        />
       </div>
       <!-- <div class="bg-purple-700 grid">
        
@@ -86,16 +85,16 @@
 
 <script>
 import DropDown from "./DropDown.vue";
-import { defineAsyncComponent } from "vue";
 import DefaultButton from "./DefaultButton.vue";
 import { ref } from "@vue/reactivity";
 import { supabase } from "../supabase";
-import { onMounted } from "@vue/runtime-core";
+import { onMounted, watch } from "@vue/runtime-core";
 import { Switch } from "@headlessui/vue";
+import CategoryProductListCard from "./CategoryProductListCard.vue";
 
 export default {
   components: {
-    CategoryProductListCard: defineAsyncComponent(() => import('./CategoryProductListCard.vue')),
+    CategoryProductListCard,
     DefaultButton,
     DropDown,
     Switch,
@@ -107,8 +106,8 @@ export default {
     const inStock = ref(false);
     const order = ref("price");
     const ascention = ref();
-
     const products = ref([]);
+
     watch(order, () => {
       getProducts();
       console.log(order);
@@ -128,8 +127,10 @@ export default {
         const { data, error } = await supabase
           .from("products")
           .select()
+          .eq("product-category", props.category.title)
           .order(order.value, { ascending: ascention.value })
-          .eq("product-category", props.category.title);
+          .limit(4);
+
         if (error) throw error;
         products.value = data;
       } catch (error) {

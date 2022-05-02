@@ -46,7 +46,120 @@
           placeholder="جستجو"
         />
       </div>
-      <MegaMenu />
+      <MegaMenu>
+        <template #Hat>
+          <div @click="category = 'کلاه'" class="">
+            <img
+              src="../assets/images/Hat.webp"
+              class="object-contain h-36"
+              alt=""
+            />
+            <h1
+              class="lg:text-4xl text-xl text-center text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+            >
+              کلاه
+            </h1>
+          </div>
+        </template>
+        <template #Pants>
+          <div @click="category = 'شلوار'" class="">
+            <img
+              src="../assets/images/Pants.webp"
+              class="object-contain h-36"
+              alt=""
+            />
+            <h1
+              class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+            >
+              شلوار
+            </h1>
+          </div>
+        </template>
+        <template #Hoodie>
+          <div @click="category = 'هودی'" class="">
+            <img
+              src="../assets/images/Hoodie.webp"
+              class="object-contain h-36"
+              alt=""
+            />
+            <h1
+              class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+            >
+              هودی
+            </h1>
+          </div>
+        </template>
+        <template #Shirt>
+          <div @click="category = 'پیراهن'" class="">
+            <img
+              src="../assets/images/Shirt.webp"
+              class="object-contain h-36"
+              alt=""
+            />
+            <h1
+              class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+            >
+              پیراهن
+            </h1>
+          </div>
+        </template>
+        <template #Socks>
+          <div @click="category = 'جوراب'" class="">
+            <img
+              src="../assets/images/Socks.webp"
+              class="object-contain h-36"
+              alt=""
+            />
+            <h1
+              class="lg:text-4xl text-xl text-center text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+            >
+              جوراب
+            </h1>
+          </div>
+        </template>
+        <template #Cap>
+          <div @click="category = 'کپ'" class="">
+            <img
+              src="../assets/images/Cap.webp"
+              class="object-contain h-36"
+              alt=""
+            />
+            <h1
+              class="lg:text-4xl text-xl text-center text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+            >
+              کپ
+            </h1>
+          </div>
+        </template>
+        <template #Shoes>
+          <div @click="category = 'کفش'" class="">
+            <img
+              src="../assets/images/Shoe.webp"
+              class="object-contain h-36"
+              alt=""
+            />
+            <h1
+              class="lg:text-4xl text-center text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+            >
+              کفش
+            </h1>
+          </div>
+        </template>
+        <template #Accessory>
+          <div @click="category = 'اکسسوری'" class="">
+            <!-- <img
+              src="../assets/images/Shoe.webp"
+              class="object-contain h-36"
+              alt=""
+            /> -->
+            <h1
+              class="lg:text-4xl text-center text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+            >
+              اکسسوری
+            </h1>
+          </div>
+        </template>
+      </MegaMenu>
 
       <!-- <ListBox /> -->
     </div>
@@ -167,11 +280,7 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
-import ListBox from "../components/ListBox.vue";
-import MegaMenu from "../components/MegaMenu.vue";
 import DropDown from "../components/DropDown.vue";
-import ProductCard from "../components/ProductCard.vue";
-import Footer from "../components/Footer.vue";
 import { ref } from "vue";
 import { supabase } from "../supabase";
 import { onMounted, watch } from "@vue/runtime-core";

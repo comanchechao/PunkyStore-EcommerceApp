@@ -1,20 +1,18 @@
 <template>
   <div
-    class="bg-gray-50 w-full flex-col h-96 lg:h-rem33 my-9 wrapper rounded-lg p-7 md:p-16 flex"
+    class="bg-gray-50 w-full flex-col h-96 lg:h-full my-9 wrapper rounded-lg p-7 flex"
   >
     <div class="w-full h-full bg-purple-900 p-2">
       <img class="bg-mainPurple" src="" alt="" />
     </div>
     <div
-      v-for="item in products"
-      :key="item.id"
       class="w-full h-full flex flex-col text-center align-center justify-center space-y-3 my-4 lg:space-x-9"
     >
-      <h1 class="text-black font-bold text-2xl lg:text-5xl">
-        {{ item.title }}
+      <h1 class="text-black font-bold text-2xl lg:text-5xl prod-title">
+        {{ product.title }}
       </h1>
       <h2 class="text-Emerald-600 font-bold text-1xl lg:text-3xl">
-        {{ item.price }}
+        {{ product.price }}
       </h2>
       <router-link to="/shop">
         <DefaultButton class="bg-goldie font-bold text-xl px-4 rounded-full"
@@ -35,37 +33,27 @@
 
 <script>
 import DefaultButton from "./DefaultButton.vue";
-import { onMounted } from "vue";
-import { ref } from "vue";
-
-import { supabase } from "../supabase";
-
-import { storeToRefs } from "pinia";
+import { ref } from "@vue/reactivity";
+import { productManagent } from "../store/productManagment";
 
 export default {
   components: {
     DefaultButton,
   },
-  setup() {
-    const products = ref([]);
+  props: ["product"],
 
-    onMounted(() => {
-      getProducts();
+  setup(props) {
+    const Product = ref({
+      item: props.product,
+      quantity: 1,
     });
+    const productManagment = productManagent();
 
-    async function getProducts() {
-      try {
-        const { data, error } = await supabase.from("products");
-        // .eq("product-category", props.category.title);
+    const addToCart = function () {
+      productManagment.addToCart(Product.value);
+    };
 
-        if (error) throw error;
-        products.value = data;
-      } catch (error) {
-        alert(error.message);
-      }
-    }
-
-    return { products };
+    return { addToCart };
   },
 };
 </script>
