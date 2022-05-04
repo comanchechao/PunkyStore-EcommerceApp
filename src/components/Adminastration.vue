@@ -262,7 +262,7 @@
                       </div>
                     </div>
                     <div class="mx-1 my-2">
-                      <Listbox as="div" v-model="selected">
+                      <Listbox as="div" v-model="selectedColor">
                         <ListboxLabel
                           class="text-right block text-sm text-xl text-gray-700"
                         >
@@ -271,17 +271,26 @@
                         <div class="mt-1 relative text-right">
                           <ListboxButton
                             :class="{
-                              'focus:ring-pink-500': selected.name === 'صورتی',
-                              'focus:ring-blue-500': selected.name === 'آبی',
-                              'focus:ring-red-500': selected.name === 'قرمز',
-                              'focus:ring-yellow-500': selected.name === 'زرد',
-                              'focus:ring-purple-500': selected.name === 'بنفش',
-                              'focus:ring-green-500': selected.name === 'سبز',
-                              'focus:ring-purple-700': selected.name === 'نیلی',
-                              'focus:ring-red-700': selected.name === 'یاقوتی',
-                              'focus:ring-goldie': selected.name === 'طلایی',
-                              'focus:ring-black': selected.name === 'سیاه',
-                              'focus:ring-white': selected.name === 'سفید',
+                              'focus:ring-pink-500':
+                                selectedColor.name === 'صورتی',
+                              'focus:ring-blue-500':
+                                selectedColor.name === 'آبی',
+                              'focus:ring-red-500':
+                                selectedColor.name === 'قرمز',
+                              'focus:ring-yellow-500':
+                                selectedColor.name === 'زرد',
+                              'focus:ring-purple-500':
+                                selectedColor.name === 'بنفش',
+                              'focus:ring-green-500':
+                                selectedColor.name === 'سبز',
+                              'focus:ring-purple-700':
+                                selectedColor.name === 'نیلی',
+                              'focus:ring-red-700':
+                                selectedColor.name === 'یاقوتی',
+                              'focus:ring-goldie':
+                                selectedColor.name === 'طلایی',
+                              'focus:ring-black': selectedColor.name === 'سیاه',
+                              'focus:ring-white': selectedColor.name === 'سفید',
                             }"
                             class="relative w-full bg-gray-200 rounded-md shadow-sm pl-3 pr-10 py-2 text-right cursor-pointer focus:outline-none focus:ring-1 focus:ring-mainPurple focus:border-mainPurple sm:text-sm"
                           >
@@ -290,23 +299,25 @@
                             >
                               <div
                                 :class="{
-                                  'bg-pink-500': selected.name === 'صورتی',
-                                  'bg-blue-500': selected.name === 'آبی',
-                                  'bg-red-500': selected.name === 'قرمز',
-                                  'bg-yellow-500': selected.name === 'زرد',
-                                  'bg-purple-500': selected.name === 'بنفش',
-                                  'bg-green-500': selected.name === 'سبز',
-                                  'bg-purple-700': selected.name === 'نیلی',
-                                  'bg-red-700': selected.name === 'یاقوتی',
-                                  'bg-goldie': selected.name === 'طلایی',
-                                  'bg-black': selected.name === 'سیاه',
-                                  'bg-white': selected.name === 'سفید',
+                                  'bg-pink-500': selectedColor.name === 'صورتی',
+                                  'bg-blue-500': selectedColor.name === 'آبی',
+                                  'bg-red-500': selectedColor.name === 'قرمز',
+                                  'bg-yellow-500': selectedColor.name === 'زرد',
+                                  'bg-purple-500':
+                                    selectedColor.name === 'بنفش',
+                                  'bg-green-500': selectedColor.name === 'سبز',
+                                  'bg-purple-700':
+                                    selectedColor.name === 'نیلی',
+                                  'bg-red-700': selectedColor.name === 'یاقوتی',
+                                  'bg-goldie': selectedColor.name === 'طلایی',
+                                  'bg-black': selectedColor.name === 'سیاه',
+                                  'bg-white': selectedColor.name === 'سفید',
                                 }"
                                 alt=""
                                 class="flex-shrink-0 h-6 w-6 rounded-full"
                               ></div>
                               <span class="mr-3 block truncate text-right">{{
-                                selected.name
+                                selectedColor.name
                               }}</span>
                             </span>
                             <span
@@ -329,10 +340,10 @@
                             >
                               <ListboxOption
                                 as="template"
-                                v-for="person in colors"
-                                :key="person.id"
-                                :value="person"
-                                v-slot="{ active, selected }"
+                                v-for="color in colors"
+                                :key="color.id"
+                                :value="color"
+                                v-slot="{ active, selectedColor }"
                               >
                                 <li
                                   :class="[
@@ -345,35 +356,129 @@
                                   <div class="flex items-center">
                                     <div
                                       :class="{
-                                        'bg-pink-500': person.name === 'صورتی',
-                                        'bg-blue-500': person.name === 'آبی',
-                                        'bg-red-500': person.name === 'قرمز',
-                                        'bg-yellow-500': person.name === 'زرد',
-                                        'bg-purple-500': person.name === 'بنفش',
-                                        'bg-green-500': person.name === 'سبز',
-                                        'bg-purple-700': person.name === 'نیلی',
-                                        'bg-red-700': person.name === 'یاقوتی',
-                                        'bg-goldie': person.name === 'طلایی',
-                                        'bg-black': person.name === 'سیاه',
-                                        'bg-white': person.name === 'سفید',
+                                        'bg-pink-500': color.name === 'صورتی',
+                                        'bg-blue-500': color.name === 'آبی',
+                                        'bg-red-500': color.name === 'قرمز',
+                                        'bg-yellow-500': color.name === 'زرد',
+                                        'bg-purple-500': color.name === 'بنفش',
+                                        'bg-green-500': color.name === 'سبز',
+                                        'bg-purple-700': color.name === 'نیلی',
+                                        'bg-red-700': color.name === 'یاقوتی',
+                                        'bg-goldie': color.name === 'طلایی',
+                                        'bg-black': color.name === 'سیاه',
+                                        'bg-white': color.name === 'سفید',
                                       }"
                                       alt=""
                                       class="flex-shrink-0 h-6 w-6 rounded-full"
                                     ></div>
                                     <span
                                       :class="[
-                                        selected
+                                        selectedColor
                                           ? 'font-semibold'
                                           : 'font-normal',
                                         'ml-3 block truncate',
                                       ]"
                                     >
-                                      {{ person.name }}
+                                      {{ color.name }}
                                     </span>
                                   </div>
 
                                   <span
-                                    v-if="selected"
+                                    v-if="selectedColor"
+                                    :class="[
+                                      active
+                                        ? 'text-gray-900'
+                                        : 'text-indigo-600',
+                                      'absolute inset-y-0 right-0 flex items-center pr-4',
+                                    ]"
+                                  >
+                                    <CheckIcon
+                                      class="h-5 w-5"
+                                      aria-hidden="true"
+                                    />
+                                  </span>
+                                </li>
+                              </ListboxOption>
+                            </ListboxOptions>
+                          </transition>
+                        </div>
+                      </Listbox>
+                    </div>
+
+                    <div class="mx-1 my-2">
+                      <Listbox as="div" v-model="selectedCategory">
+                        <ListboxLabel
+                          class="text-right block text-sm text-xl text-gray-700"
+                        >
+                          انتخاب کتگوری
+                        </ListboxLabel>
+                        <div class="mt-1 relative text-right">
+                          <ListboxButton
+                            class="relative w-full bg-gray-200 rounded-md shadow-sm pl-3 pr-10 py-2 text-right cursor-pointer focus:outline-none focus:ring-1 focus:ring-mainPurple focus:border-mainPurple sm:text-sm"
+                          >
+                            <span
+                              class="flex items-center justify-start flex-row-reverse"
+                            >
+                              <div
+                                alt=""
+                                class="flex-shrink-0 h-6 w-6 rounded-full"
+                              ></div>
+                              <span class="mr-3 block truncate text-right">
+                                {{ selectedCategory }}
+                              </span>
+                            </span>
+                            <span
+                              class="ml-3 absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
+                            >
+                              <SelectorIcon
+                                class="h-5 w-5 text-gray-700"
+                                aria-hidden="true"
+                              />
+                            </span>
+                          </ListboxButton>
+
+                          <transition
+                            leave-active-class="transition ease-in duration-100"
+                            leave-from-class="opacity-100"
+                            leave-to-class="opacity-0"
+                          >
+                            <ListboxOptions
+                              class="absolute z-10 mt-1 w-full bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+                            >
+                              <ListboxOption
+                                as="template"
+                                v-for="category in categories"
+                                :key="category.id"
+                                :value="category.title"
+                                v-slot="{ active, selectedCategory }"
+                              >
+                                <li
+                                  :class="[
+                                    active
+                                      ? 'text-white bg-indigo-600'
+                                      : 'text-gray-900',
+                                    'cursor-default select-none relative py-2 pl-3 pr-9',
+                                  ]"
+                                >
+                                  <div class="flex items-center">
+                                    <div
+                                      alt=""
+                                      class="flex-shrink-0 h-6 w-6 rounded-full"
+                                    ></div>
+                                    <span
+                                      :class="[
+                                        selectedCategory
+                                          ? 'font-semibold'
+                                          : 'font-normal',
+                                        'ml-3 block truncate',
+                                      ]"
+                                    >
+                                      {{ category.title }}
+                                    </span>
+                                  </div>
+
+                                  <span
+                                    v-if="selectedCategory"
                                     :class="[
                                       active
                                         ? 'text-gray-900'
@@ -475,7 +580,6 @@
                     </div>
                     <div class="">
                       <input
-                        v-model="categoryTitle"
                         class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded transition w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-gray-200 focus:bg-white focus:border-purple-500"
                         id="inline-full-name"
                         type="text"
@@ -484,7 +588,6 @@
                     </div>
                     <div class="flex justify-center p-5">
                       <label
-                        v-show="!uploadingCategory"
                         for="file"
                         class="inputLabel bg-Sky-800 cursor-pointer text-white rounded w-full h-14 flex flex-col justify-center align-center p-2 lg:p-5"
                       >
@@ -497,7 +600,6 @@
                         aria-label="File browser example"
                         class="inputfile rounded bg-mainPink"
                         accept="image/*"
-                        @change="categoryImageUpload"
                       />
                     </div>
 
@@ -529,7 +631,7 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { computed, onMounted, ref, watch, watchEffect } from "vue";
 import DefaultButton from "../components/DefaultButton.vue";
 import { CheckIcon, SelectorIcon } from "@heroicons/vue/solid";
 import { supabase } from "../supabase";
@@ -546,6 +648,7 @@ import {
   DialogOverlay,
   DialogTitle,
 } from "@headlessui/vue";
+import { i } from "../../dist/assets/vendor.8fdc00bd";
 
 const colors = [
   {
@@ -594,15 +697,6 @@ const colors = [
   },
 ];
 
-const size = [
-  { name: "2xl" },
-  { name: "xl" },
-  { name: "lg" },
-  { name: "md" },
-  { name: "sm" },
-  { name: "xl" },
-];
-
 export default {
   components: {
     TransitionRoot,
@@ -628,7 +722,6 @@ export default {
     const uploading2 = ref(false);
     const uploading3 = ref(false);
     const uploading4 = ref(false);
-    const selected = ref(colors[3]);
     const title = ref("");
     const price = ref();
     const category = ref(null);
@@ -639,18 +732,92 @@ export default {
     const lg = ref(false);
     const xl = ref(false);
     const xxl = ref(false);
+    const size = ref([]);
     const productColor = ref([]);
     const selectedColor = ref(colors[0]);
+    const selectedCategory = ref();
+    const categories = ref([]);
+
     let first_image = ref(null);
     let second_image = ref(null);
     let third_image = ref(null);
     let forth_image = ref(null);
+
+    onMounted(() => {
+      getcategories();
+    });
+
+    watch(sm, () => {
+      if (size.value.indexOf("sm") === -1) {
+        size.value.push("sm");
+        console.log(size.value);
+      }
+      if (sm.value === false) {
+        let indexofSm = size.value.indexOf("sm");
+        size.value.splice(indexofSm, 1);
+      }
+    });
+
+    watch(md, () => {
+      if (size.value.indexOf("md") === -1) {
+        size.value.push("md");
+        console.log(size.value);
+      }
+      if (md.value === false) {
+        let indexofMd = size.value.indexOf("md");
+        size.value.splice(indexofMd, 1);
+      }
+    });
+    watch(lg, () => {
+      if (size.value.indexOf("lg") === -1) {
+        size.value.push("lg");
+        console.log(size.value);
+      }
+      if (lg.value === false) {
+        let indexofLg = size.value.indexOf("lg");
+        size.value.splice(indexofLg, 1);
+      }
+    });
+    watch(xl, () => {
+      if (size.value.indexOf("xl") === -1) {
+        size.value.push("xl");
+        console.log(size.value);
+      }
+      if (xl.value === false) {
+        let indexofXl = size.value.indexOf("xl");
+        size.value.splice(indexofXl, 1);
+      }
+    });
+    watch(xxl, () => {
+      if (size.value.indexOf("2xl") === -1) {
+        size.value.push("2xl");
+        console.log(size.value);
+      }
+      if (xxl.value === false) {
+        let indexofXxl = size.value.indexOf("2xl");
+        size.value.splice(indexofXxl, 1);
+      }
+    });
 
     function closeModal() {
       isOpen.value = false;
     }
     function openModal() {
       isOpen.value = true;
+    }
+
+    async function getcategories() {
+      try {
+        const { data, error } = await supabase
+          .from("product-category")
+          .select("title");
+        // .eq("product-category", props.category.title);
+
+        if (error) throw error;
+        categories.value = data;
+      } catch (error) {
+        alert(error.message);
+      }
     }
 
     const addProduct = async function () {
@@ -661,11 +828,14 @@ export default {
             title: title.value,
             price: price.value,
             inStock: inStock.value,
-            "product-category": category.value,
+            "product-category": selectedCategory.value,
+            color: selectedColor.value.name,
+            description: description.value,
             first_image: first_image.value,
             second_image: second_image.value,
             third_image: third_image.value,
             forth_image: forth_image.value,
+            size: size.value
           },
         ]);
         if (error) throw error;
@@ -817,7 +987,6 @@ export default {
       uploading2,
       uploading3,
       uploading4,
-      selected,
       colors,
       title,
       price,
@@ -836,6 +1005,8 @@ export default {
       uploadImage4,
       addProduct,
       loading,
+      selectedCategory,
+      categories,
     };
   },
 };

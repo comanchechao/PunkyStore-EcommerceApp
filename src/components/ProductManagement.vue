@@ -216,7 +216,7 @@
                       </h2>
                     </div>
                     <div class="flex flex-row">
-                      <button>
+                      <button @click="removeProduct(item.id)">
                         <v-icon class="font-bold text-red-800"
                           >mdi-delete</v-icon
                         >
@@ -290,6 +290,21 @@ export default {
       }
     }
 
+    async function removeProduct(id) {
+      try {
+        console.log(id);
+        const { data, error } = await supabase
+          .from("products")
+          .delete()
+          .match({ id: 1 });
+        if (error) throw error;
+        console.log(data)
+        alert("success");
+      } catch (error) {
+        console.log("error", error);
+      }
+    }
+
     async function getcategories() {
       try {
         const { data, error } = await supabase
@@ -303,7 +318,7 @@ export default {
         alert(error.message);
       }
     }
-    return { categories, products, category };
+    return { categories, products, category, removeProduct };
   },
 };
 </script>
