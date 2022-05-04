@@ -648,7 +648,6 @@ import {
   DialogOverlay,
   DialogTitle,
 } from "@headlessui/vue";
-import { i } from "../../dist/assets/vendor.8fdc00bd";
 
 const colors = [
   {
