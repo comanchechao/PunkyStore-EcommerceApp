@@ -1,11 +1,17 @@
 <template>
-  <v-dialog fullscreen v-model="dialog" class="overflow-x-hidden" width="100%" height="100%">
+  <v-dialog
+    fullscreen
+    v-model="dialog"
+    class="overflow-x-hidden"
+    width="100%"
+    height="100%"
+  >
     <template v-slot:activator="{}">
       <DefaultButton class="text-white" @click="dialog = true"
         ><v-icon>mdi-account</v-icon></DefaultButton
       >
     </template>
-    <v-card class="w-full overflow-x-hidden h-auto bg-Sky-200">
+    <v-card class="w-full overflow-x-hidden h-auto bg-Indigo-900">
       <div
         id="ball"
         class="z-10 overflow-hidden ball absolute right-0 bg-mainPink rounded-full transform translate-x-28 -translate-y-28 w-64 h-64 lg:w-80 lg:h-80"
@@ -26,12 +32,10 @@
           class="exitContainer z-50 lg:w-full w-1/2 flex items-end justify-end w-full h-full align-start"
         >
           <DefaultButton
-           @click="dialog = false"
+            @click="dialog = false"
             class="text-left text-white lg:mx-4 text-lg rounded-full w-full"
           >
-            <v-icon class="text-mainPink"
-              >mdi-close</v-icon
-            ></DefaultButton
+            <v-icon class="text-mainPink">mdi-close</v-icon></DefaultButton
           >
         </div>
       </div>
@@ -189,7 +193,7 @@ export default {
     DefaultButton,
     ordersDetail: defineAsyncComponent(() => import("./ordersDetail.vue")),
     Favorites: defineAsyncComponent(() => import("./Favorites.vue")),
-    EditInfo: defineAsyncComponent(() => import('./EditInfo.vue')),
+    EditInfo: defineAsyncComponent(() => import("./EditInfo.vue")),
   },
 };
 </script>

@@ -148,7 +148,7 @@ export default {
   filter: drop-shadow(1.5);
 }
 .cardBackground {
-  backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(207, 207, 207, 0.75);
   border-radius: 12px;

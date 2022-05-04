@@ -453,7 +453,7 @@ export default {
 
 <style scoped>
 .background {
-  backdrop-filter: blur(9px) saturate(109%);
+  backdrop-filter: saturate(109%);
   -webkit-backdrop-filter: blur(9px) saturate(109%);
   background-color: rgba(255, 255, 255, 0.76);
   border-radius: 0 0 12px;

@@ -149,7 +149,7 @@ export default {
         });
         if (error) throw error;
         UserManagement().setUser(user);
-        dialog.value = false;
+        // dialog.value = false;
         loggedIn.value = true;
       } catch (error) {
         errorLoggingIn.value = true;
