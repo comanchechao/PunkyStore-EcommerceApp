@@ -59,6 +59,28 @@
           ></v-progress-circular>
         </v-card-actions>
       </v-card>
+      <v-alert
+        v-show="signedUp"
+        dismissible
+        outlined
+        shaped
+        text
+        class="h-20"
+        type="success"
+      >
+        ثبت نام موفقیت آمیز بود رفیق</v-alert
+      >
+      <v-alert
+        v-show="!signedUp"
+        dismissible
+        outlined
+        shaped
+        text
+        class="h-20"
+        type="error"
+      >
+        یه مشکلی پیش اومده، یبار دیگه امتحان کن</v-alert
+      >
     </v-dialog>
   </div>
 </template>
@@ -71,7 +93,7 @@ import { supabase } from "../supabase";
 import { store } from "../store.js";
 
 export default {
-  name: 'signUpDialog',
+  name: "signUpDialog",
   components: {
     DefaultButton,
   },
@@ -82,6 +104,7 @@ export default {
     const signUpPassword = ref("");
     const loading = ref(false);
     const sessionActive = ref(false);
+    const signedUp = ref();
 
     const createUser = async () => {
       try {
@@ -96,10 +119,12 @@ export default {
         alert(error.message);
       } finally {
         signUpDialog.value = false;
+        signedUp.value = true;
       }
     };
 
     return {
+      signedUp,
       signUpDialog,
       store,
       signUpEmail,

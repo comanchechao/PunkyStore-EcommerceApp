@@ -50,7 +50,7 @@
                           'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
                           bar === 'categories'
-                            ? 'bg-mainPink'
+                            ? 'bg-goldie'
                             : 'text-white hover:bg-darkPurple hover:text-white',
                         ]"
                       >
@@ -62,7 +62,7 @@
                           'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
                           bar === 'menu'
-                            ? 'bg-mainPink text-black shadow'
+                            ? 'bg-goldie text-black shadow'
                             : 'text-gray-800 hover:bg-darkPurple hover:text-white',
                         ]"
                       >
@@ -73,27 +73,27 @@
                 </TabGroup>
               </DialogTitle>
               <div
-                class="h-full w-full p-6 flex flex-col justify-start align-center focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60"
+                class="h-full w-full p-6 flex flex-col justify-start align-center focus:outline-none space-y-4 focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60"
                 :class="{ hidden: bar !== 'menu' }"
               >
                 <router-link to="/">
-                  <DefaultButton class="px-6 rounded-lg text-2xl shadow-2xl"
+                  <DefaultButton class="px-6 text-2xl bg-LightBlue-700"
                     >خونه</DefaultButton
                   >
                 </router-link>
                 <router-link to="/shop">
-                  <DefaultButton class="px-6 rounded-lg text-2xl shadow-2xl"
+                  <DefaultButton class="px-6 text-2xl bg-LightBlue-700"
                     >خرید</DefaultButton
                   >
                 </router-link>
                 <router-link to="/AboutUs">
-                  <DefaultButton class="px-6 rounded-lg text-2xl shadow-2xl"
+                  <DefaultButton class="px-6 text-2xl bg-LightBlue-700"
                     >درباره ی پانکی مانکی</DefaultButton
                   >
                 </router-link>
 
                 <router-link to="/admin">
-                  <DefaultButton class="px-6 rounded-lg text-2xl shadow-2xl"
+                  <DefaultButton class="px-6 text-2xl bg-LightBlue-700"
                     >ادمین</DefaultButton
                   >
                 </router-link>

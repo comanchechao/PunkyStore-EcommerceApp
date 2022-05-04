@@ -6,12 +6,12 @@
       class="w-80 h-80 mt-6 relative flex justify-center align-center NavbarTrigger logo"
     >
       <img
-        class="absolute object-contain head"
+        class="absolute object-contain transform-gpu head"
         src="../assets/images/monkeyHead.webp"
         alt=""
       />
       <img
-        class="absolute object-contain eyes"
+        class="absolute object-contain transform-gpu eyes"
         src="../assets/images/monkeyEyes.webp"
         alt=""
       />
