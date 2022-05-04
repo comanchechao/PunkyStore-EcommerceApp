@@ -149,8 +149,10 @@ export default {
         });
         if (error) throw error;
         UserManagement().setUser(user);
-        // dialog.value = false;
         loggedIn.value = true;
+        setTimeout(() => {
+          dialog.value = false;
+        }, 3000);
       } catch (error) {
         errorLoggingIn.value = true;
       } finally {
