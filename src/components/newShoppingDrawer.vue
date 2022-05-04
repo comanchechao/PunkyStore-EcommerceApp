@@ -2,7 +2,7 @@
   <div class="">
     <DefaultButton @click="openModal">
       <v-badge
-        :content="cartItemCount.toString()"
+        :content="cartItemCount"
         :value="cartItemCount"
         color="deep-purple"
         bordered
