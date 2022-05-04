@@ -26,21 +26,19 @@
             <form class="flex flex-col justify-center" action="">
               <input
                 v-model="email"
-                class="border-2 border-b placeholder-black text-start text-1xl outline-0 m-5 p-4 px-12"
+                class="border-2 border-b text-gray-900 placeholder-gray-900 text-start text-1xl outline-0 m-5 p-4 px-12"
                 type="email"
                 placeholder=" ایمیل"
               />
               <input
                 v-model="password"
-                class="border-2 placeholder-black text-1xl border-b outline-0 m-5 p-4 px-12"
+                class="border-2 text-gray-900 placeholder-gray-900 text-1xl border-b outline-0 m-5 p-4 px-12"
                 type="password"
                 placeholder="گذرواژه "
               />
             </form>
           </div>
         </v-card-text>
-
-        <v-alert v-show="loggedIn" dismissible outlined shaped text type="success"></v-alert>
 
         <v-card-actions class="flex flex-col space-y-3 my-2">
           <DefaultButton
@@ -74,13 +72,33 @@
           <ForgottenPasswordDialog ref="ForgottenPasswordDialog" />
         </v-card-actions>
       </v-card>
+      <v-alert
+        v-show="loggedIn"
+        dismissible
+        outlined
+        shaped
+        text
+        class="h-20"
+        type="success"
+        >ورود موفقیت آمیز بود رفیق</v-alert
+      >
+      <v-alert
+        v-show="errorLoggingIn"
+        dismissible
+        outlined
+        shaped
+        text
+        class="h-20"
+        type="error"
+        >یه مشکلی پیش اومده، یبار دیگه امتحان کن</v-alert
+      >
     </v-dialog>
   </div>
 </template>
 
 <script>
 import SignUpDialogVue from "./SignUpDialog.vue";
-import { defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from "vue";
 import DefaultButton from "./DefaultButton.vue";
 import { ref, onMounted, computed } from "vue";
 import { supabase } from "../supabase";
@@ -91,7 +109,9 @@ export default {
   components: {
     DefaultButton,
     SignUpDialogVue,
-    ForgottenPasswordDialog: defineAsyncComponent(() => import('./ForgottenPasswordDialog.vue')),
+    ForgottenPasswordDialog: defineAsyncComponent(() =>
+      import("./ForgottenPasswordDialog.vue")
+    ),
   },
 
   setup() {
@@ -101,6 +121,7 @@ export default {
     const loadingSignUp = ref(false);
     const loadingLogin = ref(false);
     const loggedIn = ref(false);
+    const errorLoggingIn = ref(false);
 
     const createUser = async () => {
       try {
@@ -115,6 +136,7 @@ export default {
         alert(error.message);
       } finally {
         loadingSignUp.value = false;
+        loggedIn.value = true;
       }
     };
 
@@ -126,11 +148,11 @@ export default {
           password: password.value,
         });
         if (error) throw error;
-        loggedIn.value = true;
         UserManagement().setUser(user);
         dialog.value = false;
+        loggedIn.value = true;
       } catch (error) {
-        alert(error.message);
+        errorLoggingIn.value = true;
       } finally {
         loadingLogin.value = false;
         console.log(UserManagement().user);
@@ -145,7 +167,8 @@ export default {
       loadingLogin,
       createUser,
       loginAction,
-      loggedIn
+      loggedIn,
+      errorLoggingIn,
     };
   },
 

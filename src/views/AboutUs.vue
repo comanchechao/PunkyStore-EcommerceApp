@@ -1,6 +1,7 @@
 <template>
   <div class="w-screen h-screen p-6 bg-pink-600">
     <div class="h-full w-full justify-center align-center flex">
+      <div></div>
       <img
         class="absolute MonkeyNeck"
         src="../assets/images/aboutUsMonkeyNeck.webp"
@@ -106,6 +107,9 @@ export default {
   mounted() {
     this.animateTextDiv();
     this.animateMonkey();
+    this.animateMonkeyHead();
+    this.animateMonkeyEarings();
+    this.animateMonkeyNeck();
   },
   methods: {
     animateMonkey() {
@@ -129,6 +133,53 @@ export default {
         duration: 1,
         y: -200,
         ease: "expo.out",
+      });
+    },
+    animateMonkeyHead() {
+      const tl = gsap.timeline({ repeat: -1, yoyo: true });
+      tl.to(".MonkeyHead", 0.9, {
+        ease: "power1.inOut",
+        rotation: -15,
+
+        transformOrigin: "50% 100%",
+      });
+      tl.to(".MonkeyHead", 0.9, {
+        ease: "power1.inOut",
+        rotation: 15,
+
+        transformOrigin: "50% 100%",
+      });
+    },
+    animateMonkeyEarings() {
+      const tl = gsap.timeline({ repeat: -1, yoyo: true });
+
+      tl.to(".MonkeyEarings", 0.9, {
+        ease: "power1.inOut",
+        rotation: -15,
+
+        transformOrigin: "50% 100%",
+      });
+      tl.to(".MonkeyEarings", 0.9, {
+        ease: "power1.inOut",
+        rotation: 15,
+
+        transformOrigin: "50% 100%",
+      });
+    },
+    animateMonkeyNeck() {
+      const tl = gsap.timeline({ repeat: -1, yoyo: true });
+
+      tl.to(".MonkeyNeck", 0.9, {
+        ease: "power1.inOut",
+        rotation: -15,
+
+        transformOrigin: "50% 100%",
+      });
+      tl.to(".MonkeyNeck", 0.9, {
+        ease: "power1.inOut",
+        rotation: 15,
+
+        transformOrigin: "50% 100%",
       });
     },
     animateTextDiv() {
