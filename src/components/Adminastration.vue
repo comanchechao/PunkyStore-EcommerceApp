@@ -829,7 +829,7 @@ export default {
             price: price.value,
             inStock: inStock.value,
             "product-category": selectedCategory.value,
-            color: selectedColor.value.name,
+            color: selectedColor.value,
             description: description.value,
             first_image: first_image.value,
             second_image: second_image.value,
