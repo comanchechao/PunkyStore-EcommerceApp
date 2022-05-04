@@ -12,6 +12,18 @@
       >
     </template>
     <v-card class="w-full overflow-x-hidden h-auto bg-Indigo-900">
+      <v-alert
+        v-show="loggedOut"
+        dismissible
+        outlined
+        shaped
+        text
+        absolute
+        class="h-20"
+        type="success"
+      >
+        از حساب خارج شدید</v-alert
+      >
       <div
         id="ball"
         class="z-10 overflow-hidden ball absolute right-0 bg-mainPink rounded-full transform translate-x-28 -translate-y-28 w-64 h-64 lg:w-80 lg:h-80"
@@ -31,15 +43,14 @@
         <div
           class="exitContainer z-50 lg:w-full w-1/2 flex items-end justify-end w-full h-full align-start"
         >
-       
           <DefaultButton
             @click="dialog = false"
             class="text-left text-white lg:mx-4 text-lg rounded-full w-full"
           >
             <v-icon class="text-mainPink">mdi-close</v-icon></DefaultButton
           >
-           <DefaultButton
-           @click="signOut"
+          <DefaultButton
+            @click="signOut"
             class="text-left text-white lg:mx-4 text-lg rounded-full w-full"
           >
             <v-icon class="text-mainPink"
@@ -110,6 +121,7 @@ export default {
     const full_name = ref("");
     const phone_number = ref("");
     const loading = ref(false);
+    const loggedOut = ref(false);
 
     const manageUser = UserManagement();
 
@@ -150,12 +162,15 @@ export default {
       try {
         let { error } = await supabase.auth.signOut();
         if (error) throw error;
-        alert("signed out");
-        dialog.value = false;
       } catch (error) {
         alert(error.message);
       } finally {
-        dialog.value = false;
+        (loggedOut.value = true),
+          setTimeout(() => {
+            dialog.value = false;
+          }, 3000);
+        window.location.reload();
+
         console.log(supabase.auth.user());
       }
     }
@@ -196,7 +211,16 @@ export default {
       );
     };
 
-    return { user, username, dialog, displayContainer, signOut, leave, enter };
+    return {
+      user,
+      username,
+      dialog,
+      displayContainer,
+      signOut,
+      leave,
+      enter,
+      loggedOut,
+    };
   },
   components: {
     DefaultButton,
