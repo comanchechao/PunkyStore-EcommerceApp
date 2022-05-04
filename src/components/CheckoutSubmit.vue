@@ -132,6 +132,17 @@
                 :key="item.id"
                 :item="item"
               />
+
+              <div
+               v-show="cartTotalPrice !== 0"
+                class="p-3 bg-gray-50 flex w-full rounded-lg justify-between align-center flex-row-reverse"
+              >
+                <p class="text-lg">:جمع سبد کالا</p>
+                <div class="flex justify-around space-x-3 align-center">
+                  <p class="text-lg">تومان</p>
+                  <p class="text-xl">{{ cartTotalPrice }}</p>
+                </div>
+              </div>
             </div>
             <div
               v-show="cartTotalPrice === 0"
@@ -255,6 +266,7 @@ export default {
       fullName,
       phoneNumber,
       emailAddress,
+      cartTotalPrice,
       city,
       province,
       fullAddress,

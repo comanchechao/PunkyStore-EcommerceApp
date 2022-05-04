@@ -2,7 +2,7 @@
   <div class="">
     <DefaultButton @click="openModal">
       <v-badge
-        :content="cartItemCount.toString()"
+        :content="cartItemCount"
         :value="cartItemCount"
         color="deep-purple"
         bordered
@@ -28,10 +28,7 @@
             <DialogOverlay class="fixed inset-0 bg-gray-700 bg-opacity-20" />
           </TransitionChild>
 
-          <span
-            class="inline-block h-screen align-left"
-            aria-hidden="true"
-          >
+          <span class="inline-block h-screen align-left" aria-hidden="true">
             &#8203;
           </span>
 
@@ -108,7 +105,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import DefaultButton from "./DefaultButton.vue";
 import {
   TransitionRoot,
