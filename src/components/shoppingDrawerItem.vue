@@ -1,8 +1,10 @@
 <template>
   <div
-    class="p-2 w-full justify-around h-28 text-right rounded-2xl bg-gray-100 flex "
+    class="p-2 w-full justify-around h-28 text-right rounded-2xl bg-gray-100 flex"
   >
-    <div class="w-full h-full flex justify-center align-center space-x-3 flex-row-reverse">
+    <div
+      class="w-full h-full flex justify-center align-center space-x-3 flex-row-reverse"
+    >
       <div
         class="bg-green-300 flex rounded-full w-24 h-24 justify-center align-center"
       >
@@ -19,7 +21,6 @@
               aria-hidden="true"
             />
           </MenuButton>
-         
         </div>
 
         <transition
@@ -71,11 +72,11 @@
           </MenuItems>
         </transition>
       </Menu>
-       <DefaultButton @click="removeCartProduct">
-            <TrashIcon
-              class="w-5 h-5 cursor-pointer text-red-500 hover:text-violet-100"
-              aria-hidden="true"
-          /></DefaultButton>
+      <DefaultButton @click="removeCartProduct">
+        <TrashIcon
+          class="w-5 h-5 cursor-pointer text-red-500 hover:text-violet-100"
+          aria-hidden="true"
+      /></DefaultButton>
     </div>
   </div>
 </template>
@@ -86,7 +87,7 @@ import { EyeIcon, TrashIcon } from "@heroicons/vue/solid";
 import DefaultButton from "./DefaultButton.vue";
 import { productManagent } from "../store/productManagment";
 import { ref } from "@vue/reactivity";
-import { onMounted } from '@vue/runtime-core';
+import { onMounted , computed } from "@vue/runtime-core";
 export default {
   props: ["item"],
   components: {
@@ -99,12 +100,15 @@ export default {
     DefaultButton,
   },
   setup(props) {
-    const item = ref(props.item);
+    const item = computed(() => {
+      return props.item;
+    });
+
     const productManagment = productManagent();
 
     onMounted(() => {
-      console.log(item.value)
-    })
+      console.log(item.value);
+    });
 
     const removeCartProduct = function () {
       productManagment.deleteProduct(item.value);
