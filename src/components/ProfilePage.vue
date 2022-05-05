@@ -12,18 +12,6 @@
       >
     </template>
     <v-card class="w-full overflow-x-hidden h-auto bg-Indigo-900">
-      <v-alert
-        v-show="loggedOut"
-        dismissible
-        outlined
-        shaped
-        text
-        absolute
-        class="h-20"
-        type="success"
-      >
-        از حساب خارج شدید</v-alert
-      >
       <div
         id="ball"
         class="z-10 overflow-hidden ball absolute right-0 bg-mainPink rounded-full transform translate-x-28 -translate-y-28 w-64 h-64 lg:w-80 lg:h-80"
@@ -36,32 +24,45 @@
         class="flex flex-row-reverse p-4 w-full font-mainFont text-xl font-bold cardMain justify-around"
       >
         <div
-          class="z-20 lg:w-1/2 lg:justify-center w-full justify-end flex rounded-xl text-center px-1 text-xl text-white"
+          class="z-20 lg:w-1/2 lg:justify-center w-full justify-end flex rounded-xl text-center px-1 text-4xl text-white"
         >
           <h2 class="z-50 rounded p-4 text-right">فرخ</h2>
         </div>
         <div
-          class="exitContainer z-50 lg:w-full w-1/2 flex items-end justify-end w-full h-full align-start"
+          class="exitContainer z-50 lg:w-full w-1/2 flex items-end justify-start w-full h-full align-start"
         >
           <DefaultButton
             @click="dialog = false"
-            class="text-left text-white lg:mx-4 text-lg rounded-full w-full"
+            class="text-left text-white lg:mx-4 text-2xl rounded-full"
           >
-            <v-icon class="text-mainPink">mdi-close</v-icon></DefaultButton
+            <v-icon class="text-white">mdi-close</v-icon></DefaultButton
           >
           <DefaultButton
             @click="signOut"
-            class="text-left text-white lg:mx-4 text-lg rounded-full w-full"
+            class="text-right space-x-2 justify-center items-center flex text-white lg:mx-4 text-2xl rounded-full"
           >
-            <v-icon class="text-mainPink"
+            <h1 class="text-2xl font-bold">خروج</h1>
+            <v-icon class="text-white"
               >mdi-account-cancel</v-icon
             ></DefaultButton
           >
         </div>
       </div>
+
       <div
         class="cardBody mt-10 flex flex-col-reverse w-full h-full justify-between"
       >
+        <v-alert
+          v-show="loggedOut"
+          outlined
+          shaped
+          text
+          absolute
+          class="h-20 flex justify-center bottom-0 z-50 mb-16 right-0 items-center w-80"
+          type="success"
+        >
+          از حساب خارج شدید</v-alert
+        >
         <transition
           @before-enter="beforeEnter"
           @enter="enter"
@@ -168,10 +169,8 @@ export default {
         (loggedOut.value = true),
           setTimeout(() => {
             dialog.value = false;
+            window.location.reload();
           }, 3000);
-        window.location.reload();
-
-        console.log(supabase.auth.user());
       }
     }
 

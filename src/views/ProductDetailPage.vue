@@ -29,11 +29,11 @@
           role="list"
           class="max-w-2xl mx-auto px-4 flex flex-row-reverse items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8"
         >
-          <li class="text-sm">
+          <li class="">
             <a
               :href="product.href"
               aria-current="page"
-              class="font-medium text-gray-500 hover:text-gray-600"
+              class="font-medium text-4xl text-gray-500 hover:text-gray-600"
             >
               {{ this.$route.params.productTitle }}
             </a>
@@ -42,7 +42,7 @@
             <div class="flex items-center">
               <a
                 :href="breadcrumb.href"
-                class="mr-2 text-sm font-medium text-gray-900"
+                class="mr-2 text-xl font-black text-gray-900"
               >
                 {{ breadcrumb.name }}
               </a>
@@ -53,7 +53,7 @@
                 fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true"
-                class="w-4 h-5 text-gray-300"
+                class="w-4 h-5 text-gray-900"
               >
                 <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
               </svg>
@@ -64,35 +64,33 @@
 
       <!-- Image gallery -->
       <div
-        class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8"
+        class="flex justify-between items-center w-full py-4 px-7 flex-col lg:flex-row h-screen mt-7"
       >
-        <div
-          class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block"
+        <inner-image-zoom
+          hideCloseButton="true"
+          src="../src/assets/images/Hoodie.webp"
+          class="w-carousel bg-gray-800 flex justify-center items-center h-96"
+        />
+        <v-carousel
+          class="bg-mainGreen"
+          cycle
+          width="200"
+          height="400"
+          hide-delimiter-background
         >
-          <inner-image-zoom
-            src="../src/assets/images/PunkyColor.webp"
-            zoomSrc="../src/assets/images/PunkyHighlights.webp"
-          />
-          <!-- <v-carousel
-            cycle
-            height="400"
-            hide-delimiter-background
-            show-arrows="hover"
-          >
-            <v-carousel-item
-              v-for="(image, i) in images"
-              :key="i"
-              :src="image.src"
-              cover
-            ></v-carousel-item>
-          </v-carousel> -->
+          <v-carousel-item
+            v-for="(image, i) in images"
+            :key="i"
+            :src="image.src"
+            cover
+          ></v-carousel-item>
+        </v-carousel>
 
-          <!-- <img
+        <!-- <img
             :src="product.images[0].src"
             :alt="product.images[0].alt"
             class="w-full h-full object-center object-cover"
           /> -->
-        </div>
         <!-- <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
           <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
             <img
@@ -126,7 +124,7 @@
       >
         <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
           <h1
-            class="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl"
+            class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-3xl"
           >
             {{ this.$route.params.productTitle }}
           </h1>
@@ -134,11 +132,12 @@
 
         <!-- Options -->
         <div class="mt-4 lg:mt-0 lg:row-span-3">
-          <h2 class="sr-only">Product information</h2>
-          <p class="text-3xl text-gray-900">{{ product.price }}</p>
+          <p class="text-4xl font-extrabold text-gray-900">
+            {{ product.price }}
+          </p>
 
           <!-- Reviews -->
-          <div class="mt-6">
+          <!-- <div class="mt-6">
             <h3 class="sr-only">Reviews</h3>
             <div class="flex items-center">
               <div class="flex items-center">
@@ -161,12 +160,12 @@
                 >{{ reviews.totalCount }} نظرات</a
               >
             </div>
-          </div>
+          </div> -->
 
           <form class="mt-10">
             <!-- Colors -->
             <div>
-              <h3 class="text-sm text-gray-900 font-medium">انتخاب رنگ</h3>
+              <h3 class="text-md text-gray-900 font-bold">انتخاب رنگ</h3>
 
               <RadioGroup v-model="selectedColor" class="mt-4">
                 <RadioGroupLabel class="sr-only">
@@ -206,19 +205,16 @@
 
             <!-- Sizes -->
             <div class="mt-10">
-              <div class="flex items-center justify-between">
-                <h3 class="text-sm text-gray-900 font-medium">انتخاب سایز</h3>
+              <div class="flex items-center justify-center">
                 <a
                   href="#"
-                  class="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                  >راهنمای سایز</a
+                  class="text-lg font-bold text-darkPurple hover:text-Indigo-500"
+                  >انتخاب سایز</a
                 >
               </div>
 
               <RadioGroup v-model="selectedSize" class="mt-4">
-                <RadioGroupLabel class="sr-only">
-                  Choose a size
-                </RadioGroupLabel>
+                <RadioGroupLabel class="sr-only"> انتخاب کن </RadioGroupLabel>
                 <div
                   class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
                 >
@@ -279,7 +275,7 @@
 
             <DefaultButton
               @click.prevent="addToCart"
-              class="mt-10 w-full bg-goldie text-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              class="mt-10 w-full bg-goldie text-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-black hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               اضافه کردن
             </DefaultButton>
@@ -294,31 +290,35 @@
             <h3 class="sr-only">Description</h3>
 
             <div class="space-y-6">
-              <p class="text-base text-gray-900">{{ product.description }}</p>
+              <p class="text-md font-semibold text-gray-900">
+                {{ product.description }}
+              </p>
             </div>
           </div>
 
           <div class="mt-10">
-            <h3 class="text-sm font-medium text-gray-900">نکات مهم</h3>
+            <h3 class="text-xl font-black text-gray-900">نکات مهم</h3>
 
             <div class="mt-4">
-              <ul role="list" class="pl-4 list-disc text-sm space-y-2">
+              <ul role="list" class="pl-4 text-right text-sm space-y-2">
                 <li
                   v-for="highlight in product.highlights"
                   :key="highlight"
-                  class="text-gray-400"
+                  class="text-gray-900 text-md font-bold"
                 >
-                  <span class="text-gray-600">{{ highlight }}</span>
+                  <span class="text-gray-900">{{ highlight }}</span>
                 </li>
               </ul>
             </div>
           </div>
 
           <div class="mt-10">
-            <h2 class="text-sm font-medium text-gray-900">جزییات کالا</h2>
+            <h2 class="text-xl font-black text-gray-900">جزییات کالا</h2>
 
             <div class="mt-4 space-y-6">
-              <p class="text-sm text-gray-600">{{ product.details }}</p>
+              <p class="text-gray-900 text-md font-bold">
+                {{ product.details }}
+              </p>
             </div>
           </div>
         </div>
@@ -347,7 +347,7 @@ const product = {
   price: "تومان ۲۰۰۰",
   href: "#",
   breadcrumbs: [
-    { id: 1, name: "کتگوری", href: "/shopPage" },
+    { id: 1, name: "خرید", href: "/shop" },
     { id: 2, name: "خونه", href: "/" },
   ],
 

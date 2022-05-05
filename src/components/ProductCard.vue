@@ -1,6 +1,17 @@
 <template>
   <div class="w-72 flex justify-center items-center text-right card">
     <div class="w-full">
+      <v-alert
+        v-show="addedToCart"
+        outlined
+        shaped
+        text
+        absolute
+        class="h-20 w-72 flex justify-start items-center right-0"
+        type="success"
+      >
+        به سبد خرید اضافه شد</v-alert
+      >
       <div
         class="card flex flex-col justify-center p-10 bg-white bg-opacity-25 rounded-lg shadow-2xl"
       >
@@ -116,12 +127,16 @@ export default {
       quantity: 1,
     });
     const productManagment = productManagent();
-
+    const addedToCart = ref(false);
     const addToCart = function () {
       productManagment.addToCart(Product.value);
+      addedToCart.value = true;
+      setTimeout(() => {
+        addedToCart.value = false;
+      }, 2000);
     };
 
-    return { addToCart };
+    return { addToCart, addedToCart };
   },
 };
 </script>

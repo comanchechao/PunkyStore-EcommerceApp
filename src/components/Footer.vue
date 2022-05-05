@@ -30,23 +30,27 @@
           src="../assets/images/mapIcon.webp"
           alt=""
         />
-
-        <img
-          class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
-          src="../assets/images/instagramIcon.webp"
-          alt=""
-        />
-        <img
-          class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
-          src="../assets/images/telegramIcon.webp"
-          alt=""
-        />
-
-        <img
-          class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
-          src="../assets/images/whatsappIcon.webp"
-          alt=""
-        />
+        <a href="https://www.instagram.com/punky.stores">
+          <img
+            class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+            src="../assets/images/instagramIcon.webp"
+            alt=""
+          />
+        </a>
+        <a href="https://t.me/punkystore">
+          <img
+            class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+            src="../assets/images/telegramIcon.webp"
+            alt=""
+          />
+        </a>
+        <a href="https://wa.me/+989148000357">
+          <img
+            class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+            src="../assets/images/whatsappIcon.webp"
+            alt=""
+          />
+        </a>
       </div>
       <div class="text-center flex justify-center items-center px-5 flex-col">
         <h1 class="lg:text-4xl flex text-xl font-bold text-purple-200">

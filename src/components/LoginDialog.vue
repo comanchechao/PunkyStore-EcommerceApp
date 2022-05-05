@@ -78,7 +78,7 @@
         outlined
         shaped
         text
-        class="h-20"
+        class="h-20 flex items-center bottom-0 right-0 left-0 justify-center"
         type="success"
         >ورود موفقیت آمیز بود رفیق</v-alert
       >
@@ -87,10 +87,22 @@
         dismissible
         outlined
         shaped
+        absolute
         text
-        class="h-20"
+        class="h-20 flex items-center bottom-0 right-0 left-0 justify-center"
         type="error"
         >یه مشکلی پیش اومده، یبار دیگه امتحان کن</v-alert
+      >
+      <v-alert
+        v-show="confirmation"
+        dismissible
+        outlined
+        shaped
+        absolute
+        text
+        class="h-20 flex items-center bottom-0 right-0 left-0 justify-center"
+        type="info"
+        >ایمیلتون رو برای ورود چک کنید</v-alert
       >
     </v-dialog>
   </div>
@@ -122,6 +134,7 @@ export default {
     const loadingLogin = ref(false);
     const loggedIn = ref(false);
     const errorLoggingIn = ref(false);
+    const confirmation = ref(false);
 
     const createUser = async () => {
       try {
@@ -131,12 +144,14 @@ export default {
           password: password.value,
         });
         if (error) throw error;
-        alert("check your inbox for conformation");
       } catch (error) {
         alert(error.message);
       } finally {
         loadingSignUp.value = false;
-        loggedIn.value = true;
+        confirmation.value = true;
+        setTimeout(() => {
+          dialog.value = false;
+        }, 3000);
       }
     };
 
@@ -171,6 +186,7 @@ export default {
       loginAction,
       loggedIn,
       errorLoggingIn,
+      confirmation,
     };
   },
 
