@@ -126,6 +126,12 @@
                           <v-icon>mdi-upload</v-icon>
                           عکس دوم
                         </label>
+                         <v-progress-circular
+                          v-show="uploading2"
+                          :size="50"
+                          color="amber"
+                          indeterminate
+                        ></v-progress-circular>
                         <input
                           type="file"
                           id="file2"
@@ -917,7 +923,6 @@ export default {
     const uploadImage3 = async function (event) {
       third_image.value = event.target.files[0];
       // eslint-disable-next-line no-console
-      console.log(this.image);
       try {
         uploading3.value = true;
         if (!third_image.value || third_image.value.length === 0) {
@@ -929,11 +934,11 @@ export default {
         const fileExt = file.name.split(".").pop();
         const fileName = `${Math.random()}.${fileExt}`;
         let filePath = `${fileName}`;
-        filePath = third_image.value;
+        third_image.value = filePath;
 
         const { error: uploadError } = await supabase.storage
           .from("product-images")
-          .upload(filePath, file);
+          .upload(filePath, file, { returning: "minimal" });
 
         if (uploadError) throw uploadError;
       } catch (error) {
