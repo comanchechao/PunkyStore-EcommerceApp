@@ -11,7 +11,7 @@
       }"
       class="date bg-mainGreen hover:text-gray-50 transition text-black px-4 py-2 rounded flex"
     >
-      2022/2/2
+      {{order.date}}
     </div>
     <div
       :class="{
