@@ -42,14 +42,14 @@
             leave-to="transfrom translate-x-32 scale-95"
           >
             <div
-              class="inline-block w-full h-screen overflow-hidden text-left align-right transition-all transform bg-gray-100 shadow-xl"
+              class="inline-block w-96 h-screen overflow-hidden text-left align-right transition-all transform bg-gray-100 shadow-xl"
             >
               <DialogTitle
                 as="h3"
                 class="text-lg font-mainFont leading-6 text-gray-50"
               >
                 <div
-                  class="flex h-24 align-center bg-blue-800 justify-center p-3 mainFont"
+                  class="flex h-24 align-center bg-darkPurple justify-center p-3 mainFont"
                 >
                   <h3 class="text-2xl">خلاصه ی سبد</h3>
                 </div>
@@ -67,22 +67,22 @@
                   />
                 </div>
                 <div
-                  class="checkout w-full h-1/2 flex justify-center align-center bg-mainBlue"
+                  class="checkout w-full h-1/2 flex justify-center align-center bg-Indigo-900 px-9"
                 >
                   <div
                     class="flex flex-row-reverse w-full h-full space-x-4 justify-around mt-10 align-start"
                   >
                     <div
-                      class="mx-1 flex flex-col rounded-full h-1/3 justify-center w-1/2 align-center transition border-b-2 transform hover:bg-mainYellow"
+                      class="mx-1 flex flex-col rounded-lg h-1/3 justify-center w-1/2 align-center transition transform hover:bg-goldie"
                     >
                       <h1 class="text-xl text-white">
                         {{ cartTotalPrice }}
                       </h1>
-                      <h1 class="text-xl text-white">تومان</h1>
+                      <h1 class="text-xl text-white font-black">تومان</h1>
                     </div>
 
                     <div
-                      class="mx-1 flex justify-center align-center content-center w-1/2 rounded-full transition border-b-2 transform hover:bg-mainYellow h-1/3"
+                      class="mx-1 flex justify-center align-center content-center w-1/2 rounded-lg transition border-2 transform hover:bg-goldie h-1/3"
                     >
                       <router-link to="/checkoutPage">
                         <DefaultButton

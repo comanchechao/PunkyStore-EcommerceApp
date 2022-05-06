@@ -2,6 +2,17 @@
   <div
     class="bg-gray-50 w-full flex-col h-96 lg:h-full my-9 wrapper rounded-lg p-7 flex"
   >
+    <v-alert
+      v-show="addedToCart"
+      outlined
+      shaped
+      text
+      absolute
+      class="h-20 w-72 flex justify-start items-center right-0"
+      type="success"
+    >
+      به سبد خرید اضافه شد</v-alert
+    >
     <div class="w-full h-full bg-purple-900 p-2">
       <img class="bg-mainPurple" src="" alt="" />
     </div>
@@ -43,6 +54,7 @@ export default {
   props: ["product"],
 
   setup(props) {
+    const addedToCart = ref(false);
     const Product = ref({
       item: props.product,
       quantity: 1,
@@ -51,9 +63,13 @@ export default {
 
     const addToCart = function () {
       productManagment.addToCart(Product.value);
+      addedToCart.value = true;
+      setTimeout(() => {
+        addedToCart.value = false;
+      }, 2000);
     };
 
-    return { addToCart };
+    return { addToCart, addedToCart };
   },
 };
 </script>

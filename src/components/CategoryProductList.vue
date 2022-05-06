@@ -3,12 +3,15 @@
     <div
       class="w-full h-24 bg-darkPurple flex justify-between align-center p-7"
     >
-      <DefaultButton class="text-white">
-        <v-icon
-          class="text-5xl transition ease-in duration-200 hover:bg-purple-700 rounded-full"
-          >mdi-arrow-left</v-icon
-        >
-      </DefaultButton>
+      <router-link to="/shop">
+        <DefaultButton class="text-white">
+          <v-icon
+            class="text-5xl transition ease-in duration-200 hover:bg-purple-700 rounded-full"
+            >mdi-arrow-left</v-icon
+          >
+        </DefaultButton>
+      </router-link>
+
       <h1
         class="text-white transition ease-in duration-200 hover:bg-purple-700 cursor-pointer text-3xl border-b-8 border-purple-700 flex justify-center items-center rounded-lg filter drop-shadow-lg p-4 font-extrabold"
       >
@@ -39,25 +42,31 @@
           ><template #title> فیلترها </template>
 
           <template #firstOption>
-            <p @click="order = 'created_at'">جدیدترین</p>
+            <p class="w-full h-full" @click="order = 'created_at'">جدیدترین</p>
           </template>
 
           <template #secondOption> پربازدیدترین </template>
 
           <template #thirdOption>
-            <span @click="(ascention = false)((order = 'price'))">
+            <span
+              class="w-full h-full"
+              @click="(ascention = false)((order = 'price'))"
+            >
               گرانترین
             </span>
           </template>
           <template #forthOption>
-            <span @click="(ascention = true)((order = 'price'))">
+            <span
+              class="w-full h-full"
+              @click="(ascention = true)((order = 'price'))"
+            >
               ارزانترین
             </span>
           </template>
         </DropDown>
       </div>
       <div
-        class="w-full h-full grid overflow-y-scroll bg-purple-700 productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
+        class="w-full h-full grid mb-6 lg:mb-0 overflow-y-scroll bg-purple-700 productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
       >
         <CategoryProductListCard
           v-for="product in products"

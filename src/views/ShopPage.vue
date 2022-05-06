@@ -202,18 +202,26 @@
             ><template #title> فیلترها </template>
 
             <template #firstOption>
-              <p @click="order = 'created_at'">جدیدترین</p>
+              <p @click="order = 'created_at'" class="w-full h-full">
+                جدیدترین
+              </p>
             </template>
 
             <template #secondOption> پربازدیدترین </template>
 
             <template #thirdOption>
-              <span @click="(ascention = false)((order = 'price'))">
+              <span
+                class="w-full h-full"
+                @click="(ascention = false)((order = 'price'))"
+              >
                 گرانترین
               </span>
             </template>
             <template #forthOption>
-              <span @click="(ascention = true)((order = 'price'))">
+              <span
+                class="w-full h-full"
+                @click="(ascention = true)((order = 'price'))"
+              >
                 ارزانترین
               </span>
             </template>
@@ -223,19 +231,19 @@
             <template #title> دسته بندی ها </template>
 
             <template #firstOption>
-              <p @click="category = 'شلوار'">شلوار</p>
+              <p class="w-full h-full" @click="category = 'شلوار'">شلوار</p>
             </template>
             <template #secondOption>
-              <p @click="category = 'پیراهن'">پیراهن</p>
+              <p class="w-full h-full" @click="category = 'پیراهن'">پیراهن</p>
             </template>
             <template #thirdOption>
-              <p @click="category = 'کلاه'">کلاه</p>
+              <p class="w-full h-full" @click="category = 'کلاه'">کلاه</p>
             </template>
             <template #forthOption>
-              <p @click="category = 'کفش'">کفش</p>
+              <p class="w-full h-full" @click="category = 'کفش'">کفش</p>
             </template>
             <template #fifthOption>
-              <p @click="category = 'هودی'">هودی</p>
+              <p class="w-full h-full" @click="category = 'هودی'">هودی</p>
             </template>
           </DropDown>
         </div>
@@ -306,7 +314,7 @@ export default {
   // props: ["category"],
 
   setup() {
-    const discount = ref(false);
+    const discount = ref();
     const inStock = ref(false);
     const order = ref("price");
     const SearchIndex = ref("");
