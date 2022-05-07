@@ -947,9 +947,6 @@ export default {
 
     const uploadImage2 = async function (event) {
       second_image.value = event.target.files[0];
-      console.log(event.target.files);
-      // eslint-disable-next-line no-console
-      console.log(second_image.value);
       try {
         uploading2.value = true;
         if (!second_image.value || second_image.value.length === 0) {

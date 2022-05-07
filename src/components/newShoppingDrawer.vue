@@ -42,7 +42,7 @@
             leave-to="transfrom translate-x-32 scale-95"
           >
             <div
-              class="inline-block w-96 h-screen overflow-hidden text-left align-right transition-all transform bg-gray-100 shadow-xl"
+              class="inline-block w-92 h-screen overflow-hidden text-left align-right transition-all transform bg-gray-100 shadow-xl"
             >
               <DialogTitle
                 as="h3"

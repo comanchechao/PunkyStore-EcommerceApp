@@ -14,7 +14,7 @@
       به سبد خرید اضافه شد</v-alert
     >
     <div class="w-full h-full bg-purple-900 p-2">
-      <img class="bg-mainPurple" src="" alt="" />
+      <img class="bg-mainPurple" :src="cardImage" alt="" />
     </div>
     <div
       class="w-full h-full flex flex-col text-center align-center justify-center space-y-3 my-4 lg:space-x-9"
@@ -46,6 +46,8 @@
 import DefaultButton from "./DefaultButton.vue";
 import { ref } from "@vue/reactivity";
 import { productManagent } from "../store/productManagment";
+import { onMounted } from '@vue/runtime-core';
+import { supabase } from "../supabase";
 
 export default {
   components: {
@@ -61,6 +63,28 @@ export default {
     });
     const productManagment = productManagent();
 
+    const cardImage = ref()
+
+
+    onMounted(() =>{
+      getImage();
+    })
+
+
+    const getImage = async function () {
+      if (props.product.first_image) {
+        try {
+          const { data, error } = await supabase.storage
+            .from("product-images")
+            .download(props.product.first_image);
+          if (error) throw error;
+          cardImage.value = URL.createObjectURL(data);
+        } catch (error) {
+          alert(error.error_description || error.message);
+        }
+      }
+    };
+
     const addToCart = function () {
       productManagment.addToCart(Product.value);
       addedToCart.value = true;
@@ -69,7 +93,7 @@ export default {
       }, 2000);
     };
 
-    return { addToCart, addedToCart };
+    return { addToCart, addedToCart , cardImage };
   },
 };
 </script>
