@@ -566,6 +566,18 @@
                       />
                     </div>
 
+                     <div class="">
+                      <textarea
+                        v-model="features"
+                        class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded transition w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-gray-200 focus:bg-white focus:border-purple-500"
+                        id="inline-full-name"
+                        type="text"
+                        placeholder="نکات مهم"
+                      />
+                    </div>
+
+
+
                     <div
                       class="m-1 flex w-full justify-center space-x-4 align-center"
                     >
@@ -774,6 +786,7 @@ export default {
     const selectedCategory = ref();
     const categories = ref([]);
     const addedColors = ref([]);
+    const features = ref('')
 
     watch(selectedColor, (newvalue, oldvalue) => {
       addedColors.value.push(newvalue);
@@ -884,6 +897,7 @@ export default {
             third_image: third_image.value,
             forth_image: forth_image.value,
             size: size.value,
+            features: features.value
           },
         ]);
         if (error) throw error;
@@ -1055,7 +1069,8 @@ export default {
       selectedCategory,
       categories,
       addedColors,
-      removeColor
+      removeColor,
+      features
     };
   },
 };

@@ -126,8 +126,8 @@
 
         <!-- Options -->
         <div class="mt-4 lg:mt-0 lg:row-span-3">
-          <p class="text-4xl font-extrabold text-gray-900">
-            {{ product.price }}
+          <p class="text-4xl flex justify-end space-x-2 font-extrabold text-gray-900">
+            <span>تومان</span> <span>{{ product.price }}</span>
           </p>
 
           <!-- Reviews -->
@@ -233,14 +233,16 @@
                         size
                           ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                           : 'bg-gray-50 text-gray-200 cursor-not-allowed',
-                        active ? 'ring-2 ring-indigo-500 text-gray-900' : 'text-gray-500',
+                        active
+                          ? 'ring-2 ring-indigo-500 text-gray-900'
+                          : 'text-gray-500',
                         'group relative border text-gray-500 rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6',
                       ]"
                     >
                       <RadioGroupLabel as="p">
                         {{ size }}
                       </RadioGroupLabel>
-                     </div>
+                    </div>
                   </RadioGroupOption>
                 </div>
               </RadioGroup>
@@ -274,12 +276,8 @@
 
             <div class="mt-4">
               <ul role="list" class="pl-4 text-right text-sm space-y-2">
-                <li
-                  v-for="highlight in product.highlights"
-                  :key="highlight"
-                  class="text-gray-900 text-md font-bold"
-                >
-                  <span class="text-gray-900">{{ highlight }}</span>
+                <li class="text-gray-900 text-md font-bold">
+                  <span class="text-gray-900">{{ product.features }}</span>
                 </li>
               </ul>
             </div>
