@@ -22,7 +22,7 @@
   ```
 -->
 <template>
-  <div class="p-8" id="main">
+  <div class="p-8 max-w-screen" id="main">
     <div class="pt-6 mt-32 background">
       <nav aria-label="Breadcrumb">
         <ol
@@ -31,21 +31,15 @@
         >
           <li class="">
             <a
-              :href="product.href"
               aria-current="page"
               class="font-medium text-4xl text-gray-500 hover:text-gray-600"
             >
-              {{ this.$route.params.productTitle }}
+              {{ product.title }}
             </a>
           </li>
-          <li v-for="breadcrumb in product.breadcrumbs" :key="breadcrumb.id">
+          <li>
             <div class="flex items-center">
-              <a
-                :href="breadcrumb.href"
-                class="mr-2 text-xl font-black text-gray-900"
-              >
-                {{ breadcrumb.name }}
-              </a>
+              <a class="mr-2 text-xl font-black text-gray-900"> </a>
               <svg
                 width="16"
                 height="20"
@@ -68,7 +62,7 @@
       >
         <inner-image-zoom
           hideCloseButton="true"
-          src="../src/assets/images/Hoodie.webp"
+          :src="firstImage"
           class="w-carousel bg-gray-800 flex justify-center items-center h-96"
         />
         <v-carousel
@@ -126,7 +120,7 @@
           <h1
             class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-3xl"
           >
-            {{ this.$route.params.productTitle }}
+            {{ product.title }}
           </h1>
         </div>
 
@@ -181,7 +175,6 @@
                   >
                     <div
                       :class="[
-                        color.selectedClass,
                         active && checked ? 'ring ring-offset-1' : '',
                         !active && checked ? 'ring-2' : '',
                         '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none',
@@ -191,11 +184,21 @@
                         {{ color.name }}
                       </RadioGroupLabel>
                       <span
+                        :class="{
+                          'bg-pink-500': color.name === 'صورتی',
+                          'bg-blue-500': color.name === 'آبی',
+                          'bg-red-600': color.name === 'قرمز',
+                          'bg-yellow-500': color.name === 'زرد',
+                          'bg-purple-500': color.name === 'بنفش',
+                          'bg-green-500': color.name === 'سبز',
+                          'bg-purple-700': color.name === 'نیلی',
+                          'bg-red-700': color.name === 'یاقوتی',
+                          'bg-goldie': color.name === 'طلایی',
+                          'bg-black': color.name === 'سیاه',
+                          'bg-white': color.name === 'سفید',
+                        }"
                         aria-hidden="true"
-                        :class="[
-                          color.class,
-                          'h-8 w-8 border border-black border-opacity-10 rounded-full',
-                        ]"
+                        class="h-6 w-6 border rounded-full border-black border-opacity-10 rounded-full"
                       />
                     </div>
                   </RadioGroupOption>
@@ -219,55 +222,25 @@
                   class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
                 >
                   <RadioGroupOption
-                    as="template"
-                    v-for="size in product.sizes"
-                    :key="size.name"
+                    as="div"
+                    v-for="size in product.size"
+                    :key="size.id"
                     :value="size"
-                    :disabled="!size.inStock"
-                    v-slot="{ active, checked }"
+                    v-slot="{ active }"
                   >
                     <div
                       :class="[
-                        size.inStock
+                        size.name
                           ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                           : 'bg-gray-50 text-gray-200 cursor-not-allowed',
-                        active ? 'ring-2 ring-indigo-500' : '',
-                        'group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6',
+                        active ? 'ring-2 ring-indigo-500 text-gray-900' : 'text-gray-500',
+                        'group relative border text-gray-500 rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6',
                       ]"
                     >
                       <RadioGroupLabel as="p">
-                        {{ size.name }}
+                        {{ size }}
                       </RadioGroupLabel>
-                      <div
-                        v-if="size.inStock"
-                        :class="[
-                          active ? 'border' : 'border-2',
-                          checked ? 'border-indigo-500' : 'border-transparent',
-                          'absolute -inset-px rounded-md pointer-events-none',
-                        ]"
-                        aria-hidden="true"
-                      />
-                      <div
-                        v-else
-                        aria-hidden="true"
-                        class="absolute -inset-px rounded-md border-2 border-gray-200 pointer-events-none"
-                      >
-                        <svg
-                          class="absolute inset-0 w-full h-full text-gray-200 stroke-2"
-                          viewBox="0 0 100 100"
-                          preserveAspectRatio="none"
-                          stroke="currentColor"
-                        >
-                          <line
-                            x1="0"
-                            y1="100"
-                            x2="100"
-                            y2="0"
-                            vector-effect="non-scaling-stroke"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                     </div>
                   </RadioGroupOption>
                 </div>
               </RadioGroup>
@@ -337,69 +310,18 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { onMounted, onUpdated, ref } from "vue";
 import { StarIcon } from "@heroicons/vue/solid";
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 import DefaultButton from "../components/DefaultButton.vue";
+import { supabase } from "../supabase";
 
-const product = {
-  name: "تیشرت متالیکایی",
-  price: "تومان ۲۰۰۰",
-  href: "#",
-  breadcrumbs: [
-    { id: 1, name: "خرید", href: "/shop" },
-    { id: 2, name: "خونه", href: "/" },
-  ],
-
-  images: [
-    {
-      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-      alt: "Two each of gray, white, and black shirts laying flat.",
-    },
-    {
-      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
-      alt: "Model wearing plain black basic tee.",
-    },
-    {
-      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
-      alt: "Model wearing plain gray basic tee.",
-    },
-    {
-      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
-      alt: "Model wearing plain white basic tee.",
-    },
-  ],
-  colors: [
-    { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
-    { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
-    { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
-  ],
-  sizes: [
-    { name: "XXS", inStock: false },
-    { name: "XS", inStock: true },
-    { name: "S", inStock: true },
-    { name: "M", inStock: true },
-    { name: "L", inStock: true },
-    { name: "XL", inStock: true },
-    { name: "2XL", inStock: true },
-    { name: "3XL", inStock: true },
-  ],
-  description:
-    "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده",
-  highlights: [
-    "لورم ایپسوم متن ساختگی با از صنعت چاپ",
-    "لورم ایپسوم متن ساختگی صنعت چاپ",
-    "ایپسوم متن ساختگی",
-    "قابل شستشو",
-  ],
-  details:
-    " نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته   نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آیندحال و آیند",
-};
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
 import { productManagent } from "../store/productManagment";
 import "vue-inner-image-zoom/lib/vue-inner-image-zoom.css";
 import InnerImageZoom from "vue-inner-image-zoom";
+import { useRoute } from "vue-router";
 export default {
   data() {
     return {
@@ -475,11 +397,108 @@ export default {
     "inner-image-zoom": InnerImageZoom,
   },
   setup() {
-    const selectedColor = ref(product.colors[0]);
-    const selectedSize = ref(product.sizes[2]);
+    const selectedColor = ref();
+    const selectedSize = ref();
+    const route = useRoute();
+    const firstImage = ref(null);
+    const product = ref({
+      name: "تیشرت متالیکایی",
+      price: "تومان ۲۰۰۰",
+      href: "#",
+      breadcrumbs: [
+        { id: 1, name: "خرید", href: "/shop" },
+        { id: 2, name: "خونه", href: "/" },
+      ],
+
+      images: [
+        {
+          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+          alt: "Two each of gray, white, and black shirts laying flat.",
+        },
+        {
+          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
+          alt: "Model wearing plain black basic tee.",
+        },
+        {
+          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
+          alt: "Model wearing plain gray basic tee.",
+        },
+        {
+          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
+          alt: "Model wearing plain white basic tee.",
+        },
+      ],
+      colors: [
+        { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+        { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+        { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+      ],
+      sizes: [
+        { name: "XXS", inStock: false },
+        { name: "XS", inStock: true },
+        { name: "S", inStock: true },
+        { name: "M", inStock: true },
+        { name: "L", inStock: true },
+        { name: "XL", inStock: true },
+        { name: "2XL", inStock: true },
+        { name: "3XL", inStock: true },
+      ],
+      description:
+        "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آینده",
+      highlights: [
+        "لورم ایپسوم متن ساختگی با از صنعت چاپ",
+        "لورم ایپسوم متن ساختگی صنعت چاپ",
+        "ایپسوم متن ساختگی",
+        "قابل شستشو",
+      ],
+      details:
+        " نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته   نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و آیندحال و آیند",
+    });
+
+    onMounted(() => {
+      console.log(route.params.id);
+      getProduct();
+    });
+
+    onUpdated(() => {
+      console.log(route.params.id);
+    });
+
+    async function getProduct() {
+      console.log(product.value);
+      try {
+        const { data, error } = await supabase
+          .from("products")
+          .select()
+          .eq("id", route.params.id);
+        // .eq("product-category", props.category.title);
+
+        if (error) throw error;
+        product.value = data[0];
+        console.log(product.value);
+      } catch (error) {
+        alert(error.message);
+      } finally {
+        getImage();
+      }
+    }
+
+    const getImage = async function () {
+      if (product.value.first_image) {
+        try {
+          const { data, error } = await supabase.storage
+            .from("product-images")
+            .download(product.value.first_image);
+          if (error) throw error;
+          firstImage.value = URL.createObjectURL(data);
+        } catch (error) {
+          alert(error.error_description || error.message);
+        }
+      }
+    };
 
     const addToCart = function () {
-      productManagent.addToCart(this.$route.params.product);
+      productManagent.addToCart(route.params.product);
     };
 
     return {
@@ -487,6 +506,7 @@ export default {
       reviews,
       selectedColor,
       selectedSize,
+      firstImage,
       addToCart,
     };
   },

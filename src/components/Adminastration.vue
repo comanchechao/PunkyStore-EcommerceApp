@@ -126,7 +126,7 @@
                           <v-icon>mdi-upload</v-icon>
                           عکس دوم
                         </label>
-                         <v-progress-circular
+                        <v-progress-circular
                           v-show="uploading2"
                           :size="50"
                           color="amber"
@@ -268,6 +268,37 @@
                       </div>
                     </div>
                     <div class="mx-1 my-2">
+                      <div
+                        v-for="color in addedColors"
+                        :key="color.id"
+                        class="flex w-full justify-between flex-row-reverse bg-purple-200 rounded p-2 my-1"
+                      >
+                        <div class="flex space-x-2 justify-start">
+                          <div
+                            :class="{
+                              'bg-pink-500': color.name === 'صورتی',
+                              'bg-blue-500': color.name === 'آبی',
+                              'bg-red-500': color.name === 'قرمز',
+                              'bg-yellow-500': color.name === 'زرد',
+                              'bg-purple-500': color.name === 'بنفش',
+                              'bg-green-500': color.name === 'سبز',
+                              'bg-purple-700': color.name === 'نیلی',
+                              'bg-red-700': color.name === 'یاقوتی',
+                              'bg-goldie': color.name === 'طلایی',
+                              'bg-black': color.name === 'سیاه',
+                              'bg-white': color.name === 'سفید',
+                            }"
+                            alt=""
+                            class="flex-shrink-0 h-6 w-6 rounded-full"
+                          ></div>
+                          <span class="mr-3 block truncate text-right">{{
+                            color.name
+                          }}</span>
+                        </div>
+                        <button @click="removeColor(color.id)" class="text-red-500">
+                          <v-icon>mdi-delete</v-icon>
+                        </button>
+                      </div>
                       <Listbox as="div" v-model="selectedColor">
                         <ListboxLabel
                           class="text-right block text-sm text-xl text-gray-700"
@@ -742,6 +773,18 @@ export default {
     const selectedColor = ref(colors[0]);
     const selectedCategory = ref();
     const categories = ref([]);
+    const addedColors = ref([]);
+
+    watch(selectedColor, (newvalue, oldvalue) => {
+      addedColors.value.push(newvalue);
+      console.log(addedColors.value)
+    });
+
+    function removeColor(id){
+      addedColors.value = addedColors.value.filter((color) => {
+        return color.id !== id
+      })
+    }
 
     let first_image = ref(null);
     let second_image = ref(null);
@@ -834,13 +877,13 @@ export default {
             price: price.value,
             inStock: inStock.value,
             "product-category": selectedCategory.value,
-            color: selectedColor.value,
+            colors: addedColors.value,
             description: description.value,
             first_image: first_image.value,
             second_image: second_image.value,
             third_image: third_image.value,
             forth_image: forth_image.value,
-            size: size.value
+            size: size.value,
           },
         ]);
         if (error) throw error;
@@ -1011,6 +1054,8 @@ export default {
       loading,
       selectedCategory,
       categories,
+      addedColors,
+      removeColor
     };
   },
 };

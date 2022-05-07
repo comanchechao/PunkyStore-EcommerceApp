@@ -1,13 +1,25 @@
 <template>
   <div class="w-72 flex justify-center items-center text-right card">
     <div class="w-full">
+      <v-alert
+        v-show="addedToCart"
+        outlined
+        shaped
+        text
+        absolute
+        class="h-20 w-72 flex justify-start items-center right-0"
+        type="success"
+      >
+        به سبد خرید اضافه شد</v-alert
+      >
       <div
         class="card flex flex-col justify-center p-10 bg-white bg-opacity-25 rounded-lg shadow-2xl"
       >
         <div class="prod-img">
           <div
             class="w-full my-2 h-52 bg-mainBlue object-cover object-center"
-          ></div>
+          >
+          <img :src="firstImage" alt=""></div>
         </div>
         <div class="prod-title my-2">
           <p class="text-2xl uppercase text-gray-900 font-bold">
@@ -106,6 +118,8 @@
 <script>
 import { ref } from "@vue/reactivity";
 import { productManagent } from "../store/productManagment";
+import { onMounted } from '@vue/runtime-core';
+import { supabase } from "../supabase";
 
 export default {
   props: ["product"],
@@ -115,8 +129,32 @@ export default {
       item: props.product,
       quantity: 1,
     });
+    const firstImage = ref(null)
     const productManagment = productManagent();
     const addedToCart = ref(false);
+
+
+    onMounted(() => {
+      setTimeout(() => {
+        getImage()
+      }, 2000);
+    })
+
+    const getImage =  async function() {
+      if (props.product.first_image) {
+        try {
+          const { data, error } = await supabase.storage
+            .from('product-images')
+            .download(props.product.first_image)
+          if (error) throw error
+          firstImage.value = URL.createObjectURL(data)
+        } catch (error) {
+          alert(error.error_description || error.message)
+        }
+      }
+    }
+
+
     const addToCart = function () {
       productManagment.addToCart(Product.value);
       addedToCart.value = true;
@@ -125,7 +163,7 @@ export default {
       }, 2000);
     };
 
-    return { addToCart, addedToCart };
+    return { addToCart, addedToCart , firstImage };
   },
 };
 </script>
