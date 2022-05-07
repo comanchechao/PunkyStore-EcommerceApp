@@ -16,10 +16,9 @@
         class="card flex flex-col justify-center p-10 bg-white bg-opacity-25 rounded-lg shadow-2xl"
       >
         <div class="prod-img">
-          <div
-            class="w-full my-2 h-52 bg-mainBlue object-cover object-center"
-          >
-          <img :src="firstImage" alt=""></div>
+          <div class="w-full my-2 h-52 bg-mainBlue object-cover object-center">
+            <img :src="firstImage" alt="" />
+          </div>
         </div>
         <div class="prod-title my-2">
           <p class="text-2xl uppercase text-gray-900 font-bold">
@@ -31,46 +30,31 @@
         </div>
         <div class="prod-info grid gap-6">
           <div>
-            <ul class="flex flex-row justify-center items-center text-center">
-              <li class="last:mr-0">
+            <ul class="flex flex-row justify-center space-x-2 items-center text-center">
+              <li
+                v-for="color in product.colors"
+                :key="color.id"
+                class="last:mr-0"
+              >
                 <span
                   class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300"
                 >
-                  <a
-                    href="#blue"
-                    class="block w-6 h-6 bg-blue-900 rounded-full"
-                  >
-                  </a>
-                </span>
-              </li>
-              <li class="last:mr-0">
-                <span
-                  class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300"
-                >
-                  <a
-                    href="#yellow"
-                    class="block w-6 h-6 bg-yellow-500 rounded-full"
-                  >
-                  </a>
-                </span>
-              </li>
-              <li class="last:mr-0">
-                <span
-                  class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300"
-                >
-                  <a href="#red" class="block w-6 h-6 bg-red-500 rounded-full">
-                  </a>
-                </span>
-              </li>
-              <li class="last:mr-0">
-                <span
-                  class="block p-1 border-2 border-white hover:border-gray-500 rounded-full transition ease-in duration-300"
-                >
-                  <a
-                    href="#green"
-                    class="block w-6 h-6 bg-green-500 rounded-full"
-                  >
-                  </a>
+                  <p
+                    :class="{
+                      'bg-pink-500': color.name === 'صورتی',
+                      'bg-blue-500': color.name === 'آبی',
+                      'bg-red-500': color.name === 'قرمز',
+                      'bg-yellow-500': color.name === 'زرد',
+                      'bg-purple-500': color.name === 'بنفش',
+                      'bg-green-500': color.name === 'سبز',
+                      'bg-purple-700': color.name === 'نیلی',
+                      'bg-red-700': color.name === 'یاقوتی',
+                      'bg-goldie': color.name === 'طلایی',
+                      'bg-black': color.name === 'سیاه',
+                      'bg-white': color.name === 'سفید',
+                    }"
+                    class="block w-6 h-6 rounded-full"
+                  ></p>
                 </span>
               </li>
             </ul>
@@ -118,7 +102,7 @@
 <script>
 import { ref } from "@vue/reactivity";
 import { productManagent } from "../store/productManagment";
-import { onMounted } from '@vue/runtime-core';
+import { onMounted } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 
 export default {
@@ -129,31 +113,29 @@ export default {
       item: props.product,
       quantity: 1,
     });
-    const firstImage = ref(null)
+    const firstImage = ref(null);
     const productManagment = productManagent();
     const addedToCart = ref(false);
 
-
     onMounted(() => {
       setTimeout(() => {
-        getImage()
+        getImage();
       }, 2000);
-    })
+    });
 
-    const getImage =  async function() {
+    const getImage = async function () {
       if (props.product.first_image) {
         try {
           const { data, error } = await supabase.storage
-            .from('product-images')
-            .download(props.product.first_image)
-          if (error) throw error
-          firstImage.value = URL.createObjectURL(data)
+            .from("product-images")
+            .download(props.product.first_image);
+          if (error) throw error;
+          firstImage.value = URL.createObjectURL(data);
         } catch (error) {
-          alert(error.error_description || error.message)
+          alert(error.error_description || error.message);
         }
       }
-    }
-
+    };
 
     const addToCart = function () {
       productManagment.addToCart(Product.value);
@@ -163,7 +145,7 @@ export default {
       }, 2000);
     };
 
-    return { addToCart, addedToCart , firstImage };
+    return { addToCart, addedToCart, firstImage };
   },
 };
 </script>

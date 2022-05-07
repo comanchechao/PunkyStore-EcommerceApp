@@ -230,7 +230,7 @@
                   >
                     <div
                       :class="[
-                        size.name
+                        size
                           ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                           : 'bg-gray-50 text-gray-200 cursor-not-allowed',
                         active ? 'ring-2 ring-indigo-500 text-gray-900' : 'text-gray-500',
