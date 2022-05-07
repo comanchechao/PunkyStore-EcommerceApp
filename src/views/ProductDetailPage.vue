@@ -58,7 +58,7 @@
 
       <!-- Image gallery -->
       <div
-        class="flex justify-between items-center w-full py-4 px-7 flex-col lg:flex-row h-screen mt-7"
+        class="flex justify-between space-y-4 lg:space-x-7 items-center w-full py-4 px-7 flex-col lg:flex-row h-auto mt-7"
       >
         <inner-image-zoom
           hideCloseButton="true"
@@ -66,10 +66,10 @@
           class="w-carousel bg-gray-800 flex justify-center items-center h-96"
         />
         <v-carousel
-          class="bg-mainGreen"
+          class="bg-mainBlue"
           cycle
           width="200"
-          height="400"
+          height="380"
           hide-delimiter-background
         >
           <v-carousel-item
@@ -126,7 +126,9 @@
 
         <!-- Options -->
         <div class="mt-4 lg:mt-0 lg:row-span-3">
-          <p class="text-4xl flex justify-end space-x-2 font-extrabold text-gray-900">
+          <p
+            class="text-4xl flex justify-end space-x-2 font-extrabold text-gray-900"
+          >
             <span>تومان</span> <span>{{ product.price }}</span>
           </p>
 
