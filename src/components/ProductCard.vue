@@ -12,6 +12,19 @@
       >
         به سبد خرید اضافه شد</v-alert
       >
+        <v-alert
+        v-show="faildToAdd"
+        outlined
+        shaped
+        text
+        absolute
+        class="h-20 w-72 flex justify-start text-white items-center right-0"
+        type="error"
+        color="red"
+      >
+        <p class="text-white">
+          انتخاب رنگ!</p></v-alert
+      >
       <div
         class="card flex flex-col justify-center p-10 bg-white bg-opacity-25 rounded-lg shadow-2xl"
       >
@@ -19,7 +32,15 @@
           <div
             class="w-full flex justify-center align-center my-2 h-52 bg-mainBlue object-cover object-center"
           >
-            <img v-show="firstImage" :src="firstImage" alt="" />
+            <transition
+              appear
+              class=""
+              tag="div"
+              @before-enter="beforeEnter"
+              @enter="enter"
+            >
+              <img v-show="firstImage" :src="firstImage" alt="" />
+            </transition>
             <v-progress-circular
               v-show="!firstImage"
               :size="50"
@@ -129,6 +150,7 @@ import { productManagent } from "../store/productManagment";
 import { onMounted, watch } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
+import gsap from "gsap";
 
 export default {
   props: ["product"],
@@ -139,17 +161,18 @@ export default {
     const Product = ref({
       item: props.product,
       quantity: 1,
-      color: null
+      color: null,
     });
     const firstImage = ref(null);
     const productManagment = productManagent();
     const addedToCart = ref(false);
+    const faildToAdd = ref(false)
     const selectedColor = ref();
 
-    watch(selectedColor , () => {
-      Product.value.color = selectedColor.value.name
-      console.log(Product.value)
-    })
+    watch(selectedColor, () => {
+      Product.value.color = selectedColor.value.name;
+      console.log(Product.value);
+    });
 
     onMounted(() => {
       setTimeout(() => {
@@ -172,14 +195,40 @@ export default {
     };
 
     const addToCart = function () {
-      productManagment.addToCart(Product.value);
-      addedToCart.value = true;
-      setTimeout(() => {
-        addedToCart.value = false;
-      }, 2000);
+      if (Product.value.color !== null) {
+        productManagment.addToCart(Product.value);
+        addedToCart.value = true;
+        setTimeout(() => {
+          addedToCart.value = false;
+        }, 2000);
+      }else{
+         faildToAdd.value = true;
+        setTimeout(() => {
+          faildToAdd.value = false;
+        }, 2000);
+      }
     };
 
-    return { addToCart, addedToCart, firstImage, selectedColor };
+    const beforeEnter = (el) => {
+      el.style.opacity = 0;
+    };
+    const enter = (el, done) => {
+      gsap.to(el, {
+        opacity: 1,
+        duration: 0.2,
+        onComplete: done,
+      });
+    };
+
+    return {
+      addToCart,
+      addedToCart,
+      faildToAdd,
+      firstImage,
+      selectedColor,
+      beforeEnter,
+      enter,
+    };
   },
 };
 </script>
