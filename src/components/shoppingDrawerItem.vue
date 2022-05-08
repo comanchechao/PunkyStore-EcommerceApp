@@ -8,7 +8,7 @@
       <div
         class="bg-green-300 flex rounded-full w-24 h-24 justify-center align-center"
       >
-        {{ item.item.title }}
+        <img class="rounded-full" :src="firstImage" alt="" />
       </div>
       <Menu as="div" class="relative inline-block text-right mr-2">
         <div class="flex flex-row justify-center align-center">
@@ -87,7 +87,9 @@ import { EyeIcon, TrashIcon } from "@heroicons/vue/solid";
 import DefaultButton from "./DefaultButton.vue";
 import { productManagent } from "../store/productManagment";
 import { ref } from "@vue/reactivity";
-import { onMounted , computed } from "@vue/runtime-core";
+import { onMounted, computed } from "@vue/runtime-core";
+import { supabase } from "../supabase";
+
 export default {
   props: ["item"],
   components: {
@@ -104,7 +106,29 @@ export default {
       return props.item;
     });
 
+    const firstImage = ref();
+
     const productManagment = productManagent();
+
+    onMounted(() => {
+      console.log(props.item.quantity);
+      getImage();
+    });
+
+    const getImage = async function () {
+      console.log(props.item.item.first_image)
+      if (props.item.item.first_image) {
+        try {
+          const { data, error } = await supabase.storage
+            .from("product-images")
+            .download(props.item.item.first_image);
+          if (error) throw error;
+          firstImage.value = URL.createObjectURL(data);
+        } catch (error) {
+          alert(error.error_description || error.message);
+        }
+      }
+    };
 
     onMounted(() => {
       console.log(item.value);
@@ -114,7 +138,7 @@ export default {
       productManagment.deleteProduct(item.value);
     };
 
-    return { item, removeCartProduct };
+    return { item, removeCartProduct, firstImage };
   },
 };
 </script>

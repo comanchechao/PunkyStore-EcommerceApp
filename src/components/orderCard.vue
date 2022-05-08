@@ -99,7 +99,9 @@
                       :class="checked ? 'text-white' : 'text-gray-900'"
                       class="font-medium flex justify-between align-center text-right"
                     >
-                      <div class="w-12 h-12 bg-yellow-200 rounded-full"></div>
+                      <div class="w-12 h-12 bg-yellow-200 rounded-full">
+                        <img :src="firstImage" alt="" />
+                      </div>
                       <span>
                         {{ item.item.title }}
                       </span>
@@ -109,17 +111,44 @@
                       :class="checked ? 'text-white' : 'text-gray-500'"
                       class="flex justify-around w-full"
                     >
-                      <span>
-                        قیمت:
-                        {{ item.item.price }}
-                      </span>
+                      <div
+                        class="flex flex-col space-y-2 justify-center align-center"
+                      >
+                        <p>رنگ:</p>
+                        <ul
+                          class="flex flex-row justify-center space-x-2 items-center text-center"
+                        >
+                          <li
+                            v-for="color in item.item.colors"
+                            :key="color.id"
+                            class="last:mr-0"
+                          >
+                            <span
+                              class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300"
+                            >
+                              <p
+                                :class="{
+                                  'bg-pink-500': color.name === 'صورتی',
+                                  'bg-blue-500': color.name === 'آبی',
+                                  'bg-red-500': color.name === 'قرمز',
+                                  'bg-yellow-500': color.name === 'زرد',
+                                  'bg-purple-500': color.name === 'بنفش',
+                                  'bg-green-500': color.name === 'سبز',
+                                  'bg-purple-700': color.name === 'نیلی',
+                                  'bg-red-700': color.name === 'یاقوتی',
+                                  'bg-goldie': color.name === 'طلایی',
+                                  'bg-black': color.name === 'سیاه',
+                                  'bg-white': color.name === 'سفید',
+                                }"
+                                class="block w-6 h-6 rounded-full"
+                              ></p>
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
                       <span>
                         تعداد:
                         {{ item.quantity }}
-                      </span>
-                      <span>
-                        موجود:
-                        {{ item.item.productategory }}
                       </span>
                     </RadioGroupDescription>
                   </div>
@@ -186,6 +215,7 @@ export default {
   setup(props) {
     const items = ref([]);
     const loading = ref(false);
+    const firstImage = ref();
     const displayName = computed(() => {
       return props.display;
     });
@@ -194,7 +224,23 @@ export default {
     });
     onMounted(() => {
       getOrderItems();
+      getImage();
     });
+
+    const getImage = async function () {
+      console.log(items.value[0].cart_items[0]);
+      if (props.item.item.first_image) {
+        try {
+          const { data, error } = await supabase.storage
+            .from("product-images")
+            .download(props.item.item.first_image);
+          if (error) throw error;
+          firstImage.value = URL.createObjectURL(data);
+        } catch (error) {
+          alert(error.error_description || error.message);
+        }
+      }
+    };
 
     async function getOrderItems() {
       try {
@@ -212,10 +258,11 @@ export default {
       } finally {
         console.log(items.value[0].cart_items[0]);
         loading.value = false;
+        getImage();
       }
     }
 
-    return { displayName, items, loading };
+    return { displayName, items, loading, firstImage };
   },
 };
 </script>

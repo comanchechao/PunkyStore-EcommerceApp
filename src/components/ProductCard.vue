@@ -16,8 +16,15 @@
         class="card flex flex-col justify-center p-10 bg-white bg-opacity-25 rounded-lg shadow-2xl"
       >
         <div class="prod-img">
-          <div class="w-full my-2 h-52 bg-mainBlue object-cover object-center">
-            <img :src="firstImage" alt="" />
+          <div class="w-full flex justify-center align-center my-2 h-52 bg-mainBlue object-cover object-center">
+            <img v-show="firstImage" :src="firstImage" alt="" />
+               <v-progress-circular
+               v-show="!firstImage"
+      :size="50"
+      color="amber"
+      position="center"
+      indeterminate
+    ></v-progress-circular>
           </div>
         </div>
         <div class="prod-title my-2">

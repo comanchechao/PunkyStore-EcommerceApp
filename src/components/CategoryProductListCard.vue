@@ -13,8 +13,15 @@
     >
       به سبد خرید اضافه شد</v-alert
     >
-    <div class="w-full h-full bg-purple-900 p-2">
-      <img class="bg-mainPurple" :src="cardImage" alt="" />
+    <div class="w-full h-full flex justify-center align-center bg-purple-900 p-2">
+      <img v-show="cardImage" class="bg-mainPurple" :src="cardImage" alt="" />
+      <v-progress-circular
+        v-show="!cardImage"
+        :size="50"
+        color="amber"
+        position="center"
+        indeterminate
+      ></v-progress-circular>
     </div>
     <div
       class="w-full h-full flex flex-col text-center align-center justify-center space-y-3 my-4 lg:space-x-9"
@@ -46,7 +53,7 @@
 import DefaultButton from "./DefaultButton.vue";
 import { ref } from "@vue/reactivity";
 import { productManagent } from "../store/productManagment";
-import { onMounted } from '@vue/runtime-core';
+import { onMounted } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 
 export default {
@@ -63,13 +70,11 @@ export default {
     });
     const productManagment = productManagent();
 
-    const cardImage = ref()
+    const cardImage = ref();
 
-
-    onMounted(() =>{
+    onMounted(() => {
       getImage();
-    })
-
+    });
 
     const getImage = async function () {
       if (props.product.first_image) {
@@ -93,7 +98,7 @@ export default {
       }, 2000);
     };
 
-    return { addToCart, addedToCart , cardImage };
+    return { addToCart, addedToCart, cardImage };
   },
 };
 </script>
