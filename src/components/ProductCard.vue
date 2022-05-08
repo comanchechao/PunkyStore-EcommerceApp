@@ -16,15 +16,17 @@
         class="card flex flex-col justify-center p-10 bg-white bg-opacity-25 rounded-lg shadow-2xl"
       >
         <div class="prod-img">
-          <div class="w-full flex justify-center align-center my-2 h-52 bg-mainBlue object-cover object-center">
+          <div
+            class="w-full flex justify-center align-center my-2 h-52 bg-mainBlue object-cover object-center"
+          >
             <img v-show="firstImage" :src="firstImage" alt="" />
-               <v-progress-circular
-               v-show="!firstImage"
-      :size="50"
-      color="amber"
-      position="center"
-      indeterminate
-    ></v-progress-circular>
+            <v-progress-circular
+              v-show="!firstImage"
+              :size="50"
+              color="amber"
+              position="center"
+              indeterminate
+            ></v-progress-circular>
           </div>
         </div>
         <div class="prod-title my-2">
@@ -36,35 +38,50 @@
           </p>
         </div>
         <div class="prod-info grid gap-6">
-          <div>
-            <ul class="flex flex-row justify-center space-x-2 items-center text-center">
-              <li
-                v-for="color in product.colors"
-                :key="color.id"
-                class="last:mr-0"
-              >
-                <span
-                  class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300"
+          <div class="flex flex-row w-full justify-center">
+            <RadioGroup v-model="selectedColor" class="mt-4">
+              <RadioGroupLabel class="sr-only">
+                یک رنگ رو انتخاب کنید
+              </RadioGroupLabel>
+              <div class="flex items-center space-x-3">
+                <RadioGroupOption
+                  as="template"
+                  v-for="color in product.colors"
+                  :key="color.name"
+                  :value="color"
+                  v-slot="{ active, checked }"
                 >
-                  <p
-                    :class="{
-                      'bg-pink-500': color.name === 'صورتی',
-                      'bg-blue-500': color.name === 'آبی',
-                      'bg-red-500': color.name === 'قرمز',
-                      'bg-yellow-500': color.name === 'زرد',
-                      'bg-purple-500': color.name === 'بنفش',
-                      'bg-green-500': color.name === 'سبز',
-                      'bg-purple-700': color.name === 'نیلی',
-                      'bg-red-700': color.name === 'یاقوتی',
-                      'bg-goldie': color.name === 'طلایی',
-                      'bg-black': color.name === 'سیاه',
-                      'bg-white': color.name === 'سفید',
-                    }"
-                    class="block w-6 h-6 rounded-full"
-                  ></p>
-                </span>
-              </li>
-            </ul>
+                  <div
+                    :class="[
+                      active && checked ? 'ring ring-offset-1' : '',
+                      !active && checked ? 'ring-2' : '',
+                      '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none',
+                    ]"
+                  >
+                    <RadioGroupLabel as="p" class="sr-only">
+                      {{ color.name }}
+                    </RadioGroupLabel>
+                    <span
+                      :class="{
+                        'bg-pink-500': color.name === 'صورتی',
+                        'bg-blue-500': color.name === 'آبی',
+                        'bg-red-600': color.name === 'قرمز',
+                        'bg-yellow-500': color.name === 'زرد',
+                        'bg-purple-500': color.name === 'بنفش',
+                        'bg-green-500': color.name === 'سبز',
+                        'bg-purple-700': color.name === 'نیلی',
+                        'bg-red-700': color.name === 'یاقوتی',
+                        'bg-goldie': color.name === 'طلایی',
+                        'bg-black': color.name === 'سیاه',
+                        'bg-white': color.name === 'سفید',
+                      }"
+                      aria-hidden="true"
+                      class="h-6 w-6 border rounded-full border-black border-opacity-10 rounded-full"
+                    />
+                  </div>
+                </RadioGroupOption>
+              </div>
+            </RadioGroup>
           </div>
           <div
             class="flex flex-col md:flex-row justify-between items-center space-y-3 text-gray-900"
@@ -109,20 +126,30 @@
 <script>
 import { ref } from "@vue/reactivity";
 import { productManagent } from "../store/productManagment";
-import { onMounted } from "@vue/runtime-core";
+import { onMounted, watch } from "@vue/runtime-core";
 import { supabase } from "../supabase";
+import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 
 export default {
   props: ["product"],
+
+  components: { RadioGroup, RadioGroupLabel, RadioGroupOption },
 
   setup(props) {
     const Product = ref({
       item: props.product,
       quantity: 1,
+      color: null
     });
     const firstImage = ref(null);
     const productManagment = productManagent();
     const addedToCart = ref(false);
+    const selectedColor = ref();
+
+    watch(selectedColor , () => {
+      Product.value.color = selectedColor.value.name
+      console.log(Product.value)
+    })
 
     onMounted(() => {
       setTimeout(() => {
@@ -152,7 +179,7 @@ export default {
       }, 2000);
     };
 
-    return { addToCart, addedToCart, firstImage };
+    return { addToCart, addedToCart, firstImage, selectedColor };
   },
 };
 </script>

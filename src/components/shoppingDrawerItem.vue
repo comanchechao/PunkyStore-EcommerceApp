@@ -32,7 +32,7 @@
           leave-to-class="transform scale-95 opacity-0"
         >
           <MenuItems
-            class="absolute text-right z-10 top-0 right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="absolute text-right z-20 top-0 -right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <div class="px-1 py-1 w-full">
               <MenuItem v-slot="{ active }">
@@ -59,14 +59,41 @@
             </div>
             <div class="px-1 py-1">
               <MenuItem v-slot="{ active }">
-                <DefaultButton
+                <div
                   :class="[
                     active ? ' ' : 'text-gray-900',
-                    'group flex justify-end items-center w-full px-2 py-2 text-sm',
+                    'group flex justify-between items-center w-full px-2 py-2 text-sm',
                   ]"
+                  class="flex flex-row-reverse space-x-5 justify-between align-center"
                 >
-                  {{ item.item.description }}
-                </DefaultButton>
+                  <div>:رنگ</div>
+                  <div
+                    class="flex flex-row justify-center space-x-2 items-center text-center"
+                  >
+                    <div class="last:mr-0">
+                      <span
+                        class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300"
+                      >
+                        <p
+                          :class="{
+                            'bg-pink-500': item.color === 'صورتی',
+                            'bg-blue-500': item.color === 'آبی',
+                            'bg-red-500': item.color === 'قرمز',
+                            'bg-yellow-500': item.color === 'زرد',
+                            'bg-purple-500': item.color === 'بنفش',
+                            'bg-green-500': item.color === 'سبز',
+                            'bg-purple-700': item.color === 'نیلی',
+                            'bg-red-700': item.color === 'یاقوتی',
+                            'bg-goldie': item.color === 'طلایی',
+                            'bg-black': item.color === 'سیاه',
+                            'bg-white': item.color === 'سفید',
+                          }"
+                          class="block w-6 h-6 rounded-full"
+                        ></p>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </MenuItem>
             </div>
           </MenuItems>
@@ -111,12 +138,12 @@ export default {
     const productManagment = productManagent();
 
     onMounted(() => {
-      console.log(props.item.quantity);
+      console.log(props.item.color);
       getImage();
     });
 
     const getImage = async function () {
-      console.log(props.item.item.first_image)
+      console.log(props.item.item.first_image);
       if (props.item.item.first_image) {
         try {
           const { data, error } = await supabase.storage
