@@ -147,7 +147,7 @@
 <script>
 import { ref } from "@vue/reactivity";
 import { productManagent } from "../store/productManagment";
-import { onMounted, watch } from "@vue/runtime-core";
+import { computed, onMounted, watch } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 import gsap from "gsap";
@@ -163,6 +163,10 @@ export default {
       quantity: 1,
       color: null,
     });
+
+    const product = computed(() => {
+      return Product.value
+    })
     const firstImage = ref(null);
     const productManagment = productManagent();
     const addedToCart = ref(false);
@@ -196,7 +200,7 @@ export default {
 
     const addToCart = function () {
       if (Product.value.color !== null) {
-        productManagment.addToCart(Product.value);
+        productManagment.addToCart(product.value);
         addedToCart.value = true;
         setTimeout(() => {
           addedToCart.value = false;

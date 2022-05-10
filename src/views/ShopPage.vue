@@ -255,6 +255,7 @@
         tag="ul"
         @before-enter="beforeEnter"
         @enter="enter"
+        
       >
         <ProductCard
           v-for="product in products"

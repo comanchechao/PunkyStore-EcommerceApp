@@ -135,15 +135,13 @@ export default {
 
     const firstImage = ref();
 
-    const productManagment = productManagent();
+    const manageProducts = productManagent();
 
     onMounted(() => {
-      console.log(props.item.color);
       getImage();
     });
 
     const getImage = async function () {
-      console.log(props.item.item.first_image);
       if (props.item.item.first_image) {
         try {
           const { data, error } = await supabase.storage
@@ -157,12 +155,8 @@ export default {
       }
     };
 
-    onMounted(() => {
-      console.log(item.value);
-    });
-
-    const removeCartProduct = function () {
-      productManagment.deleteProduct(item.value);
+    let removeCartProduct = () => {
+      manageProducts.deleteProduct(item.value);
     };
 
     return { item, removeCartProduct, firstImage };

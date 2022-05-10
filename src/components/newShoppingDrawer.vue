@@ -61,8 +61,9 @@
                   class="h-full w-full space-y-1 flex flex-col overflow-y-scroll divide-double divide-zinc-600 divide-y-8"
                 >
                   <ShoppingDrawerItem
-                    v-for="item in getCart"
+                    v-for="item in cart"
                     :key="item.id"
+                    class="group"
                     :item="item"
                   />
                 </div>
@@ -105,7 +106,7 @@
 </template>
 
 <script>
-import { computed, onMounted, ref } from "vue";
+import { computed, onMounted, reactive, ref, watch } from "vue";
 import DefaultButton from "./DefaultButton.vue";
 import {
   TransitionRoot,
@@ -117,6 +118,7 @@ import {
 import ShoppingDrawerItem from "./shoppingDrawerItem.vue";
 import { productManagent } from "../store/productManagment";
 import { storeToRefs } from "pinia";
+import gsap from "gsap";
 
 export default {
   components: {
@@ -132,23 +134,35 @@ export default {
   setup() {
     const isOpen = ref(false);
     const drawer = ref(false);
+    const getCart = ref();
     const manageProducts = productManagent();
-    let { getCart, cartTotalAmount, cartTotalPrice, cartItemCount } =
+    let { cart, cartTotalAmount, cartTotalPrice, cartItemCount } =
       storeToRefs(manageProducts);
+
+    watch(cart, () => {
+     closeModal()
+     setTimeout(() => {
+       openModal()
+     }, 1000);
+    });
+
+    function closeModal() {
+      isOpen.value = false;
+    }
+    function openModal() {
+      isOpen.value = true;
+    }
 
     return {
       isOpen,
-      getCart,
       cartTotalAmount,
       cartTotalPrice,
       cartItemCount,
       drawer,
-      closeModal() {
-        isOpen.value = false;
-      },
-      openModal() {
-        isOpen.value = true;
-      },
+      getCart,
+      openModal,
+      closeModal,
+      cart,
     };
   },
 };

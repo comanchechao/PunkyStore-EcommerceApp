@@ -17,11 +17,12 @@ export const productManagent = defineStore("products", {
       }
     },
     deleteProduct(product) {
-      this.cart = this.cart.filter((item) => {
+    this.cart = this.cart.filter((item) => {
+        console.log(item.item.id);
         return item.item.id !== product.item.id;
       });
-      console.log(this.cart)
     },
+   
   },
 
   getters: {
