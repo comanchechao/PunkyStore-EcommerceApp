@@ -133,7 +133,7 @@ import { EyeIcon, TrashIcon } from "@heroicons/vue/solid";
 import DefaultButton from "./DefaultButton.vue";
 import { productManagent } from "../store/productManagment";
 import { ref } from "@vue/reactivity";
-import { onMounted, computed } from "@vue/runtime-core";
+import { onMounted, computed, onUpdated } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 import { CardManagement } from "../store/cardManagment";
 
@@ -160,6 +160,10 @@ export default {
     onMounted(() => {
       getImage();
     });
+
+    onUpdated(() => {
+      getImage();
+    })
 
     const getImage = async function () {
       if (props.item.item.first_image) {

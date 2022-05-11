@@ -97,12 +97,9 @@
                     <RadioGroupLabel
                       as="div"
                       :class="checked ? 'text-white' : 'text-gray-900'"
-                      class="font-medium flex justify-between align-center text-right"
+                      class="font-medium flex justify-center font-bold border-b-2 align-center text-right"
                     >
-                      <div class="w-12 h-12 bg-yellow-200 rounded-full">
-                        <img :src="firstImage" alt="" />
-                      </div>
-                      <span>
+                      <span class="my-2">
                         {{ item.item.title }}
                       </span>
                     </RadioGroupLabel>
@@ -118,27 +115,23 @@
                         <ul
                           class="flex flex-row justify-center space-x-2 items-center text-center"
                         >
-                          <li
-                            v-for="color in item.item.colors"
-                            :key="color.id"
-                            class="last:mr-0"
-                          >
+                          <li class="last:mr-0">
                             <span
                               class="block p-1 border-2 border-gray-500 rounded-full transition ease-in duration-300"
                             >
                               <p
                                 :class="{
-                                  'bg-pink-500': color.name === 'صورتی',
-                                  'bg-blue-500': color.name === 'آبی',
-                                  'bg-red-500': color.name === 'قرمز',
-                                  'bg-yellow-500': color.name === 'زرد',
-                                  'bg-purple-500': color.name === 'بنفش',
-                                  'bg-green-500': color.name === 'سبز',
-                                  'bg-purple-700': color.name === 'نیلی',
-                                  'bg-red-700': color.name === 'یاقوتی',
-                                  'bg-goldie': color.name === 'طلایی',
-                                  'bg-black': color.name === 'سیاه',
-                                  'bg-white': color.name === 'سفید',
+                                  'bg-pink-500': item.color === 'صورتی',
+                                  'bg-blue-500': item.color === 'آبی',
+                                  'bg-red-500': item.color === 'قرمز',
+                                  'bg-yellow-500': item.color === 'زرد',
+                                  'bg-purple-500': item.color === 'بنفش',
+                                  'bg-green-500': item.color === 'سبز',
+                                  'bg-purple-700': item.color === 'نیلی',
+                                  'bg-red-700': item.color === 'یاقوتی',
+                                  'bg-goldie': item.color === 'طلایی',
+                                  'bg-black': item.color === 'سیاه',
+                                  'bg-white': item.color === 'سفید',
                                 }"
                                 class="block w-6 h-6 rounded-full"
                               ></p>

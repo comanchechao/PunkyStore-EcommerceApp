@@ -184,6 +184,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
 import { ChevronUpIcon } from "@heroicons/vue/solid";
 import { ref } from "vue";
 import { supabase } from "../supabase";
+import { CardManagement } from '../store/cardManagment';
 
 export default {
   components: {
@@ -201,6 +202,7 @@ export default {
     let { user } = storeToRefs(manageUser);
     const loading = ref(false);
     const manageProducts = productManagent();
+    const manageCard = CardManagement()
     const manageOrders = orderManagement();
     const fullName = ref("");
     const phoneNumber = ref();
@@ -210,7 +212,7 @@ export default {
     const province = ref("");
     let cartItems = ref([]);
     let orderDetailId = ref();
-    let { getCart, cartTotalPrice } = storeToRefs(manageProducts);
+    let { getCart, cartTotalPrice } = storeToRefs(manageCard);
 
     const orderDetailSubmit = async function () {
       if (user) {
