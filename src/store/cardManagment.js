@@ -18,7 +18,6 @@ export const CardManagement = defineStore("card", {
     },
     deleteProduct(product) {
       this.cart = this.cart.filter((item) => {
-        console.log(item.item.id);
         return item.item.id !== product.item.id;
       });
     },

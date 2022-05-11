@@ -13,7 +13,7 @@
     </DefaultButton>
   </div>
   <TransitionRoot appear :show="isOpen" as="template">
-    <Dialog as="div" @close="closeModal">
+    <Dialog as="div" class="max-h-screen" @close="closeModal">
       <div class="absolute overflow-hidden h-screen right-0 top-0 z-10">
         <div class="max-h-screen text-center">
           <TransitionChild
