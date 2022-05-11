@@ -106,7 +106,14 @@
 </template>
 
 <script>
-import { computed, onMounted, reactive, ref, watch } from "vue";
+import {
+  computed,
+  defineAsyncComponent,
+  onMounted,
+  reactive,
+  ref,
+  watch,
+} from "vue";
 import DefaultButton from "./DefaultButton.vue";
 import {
   TransitionRoot,
@@ -115,8 +122,7 @@ import {
   DialogOverlay,
   DialogTitle,
 } from "@headlessui/vue";
-import ShoppingDrawerItem from "./shoppingDrawerItem.vue";
-import { productManagent } from "../store/productManagment";
+import { CardManagement } from "../store/cardManagment";
 import { storeToRefs } from "pinia";
 import gsap from "gsap";
 
@@ -128,23 +134,22 @@ export default {
     DialogOverlay,
     DialogTitle,
     DefaultButton,
-    ShoppingDrawerItem,
+    ShoppingDrawerItem: defineAsyncComponent(() =>
+      import("./shoppingDrawerItem.vue")
+    ),
   },
 
   setup() {
     const isOpen = ref(false);
     const drawer = ref(false);
-    const getCart = ref();
-    const manageProducts = productManagent();
+    const getCart = ref([]);
+    const manageCard = CardManagement();
     let { cart, cartTotalAmount, cartTotalPrice, cartItemCount } =
-      storeToRefs(manageProducts);
+      storeToRefs(manageCard);
 
-    watch(cart, () => {
-     closeModal()
-     setTimeout(() => {
-       openModal()
-     }, 1000);
-    });
+      watch(cart , () =>{
+        getCart.value = cart.value
+      })
 
     function closeModal() {
       isOpen.value = false;

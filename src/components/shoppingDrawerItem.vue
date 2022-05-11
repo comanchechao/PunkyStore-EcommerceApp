@@ -32,28 +32,47 @@
           leave-to-class="transform scale-95 opacity-0"
         >
           <MenuItems
-            class="absolute text-right z-20 top-0 -right-8 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            class="absolute text-right z-20 top-0 -right-10 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           >
             <div class="px-1 py-1 w-full">
               <MenuItem v-slot="{ active }">
                 <DefaultButton
                   class="text-left"
                   :class="[
-                    active ? '   ' : 'text-gray-900',
-                    'group flex justify-end items-center w-full px-2 py-2 text-sm',
+                    active ? '   ' : 'text-gray-900 ',
+                    'group flex justify-between space-x-6 flex-row-reverse items-center w-full px-2 py-2 text-sm',
                   ]"
                 >
-                  تعداد: {{ item.quantity }}
+                  <span> :تعداد </span>
+                  <span>
+                    {{ item.quantity }}
+                  </span>
                 </DefaultButton>
               </MenuItem>
               <MenuItem v-slot="{ active }">
                 <DefaultButton
                   :class="[
                     active ? '' : 'text-gray-900',
-                    'group flex justify-end items-right w-full px-2 py-2 text-sm',
+                    'group flex justify-between space-x-6 flex-row-reverse items-right w-full px-2 py-2 text-sm',
                   ]"
                 >
-                  قیمت:{{ item.item.price }}
+                  <span> : قیمت </span>
+                  <span>
+                    {{ item.item.price }}
+                  </span>
+                </DefaultButton>
+              </MenuItem>
+              <MenuItem v-slot="{ active }">
+                <DefaultButton
+                  :class="[
+                    active ? '' : 'text-gray-900',
+                    'group flex justify-between space-x-6 flex-row-reverse items-right w-full px-2 py-2 text-sm',
+                  ]"
+                >
+                  <span> :سایز </span>
+                  <span>
+                    {{ item.size }}
+                  </span>
                 </DefaultButton>
               </MenuItem>
             </div>
@@ -116,6 +135,7 @@ import { productManagent } from "../store/productManagment";
 import { ref } from "@vue/reactivity";
 import { onMounted, computed } from "@vue/runtime-core";
 import { supabase } from "../supabase";
+import { CardManagement } from "../store/cardManagment";
 
 export default {
   props: ["item"],
@@ -135,7 +155,7 @@ export default {
 
     const firstImage = ref();
 
-    const manageProducts = productManagent();
+    const manageCard = CardManagement();
 
     onMounted(() => {
       getImage();
@@ -156,7 +176,7 @@ export default {
     };
 
     let removeCartProduct = () => {
-      manageProducts.deleteProduct(item.value);
+      manageCard.deleteProduct(item.value);
     };
 
     return { item, removeCartProduct, firstImage };

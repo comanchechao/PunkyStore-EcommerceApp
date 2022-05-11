@@ -12,8 +12,8 @@
       >
         به سبد خرید اضافه شد</v-alert
       >
-        <v-alert
-        v-show="faildToAdd"
+      <v-alert
+        v-show="faildToAddColor"
         outlined
         shaped
         text
@@ -22,8 +22,19 @@
         type="error"
         color="red"
       >
-        <p class="text-white">
-          انتخاب رنگ!</p></v-alert
+        <p class="text-white">انتخاب رنگ!</p></v-alert
+      >
+       <v-alert
+        v-show="faildToAddSize"
+        outlined
+        shaped
+        text
+        absolute
+        class="h-20 w-72 flex justify-start text-white items-center right-0"
+        type="error"
+        color="red"
+      >
+        <p class="text-white">انتخاب سایز!</p></v-alert
       >
       <div
         class="card flex flex-col justify-center p-10 bg-white bg-opacity-25 rounded-lg shadow-2xl"
@@ -104,6 +115,34 @@
               </div>
             </RadioGroup>
           </div>
+          <RadioGroup v-model="selectedSize" class="mt-4">
+            <RadioGroupLabel class="sr-only"> انتخاب کن </RadioGroupLabel>
+            <div class="grid items-center w-red-500 w-full grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
+              <RadioGroupOption
+                as="div"
+                v-for="size in product.size"
+                :key="size.id"
+                :value="size"
+                v-slot="{ active }"
+              >
+                <div
+                  :class="[
+                    size
+                      ? 'bg-gray-200 shadow-sm text-gray-900 cursor-pointer'
+                      : 'bg-gray-50 text-gray-200 cursor-not-allowed',
+                    active
+                      ? 'ring-2 ring-Amber-500 text-gray-900'
+                      : 'text-gray-500',
+                    'group relative transition border text-gray-500 rounded-md py-3 px-4 flex items-center hover:text-white justify-center text-sm font-medium uppercase hover:bg-gray-500 focus:outline-none sm:flex-1 sm:py-6',
+                  ]"
+                >
+                  <RadioGroupLabel as="p" class="bg-transparent">
+                    {{ size }}
+                  </RadioGroupLabel>
+                </div>
+              </RadioGroupOption>
+            </div>
+          </RadioGroup>
           <div
             class="flex flex-col md:flex-row justify-between items-center space-y-3 text-gray-900"
           >
@@ -151,6 +190,7 @@ import { computed, onMounted, watch } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 import gsap from "gsap";
+import { CardManagement } from '../store/cardManagment';
 
 export default {
   props: ["product"],
@@ -162,20 +202,29 @@ export default {
       item: props.product,
       quantity: 1,
       color: null,
+      size: null,
     });
 
     const product = computed(() => {
-      return Product.value
-    })
+      return Product.value;
+    });
     const firstImage = ref(null);
     const productManagment = productManagent();
+    const manageCard = CardManagement()
     const addedToCart = ref(false);
-    const faildToAdd = ref(false)
+    const faildToAddColor = ref(false);
+    const faildToAddSize = ref(false)
     const selectedColor = ref();
+    const selectedSize = ref()
 
     watch(selectedColor, () => {
       Product.value.color = selectedColor.value.name;
       console.log(Product.value);
+    });
+
+    watch(selectedSize, () => {
+      Product.value.size = selectedSize.value;
+      console.log(selectedSize.value);
     });
 
     onMounted(() => {
@@ -199,17 +248,23 @@ export default {
     };
 
     const addToCart = function () {
-      if (Product.value.color !== null) {
-        productManagment.addToCart(product.value);
+      if (Product.value.color !== null && Product.value.size !== null) {
+        manageCard.addToCart(product.value);
         addedToCart.value = true;
         setTimeout(() => {
           addedToCart.value = false;
         }, 2000);
-      }else{
-         faildToAdd.value = true;
+      } else if(Product.value.color === null) {
+        faildToAddColor.value = true;
         setTimeout(() => {
-          faildToAdd.value = false;
+          faildToAddColor.value = false;
         }, 2000);
+      }
+      else if(Product.value.size === null) {
+        faildToAddSize.value =true
+        setTimeout(() => {
+          faildToAddSize.value =false
+        }, 2000)
       }
     };
 
@@ -227,9 +282,11 @@ export default {
     return {
       addToCart,
       addedToCart,
-      faildToAdd,
+      faildToAddColor,
+      faildToAddSize,
       firstImage,
       selectedColor,
+      selectedSize,
       beforeEnter,
       enter,
     };
