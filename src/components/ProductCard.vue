@@ -24,7 +24,7 @@
       >
         <p class="text-white">انتخاب رنگ!</p></v-alert
       >
-       <v-alert
+      <v-alert
         v-show="faildToAddSize"
         outlined
         shaped
@@ -117,7 +117,9 @@
           </div>
           <RadioGroup v-model="selectedSize" class="mt-4">
             <RadioGroupLabel class="sr-only"> انتخاب کن </RadioGroupLabel>
-            <div class="grid items-center w-red-500 w-full grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
+            <div
+              class="grid items-center w-red-500 w-full grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
+            >
               <RadioGroupOption
                 as="div"
                 v-for="size in product.size"
@@ -168,7 +170,6 @@
               }"
             >
               <button
-                @click="addToCart"
                 class="px-6 py-2 transition ease-in duration-200 btn uppercase rounded-full border-2 hover:border-gray-900 focus:outline-none"
               >
                 <v-icon class=" ">mdi-card-account-details </v-icon>
@@ -190,7 +191,7 @@ import { computed, onMounted, watch } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 import gsap from "gsap";
-import { CardManagement } from '../store/cardManagment';
+import { CardManagement } from "../store/cardManagment";
 
 export default {
   props: ["product"],
@@ -210,12 +211,12 @@ export default {
     });
     const firstImage = ref(null);
     const productManagment = productManagent();
-    const manageCard = CardManagement()
+    const manageCard = CardManagement();
     const addedToCart = ref(false);
     const faildToAddColor = ref(false);
-    const faildToAddSize = ref(false)
+    const faildToAddSize = ref(false);
     const selectedColor = ref();
-    const selectedSize = ref()
+    const selectedSize = ref();
 
     watch(selectedColor, () => {
       Product.value.color = selectedColor.value.name;
@@ -254,17 +255,16 @@ export default {
         setTimeout(() => {
           addedToCart.value = false;
         }, 2000);
-      } else if(Product.value.color === null) {
+      } else if (Product.value.color === null) {
         faildToAddColor.value = true;
         setTimeout(() => {
           faildToAddColor.value = false;
         }, 2000);
-      }
-      else if(Product.value.size === null) {
-        faildToAddSize.value =true
+      } else if (Product.value.size === null) {
+        faildToAddSize.value = true;
         setTimeout(() => {
-          faildToAddSize.value =false
-        }, 2000)
+          faildToAddSize.value = false;
+        }, 2000);
       }
     };
 

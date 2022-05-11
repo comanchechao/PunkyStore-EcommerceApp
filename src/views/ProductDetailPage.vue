@@ -310,7 +310,7 @@
 </template>
 
 <script>
-import { onMounted, onUpdated, ref } from "vue";
+import { onMounted, onUpdated, ref, watch } from "vue";
 import { StarIcon } from "@heroicons/vue/solid";
 import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 import DefaultButton from "../components/DefaultButton.vue";
@@ -322,6 +322,7 @@ import { productManagent } from "../store/productManagment";
 import "vue-inner-image-zoom/lib/vue-inner-image-zoom.css";
 import InnerImageZoom from "vue-inner-image-zoom";
 import { useRoute } from "vue-router";
+import { CardManagement } from "../store/cardManagment";
 export default {
   data() {
     return {
@@ -399,8 +400,15 @@ export default {
   setup() {
     const selectedColor = ref();
     const selectedSize = ref();
+    const manageCard = CardManagement();
     const route = useRoute();
     const firstImage = ref(null);
+    const Product = ref({
+      item: null,
+      quantity: 1,
+      color: null,
+      size: null,
+    });
     const product = ref({
       name: "تیشرت متالیکایی",
       price: "تومان ۲۰۰۰",
@@ -464,6 +472,19 @@ export default {
       console.log(route.params.id);
     });
 
+      watch(product, () => {
+      Product.value.item = product.value;
+    });
+
+
+    watch(selectedColor, () => {
+      Product.value.color = selectedColor.value.name;
+    });
+
+    watch(selectedSize, () => {
+      Product.value.size = selectedSize.value;
+    });
+
     async function getProduct() {
       console.log(product.value);
       try {
@@ -498,7 +519,7 @@ export default {
     };
 
     const addToCart = function () {
-      productManagent.addToCart(route.params.product);
+      manageCard.addToCart(Product.value);
     };
 
     return {
