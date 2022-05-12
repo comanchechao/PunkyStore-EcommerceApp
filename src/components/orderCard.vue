@@ -111,7 +111,7 @@
                       <div
                         class="flex flex-col space-y-2 justify-center align-center"
                       >
-                        <p>رنگ:</p>
+                        <p>رنگ</p>
                         <ul
                           class="flex flex-row justify-center space-x-2 items-center text-center"
                         >
@@ -139,10 +139,23 @@
                           </li>
                         </ul>
                       </div>
-                      <span>
-                        تعداد:
-                        {{ item.quantity }}
-                      </span>
+                        <div
+                          :class="[
+                            active ? '' : 'text-gray-900',
+                            'group flex justify-center align-center flex-col  items-center w-full px-2 py-2 text-sm',
+                          ]"
+                        >
+                          <span> :سایز </span>
+                          <span>
+                            {{ item.size }}
+                          </span>
+                        </div>
+                      <div class="flex flex-col spa align-center">
+                        <span> :تعداد </span>
+                        <span>
+                          {{ item.quantity }}
+                        </span>
+                      </div>
                     </RadioGroupDescription>
                   </div>
                 </div>

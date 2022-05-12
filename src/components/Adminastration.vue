@@ -842,7 +842,6 @@ export default {
     watch(xl, () => {
       if (size.value.indexOf("xl") === -1) {
         size.value.push("xl");
-        console.log(size.value);
       }
       if (xl.value === false) {
         let indexofXl = size.value.indexOf("xl");
@@ -852,7 +851,6 @@ export default {
     watch(xxl, () => {
       if (size.value.indexOf("2xl") === -1) {
         size.value.push("2xl");
-        console.log(size.value);
       }
       if (xxl.value === false) {
         let indexofXxl = size.value.indexOf("2xl");

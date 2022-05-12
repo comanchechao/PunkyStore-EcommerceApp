@@ -135,7 +135,7 @@
                     active
                       ? 'ring-2 ring-Amber-500 text-gray-900'
                       : 'text-gray-500',
-                    'group relative transition border text-gray-500 rounded-md py-3 px-4 flex items-center hover:text-white justify-center text-sm font-medium uppercase hover:bg-gray-500 focus:outline-none sm:flex-1 sm:py-6',
+                    'group relative transition border space-x-5 text-gray-500 rounded-md py-3 px-4 flex items-center hover:text-white justify-center text-sm font-medium uppercase hover:bg-gray-500 focus:outline-none sm:flex-1 sm:py-6',
                   ]"
                 >
                   <RadioGroupLabel as="p" class="bg-transparent">
