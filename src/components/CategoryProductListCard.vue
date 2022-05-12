@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gray-50 w-full flex-col h-96 lg:h-full my-9 wrapper rounded-lg p-7 flex"
+    class="bg-gray-50 w-full flex-col h-full lg:h-full my-9 wrapper rounded-lg p-7 flex"
   >
     <v-alert
       v-show="addedToCart"
@@ -13,7 +13,9 @@
     >
       به سبد خرید اضافه شد</v-alert
     >
-    <div class="w-full h-full flex justify-center align-center bg-purple-900 p-2">
+    <div
+      class="w-full h-full flex justify-center align-center bg-purple-900 p-2"
+    >
       <img v-show="cardImage" class="bg-mainPurple" :src="cardImage" alt="" />
       <v-progress-circular
         v-show="!cardImage"
@@ -26,6 +28,81 @@
     <div
       class="w-full h-full flex flex-col text-center align-center justify-center space-y-3 my-4 lg:space-x-9"
     >
+      <div class="flex flex-row w-full justify-center">
+        <RadioGroup v-model="selectedColor" class="mt-4">
+          <RadioGroupLabel class="sr-only">
+            یک رنگ رو انتخاب کنید
+          </RadioGroupLabel>
+          <div class="flex items-center space-x-3">
+            <RadioGroupOption
+              as="template"
+              v-for="color in product.colors"
+              :key="color.name"
+              :value="color"
+              v-slot="{ active, checked }"
+            >
+              <div
+                :class="[
+                  active && checked ? 'ring ring-offset-1' : '',
+                  !active && checked ? 'ring-2' : '',
+                  '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none',
+                ]"
+              >
+                <RadioGroupLabel as="p" class="sr-only">
+                  {{ color.name }}
+                </RadioGroupLabel>
+                <span
+                  :class="{
+                    'bg-pink-500': color.name === 'صورتی',
+                    'bg-blue-500': color.name === 'آبی',
+                    'bg-red-600': color.name === 'قرمز',
+                    'bg-yellow-500': color.name === 'زرد',
+                    'bg-purple-500': color.name === 'بنفش',
+                    'bg-green-500': color.name === 'سبز',
+                    'bg-purple-700': color.name === 'نیلی',
+                    'bg-red-700': color.name === 'یاقوتی',
+                    'bg-goldie': color.name === 'طلایی',
+                    'bg-black': color.name === 'سیاه',
+                    'bg-white': color.name === 'سفید',
+                  }"
+                  aria-hidden="true"
+                  class="h-6 w-6 border rounded-full border-black border-opacity-10 rounded-full"
+                />
+              </div>
+            </RadioGroupOption>
+          </div>
+        </RadioGroup>
+      </div>
+      <RadioGroup v-model="selectedSize" class="mt-4">
+        <RadioGroupLabel class="sr-only"> انتخاب کن </RadioGroupLabel>
+        <div
+          class="grid items-center w-red-500 w-full grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
+        >
+          <RadioGroupOption
+            as="div"
+            v-for="size in product.size"
+            :key="size.id"
+            :value="size"
+            v-slot="{ active }"
+          >
+            <div
+              :class="[
+                size
+                  ? 'bg-gray-200 shadow-sm text-gray-900 cursor-pointer'
+                  : 'bg-gray-50 text-gray-200 cursor-not-allowed',
+                active
+                  ? 'ring-2 ring-Amber-500 text-gray-900'
+                  : 'text-gray-500',
+                'group relative transition border space-x-5 text-gray-500 rounded-md py-3 px-4 flex items-center hover:text-white justify-center text-sm font-medium uppercase hover:bg-gray-500 focus:outline-none sm:flex-1 sm:py-6',
+              ]"
+            >
+              <RadioGroupLabel as="p" class="bg-transparent">
+                {{ size }}
+              </RadioGroupLabel>
+            </div>
+          </RadioGroupOption>
+        </div>
+      </RadioGroup>
       <h1 class="text-black font-bold text-2xl lg:text-5xl prod-title">
         {{ product.title }}
       </h1>
@@ -53,12 +130,16 @@
 import DefaultButton from "./DefaultButton.vue";
 import { ref } from "@vue/reactivity";
 import { productManagent } from "../store/productManagment";
+import { RadioGroup, RadioGroupLabel, RadioGroupOption } from "@headlessui/vue";
 import { onMounted } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 
 export default {
   components: {
     DefaultButton,
+    RadioGroup,
+    RadioGroupLabel,
+    RadioGroupOption,
   },
   props: ["product"],
 
