@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gray-50 w-full flex-col h-full lg:h-full my-9 wrapper rounded-lg p-7 flex"
+    class="bg-white w-full flex-col h-full lg:h-full my-9 wrapper rounded-lg p-7 flex"
   >
     <v-alert
       v-show="addedToCart"
@@ -14,9 +14,9 @@
       به سبد خرید اضافه شد</v-alert
     >
     <div
-      class="w-full h-full flex justify-center align-center bg-purple-900 p-2"
+      class="w-full h-full flex justify-center align-center bg-purple-900"
     >
-      <img v-show="cardImage" class="bg-mainPurple" :src="cardImage" alt="" />
+      <img v-show="cardImage" class="w-full h-full bg-mainPurple" :src="cardImage" alt="" />
       <v-progress-circular
         v-show="!cardImage"
         :size="50"

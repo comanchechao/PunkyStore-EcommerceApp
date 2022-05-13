@@ -6,26 +6,26 @@
         :value="cartItemCount"
         color="deep-purple"
         bordered
-        location="top-right"
+        location="top-left"
       >
         <v-icon class="text-white">mdi-cart</v-icon>
       </v-badge>
     </DefaultButton>
   </div>
   <TransitionRoot appear :show="isOpen" as="template">
-    <Dialog as="div" class="max-h-screen" @close="closeModal">
-      <div class="absolute overflow-hidden h-screen right-0 top-0 z-10">
-        <div class="max-h-screen text-center">
+    <Dialog as="div" @close="closeModal">
+      <div class="absolute right-0 top-0 z-10 overflow-y-auto">
+        <div class="min-h-screen text-center">
           <TransitionChild
             as="template"
-            enter="duration-150 ease-out"
-            enter-from="transfrom -translate-x-24 scale-95"
+            enter="duration-100 ease-out"
+            enter-from="transfrom -translate-x-24 "
             enter-to="opacity-100 scale-100"
             leave="duration-200 ease-in"
             leave-from="opacity-100 scale-100"
             leave-to="transfrom -translate-x-24 scale-95"
           >
-            <DialogOverlay class="fixed inset-0 bg-gray-700 bg-opacity-20" />
+            <DialogOverlay class="fixed inset-0 h-screen bg-darkPurple bg-opacity-20" />
           </TransitionChild>
 
           <span class="inline-block h-screen align-left" aria-hidden="true">
@@ -34,12 +34,12 @@
 
           <TransitionChild
             as="template"
-            enter="duration-100 ease-out"
-            enter-from="transfrom translate-x-32 scale-95"
+            enter="duration-150 ease-out"
+            enter-from="transfrom -translate-y-24 scale-95"
             enter-to="opacity-100 scale-100"
-            leave="duration-100 ease-in"
+            leave="duration-150 ease-in"
             leave-from="opacity-100 scale-100"
-            leave-to="transfrom translate-x-32 scale-95"
+            leave-to="transfrom -translate-y-24 scale-95"
           >
             <div
               class="inline-block w-92 h-screen overflow-hidden text-left align-right transition-all transform bg-gray-100 shadow-xl"
@@ -104,7 +104,6 @@
     </Dialog>
   </TransitionRoot>
 </template>
-
 <script>
 import {
   computed,
@@ -147,15 +146,16 @@ export default {
     let { cart, cartTotalAmount, cartTotalPrice, cartItemCount } =
       storeToRefs(manageCard);
 
-      watch(cart , () =>{
-        getCart.value = cart.value
-      })
+    watch(cart, () => {
+      getCart.value = cart.value;
+    });
 
     function closeModal() {
       isOpen.value = false;
     }
-    function openModal() {
+    function openModal(el) {
       isOpen.value = true;
+      window.scrollTo(0,0)
     }
 
     return {
