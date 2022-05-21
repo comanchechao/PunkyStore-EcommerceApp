@@ -58,24 +58,25 @@
         تیم ما رو بیشتر بشناسید
       </h1>
       <div
-        class="w-full lg:h-72 h-screen bg-Indigo-900 flex flex-col lg:flex-row justify-around items-center"
+        class="w-full my-52 flex flex-col lg:flex-row justify-around items-center"
       >
         <div class="space-y-7 flex flex-col items-center">
-          <div class="space-y-7 flex flex-col items-center">
-            <div class="w-40 h-40 bg-white rounded-full"></div>
-            <h1 class="text-3xl font-black text-white">روح الله موسوی</h1>
-            <h3 class="text-2xl font-light text-LightBlue-400">بنیان گذار</h3>
-          </div>
           <div class="w-40 h-40 bg-white rounded-full"></div>
-          <h1 class="text-3xl font-black text-white">کیارش واحدی</h1>
-          <h3 class="text-2xl font-light text-LightBlue-400">
+          <h1 class="text-3xl font-black text-black">رلی موسوی</h1>
+          <h3 class="text-2xl font-medium text-darkPurple">بنیان گذار</h3>
+          <div class="w-40 h-40 bg-white rounded-full"></div>
+          <h1 class="text-3xl font-black text-black">کیارش واحدی</h1>
+          <h3 class="text-2xl font-medium text-darkPurple">
             عضو تیم پانکی مانکی
           </h3>
+          <div class="w-40 h-40 bg-white rounded-full"></div>
+          <h1 class="text-3xl font-black text-black">بهرام</h1>
+          <h3 class="text-2xl font-medium text-darkPurple">با تشکر ویژه از</h3>
         </div>
         <!-- <div class="space-y-7 flex flex-col items-center">
           <div class="w-40 h-40 bg-white rounded-full"></div>
           <h1 class="text-3xl font-black text-white">بهرام</h1>
-          <h3 class="text-2xl font-light text-LightBlue-400">
+          <h3 class="text-2xl font-medium text-LightBlue-400">
             عضو تیم پانکی مانکی
           </h3>
         </div> -->
@@ -84,7 +85,7 @@
       <div class="space-y-7 flex flex-col items-center">
         <div class="w-36 h-36 bg-white rounded-full"></div>
         <h1 class="text-3xl font-black text-black">پاتریک مقدس</h1>
-        <h3 class="text-2xl font-light text-purple-900">
+        <h3 class="text-2xl font-medium text-purple-900">
           عضو ویژه ی تیم پانکی مانکی
         </h3>
       </div> -->
