@@ -67,6 +67,31 @@
           <span>۰۴۴۳۲۲۵۶۲۱۶</span>
           <span>۰۴۴۳۲۲۵۹۰۰۴</span>
         </h1>
+        <div
+          class="h-full w-full flex flex-col justify-center text-right items-end"
+        >
+          <h1
+            class="flex flex-col font-mainFont space-y-2 font-thin capitalize text-right text-lg lg:text-xl text-mainPink"
+          >
+            توسعه سایت توسط
+            <a
+              href="https://www.instagram.com/comanche.chao/?hl=en"
+              class="Chao"
+              >Comanche Chao🧙</a
+            >
+            <a href="https://www.instagram.com/just_greez/?hl=en" class="Greez">
+              Greez🐻</a
+            >
+          </h1>
+          <h1
+            class="flex flex-col font-mainFont text-right space-y-2 font-thin capitalize text-lg lg:text-xl text-mainPink"
+          >
+            هنر توسط
+            <a href="https://www.instagram.com/payamone/?hl=en" class="payamone"
+              >PayamOne🌴</a
+            >
+          </h1>
+        </div>
       </div>
     </div>
     <!-- <img
@@ -116,6 +141,45 @@ export default {
 </script>
 
 <style>
+.payamone {
+  color: #571bfc;
+  transition: ease-in-out 0.3s;
+}
+.Chao {
+  color: #571bfc;
+  transition: ease-in-out 0.3s;
+}
+.Chao:hover {
+  color: #ec18ff;
+}
+.Chao:active {
+  color: #571bfc;
+  scale: 0.8;
+}
+.Greez {
+  color: #571bfc;
+  transition: ease-in-out 0.3s;
+}
+.Greez:hover {
+  color: #00e1ff;
+}
+.Greez:active {
+  color: #7583ff;
+  scale: 0.8;
+}
+
+.payamone:hover {
+  color: #fbff00;
+}
+
+/* .kesler:active {
+  transition: all ease-in-out 0.3s;
+  scale: 1.5;
+} */
+.payamone:active {
+  color: #ff758c;
+  scale: 0.8;
+}
 .icons:hover {
   transition: ease-in-out 0.5s;
   background-color: aquamarine;
