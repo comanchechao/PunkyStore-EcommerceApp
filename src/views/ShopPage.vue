@@ -147,11 +147,11 @@
         </template>
         <template #Accessory>
           <div @click="category = 'اکسسوری'" class="">
-            <!-- <img
-              src="../assets/images/Shoe.webp"
+            <img
+              src="../assets/images/accessory.webp"
               class="object-contain h-36"
               alt=""
-            /> -->
+            />
             <h1
               class="lg:text-4xl text-center text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
             >
@@ -228,7 +228,7 @@
           </DropDown>
 
           <DropDown>
-            <template #title> دسته بندی ها </template>
+            <template #title> زیرمجموعه ها </template>
 
             <template #firstOption>
               <p class="w-full h-full" @click="category = 'شلوار'">شلوار</p>
@@ -255,7 +255,6 @@
         tag="ul"
         @before-enter="beforeEnter"
         @enter="enter"
-        
       >
         <ProductCard
           v-for="product in products"
