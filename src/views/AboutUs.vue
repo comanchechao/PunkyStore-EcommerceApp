@@ -106,7 +106,7 @@ export default {
     Footer: defineAsyncComponent(() => import("../components/Footer.vue")),
   },
   mounted() {
-    this.animateTextDiv();
+    // this.animateTextDiv();
     this.animateMonkey();
     this.animateMonkeyHead();
     this.animateMonkeyEarings();
@@ -183,21 +183,21 @@ export default {
         transformOrigin: "50% 100%",
       });
     },
-    animateTextDiv() {
-      const tl = gsap.timeline();
-      tl.from(".textDiv", {
-        opacity: 0,
-        y: 900,
-        ease: "expo.out",
-        scrollTrigger: {
-          scrub: 1.5,
-          start: "top bottom",
-          end: "top top",
-          trigger: ".mainTextDiv",
-          toggleActions: "play none none reset",
-        },
-      });
-    },
+    // animateTextDiv() {
+    //   const tl = gsap.timeline();
+    //   tl.from(".textDiv", {
+    //     opacity: 0,
+    //     y: 900,
+    //     ease: "expo.out",
+    //     scrollTrigger: {
+    //       scrub: 1.5,
+    //       start: "top bottom",
+    //       end: "top center",
+    //       trigger: ".mainTextDiv",
+    //       toggleActions: "play none none reset",
+    //     },
+    //   });
+    // },
   },
 };
 </script>
