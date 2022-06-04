@@ -116,6 +116,21 @@ export default {
     const order = ref("price");
     const ascention = ref();
     const products = ref([]);
+    const categoryImage = ref();
+
+    const getImage = async function () {
+      if (props.category.category_image) {
+        try {
+          const { data, error } = await supabase.storage
+            .from("category-images")
+            .download(props.category.category_image);
+          if (error) throw error;
+          categoryImage.value = URL.createObjectURL(data);
+        } catch (error) {
+          alert(error.error_description || error.message);
+        }
+      }
+    };
 
     watch(order, () => {
       getProducts();
@@ -130,6 +145,7 @@ export default {
       });
     onMounted(() => {
       getProducts();
+      getImage();
     });
     async function getProducts() {
       try {

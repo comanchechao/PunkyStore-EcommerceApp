@@ -78,7 +78,7 @@
               </Menu>
               <Disclosure
                 as="div"
-                class="bg-mainGreen w-full lg:w-1/2 self-center"
+                class="bg-mainGreen w-full lg:w-full self-center"
                 v-slot="{ open }"
               >
                 <DisclosureButton
@@ -98,7 +98,9 @@
                     :key="item.id"
                     class="w-full flex align-round justify-between h-12"
                   >
-                    <div class="flex flex-row justify-between w-1/2">
+                    <div
+                      class="flex flex-row justify-between align-center w-full"
+                    >
                       <h2>
                         {{ item.title }}
                       </h2>
@@ -106,13 +108,9 @@
                         {{ item.price }}
                       </h2>
                     </div>
-                    <div class="flex flex-row">
-                      <button>
-                        <v-icon class="font-bold text-mainPurple"
-                          >mdi-circle-edit-outline</v-icon
-                        >
-                      </button>
-                      <button>
+                    <div class="flex flex-row justify-center align-center mx-1">
+                      <EditModal :item="item" />
+                      <button @click="removeProduct(item.id)">
                         <v-icon class="font-bold text-red-800"
                           >mdi-delete</v-icon
                         >
@@ -252,6 +250,9 @@ export default {
     Menu,
     MenuButton,
     modal: defineAsyncComponent(() => import("../components/Modal.vue")),
+    EditModal: defineAsyncComponent(() =>
+      import("../components/editModal.vue")
+    ),
     MenuItems,
     MenuItem,
     ChevronDownIcon,
@@ -298,7 +299,7 @@ export default {
           .delete()
           .match({ id: 1 });
         if (error) throw error;
-        console.log(data)
+        console.log(data);
         alert("success");
       } catch (error) {
         console.log("error", error);
