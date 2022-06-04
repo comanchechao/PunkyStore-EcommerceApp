@@ -297,12 +297,15 @@ export default {
         const { data, error } = await supabase
           .from("products")
           .delete()
-          .match({ id: 1 });
+          .match({ id: id });
         if (error) throw error;
         console.log(data);
         alert("success");
       } catch (error) {
         console.log("error", error);
+      }
+      finally{
+        getProducts()
       }
     }
 
