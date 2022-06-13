@@ -61,10 +61,22 @@
         class="w-full my-52 flex flex-col lg:flex-row justify-around items-center"
       >
         <div class="space-y-7 flex flex-col items-center">
-          <div class="w-40 h-40 bg-white rounded-full"></div>
+          <div class="w-40 h-40 bg-white rounded-full">
+            <img
+              class="w-40 h-40 rounded-full"
+              src="../assets/images/Rolli.webp"
+              alt=""
+            />
+          </div>
           <h1 class="text-3xl font-black text-black">رلی موسوی</h1>
           <h3 class="text-2xl font-medium text-darkPurple">بنیان گذار</h3>
-          <div class="w-40 h-40 bg-white rounded-full"></div>
+          <div class="w-40 h-40 bg-white rounded-full">
+            <img
+              class="w-40 h-40 rounded-full"
+              src="../assets/images/KiarashKing.webp"
+              alt=""
+            />
+          </div>
           <h1 class="text-3xl font-black text-black">کیارش واحدی</h1>
           <h3 class="text-2xl font-medium text-darkPurple">
             عضو تیم پانکی مانکی
