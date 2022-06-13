@@ -93,6 +93,18 @@
                 ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
               ]"
             >
+              <slot name="Accessory"> </slot>
+            </div>
+          </MenuItem>
+          <MenuItem v-slot="{ active }">
+            <div
+              :class="[
+                active
+                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
+                  : 'text-gray-500',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+              ]"
+            >
               <slot name="Hoodie"> </slot>
             </div>
           </MenuItem>
@@ -118,18 +130,6 @@
               ]"
             ></div>
           </MenuItem> -->
-          <MenuItem v-slot="{ active }">
-            <div
-              :class="[
-                active
-                  ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
-                  : 'text-gray-500',
-                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
-              ]"
-            >
-              <slot name="Accessory"> </slot>
-            </div>
-          </MenuItem>
           <MenuItem v-slot="{ active }">
             <div
               :class="[

@@ -117,6 +117,20 @@
             </h1>
           </div>
         </template>
+        <template #Accessory>
+          <div @click="category = 'اکسسوری'" class="">
+            <img
+              src="../assets/images/accessory.webp"
+              class="object-contain lg:w-36 w-20 h-36"
+              alt=""
+            />
+            <h1
+              class="lg:text-4xl text-center text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
+            >
+              اکسسوری
+            </h1>
+          </div>
+        </template>
         <template #Cap>
           <div @click="category = 'کپ'" class="">
             <img
@@ -145,20 +159,6 @@
             </h1>
           </div>
         </template>
-        <template #Accessory>
-          <div @click="category = 'اکسسوری'" class="">
-            <img
-              src="../assets/images/accessory.webp"
-              class="object-contain h-36"
-              alt=""
-            />
-            <h1
-              class="lg:text-4xl text-center text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
-            >
-              اکسسوری
-            </h1>
-          </div>
-        </template>
       </MegaMenu>
 
       <!-- <ListBox /> -->
@@ -170,7 +170,6 @@
         <div class="flex items-center space-x-3">
           <Switch
             v-model="inStock"
-            @click="(order = 'inStock')((ascention = !ascention))"
             :class="inStock ? 'bg-green-500' : 'bg-gray-300'"
             class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
@@ -314,8 +313,8 @@ export default {
   // props: ["category"],
 
   setup() {
-    const discount = ref();
-    const inStock = ref(false);
+    const discount = ref(false);
+    const inStock = ref(true);
     const order = ref("price");
     const SearchIndex = ref("");
     const ascention = ref();
@@ -333,11 +332,11 @@ export default {
       watch(inStock, () => {
         getProducts();
         console.log(order);
-      }),
-      watch(discount, () => {
-        getProducts();
-        console.log(discount);
-      }),
+      });
+    watch(discount, () => {
+      getProducts();
+      console.log(discount);
+    }),
       watch(ascention, () => {
         getProducts();
       });
@@ -416,7 +415,10 @@ export default {
           .from("products")
           .select()
           .order(order.value, { ascending: ascention.value })
-          .range(from.value, to.value);
+          .range(from.value, to.value)
+          .is("inStock", inStock.value);
+        // .is("discount", discount.value);
+
         // .eq("product-category", props.category.title);
 
         if (error) throw error;
