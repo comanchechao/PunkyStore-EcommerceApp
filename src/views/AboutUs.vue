@@ -70,7 +70,7 @@
             عضو تیم پانکی مانکی
           </h3>
           <div class="w-40 h-40 bg-white rounded-full"></div>
-          <h1 class="text-3xl font-black text-black">بهرام</h1>
+          <h1 class="text-3xl font-black text-black">بهرام محمدزاده</h1>
           <h3 class="text-2xl font-medium text-darkPurple">با تشکر ویژه از</h3>
         </div>
         <!-- <div class="space-y-7 flex flex-col items-center">

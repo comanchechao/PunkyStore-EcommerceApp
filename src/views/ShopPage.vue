@@ -4,7 +4,7 @@
     class="w-screen flex flex-col justify-center align-center px-3 pt-6"
   >
     <div
-      class="w-full mt-24 z-50 h-20 flex justify-between lg:justify-between px-5 bg-gray-50 bg-opacity-80 items-center filter drop-shadow-2xl"
+      class="w-full mt-24 z-50 h-20 flex justify-between lg:justify-between px-5 bg-gray-50 items-center"
     >
       <!-- <DropDownMenu /> -->
       <div class="pt-2 relative text-white">

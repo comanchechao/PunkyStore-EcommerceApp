@@ -1,41 +1,6 @@
 <template>
   <div class="w-72 flex justify-center items-center text-right card">
     <div class="w-full">
-      <v-alert
-        v-show="addedToCart"
-        outlined
-        shaped
-        text
-        absolute
-        class="h-20 w-72 flex justify-start items-center right-0"
-        type="success"
-      >
-        به سبد خرید اضافه شد</v-alert
-      >
-      <v-alert
-        v-show="faildToAddColor"
-        outlined
-        shaped
-        text
-        absolute
-        class="h-20 w-72 flex justify-start text-white items-center right-0"
-        type="error"
-        color="red"
-      >
-        <p class="text-white">انتخاب رنگ!</p></v-alert
-      >
-      <v-alert
-        v-show="faildToAddSize"
-        outlined
-        shaped
-        text
-        absolute
-        class="h-20 w-72 flex justify-start text-white items-center right-0"
-        type="error"
-        color="red"
-      >
-        <p class="text-white">انتخاب سایز!</p></v-alert
-      >
       <div
         class="card flex flex-col justify-center p-10 bg-white bg-opacity-25 rounded-lg shadow-2xl"
       >
@@ -181,6 +146,41 @@
         </div>
       </div>
     </div>
+    <v-alert
+      v-show="addedToCart"
+      outlined
+      shaped
+      text
+      absolute
+      class="h-20 w-72 flex justify-start items-center right-0"
+      type="success"
+    >
+      به سبد خرید اضافه شد</v-alert
+    >
+    <v-alert
+      v-show="faildToAddColor"
+      outlined
+      shaped
+      text
+      absolute
+      class="h-20 w-72 flex justify-start text-white items-center right-0"
+      type="error"
+      color="red"
+    >
+      <p class="text-white">رنگ محصول رو انتخاب کنید</p></v-alert
+    >
+    <v-alert
+      v-show="faildToAddSize"
+      outlined
+      shaped
+      text
+      absolute
+      class="h-20 w-72 flex justify-start text-white items-center right-0"
+      type="error"
+      color="red"
+    >
+      <p class="text-white">سایز محصول رو انتخاب کنید</p></v-alert
+    >
   </div>
 </template>
 

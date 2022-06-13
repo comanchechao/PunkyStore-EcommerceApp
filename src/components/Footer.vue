@@ -3,7 +3,7 @@
     class="h-auto w-screen bg-gradient-to-b from-goldie flex-col justify-between to-LightBlue-200 flex items-center"
   >
     <div
-      class="w-80 h-80 mt-6 relative flex justify-center align-center NavbarTrigger logo"
+      class="w-72 h-72 mt-6 relative flex justify-center align-center NavbarTrigger logo"
     >
       <img
         class="absolute object-contain transform-gpu head"
@@ -20,58 +20,61 @@
       با ما در تماس باشین
     </h1>
     <div
-      class="flex space-y-4 justify-center flex-col items-center w-screen md:h-72 h-96 bg-darkPurple"
+      class="flex justify-around flex-col items-center w-screen md:h-72 h-dialog bg-darkPurple"
     >
       <div
         class="flex w-screen justify-center items-center lg:space-x-6 space-x-1"
       >
-        <img
-          class="filter drop-shadow-2xl cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
-          src="../assets/images/mapIcon.webp"
-          alt=""
-        />
+        <a href="https://goo.gl/maps/2H2mjfhrhaA3zEin8">
+          <img
+            class="filter drop-shadow-2xl cursor-pointer icons object-contain w-16 lg:w-24 bg-Rose-300 p-2 rounded-full bg-opacity-10"
+            src="../assets/images/mapIcon.webp"
+            alt=""
+          />
+        </a>
+
         <a href="https://www.instagram.com/punky.stores">
           <img
-            class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+            class="filter drop-shadow-2x cursor-pointer icons object-contain w-16 lg:w-24 bg-Rose-300 p-2 rounded-full bg-opacity-10"
             src="../assets/images/instagramIcon.webp"
             alt=""
           />
         </a>
         <a href="https://t.me/punkystore">
           <img
-            class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+            class="filter drop-shadow-2x cursor-pointer object-contain w-16 lg:w-24 icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
             src="../assets/images/telegramIcon.webp"
             alt=""
           />
         </a>
         <a href="https://wa.me/+989148000357">
           <img
-            class="filter drop-shadow-2x cursor-pointer icons bg-Rose-300 p-2 rounded-full bg-opacity-10"
+            class="filter drop-shadow-2x cursor-pointer icons object-contain w-16 lg:w-24 bg-Rose-300 p-2 rounded-full bg-opacity-10"
             src="../assets/images/whatsappIcon.webp"
             alt=""
           />
         </a>
       </div>
-      <div class="text-center flex justify-center items-center px-5 flex-col">
-        <h1 class="lg:text-4xl flex text-xl font-bold text-purple-200">
+      <div
+        class="text-center w-screen space-y-6 flex justify-center items-center px-5 flex-col"
+      >
+        <h1 class="lg:text-4xl flex px-4 text-xl font-bold text-purple-200">
           آدرس: ارومیه، خیابان خیام جنوبی، سنگ فرش پاساژ اخوان، زیر زمین، پلاک
           ۴، بوتیک پانکی مانکی
-          <v-icon color="pink">mdi-map-marker</v-icon>
+          <!-- <v-icon color="pink">mdi-map-marker</v-icon> -->
         </h1>
         <h1
           class="lg:text-4xl flex lg:flex-row-reverse flex-col space-x-5 lg:space-x-7 text-xl justify-start text-left items-center font-bold text-purple-200"
         >
-          <span class="lg:ml-4">
-            :شماره تماس <v-icon color="blue">mdi-phone-in-talk</v-icon>
-          </span>
+          <span class="lg:ml-4"> :شماره تماس </span>
           <span>۰۴۴۳۲۲۵۶۲۱۶</span>
           <span>۰۴۴۳۲۲۵۹۰۰۴</span>
         </h1>
         <div
-          class="h-full w-full flex flex-col justify-center text-right items-end"
+          class="h-full w-full flex flex-col justify-center text-center items-center"
         >
           <h1
-            class="flex flex-col font-mainFont space-y-2 font-thin capitalize text-right text-lg lg:text-xl text-mainPink"
+            class="flex flex-col font-mainFont space-y-2 font-thin capitalize text-center text-lg lg:text-xl text-mainBlue"
           >
             توسعه سایت توسط
             <a
@@ -84,7 +87,7 @@
             >
           </h1>
           <h1
-            class="flex flex-col font-mainFont text-right space-y-2 font-thin capitalize text-lg lg:text-xl text-mainPink"
+            class="flex flex-col font-mainFont text-center space-y-2 font-thin capitalize text-lg lg:text-xl text-mainBlue"
           >
             هنر توسط
             <a href="https://www.instagram.com/payamone/?hl=en" class="payamone"
@@ -142,11 +145,11 @@ export default {
 
 <style>
 .payamone {
-  color: #571bfc;
+  color: #971bfc;
   transition: ease-in-out 0.3s;
 }
 .Chao {
-  color: #571bfc;
+  color: #971bfc;
   transition: ease-in-out 0.3s;
 }
 .Chao:hover {
@@ -157,7 +160,7 @@ export default {
   scale: 0.8;
 }
 .Greez {
-  color: #571bfc;
+  color: #971bfc;
   transition: ease-in-out 0.3s;
 }
 .Greez:hover {
