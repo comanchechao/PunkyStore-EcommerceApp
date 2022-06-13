@@ -68,7 +68,7 @@
               alt=""
             />
           </div>
-          <h1 class="text-3xl font-black text-black">رلی موسوی</h1>
+          <h1 class="text-3xl font-black text-black">رُلی موسوی</h1>
           <h3 class="text-2xl font-medium text-darkPurple">بنیان گذار</h3>
           <div class="w-40 h-40 bg-white rounded-full">
             <img
