@@ -14,8 +14,8 @@
   </div>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal">
-      <div class="fixed h-screen right-0 top-0 z-10 ">
-        <div class="h-screen text-center overflow-y-auto">
+      <div class="fixed h-screen overflow-y-hidden right-0 top-0 z-10 ">
+        <div class="h-screen text-center overflow-y-hidden">
           <TransitionChild
             as="template"
             enter="duration-100 ease-out"
@@ -26,7 +26,7 @@
             leave-to="transfrom -translate-x-24 scale-95"
           >
             <DialogOverlay
-              class="fixed inset-0 h-screen bg-darkPurple bg-opacity-20"
+              class="fixed overflow-y-hidden inset-0 h-screen bg-darkPurple bg-opacity-20"
             />
           </TransitionChild>
 
