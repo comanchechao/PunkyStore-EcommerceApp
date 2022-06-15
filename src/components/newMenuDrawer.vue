@@ -8,7 +8,7 @@
   </div>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal">
-      <div class="absolute left-0 top-0 z-10 overflow-y-auto">
+      <div class="fixed left-0 top-0 z-10 overflow-y-auto">
         <div class="min-h-screen text-center">
           <TransitionChild
             as="template"
