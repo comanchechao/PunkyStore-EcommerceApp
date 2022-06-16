@@ -61,21 +61,30 @@
         class="w-full my-52 flex flex-col lg:flex-row justify-around items-center"
       >
         <div class="space-y-7 flex flex-col items-center">
-          <div class="w-40 h-40 bg-white rounded-full">
-            <img
-              class="w-40 h-40 rounded-full"
-              src="../assets/images/Rolli.webp"
-              alt=""
-            />
+          <div class="w-40 h-40 bg-white rounded-full cursor-pointer Rolli">
+            <a href="https://www.instagram.com/rolipunky/?hl=en" class="Chao">
+              <img
+                class="w-40 h-40 rounded-full"
+                src="../assets/images/Rolli.webp"
+                alt=""
+              />
+            </a>
           </div>
           <h1 class="text-3xl font-black text-black">رُلی موسوی</h1>
           <h3 class="text-2xl font-medium text-darkPurple">بنیان گذار</h3>
-          <div class="w-40 h-40 bg-white rounded-full">
-            <img
-              class="w-40 h-40 rounded-full"
-              src="../assets/images/KiarashKing.webp"
-              alt=""
-            />
+          <div
+            class="w-40 h-40 bg-white rounded-full cursor-pointer KiarashKing"
+          >
+            <a
+              href="https://www.instagram.com/kiarashvahedi/?hl=en"
+              class="Chao"
+            >
+              <img
+                class="w-40 h-40 rounded-full"
+                src="../assets/images/KiarashKing.webp"
+                alt=""
+              />
+            </a>
           </div>
           <h1 class="text-3xl font-black text-black">کیارش واحدی</h1>
           <h3 class="text-2xl font-medium text-darkPurple">
@@ -214,4 +223,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.Rolli:hover,
+.KiarashKing:hover {
+  transition: ease-in-out 0.2s;
+  background-color: aquamarine;
+  transform: scale(1.08);
+}
+</style>

@@ -26,7 +26,6 @@
       >
         <Switch
           v-model="inStock"
-          @click="(order = 'inStock')((ascention = !ascention))"
           :class="inStock ? 'bg-pink-700' : 'bg-gray-300'"
           class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
@@ -112,7 +111,7 @@ export default {
   props: ["category"],
 
   setup(props) {
-    const inStock = ref(false);
+    const inStock = ref(true);
     const order = ref("price");
     const ascention = ref();
     const products = ref([]);
@@ -154,6 +153,7 @@ export default {
           .select()
           .eq("product-category", props.category.title)
           .order(order.value, { ascending: ascention.value })
+          .is("inStock", inStock.value)
           .limit(4);
 
         if (error) throw error;

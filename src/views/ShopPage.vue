@@ -118,7 +118,7 @@
           </div>
         </template>
         <template #Accessory>
-          <div @click="category = 'اکسسوری'" class="">
+          <div @click="category = 'اکسسوری'" class="flex items-center flex-col">
             <img
               src="../assets/images/accessory.webp"
               class="object-contain lg:w-36 w-20 h-36"

@@ -39,7 +39,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-center items-center flex-col',
               ]"
             >
               <slot name="Shoes"> </slot>
@@ -51,7 +51,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 lg:lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-center items-center flex-col',
               ]"
             >
               <slot name="Hat"> </slot>
@@ -63,7 +63,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-center items-center flex-col',
               ]"
             >
               <slot name="Cap"> </slot>
@@ -76,7 +76,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-center items-center flex-col',
               ]"
             >
               <slot name="Shirt"> </slot>
@@ -90,7 +90,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-center items-center flex-col',
               ]"
             >
               <slot name="Accessory"> </slot>
@@ -102,7 +102,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-center items-center flex-col',
               ]"
             >
               <slot name="Hoodie"> </slot>
@@ -114,7 +114,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-center items-center flex-col',
               ]"
             >
               <slot name="Socks"> </slot>
@@ -136,7 +136,7 @@
                 active
                   ? 'bg-yellow-500 transition ease-in duration-200 text-gray-900'
                   : 'text-gray-500',
-                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-around items-center flex-col',
+                ' px-4 lg:py-2 py-8   h-full cursor-pointer w-1/4 text-lg font-extrabold flex justify-center items-center flex-col',
               ]"
             >
               <slot name="Pants"> </slot>

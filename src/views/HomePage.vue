@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-screen h-full flex space-y-16 justify-center align-center pt-10 flex-col"
+    class="w-screen h-full flex space-y-16 justify-center align-center pt-10 flex-col overflow-hidden"
     id="main"
   >
     <div class="w-screen md::h-screen h-rem33 p-6 mt-20">

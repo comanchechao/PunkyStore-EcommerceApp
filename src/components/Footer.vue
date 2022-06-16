@@ -74,7 +74,7 @@
           class="h-full w-full flex flex-col justify-center text-center items-center"
         >
           <h1
-            class="flex flex-col font-mainFont space-y-2 font-thin capitalize text-center text-lg lg:text-xl text-mainBlue"
+            class="flex flex-col font-mainFont space-y-2 font-thin capitalize text-center text-lg lg:text-xl text-green-500"
           >
             توسعه سایت توسط
             <a
@@ -87,7 +87,7 @@
             >
           </h1>
           <h1
-            class="flex flex-col font-mainFont text-center space-y-2 font-thin capitalize text-lg lg:text-xl text-mainBlue"
+            class="flex flex-col font-mainFont text-center space-y-2 font-thin capitalize text-lg lg:text-xl text-green-500"
           >
             هنر توسط
             <a href="https://www.instagram.com/payamone/?hl=en" class="payamone"
@@ -153,7 +153,7 @@ export default {
   transition: ease-in-out 0.3s;
 }
 .Chao:hover {
-  color: #ec18ff;
+  color: #48ff00;
 }
 .Chao:active {
   color: #571bfc;
