@@ -157,12 +157,6 @@ export default {
     }
     function openModal(el) {
       isOpen.value = true;
-      console.log("scrolled");
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
     }
 
     return {
