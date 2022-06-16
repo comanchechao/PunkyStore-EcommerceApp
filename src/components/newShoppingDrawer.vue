@@ -14,8 +14,8 @@
   </div>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal">
-      <div class="absolute right-0 top-0 z-10 overflow-y-auto">
-        <div class="min-h-screen text-center">
+      <div class="fixed h-screen overflow-y-hidden right-0 top-0 z-10">
+        <div class="h-screen text-center overflow-y-hidden">
           <TransitionChild
             as="template"
             enter="duration-100 ease-out"
@@ -26,7 +26,7 @@
             leave-to="transfrom -translate-x-24 scale-95"
           >
             <DialogOverlay
-              class="fixed inset-0 h-screen bg-darkPurple bg-opacity-20"
+              class="fixed overflow-y-hidden inset-0 h-screen bg-darkPurple bg-opacity-20"
             />
           </TransitionChild>
 
@@ -157,7 +157,12 @@ export default {
     }
     function openModal(el) {
       isOpen.value = true;
-      window.scrollTo(0, 0);
+      console.log("scrolled");
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
     }
 
     return {
