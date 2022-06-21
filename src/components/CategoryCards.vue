@@ -1,20 +1,20 @@
 <template>
   <div
-    class="bg-white w-full h-72 lg:h-rem33 my-9 wrapper rounded-lg p-10 md:p-16 flex space-x-3"
+    class="bg-white w-full h-96 lg:h-rem33 my-9 wrapper rounded-lg p-5 flex flex-col lg:flex-row space-x-3"
   >
-    <div class="w-full h-full bg-purple-900 p-2">
-      <img class="bg-mainPurple" src="" alt="" />
+    <div class="w-full h-full">
+      <slot name="categoryPicture"> </slot>
     </div>
     <div
-      class="w-full h-full flex flex-col text-center align-center justify-center space-y-4 lg:space-x-9"
+      class="w-full h-full flex flex-col text-center align-center justify-around space-y-4"
     >
-      <h3 class="text-gray-500 lg:text-2xl">{{ category.title }}</h3>
-      <h1 class="text-black font-bold text-2xl lg:text-5xl">اسم کالا</h1>
-      <h2 class="text-black font-bold text-1xl lg:text-3xl">
-        یه سری توضیحات راجب کتگوری کالاها
-      </h2>
+      <h1 class="text-black font-bold text-2xl lg:text-5xl">
+        <slot name="categoryName"> </slot>
+      </h1>
+
       <router-link to="/shop">
-        <DefaultButton class="bg-goldie font-bold text-xl px-4 rounded-full"
+        <DefaultButton
+          class="bg-goldie font-bold text-xl px-4 lg:px-20 lg:py-28 lg:text-4xl rounded-full"
           >نشونم بده</DefaultButton
         >
       </router-link>

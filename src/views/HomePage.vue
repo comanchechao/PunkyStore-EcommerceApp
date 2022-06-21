@@ -50,12 +50,76 @@
       @before-enter="beforeEnter"
       @enter="enter"
     >
-      <CategoryCards
-        v-for="category in categories"
-        :key="category.title"
-        :category="category"
-        class="CategoryCards"
-      />
+      <CategoryCards class="CategoryCards">
+        <template #categoryPicture>
+          <img
+            class="w-full shadow-2xl h-full object-contain"
+            src="../assets/images/pantsCategory.webp"
+            alt=""
+        /></template>
+
+        <template #categoryName>شلوار</template>
+      </CategoryCards>
+      <CategoryCards class="CategoryCards">
+        <template #categoryPicture>
+          <img
+            class="w-full shadow-2xl h-full object-contain"
+            src="../assets/images/shirtCategory.webp"
+            alt=""
+        /></template>
+
+        <template #categoryName>پیراهن</template>
+      </CategoryCards>
+      <CategoryCards class="CategoryCards">
+        <template #categoryPicture>
+          <img
+            class="w-full shadow-2xl h-full object-contain"
+            src="../assets/images/hatCategory.webp"
+            alt=""
+        /></template>
+
+        <template #categoryName>کلاه</template>
+      </CategoryCards>
+      <CategoryCards class="CategoryCards">
+        <template #categoryPicture>
+          <img
+            class="w-full shadow-2xl h-full object-contain"
+            src="../assets/images/socksCategory.webp"
+            alt=""
+        /></template>
+
+        <template #categoryName>جوراب</template>
+      </CategoryCards>
+      <CategoryCards class="CategoryCards">
+        <template #categoryPicture>
+          <img
+            class="w-full shadow-2xl h-full object-contain"
+            src="../assets/images/capCategory.webp"
+            alt=""
+        /></template>
+
+        <template #categoryName>کپ</template>
+      </CategoryCards>
+      <CategoryCards class="CategoryCards">
+        <template #categoryPicture>
+          <img
+            class="w-full shadow-2xl h-full object-contain"
+            src="../assets/images/accessoryCategory.webp"
+            alt=""
+        /></template>
+
+        <template #categoryName>اکسسوری</template>
+      </CategoryCards>
+      <CategoryCards class="CategoryCards">
+        <template #categoryPicture>
+          <img
+            class="w-full shadow-2xl h-full object-contain"
+            src="../assets/images/shoesCategory.webp"
+            alt=""
+        /></template>
+
+        <template #categoryName>کفش</template>
+      </CategoryCards>
     </transition-group>
     <div
       class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-900 flex justify-start items-center lg:space-x-20 lg:p-10"
