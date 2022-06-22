@@ -349,7 +349,7 @@ export default {
 
     watch(category, () => {
       changeCategories();
-      console.log(category);
+      console.log(category.value);
     });
     watch(page, () => {
       // from.value = page.value * 2;
@@ -360,7 +360,7 @@ export default {
     });
     onMounted(() => {
       // getcategories();
-      console.log(category);
+      console.log(category.value);
       getProducts();
     });
     async function SearchProducts() {
@@ -442,6 +442,8 @@ export default {
         products.value = data;
       } catch (error) {
         alert(error.message);
+      } finally {
+        changeCategories();
       }
     }
     const beforeEnter = (el) => {
