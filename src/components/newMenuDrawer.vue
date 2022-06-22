@@ -103,14 +103,32 @@
                 class="h-full w-full p-6 flex flex-col justify-start align-center"
                 :class="{ hidden: bar !== 'categories' }"
               >
-                <DefaultButton class="px-6 rounded-lg">هودی</DefaultButton>
-                <DefaultButton class="px-6 rounded-lg">آکسسوری</DefaultButton>
-                <DefaultButton class="px-6 rounded-lg">تیشرت</DefaultButton>
-                <DefaultButton class="px-6 rounded-lg">کلاه</DefaultButton>
-                <DefaultButton class="px-6 rounded-lg">پیراهن</DefaultButton>
-                <DefaultButton class="px-6 rounded-lg">کفش</DefaultButton>
-                <DefaultButton class="px-6 rounded-lg">دیزاین</DefaultButton>
-                <DefaultButton class="px-6 rounded-lg">شلوار</DefaultButton>
+                <DefaultButton class="px-6 rounded-lg" @click="change('هودی')"
+                  >هودی</DefaultButton
+                >
+                <DefaultButton
+                  class="px-6 rounded-lg"
+                  @click="change('اکسسوری')"
+                  >آکسسوری</DefaultButton
+                >
+                <DefaultButton class="px-6 rounded-lg" @click="change('تیشرت')"
+                  >تیشرت</DefaultButton
+                >
+                <DefaultButton class="px-6 rounded-lg" @click="change('کلاه')"
+                  >کلاه</DefaultButton
+                >
+                <DefaultButton class="px-6 rounded-lg" @click="change('پیراهن')"
+                  >پیراهن</DefaultButton
+                >
+                <DefaultButton class="px-6 rounded-lg" @click="change('کفش')"
+                  >کفش</DefaultButton
+                >
+                <DefaultButton class="px-6 rounded-lg" @click="change('تیشرت')"
+                  >دیزاین</DefaultButton
+                >
+                <DefaultButton class="px-6 rounded-lg" @click="change('شلوار')"
+                  >شلوار</DefaultButton
+                >
               </div>
             </div>
           </TransitionChild>
@@ -121,6 +139,7 @@
 </template>
 
 <script>
+import { productManagent } from "../store/productManagment";
 import { ref } from "vue";
 import DefaultButton from "./DefaultButton.vue";
 import {
@@ -151,9 +170,15 @@ export default {
     const isOpen = ref(false);
     const drawer = ref(false);
     const bar = ref("menu");
+    const productManagment = productManagent();
+
+    const change = function (selected) {
+      productManagment.changeCategory(selected);
+    };
 
     return {
       isOpen,
+      change,
       drawer,
       bar,
       closeModal() {

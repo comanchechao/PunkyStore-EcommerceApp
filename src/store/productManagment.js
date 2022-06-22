@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const productManagent = defineStore("products", {
   state: () => ({
     cart: [],
+    category: "تیشرت",
   }),
 
   actions: {
@@ -17,17 +18,19 @@ export const productManagent = defineStore("products", {
       }
     },
     deleteProduct(product) {
-    this.cart = this.cart.filter((item) => {
+      this.cart = this.cart.filter((item) => {
         console.log(item.item.id);
         return item.item.id !== product.item.id;
       });
     },
-   
+    changeCategory(selected) {
+      this.category = selected;
+    },
   },
 
   getters: {
-    getCart(state){
-      return state.cart
+    getCart(state) {
+      return state.cart;
     },
     cartItemCount(state) {
       return state.cart.length;

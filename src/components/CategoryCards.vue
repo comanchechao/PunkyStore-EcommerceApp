@@ -14,6 +14,7 @@
 
       <router-link to="/shop">
         <DefaultButton
+          
           class="bg-goldie font-bold text-xl px-4 lg:px-20 lg:py-28 lg:text-4xl rounded-full"
           >نشونم بده</DefaultButton
         >
@@ -24,12 +25,26 @@
 
 <script>
 import DefaultButton from "./DefaultButton.vue";
+import { productManagent } from "../store/productManagment";
+import { onMounted } from "@vue/runtime-core";
+
 export default {
   components: { DefaultButton },
 
   props: ["category"],
 
-  setup(props) {},
+  setup(props) {
+    onMounted(() => {
+      console.log(props);
+    });
+    const productManagment = productManagent();
+
+    const change = function (selected) {
+      productManagment.changeCategory(selected);
+    };
+
+    return { change };
+  },
 };
 </script>
 

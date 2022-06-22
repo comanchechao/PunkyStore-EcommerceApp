@@ -2,7 +2,7 @@
   <div class="">
     <button
       @click="openModal"
-      class="bg-mainYellow w-20 h-20 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
+      class="bg-yellow-600 w-20 h-20 text-white lg:w-28 lg:w-28 shadow-2xl rounded-xl"
     >
       <v-icon>mdi-card-plus</v-icon>
       <h2>کالا</h2>

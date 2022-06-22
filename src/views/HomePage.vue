@@ -50,7 +50,7 @@
       @before-enter="beforeEnter"
       @enter="enter"
     >
-      <CategoryCards class="CategoryCards">
+      <CategoryCards :title="'شلوار'" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -60,7 +60,7 @@
 
         <template #categoryName>شلوار</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards :title="'پیراهن'" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -70,7 +70,7 @@
 
         <template #categoryName>پیراهن</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards :title="'کلاه'" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -80,7 +80,7 @@
 
         <template #categoryName>کلاه</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards :title="'جوراب'" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -90,7 +90,7 @@
 
         <template #categoryName>جوراب</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards :title="'کپ'" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -100,7 +100,7 @@
 
         <template #categoryName>کپ</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards :title="'اکسسوری'" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -110,7 +110,7 @@
 
         <template #categoryName>اکسسوری</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards :title="'کفش'" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
