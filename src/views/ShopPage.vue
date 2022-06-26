@@ -286,10 +286,12 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
+import { productManagent } from "../store/productManagment";
+import { storeToRefs } from "pinia";
 import DropDown from "../components/DropDown.vue";
 import { ref } from "vue";
 import { supabase } from "../supabase";
-import { onMounted, watch } from "@vue/runtime-core";
+import { computed, onMounted, watch } from "@vue/runtime-core";
 import gsap from "gsap";
 import { Switch } from "@headlessui/vue";
 
@@ -320,9 +322,11 @@ export default {
     const page = ref();
     const loading = ref(false);
     const products = ref([]);
-    const category = ref("");
     const from = ref(1);
     const to = ref(4);
+    const productManagment = productManagent();
+
+    let { category } = storeToRefs(productManagment);
 
     watch(order, () => {
       getProducts();
@@ -345,7 +349,7 @@ export default {
 
     watch(category, () => {
       changeCategories();
-      console.log(category);
+      console.log(category.value);
     });
     watch(page, () => {
       // from.value = page.value * 2;
@@ -356,7 +360,7 @@ export default {
     });
     onMounted(() => {
       // getcategories();
-      console.log(category);
+      console.log(category.value);
       getProducts();
     });
     async function SearchProducts() {
@@ -438,6 +442,8 @@ export default {
         products.value = data;
       } catch (error) {
         alert(error.message);
+      } finally {
+        changeCategories();
       }
     }
     const beforeEnter = (el) => {

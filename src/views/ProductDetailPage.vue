@@ -58,27 +58,34 @@
 
       <!-- Image gallery -->
       <div
-        class="flex justify-between space-y-4 lg:space-x-7 items-center w-full py-4 px-7 flex-col lg:flex-row h-auto mt-7"
+        class="flex justify-between space-y-4 lg:space-x-7 items-center w-full py-4 px-7 flex-col lg:flex-row lg:h-96 h-62 mt-7"
       >
-        <inner-image-zoom
-          hideCloseButton="true"
-          :src="firstImage"
-          class="w-carousel bg-gray-800 flex justify-center items-center h-96"
-        />
-        <v-carousel
-          class="bg-mainBlue"
-          cycle
-          width="200"
-          height="380"
-          hide-delimiter-background
+        <div
+          class="flex justify-center w-full self-center h-full lg:w-8/12 lg:h-96"
         >
-          <v-carousel-item
-            v-for="(image, i) in images"
-            :key="i"
-            :src="image.src"
-            cover
-          ></v-carousel-item>
-        </v-carousel>
+          <inner-image-zoom
+            hideCloseButton="true"
+            :src="firstImage"
+            class="w-carousel self-center flex justify-center items-center lg:w-2/3 rounded-md shadow-xl"
+          />
+        </div>
+        <div class="lg:w-10/12 w-full h-full">
+          <v-carousel
+            class="bg-white rounded-md shadow-xl border-2 border-Sky-400"
+            cycle
+            width="300"
+            height="350"
+            hide-delimiter-background
+            show-arrows-on-hover
+          >
+            <v-carousel-item
+              v-for="(image, i) in images"
+              :key="i"
+              :src="image"
+              full
+            ></v-carousel-item>
+          </v-carousel>
+        </div>
 
         <!-- <img
             :src="product.images[0].src"
@@ -402,7 +409,11 @@ export default {
     const selectedSize = ref();
     const manageCard = CardManagement();
     const route = useRoute();
+    const images = ref([]);
     const firstImage = ref(null);
+    const secondImage = ref(null);
+    const thirdImage = ref(null);
+    const forthImage = ref(null);
     const Product = ref({
       item: null,
       quantity: 1,
@@ -418,24 +429,6 @@ export default {
         { id: 2, name: "خونه", href: "/" },
       ],
 
-      images: [
-        {
-          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-          alt: "Two each of gray, white, and black shirts laying flat.",
-        },
-        {
-          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
-          alt: "Model wearing plain black basic tee.",
-        },
-        {
-          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
-          alt: "Model wearing plain gray basic tee.",
-        },
-        {
-          src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
-          alt: "Model wearing plain white basic tee.",
-        },
-      ],
       colors: [
         { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
         { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
@@ -472,10 +465,9 @@ export default {
       console.log(route.params.id);
     });
 
-      watch(product, () => {
+    watch(product, () => {
       Product.value.item = product.value;
     });
-
 
     watch(selectedColor, () => {
       Product.value.color = selectedColor.value.name;
@@ -501,6 +493,7 @@ export default {
         alert(error.message);
       } finally {
         getImage();
+        getImage2();
       }
     }
 
@@ -517,6 +510,54 @@ export default {
         }
       }
     };
+    const getImage2 = async function () {
+      if (product.value.second_image) {
+        try {
+          const { data, error } = await supabase.storage
+            .from("product-images")
+            .download(product.value.second_image);
+          if (error) throw error;
+          secondImage.value = URL.createObjectURL(data);
+        } catch (error) {
+          alert(error.error_description || error.message);
+        } finally {
+          images.value.push(secondImage.value);
+          getImage3();
+        }
+      }
+    };
+    const getImage3 = async function () {
+      if (product.value.third_image) {
+        try {
+          const { data, error } = await supabase.storage
+            .from("product-images")
+            .download(product.value.third_image);
+          if (error) throw error;
+          thirdImage.value = URL.createObjectURL(data);
+        } catch (error) {
+          alert(error.error_description || error.message);
+        } finally {
+          images.value.push(thirdImage.value);
+          getImage4();
+        }
+      }
+    };
+
+    const getImage4 = async function () {
+      if (product.value.forth_image) {
+        try {
+          const { data, error } = await supabase.storage
+            .from("product-images")
+            .download(product.value.forth_image);
+          if (error) throw error;
+          forthImage.value = URL.createObjectURL(data);
+        } catch (error) {
+          alert(error.error_description || error.message);
+        } finally {
+          images.value.push(forthImage.value);
+        }
+      }
+    };
 
     const addToCart = function () {
       manageCard.addToCart(Product.value);
@@ -529,6 +570,7 @@ export default {
       selectedSize,
       firstImage,
       addToCart,
+      images,
     };
   },
 };

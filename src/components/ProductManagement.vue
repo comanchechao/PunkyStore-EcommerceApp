@@ -14,7 +14,7 @@
           <template #openButton>
             <button
               @click="openModal"
-              class="bg-mainGreen w-20 h-20 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
+              class="bg-mainGreen text-white w-20 h-20 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
             >
               <v-icon>mdi-card</v-icon>
               <h2>انبار کالا</h2>
@@ -126,10 +126,10 @@
           <template #openButton>
             <button
               @click="openModal"
-              class="bg-mainPink w-20 h-20 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
+              class="bg-mainPurple text-white w-20 h-20 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
             >
               <v-icon>mdi-card</v-icon>
-              <h2>حذف کالا</h2>
+              <h2>پیشنهاد ویژه</h2>
             </button>
           </template>
           <template #modalTitle> کالا ها </template>
@@ -185,7 +185,7 @@
               </Menu>
               <Disclosure
                 as="div"
-                class="bg-mainPink w-full lg:w-1/2 self-center"
+                class="bg-mainPink w-full  self-center"
                 v-slot="{ open }"
               >
                 <DisclosureButton
@@ -203,9 +203,9 @@
                   <div
                     v-for="item in products"
                     :key="item.id"
-                    class="w-full flex align-round justify-between h-12"
+                    class="w-full flex align-center justify-between h-12"
                   >
-                    <div class="flex flex-row justify-between w-1/2">
+                    <div class="flex flex-row justify-around w-1/2">
                       <h2>
                         {{ item.title }}
                       </h2>
@@ -214,9 +214,20 @@
                       </h2>
                     </div>
                     <div class="flex flex-row">
-                      <button @click="removeProduct(item.id)">
-                        <v-icon class="font-bold text-red-800"
-                          >mdi-delete</v-icon
+                      <button
+                      class="pointer-cursor bg-purple rounded-full justify-center p-1"
+                        v-show="item.offer === true"
+                        @click="makeSpecialOffer(item)"
+                      >
+                        <v-icon class="font-bold text-Amber-400">mdi-star</v-icon>
+                      </button>
+                      <button
+                      class="pointer-cursor bg-purple rounded-full justify-center p-1"
+                        v-show="item.offer === false"
+                        @click="makeSpecialOffer(item)"
+                      >
+                        <v-icon class="font-bold text-Amber-400"
+                          >mdi-star-outline</v-icon
                         >
                       </button>
                     </div>
@@ -303,11 +314,45 @@ export default {
         alert("success");
       } catch (error) {
         console.log("error", error);
-      }
-      finally{
-        getProducts()
+      } finally {
+        getProducts();
       }
     }
+
+    const makeSpecialOffer = async function (item) {
+      if (item.offer === true) {
+        try {
+          const { data, error } = await supabase
+            .from("products")
+            .update({
+              offer: false,
+            })
+            .match({ id: item.id });
+          if (error) throw error;
+          alert("product updated");
+        } catch (error) {
+          alert(error.error_description || error.message);
+        } finally {
+          getProducts();
+        }
+      } else {
+        try {
+          const { data, error } = await supabase
+            .from("products")
+            .update({
+              offer: true,
+            })
+            .match({ id: item.id });
+          if (error) throw error;
+          alert("product updated");
+        } catch (error) {
+          alert(error.error_description || error.message);
+        }
+        finally{
+           getProducts();
+        }
+      }
+    };
 
     async function getcategories() {
       try {
@@ -322,7 +367,7 @@ export default {
         alert(error.message);
       }
     }
-    return { categories, products, category, removeProduct };
+    return { categories, products, category, removeProduct, makeSpecialOffer };
   },
 };
 </script>

@@ -50,7 +50,7 @@
       @before-enter="beforeEnter"
       @enter="enter"
     >
-      <CategoryCards class="CategoryCards">
+      <CategoryCards @click="change('شلوار')" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -60,7 +60,7 @@
 
         <template #categoryName>شلوار</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards @click="change('پیراهن')" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -70,7 +70,7 @@
 
         <template #categoryName>پیراهن</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards @click="change('کلاه')" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -80,7 +80,7 @@
 
         <template #categoryName>کلاه</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards @click="change('جوراب')" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -90,7 +90,7 @@
 
         <template #categoryName>جوراب</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards @click="change('کپ')" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -100,7 +100,7 @@
 
         <template #categoryName>کپ</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards @click="change('اکسسوری')" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -110,7 +110,7 @@
 
         <template #categoryName>اکسسوری</template>
       </CategoryCards>
-      <CategoryCards class="CategoryCards">
+      <CategoryCards @click="change('کفش')" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -151,6 +151,7 @@ import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import { supabase } from "../supabase";
 import gsap from "gsap";
+import { productManagent } from "../store/productManagment";
 
 export default {
   components: {
@@ -211,6 +212,12 @@ export default {
   setup() {
     const categories = ref({});
 
+    const productManagment = productManagent();
+
+    const change = function (selected) {
+      productManagment.changeCategory(selected);
+    };
+
     onMounted(() => {
       getProducts();
     });
@@ -240,7 +247,7 @@ export default {
       });
     };
 
-    return { categories, beforeEnter, enter };
+    return { categories, beforeEnter, enter, change };
   },
 };
 </script>

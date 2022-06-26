@@ -6,7 +6,7 @@
       >
         <div class="prod-img">
           <div
-            class="w-full flex justify-center align-center my-2 h-52 bg-mainBlue object-cover object-center"
+            class="w-full flex justify-center align-center my-2 h-52 object-cover object-center"
           >
             <transition
               appear
