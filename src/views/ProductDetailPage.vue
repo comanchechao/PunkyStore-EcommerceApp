@@ -58,19 +58,23 @@
 
       <!-- Image gallery -->
       <div
-        class="flex justify-between space-y-4 lg:space-x-7 items-center w-full py-4 px-7 flex-col lg:flex-row lg:h-96 h-62  mt-7"
+        class="flex justify-between space-y-4 lg:space-x-7 items-center w-full py-4 px-7 flex-col lg:flex-row lg:h-96 h-62 mt-7"
       >
-        <inner-image-zoom
-          hideCloseButton="true"
-          :src="firstImage"
-          class="w-carousel bg-gray-800 self-center flex justify-center items-center lg:w-1/3 lg:h-96 h-5/6 rounded-md shadow-xl border-2 border-Sky-400"
-        />
-        <div class="lg:w-1/2 w-full">
+        <div
+          class="flex justify-center w-full self-center h-full lg:w-8/12 lg:h-96"
+        >
+          <inner-image-zoom
+            hideCloseButton="true"
+            :src="firstImage"
+            class="w-carousel self-center flex justify-center items-center lg:w-2/3 rounded-md shadow-xl"
+          />
+        </div>
+        <div class="lg:w-10/12 w-full h-full">
           <v-carousel
-            class="bg-mainBlue rounded-md lg:w-54 shadow-xl border-2 border-Sky-400"
+            class="bg-white rounded-md shadow-xl border-2 border-Sky-400"
             cycle
             width="300"
-            height="300"
+            height="350"
             hide-delimiter-background
             show-arrows-on-hover
           >

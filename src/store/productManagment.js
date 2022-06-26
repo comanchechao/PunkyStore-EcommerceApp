@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const productManagent = defineStore("products", {
   state: () => ({
     cart: [],
-    category: "تیشرت",
+    category: "پیراهن",
   }),
 
   actions: {
