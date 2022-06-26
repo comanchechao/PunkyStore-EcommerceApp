@@ -2,9 +2,7 @@
   <div
     class="bg-white w-full h-96 lg:h-rem33 my-9 wrapper rounded-lg p-5 flex flex-col lg:flex-row space-x-3"
   >
-    <div class="w-full h-full">
-      <slot name="categoryPicture"> </slot>
-    </div>
+    <slot name="categoryPicture"> </slot>
     <div
       class="w-full h-full flex flex-col text-center align-center justify-around space-y-4"
     >

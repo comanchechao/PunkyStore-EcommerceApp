@@ -65,7 +65,7 @@
         </DropDown>
       </div>
       <div
-        class="w-full h-full grid mb-6 lg:mb-0 overflow-y-scroll bg-purple-700 productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
+        class="w-full h-full grid mb-6 lg:mb-0 overflow-y-scroll bg-purple-900 productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
       >
         <CategoryProductListCard
           v-for="product in products"

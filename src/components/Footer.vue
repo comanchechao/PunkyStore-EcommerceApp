@@ -122,7 +122,7 @@ export default {
       tl.from(".eyes", 0.6, {
         ease: "power1.inOut",
         opacity: 0,
-        rotation: -20,
+        rotation: -25,
         x: 10,
         transformOrigin: "50% 100%",
         delay: 0.09,
@@ -132,7 +132,7 @@ export default {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
       tl.from(".head", 0.6, {
         ease: "power1.inOut",
-        rotation: -20,
+        rotation: -25,
         x: 10,
         delay: 0.09,
 
