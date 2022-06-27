@@ -13,10 +13,13 @@
     >
       به سبد خرید اضافه شد</v-alert
     >
-    <div
-      class="w-full h-full flex justify-center align-center bg-purple-900"
-    >
-      <img v-show="cardImage" class="w-full h-full bg-mainPurple" :src="cardImage" alt="" />
+    <div class="w-full h-full flex justify-center align-center bg-purple-900">
+      <img
+        v-show="cardImage"
+        class="w-full h-full bg-mainPurple"
+        :src="cardImage"
+        alt=""
+      />
       <v-progress-circular
         v-show="!cardImage"
         :size="50"
@@ -66,7 +69,7 @@
                     'bg-white': color.name === 'سفید',
                   }"
                   aria-hidden="true"
-                  class="h-6 w-6 border rounded-full border-black border-opacity-10 rounded-full"
+                  class="h-6 w-6 border border-black border-opacity-10 rounded-full"
                 />
               </div>
             </RadioGroupOption>
@@ -103,7 +106,7 @@
           </RadioGroupOption>
         </div>
       </RadioGroup>
-      <h1 class="text-black font-bold text-2xl lg:text-5xl prod-title">
+      <h1 class="text-black font-bold text-2xl lg:text-3xl prod-title">
         {{ product.title }}
       </h1>
       <h2 class="text-Emerald-600 font-bold text-1xl lg:text-3xl">

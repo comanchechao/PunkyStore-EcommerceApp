@@ -24,7 +24,7 @@
 <template>
   <div class="p-8 max-w-screen" id="main">
     <div class="pt-6 mt-32 background">
-      <nav aria-label="Breadcrumb">
+      <!-- <nav aria-label="Breadcrumb">
         <ol
           role="list"
           class="max-w-2xl mx-auto px-4 flex flex-row-reverse items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8"
@@ -32,7 +32,7 @@
           <li class="">
             <a
               aria-current="page"
-              class="font-medium text-4xl text-gray-500 hover:text-gray-600"
+              class="font-medium text-4xl text-gray-900 hover:text-gray-600"
             >
               {{ product.title }}
             </a>
@@ -54,7 +54,7 @@
             </div>
           </li>
         </ol>
-      </nav>
+      </nav> -->
 
       <!-- Image gallery -->
       <div
@@ -125,7 +125,7 @@
       >
         <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
           <h1
-            class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-3xl"
+            class="text-4xl text-center font-extrabold tracking-tight text-gray-900 sm:text-3xl"
           >
             {{ product.title }}
           </h1>
@@ -134,9 +134,10 @@
         <!-- Options -->
         <div class="mt-4 lg:mt-0 lg:row-span-3">
           <p
-            class="text-4xl flex justify-end space-x-2 font-extrabold text-gray-900"
+            class="text-3xl flex justify-center lg:justify-end space-x-2 font-bold text-gray-600"
           >
-            <span>تومان</span> <span>{{ product.price }}</span>
+            <span>تومان</span>
+            <span class="text-Emerald-700">{{ product.price }}</span>
           </p>
 
           <!-- Reviews -->
@@ -168,7 +169,7 @@
           <form class="mt-10">
             <!-- Colors -->
             <div>
-              <h3 class="text-md text-gray-900 font-bold">انتخاب رنگ</h3>
+              <h3 class="text-lg text-darkPurple font-bold">انتخاب رنگ</h3>
 
               <RadioGroup v-model="selectedColor" class="mt-4">
                 <RadioGroupLabel class="sr-only">
@@ -207,7 +208,7 @@
                           'bg-white': color.name === 'سفید',
                         }"
                         aria-hidden="true"
-                        class="h-6 w-6 border rounded-full border-black border-opacity-10 rounded-full"
+                        class="h-6 w-6 border border-black border-opacity-10 rounded-full"
                       />
                     </div>
                   </RadioGroupOption>
@@ -274,18 +275,16 @@
             <h3 class="sr-only">Description</h3>
 
             <div class="space-y-6">
-              <p class="text-md font-semibold text-gray-900">
+              <p class="text-2xl font-semibold text-gray-900">
                 {{ product.description }}
               </p>
             </div>
           </div>
 
           <div class="mt-10">
-            <h3 class="text-xl font-black text-gray-900">نکات مهم</h3>
-
             <div class="mt-4">
               <ul role="list" class="pl-4 text-right text-sm space-y-2">
-                <li class="text-gray-900 text-md font-bold">
+                <li class="text-gray-900 text-2xl font-bold">
                   <span class="text-gray-900">{{ product.features }}</span>
                 </li>
               </ul>
@@ -293,10 +292,8 @@
           </div>
 
           <div class="mt-10">
-            <h2 class="text-xl font-black text-gray-900">جزییات کالا</h2>
-
             <div class="mt-4 space-y-6">
-              <p class="text-gray-900 text-md font-bold">
+              <p class="text-gray-900 text-2xl font-bold">
                 {{ product.details }}
               </p>
             </div>
