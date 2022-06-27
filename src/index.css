@@ -40,15 +40,12 @@ html {
 }
 
 #main {
-  animation: 35s ease-in-out infinite alternate-reverse color-change;
+  /* animation: 35s ease-in-out infinite alternate-reverse color-change; */
+  background-color: #2b53d4;
 }
 @-webkit-keyframes color-change {
   0% {
     background-color: #2b53d4;
-  }
-
-  45% {
-    background-color: #3791c9;
   }
 
   100% {
@@ -59,10 +56,6 @@ html {
 @keyframes color-change {
   0% {
     background-color: #85c6e2;
-  }
-
-  50% {
-    background-color: #3791c9;
   }
 
   100% {

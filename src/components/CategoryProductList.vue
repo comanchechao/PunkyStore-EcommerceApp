@@ -19,10 +19,10 @@
       </h1>
     </div>
     <div
-      class="w-screen h-screen flex flex-col bg-gray-50 items-center justify-around background"
+      class="w-screen h-screen flex flex-col bg-darkPurple items-center justify-around background"
     >
       <div
-        class="h-24 w-full items-center justify-center lg:justify-end space-x-4 lg:pr-8 px-4 flex"
+        class="h-24 w-full items-center bg-white justify-center lg:justify-end space-x-4 lg:pr-8 px-4 flex"
       >
         <Switch
           v-model="inStock"
@@ -65,7 +65,7 @@
         </DropDown>
       </div>
       <div
-        class="w-full h-full grid mb-6 lg:mb-0 overflow-y-scroll bg-purple-700 productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
+        class="w-full h-full grid mb-6 lg:mb-0 overflow-y-scroll bg-darkPurple productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
       >
         <CategoryProductListCard
           v-for="product in products"
