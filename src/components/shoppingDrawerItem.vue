@@ -6,7 +6,7 @@
       class="w-full h-full flex justify-center align-center space-x-3 flex-row-reverse"
     >
       <div
-        class="bg-green-300 flex rounded-full w-24 h-24 justify-center align-center"
+        class=" flex rounded-full w-24 h-24 justify-center align-center"
       >
         <img class="rounded-full" :src="firstImage" alt="" />
       </div>
