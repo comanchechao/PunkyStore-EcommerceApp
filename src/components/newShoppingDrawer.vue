@@ -90,7 +90,7 @@
                       <router-link to="/checkoutPage">
                         <DefaultButton
                           @click="drawer = false"
-                          class="px-6 text-2xl font-bold text-white w-full h-full"
+                          class="text-2xl py-0 font-bold text-white w-full h-full"
                         >
                           ادامه
                         </DefaultButton>

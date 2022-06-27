@@ -125,7 +125,7 @@
       >
         <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
           <h1
-            class="text-4xl text-center font-extrabold tracking-tight text-gray-900 sm:text-3xl"
+            class="text-4xl text-center lg:text-right font-extrabold tracking-tight text-gray-900 sm:text-3xl"
           >
             {{ product.title }}
           </h1>
@@ -284,7 +284,7 @@
           <div class="mt-10">
             <div class="mt-4">
               <ul role="list" class="pl-4 text-right text-sm space-y-2">
-                <li class="text-gray-900 text-2xl font-bold">
+                <li class="text-gray-600 text-lg font-bold">
                   <span class="text-gray-900">{{ product.features }}</span>
                 </li>
               </ul>
@@ -293,7 +293,7 @@
 
           <div class="mt-10">
             <div class="mt-4 space-y-6">
-              <p class="text-gray-900 text-2xl font-bold">
+              <p class="text-gray-600 text-md font-bold">
                 {{ product.details }}
               </p>
             </div>
