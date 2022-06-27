@@ -90,8 +90,8 @@
           <h3 class="text-2xl font-medium text-darkPurple">
             عضو تیم پانکی مانکی
           </h3>
-          <div class="w-40 h-40 bg-white rounded-full">
-            <a href="https://www.instagram.com/bahram_mz/?hl=en" class="Chao">
+          <div class="w-40 h-40 bg-white rounded-full KiarashKing">
+            <a href="https://www.instagram.com/bahram_mz_/?hl=en" class="Chao">
               <img
                 class="w-40 h-40 rounded-full"
                 src="../assets/images/BahMix.webp"

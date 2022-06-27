@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white w-full flex-col h-full lg:h-full my-9 wrapper rounded-lg p-7 flex"
+    class="bg-gray-300 w-full flex-col h-full lg:h-full my-9 wrapper rounded-lg p-7 flex"
   >
     <v-alert
       v-show="addedToCart"
