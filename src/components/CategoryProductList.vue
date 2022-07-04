@@ -22,7 +22,7 @@
       class="w-screen h-screen flex flex-col bg-darkPurple items-center justify-around background"
     >
       <div
-        class="h-24 w-full items-center bg-white justify-center lg:justify-end space-x-4 lg:pr-8 px-4 flex"
+        class="h-24 w-full items-center bg-gray-100 justify-center lg:justify-end space-x-4 lg:pr-8 px-4 flex"
       >
         <Switch
           v-model="inStock"
