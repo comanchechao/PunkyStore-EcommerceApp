@@ -46,7 +46,15 @@
           placeholder="جستجو"
         />
       </div>
-      <MegaMenu>
+      <div v-show="fetching" class="flex w-full items-center justify-end px-5">
+        <v-progress-circular
+          :size="50"
+          color="pink"
+          position="center"
+          indeterminate
+        ></v-progress-circular>
+      </div>
+      <MegaMenu v-show="!fetching">
         <template #Hat>
           <div @click="category = 'کلاه'" class="">
             <img
@@ -317,6 +325,7 @@ export default {
     const isDiscounted = ref(false);
     const inStock = ref(true);
     const order = ref("price");
+    const fetching = ref(false);
     const SearchIndex = ref("");
     const ascention = ref();
     const page = ref();
@@ -399,6 +408,7 @@ export default {
     // }
     async function changeCategories() {
       try {
+        fetching.value = true;
         const { data, error } = await supabase
           .from("products")
           .select()
@@ -409,6 +419,8 @@ export default {
         products.value = data;
       } catch (error) {
         alert(error.message);
+      } finally {
+        fetching.value = false;
       }
     }
     async function Discount() {
@@ -432,6 +444,7 @@ export default {
         const { data, error } = await supabase
           .from("products")
           .select()
+          .eq("product-category", category.value)
           .order(order.value, { ascending: ascention.value })
           .range(from.value, to.value)
           .is("inStock", inStock.value);
@@ -442,8 +455,6 @@ export default {
         products.value = data;
       } catch (error) {
         alert(error.message);
-      } finally {
-        changeCategories();
       }
     }
     const beforeEnter = (el) => {
@@ -472,6 +483,7 @@ export default {
       ascention,
       page,
       SearchIndex,
+      fetching,
       loading,
       category,
       from,
