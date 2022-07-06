@@ -3,7 +3,12 @@
     class="w-screen h-full flex space-y-16 justify-center align-center pt-10 flex-col overflow-hidden"
     id="main"
   >
-    <div class="w-screen md::h-screen h-rem33 p-6 mt-20">
+    <h1
+      class="mt-20 text-center font-extrabold text-4xl lg:text-7xl lg:mr-44 text-yellow-400 m-auto"
+    >
+      به آنلاین شاپ
+    </h1>
+    <div class="w-screen lg:h-rem33 h-56 p-6 mt-20">
       <div class="h-full w-full justify-center align-center flex">
         <img
           class="absolute PunkyColor"
@@ -43,6 +48,11 @@
         />
       </div>
     </div>
+    <h1
+      class="mt-20 font-extrabold text-center lg:ml-44 text-4xl lg:text-7xl text-yellow-400 m-auto"
+    >
+      خوش اومدین
+    </h1>
     <transition-group
       appear
       class="h-auto w-screen flex flex-col justify-center align-center mt-20 space-y-16 p-7"

@@ -189,7 +189,7 @@
             </span>
           </Switch>
           <h1 class="font-bold text-lg text-gray-700">کالاهای موجود</h1>
-          <Switch
+          <!-- <Switch
             v-model="isDiscounted"
             :class="isDiscounted ? 'bg-green-500' : 'bg-gray-300'"
             class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
@@ -201,7 +201,7 @@
             >
             </span>
           </Switch>
-          <h1 class="font-bold text-lg text-gray-700">تخفیف دارها</h1>
+          <h1 class="font-bold text-lg text-gray-700">تخفیف دارها</h1> -->
         </div>
         <div class="flex items-center justify-center space-x-3">
           <DropDown>

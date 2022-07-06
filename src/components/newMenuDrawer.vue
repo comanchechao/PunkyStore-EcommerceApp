@@ -36,7 +36,7 @@
             leave-to="transfrom -translate-x-24 scale-95"
           >
             <div
-              class="inline-block text-white w-60 h-screen overflow-hidden text-xl text-left align-left transition-all transform bg-LightBlue-600 shadow-xl"
+              class="inline-block text-white w-60 h-screen overflow-hidden text-xl text-left align-left transition-all transform bg-blue-800 shadow-xl"
             >
               <DialogTitle as="h3" class="text-xl font-medium leading-6">
                 <TabGroup as="div">
@@ -48,7 +48,7 @@
                         @click="bar = 'categories'"
                         :class="[
                           'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
-                          'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
+                          'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-500 ring-white ring-opacity-60',
                           bar === 'categories'
                             ? 'bg-goldie'
                             : 'text-white hover:bg-darkPurple hover:text-white',
@@ -60,7 +60,7 @@
                         @click="bar = 'menu'"
                         :class="[
                           'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
-                          'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60',
+                          'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-500 ring-white ring-opacity-60',
                           bar === 'menu'
                             ? 'bg-goldie text-black shadow'
                             : 'text-gray-800 hover:bg-darkPurple hover:text-white',
@@ -73,27 +73,27 @@
                 </TabGroup>
               </DialogTitle>
               <div
-                class="h-full w-full p-6 flex flex-col justify-start align-center focus:outline-none space-y-4 focus:ring-2 ring-offset-2 ring-offset-LightBlue-600 ring-white ring-opacity-60"
+                class="h-full w-full p-6 flex flex-col justify-start align-center focus:outline-none space-y-4 focus:ring-2 ring-offset-2 ring-offset-blue-500 ring-white ring-opacity-60"
                 :class="{ hidden: bar !== 'menu' }"
               >
                 <router-link to="/">
-                  <DefaultButton class="px-6 text-2xl bg-LightBlue-700"
+                  <DefaultButton class="px-6 text-2xl bg-blue-500"
                     >خونه</DefaultButton
                   >
                 </router-link>
                 <router-link to="/shop">
-                  <DefaultButton class="px-6 text-2xl bg-LightBlue-700"
+                  <DefaultButton class="px-6 text-2xl bg-blue-500"
                     >خرید</DefaultButton
                   >
                 </router-link>
                 <router-link to="/AboutUs">
-                  <DefaultButton class="px-6 text-2xl bg-LightBlue-700"
+                  <DefaultButton class="px-6 text-2xl bg-blue-500"
                     >درباره ی پانکی مانکی</DefaultButton
                   >
                 </router-link>
 
                 <router-link to="/admin">
-                  <DefaultButton class="px-6 text-2xl bg-LightBlue-700"
+                  <DefaultButton class="px-6 text-2xl bg-blue-500"
                     >ادمین</DefaultButton
                   >
                 </router-link>

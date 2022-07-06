@@ -26,7 +26,7 @@
             leave-to="transfrom -translate-x-24 scale-95"
           >
             <DialogOverlay
-              class="fixed overflow-y-hidden inset-0 h-screen bg-darkPurple bg-opacity-20"
+              class="fixed overflow-y-hidden inset-0 h-screen bg-blue-800 bg-opacity-20"
             />
           </TransitionChild>
 
@@ -44,16 +44,16 @@
             leave-to="transfrom -translate-y-24 scale-95"
           >
             <div
-              class="inline-block w-92 h-screen overflow-hidden text-left align-right transition-all transform bg-gray-100 shadow-xl"
+              class="inline-block w-full h-screen overflow-hidden text-left align-right transition-all transform bg-gray-100 shadow-xl"
             >
               <DialogTitle
                 as="h3"
                 class="text-lg font-mainFont leading-6 text-gray-50"
               >
                 <div
-                  class="flex h-24 align-center bg-darkPurple justify-center p-3 mainFont"
+                  class="flex h-24 align-center bg-blue-800 justify-center p-3 mainFont"
                 >
-                  <h3 class="text-2xl">خلاصه ی سبد</h3>
+                  <h3 class="text-2xl mx-14">خلاصه ی سبد</h3>
                 </div>
               </DialogTitle>
               <div
@@ -70,7 +70,7 @@
                   />
                 </div>
                 <div
-                  class="checkout w-full h-1/2 flex justify-center align-center bg-Indigo-900 px-9"
+                  class="checkout w-full h-1/2 flex justify-center align-center bg-blue-800 px-9"
                 >
                   <div
                     class="flex flex-row-reverse w-full h-full space-x-4 justify-around mt-10 align-start"
@@ -85,12 +85,12 @@
                     </div>
 
                     <div
-                      class="mx-1 flex justify-center align-center content-center w-1/2 rounded-lg transition border-2 transform hover:bg-goldie h-1/3"
+                      class="mx-2 flex justify-center align-center content-center w-1/2 rounded-lg transition border-2 transform hover:bg-goldie h-1/3"
                     >
                       <router-link to="/checkoutPage">
                         <DefaultButton
                           @click="drawer = false"
-                          class="text-2xl py-0 font-bold text-white w-full h-full"
+                          class="text-2xl rounded-full font-bold text-white w-full h-full"
                         >
                           ادامه
                         </DefaultButton>

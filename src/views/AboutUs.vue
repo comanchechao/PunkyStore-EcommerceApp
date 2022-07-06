@@ -168,13 +168,13 @@ export default {
     animateMonkeyHead() {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
       tl.to(".MonkeyHead", 0.9, {
-        ease: "power1.inOut",
+        ease: "power1.in",
         rotation: -15,
 
         transformOrigin: "50% 100%",
       });
       tl.to(".MonkeyHead", 0.9, {
-        ease: "power1.inOut",
+        ease: "power1.in",
         rotation: 15,
 
         transformOrigin: "50% 100%",
@@ -184,13 +184,13 @@ export default {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
 
       tl.to(".MonkeyEarings", 0.9, {
-        ease: "power1.inOut",
+        ease: "power1.in",
         rotation: -15,
 
         transformOrigin: "50% 100%",
       });
       tl.to(".MonkeyEarings", 0.9, {
-        ease: "power1.inOut",
+        ease: "power1.in",
         rotation: 15,
 
         transformOrigin: "50% 100%",
@@ -200,13 +200,13 @@ export default {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
 
       tl.to(".MonkeyNeck", 0.9, {
-        ease: "power1.inOut",
+        ease: "power1.in",
         rotation: -15,
 
         transformOrigin: "50% 100%",
       });
       tl.to(".MonkeyNeck", 0.9, {
-        ease: "power1.inOut",
+        ease: "power1.in",
         rotation: 15,
 
         transformOrigin: "50% 100%",

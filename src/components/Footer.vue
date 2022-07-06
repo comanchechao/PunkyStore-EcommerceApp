@@ -119,22 +119,20 @@ export default {
   methods: {
     animateMonkeyEyes() {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
-      tl.from(".eyes", 0.6, {
-        ease: "power1.inOut",
+      tl.from(".eyes", 0.9, {
+        ease: "power1.in",
         opacity: 0,
         rotation: -25,
         x: 10,
         transformOrigin: "50% 100%",
-        delay: 0.09,
       });
     },
     animateMonkeyHead() {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
-      tl.from(".head", 0.6, {
-        ease: "power1.inOut",
+      tl.from(".head", 0.9, {
+        ease: "power1.in",
         rotation: -25,
         x: 10,
-        delay: 0.09,
 
         transformOrigin: "50% 100%",
       });
