@@ -36,9 +36,11 @@
       <div
         class="max-w-2xl text-right mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 grid-flow-dense lg:grid-rows-[auto,auto,1fr] lg:gap-x-8"
       >
-        <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+        <div
+          class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8 bg-Indigo-600 p-5 shadow-2xl"
+        >
           <h1
-            class="text-4xl text-center lg:text-right font-extrabold tracking-tight text-gray-900 sm:text-3xl"
+            class="text-4xl text-center lg:text-right font-extrabold tracking-tight text-white sm:text-3xl"
           >
             {{ product.title }}
           </h1>
@@ -46,12 +48,12 @@
 
         <!-- Options -->
         <div class="mt-4 lg:mt-0 lg:row-span-3">
-          <p
-            class="text-3xl flex justify-center lg:justify-end space-x-2 font-bold text-gray-600"
+          <div
+            class="text-3xl p-4 bg-Indigo-500 rounded shadow-xl flex justify-center lg:justify-end space-x-2 font-bold text-gray-600"
           >
-            <span>تومان</span>
-            <span class="text-Emerald-700">{{ product.price }}</span>
-          </p>
+            <span class="text-white">تومان</span>
+            <span class="text-white">{{ product.price }}</span>
+          </div>
 
           <form class="mt-10">
             <!-- Colors -->
@@ -62,7 +64,9 @@
                 <RadioGroupLabel class="sr-only">
                   یک رنگ رو انتخاب کنید
                 </RadioGroupLabel>
-                <div class="flex items-center space-x-3">
+                <div
+                  class="flex items-center space-x-3 bg-Indigo-600 p-2 rounded-2xl"
+                >
                   <RadioGroupOption
                     as="template"
                     v-for="color in product.colors"
@@ -72,8 +76,10 @@
                   >
                     <div
                       :class="[
-                        active && checked ? 'ring ring-offset-1' : '',
-                        !active && checked ? 'ring-2' : '',
+                        active && checked
+                          ? 'ring ring-yellow-400  ring-offset-1'
+                          : '',
+                        !active && checked ? 'ring-2 ring-yellow-400' : '',
                         '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none',
                       ]"
                     >
@@ -116,23 +122,24 @@
               <RadioGroup v-model="selectedSize" class="mt-4">
                 <RadioGroupLabel class="sr-only"> انتخاب کن </RadioGroupLabel>
                 <div
-                  class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
+                  class="bg-Indigo-600 p-2 rounded-2xl grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
                 >
                   <RadioGroupOption
                     as="div"
                     v-for="size in product.size"
                     :key="size.id"
                     :value="size"
-                    v-slot="{ active }"
+                    v-slot="{ active, checked }"
                   >
                     <div
                       :class="[
                         size
                           ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                           : 'bg-gray-50 text-gray-200 cursor-not-allowed',
-                        active
-                          ? 'ring-2 ring-indigo-500 text-gray-900'
-                          : 'text-gray-500',
+                        active && checked
+                          ? 'ring-2 ring-yellow-500 text-gray-900'
+                          : 'text-gray-500 ring-yellow-500 ',
+                        !active && checked ? 'ring-2 ring-Amber-500' : '',
                         'group relative border text-gray-500 rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6',
                       ]"
                     >
@@ -189,14 +196,14 @@
         </div>
 
         <div
-          class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8"
+          class="py-10 px-4 bg-Indigo-800 shadow-2xl lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8"
         >
           <!-- Description and details -->
           <div>
             <h3 class="sr-only">Description</h3>
 
             <div class="space-y-6">
-              <p class="text-2xl font-semibold text-gray-900">
+              <p class="text-2xl font-semibold text-white">
                 {{ product.description }}
               </p>
             </div>
@@ -206,7 +213,7 @@
             <div class="mt-4">
               <ul role="list" class="pl-4 text-right text-sm space-y-2">
                 <li class="text-gray-600 text-lg font-bold">
-                  <span class="text-gray-900">{{ product.features }}</span>
+                  <span class="text-white">{{ product.features }}</span>
                 </li>
               </ul>
             </div>
@@ -380,7 +387,7 @@ export default {
       console.log(route.params.id);
       console.log(product.value);
       getProduct();
-      window.scroll(0,0)
+      window.scroll(0, 0);
     });
 
     onUpdated(() => {
@@ -521,7 +528,7 @@ export default {
 .background {
   backdrop-filter: blur(9px) saturate(109%);
   -webkit-backdrop-filter: blur(9px) saturate(109%);
-  background-color: rgba(255, 255, 255, 0.76);
+  background-color: rgba(189, 228, 215, 0.76);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
 }

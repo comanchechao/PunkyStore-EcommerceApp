@@ -117,14 +117,6 @@
           >نشونم بده</DefaultButton
         >
       </router-link>
-      <button
-        @click.prevent="addToCart"
-        class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none"
-      >
-        <v-icon class="hover:text-white">mdi-shopping-outline</v-icon>
-
-        اضافه کردن
-      </button>
     </div>
   </div>
 </template>

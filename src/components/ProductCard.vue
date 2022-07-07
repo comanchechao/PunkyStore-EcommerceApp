@@ -50,8 +50,10 @@
                 >
                   <div
                     :class="[
-                      active && checked ? 'ring ring-offset-1' : '',
-                      !active && checked ? 'ring-2' : '',
+                      active && checked
+                        ? 'ring ring-Amber-500 ring-offset-1'
+                        : '',
+                      !active && checked ? 'ring-2 ring-Amber-500' : '',
                       '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none',
                     ]"
                   >
@@ -90,16 +92,17 @@
                 v-for="size in product.size"
                 :key="size.id"
                 :value="size"
-                v-slot="{ active }"
+                v-slot="{ active, checked }"
               >
                 <div
                   :class="[
                     size
                       ? 'bg-gray-200 shadow-sm text-gray-900 cursor-pointer'
                       : 'bg-gray-50 text-gray-200 cursor-not-allowed',
-                    active
+                    active && checked
                       ? 'ring-2 ring-Amber-500 text-gray-900'
                       : 'text-gray-500',
+                    !active && checked ? 'ring-2 ring-Amber-500' : '',
                     'group relative transition border space-x-5 text-gray-500 rounded-md py-3 px-4 flex items-center hover:text-white justify-center text-sm font-medium uppercase hover:bg-gray-500 focus:outline-none sm:flex-1 sm:py-6',
                   ]"
                 >
