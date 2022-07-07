@@ -4,7 +4,7 @@
       class="w-full h-24 bg-darkPurple flex justify-between align-center p-7"
     >
       <router-link to="/shop">
-        <DefaultButton class="text-white">
+        <DefaultButton @click="change(category.title)" class="text-white">
           <v-icon
             class="text-5xl transition ease-in duration-200 hover:bg-purple-700 rounded-full"
             >mdi-arrow-left</v-icon
@@ -99,6 +99,8 @@ import { supabase } from "../supabase";
 import { onMounted, watch } from "@vue/runtime-core";
 import { Switch } from "@headlessui/vue";
 import CategoryProductListCard from "./CategoryProductListCard.vue";
+import { productManagent } from "../store/productManagment"; 
+
 
 export default {
   components: {
@@ -116,6 +118,12 @@ export default {
     const ascention = ref();
     const products = ref([]);
     const categoryImage = ref();
+
+    const productManagment = productManagent();
+
+    const change = function (selected) {
+      productManagment.changeCategory(selected);
+    };
 
     const getImage = async function () {
       if (props.category.category_image) {
@@ -162,7 +170,7 @@ export default {
         alert(error.message);
       }
     }
-    return { products, inStock, order, ascention };
+    return { products, inStock, order, ascention, change };
   },
 };
 </script>

@@ -54,7 +54,7 @@
           indeterminate
         ></v-progress-circular>
       </div>
-      <MegaMenu v-show="!fetching">
+      <MegaMenu v-show="!fetching"  >
         <template #Hat>
           <div @click="category = 'کلاه'" class="">
             <img
@@ -369,6 +369,7 @@ export default {
     });
     onMounted(() => {
       // getcategories();
+      window.scrollTo(0, 0)
       console.log(category.value);
       getProducts();
     });

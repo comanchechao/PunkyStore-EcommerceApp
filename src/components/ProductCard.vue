@@ -220,7 +220,7 @@ export default {
 
     watch(selectedColor, () => {
       Product.value.color = selectedColor.value.name;
-      console.log(Product.value);
+      console.log(product.value);
     });
 
     watch(selectedSize, () => {

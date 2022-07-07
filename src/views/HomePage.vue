@@ -229,6 +229,7 @@ export default {
     };
 
     onMounted(() => {
+      window.scrollTo(0, 0);
       getProducts();
     });
 
