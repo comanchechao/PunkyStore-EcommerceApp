@@ -189,6 +189,115 @@
                       </div>
                     </div>
                     <div
+                      v-show="selectedCategory === 'شلوار'"
+                      class="mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
+                    >
+                      <div class="m-1">
+                        <Switch
+                          v-model="number30"
+                          :class="number30 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="
+                              number30 ? 'translate-x-9' : 'translate-x-0'
+                            "
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">30</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="number32"
+                          :class="number32 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="
+                              number32 ? 'translate-x-9' : 'translate-x-0'
+                            "
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">32</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="number34"
+                          :class="number34 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="
+                              number34 ? 'translate-x-9' : 'translate-x-0'
+                            "
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">34</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="number36"
+                          :class="number36 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="
+                              number36 ? 'translate-x-9' : 'translate-x-0'
+                            "
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">36</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="number38"
+                          :class="number38 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="
+                              number38 ? 'translate-x-9' : 'translate-x-0'
+                            "
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">38</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="number40"
+                          :class="number40 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="
+                              number40 ? 'translate-x-9' : 'translate-x-0'
+                            "
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">40</span></span
+                          >
+                        </Switch>
+                      </div>
+                    </div>
+
+                    <div
+                      :class="{ hidden: selectedCategory === 'شلوار' }"
                       class="mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
                     >
                       <div class="m-1">
@@ -267,6 +376,7 @@
                         </Switch>
                       </div>
                     </div>
+
                     <div class="mx-1 my-2">
                       <div
                         v-for="color in addedColors"
@@ -295,7 +405,10 @@
                             color.name
                           }}</span>
                         </div>
-                        <button @click="removeColor(color.id)" class="text-red-500">
+                        <button
+                          @click="removeColor(color.id)"
+                          class="text-red-500"
+                        >
                           <v-icon>mdi-delete</v-icon>
                         </button>
                       </div>
@@ -566,7 +679,7 @@
                       />
                     </div>
 
-                     <div class="">
+                    <div class="">
                       <textarea
                         v-model="features"
                         class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded transition w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-gray-200 focus:bg-white focus:border-purple-500"
@@ -575,8 +688,6 @@
                         placeholder="نکات مهم"
                       />
                     </div>
-
-
 
                     <div
                       class="m-1 flex w-full justify-center space-x-4 align-center"
@@ -786,17 +897,23 @@ export default {
     const selectedCategory = ref();
     const categories = ref([]);
     const addedColors = ref([]);
-    const features = ref('')
+    const features = ref("");
+    const number30 = ref(false);
+    const number32 = ref(false);
+    const number34 = ref(false);
+    const number36 = ref(false);
+    const number38 = ref(false);
+    const number40 = ref(false);
 
     watch(selectedColor, (newvalue, oldvalue) => {
       addedColors.value.push(newvalue);
-      console.log(addedColors.value)
+      console.log(addedColors.value);
     });
 
-    function removeColor(id){
+    function removeColor(id) {
       addedColors.value = addedColors.value.filter((color) => {
-        return color.id !== id
-      })
+        return color.id !== id;
+      });
     }
 
     let first_image = ref(null);
@@ -858,6 +975,69 @@ export default {
       }
     });
 
+    watch(number30, () => {
+      if (size.value.indexOf("30") === -1) {
+        size.value.push("30");
+        console.log(size.value);
+      }
+      if (number30.value === false) {
+        let indexof30 = size.value.indexOf("30");
+        size.value.splice(indexof30, 1);
+      }
+    });
+
+    watch(number32, () => {
+      if (size.value.indexOf("32") === -1) {
+        size.value.push("32");
+        console.log(size.value);
+      }
+      if (number32.value === false) {
+        let indexOf32 = size.value.indexOf("32");
+        size.value.splice(indexOf32, 1);
+      }
+    });
+
+    watch(number34, () => {
+      if (size.value.indexOf("34") === -1) {
+        size.value.push("34");
+        console.log(size.value);
+      }
+      if (number34.value === false) {
+        let indexOf34 = size.value.indexOf("34");
+        size.value.splice(indexOf34, 1);
+      }
+    });
+
+    watch(number36, () => {
+      if (size.value.indexOf("36") === -1) {
+        size.value.push("36");
+      }
+      if (number36.value === false) {
+        let indexOf36 = size.value.indexOf("36");
+        size.value.splice(indexOf36, 1);
+      }
+    });
+
+    watch(number38, () => {
+      if (size.value.indexOf("38") === -1) {
+        size.value.push("38");
+      }
+      if (number38.value === false) {
+        let indexOf38 = size.value.indexOf("38");
+        size.value.splice(indexOf38, 1);
+      }
+    });
+
+    watch(number40, () => {
+      if (size.value.indexOf("40") === -1) {
+        size.value.push("40");
+      }
+      if (number40.value === false) {
+        let indexOf40 = size.value.indexOf("40");
+        size.value.splice(indexOf40, 1);
+      }
+    });
+
     function closeModal() {
       isOpen.value = false;
     }
@@ -895,7 +1075,7 @@ export default {
             third_image: third_image.value,
             forth_image: forth_image.value,
             size: size.value,
-            features: features.value
+            features: features.value,
           },
         ]);
         if (error) throw error;
@@ -1065,7 +1245,13 @@ export default {
       categories,
       addedColors,
       removeColor,
-      features
+      features,
+      number30,
+      number32,
+      number34,
+      number36,
+      number38,
+      number40,
     };
   },
 };
