@@ -297,8 +297,175 @@
                     </div>
 
                     <div
-                      :class="{ hidden: selectedCategory === 'شلوار' }"
+                      v-show="selectedCategory === 'کفش'"
                       class="mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
+                    >
+                      <div class="m-1">
+                        <Switch
+                          v-model="shoe37"
+                          :class="shoe37 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="shoe37 ? 'translate-x-9' : 'translate-x-0'"
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">36</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="shoe38"
+                          :class="shoe38 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="shoe38 ? 'translate-x-9' : 'translate-x-0'"
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">38</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="shoe39"
+                          :class="shoe39 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="shoe39 ? 'translate-x-9' : 'translate-x-0'"
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">39</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="shoe40"
+                          :class="shoe40 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="shoe40 ? 'translate-x-9' : 'translate-x-0'"
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">40</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="shoe41"
+                          :class="shoe41 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="shoe41 ? 'translate-x-9' : 'translate-x-0'"
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">41</span></span
+                          >
+                        </Switch>
+                      </div>
+                      <div class="m-1">
+                        <Switch
+                          v-model="shoe42"
+                          :class="shoe42 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="shoe42 ? 'translate-x-9' : 'translate-x-0'"
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">42</span></span
+                          >
+                        </Switch>
+                      </div>
+
+                      <div class="m-1">
+                        <Switch
+                          v-model="shoe43"
+                          :class="shoe43 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="shoe43 ? 'translate-x-9' : 'translate-x-0'"
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">43</span></span
+                          >
+                        </Switch>
+                      </div>
+
+                      <div class="m-1">
+                        <Switch
+                          v-model="shoe44"
+                          :class="shoe44 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="shoe44 ? 'translate-x-9' : 'translate-x-0'"
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">44</span></span
+                          >
+                        </Switch>
+                      </div>
+
+                      <div class="m-1">
+                        <Switch
+                          v-model="shoe45"
+                          :class="shoe45 ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="shoe45 ? 'translate-x-9' : 'translate-x-0'"
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">45</span></span
+                          >
+                        </Switch>
+                      </div>
+                    </div>
+
+                    <div
+                      v-show="(selectedCategory === 'کلاه') || (selectedCategory === 'جوراب')"
+                      class=" mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
+                    >
+                      <div class="m-1">
+                        <Switch
+                          v-model="freeSize"
+                          :class="freeSize ? 'bg-Sky-200' : 'bg-gray-300'"
+                          class="relative inline-flex align-center flex-shrink-0 h-[38px] w-[74px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                        >
+                          <span
+                            aria-hidden="true"
+                            :class="
+                              freeSize ? 'translate-x-9' : 'translate-x-0'
+                            "
+                            class="pointer-events-none align-center justify-center inline-flex h-[34px] w-[34px] rounded-full bg-white shadow-lg transform ring-0 transition ease-in-out duration-200"
+                          >
+                            <span class="">آزاد</span></span
+                          >
+                        </Switch>
+                      </div>
+                    </div>
+
+                    <div
+                    v-show="(selectedCategory === 'پیراهن') || (selectedCategory === 'هودی')"
+                      class=" mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
                     >
                       <div class="m-1">
                         <Switch
@@ -904,6 +1071,18 @@ export default {
     const number36 = ref(false);
     const number38 = ref(false);
     const number40 = ref(false);
+    const freeSize = ref(false);
+
+    const shoe36 = ref(false);
+    const shoe37 = ref(false);
+    const shoe38 = ref(false);
+    const shoe39 = ref(false);
+    const shoe40 = ref(false);
+    const shoe41 = ref(false);
+    const shoe42 = ref(false);
+    const shoe43 = ref(false);
+    const shoe44 = ref(false);
+    const shoe45 = ref(false);
 
     watch(selectedColor, (newvalue, oldvalue) => {
       addedColors.value.push(newvalue);
@@ -1035,6 +1214,138 @@ export default {
       if (number40.value === false) {
         let indexOf40 = size.value.indexOf("40");
         size.value.splice(indexOf40, 1);
+      }
+    });
+
+    watch(freeSize, () => {
+      if (size.value.indexOf("آزاد") === -1) {
+        size.value.push("آزاد");
+        console.log(size.value);
+      }
+      if (freeSize.value === false) {
+        let indexOffreeSize = size.value.indexOf("آزاد");
+        size.value.splice(indexOffreeSize, 1);
+      }
+    });
+
+    watch(shoe36, () => {
+      if (size.value.indexOf("36") === -1) {
+        size.value.push("36");
+        console.log(size.value);
+      }
+      if (shoe36.value === false) {
+        let indexofShoe36 = size.value.indexOf("36");
+        size.value.splice(indexofShoe36, 1);
+      }
+    });
+
+    watch(shoe37, () => {
+      if (size.value.indexOf("37") === -1) {
+        size.value.push("37");
+        console.log(size.value);
+      }
+      if (shoe37.value === false) {
+        let indexofShoe37 = size.value.indexOf("37");
+        size.value.splice(indexofShoe37, 1);
+      }
+    });
+
+    watch(shoe38, () => {
+      if (size.value.indexOf("38") === -1) {
+        size.value.push("38");
+        console.log(size.value);
+      }
+      if (shoe38.value === false) {
+        let indexofShoe38 = size.value.indexOf("38");
+        size.value.splice(indexofShoe38, 1);
+      }
+    });
+
+    watch(shoe39, () => {
+      if (size.value.indexOf("39") === -1) {
+        size.value.push("39");
+        console.log(size.value);
+      }
+      if (shoe39.value === false) {
+        let indexofShoe39 = size.value.indexOf("39");
+        size.value.splice(indexofShoe39, 1);
+      }
+    });
+
+    watch(shoe40, () => {
+      if (size.value.indexOf("40") === -1) {
+        size.value.push("40");
+        console.log(size.value);
+      }
+      if (shoe40.value === false) {
+        let indexofShoe40 = size.value.indexOf("40");
+        size.value.splice(indexofShoe40, 1);
+      }
+    });
+
+    watch(shoe40, () => {
+      if (size.value.indexOf("40") === -1) {
+        size.value.push("40");
+        console.log(size.value);
+      }
+      if (shoe40.value === false) {
+        let indexofShoe36 = size.value.indexOf("40");
+        size.value.splice(indexofShoe36, 1);
+      }
+    });
+
+    watch(shoe41, () => {
+      if (size.value.indexOf("41") === -1) {
+        size.value.push("41");
+        console.log(size.value);
+      }
+      if (shoe41.value === false) {
+        let indexofShoe41 = size.value.indexOf("41");
+        size.value.splice(indexofShoe41, 1);
+      }
+    });
+
+    watch(shoe42, () => {
+      if (size.value.indexOf("42") === -1) {
+        size.value.push("42");
+        console.log(size.value);
+      }
+      if (shoe42.value === false) {
+        let indexofShoe42 = size.value.indexOf("42");
+        size.value.splice(indexofShoe42, 1);
+      }
+    });
+
+    watch(shoe43, () => {
+      if (size.value.indexOf("43") === -1) {
+        size.value.push("43");
+        console.log(size.value);
+      }
+      if (shoe43.value === false) {
+        let indexofShoe43 = size.value.indexOf("43");
+        size.value.splice(indexofShoe43, 1);
+      }
+    });
+
+    watch(shoe44, () => {
+      if (size.value.indexOf("44") === -1) {
+        size.value.push("44");
+        console.log(size.value);
+      }
+      if (shoe44.value === false) {
+        let indexofShoe44 = size.value.indexOf("44");
+        size.value.splice(indexofShoe44, 1);
+      }
+    });
+
+    watch(shoe45, () => {
+      if (size.value.indexOf("45") === -1) {
+        size.value.push("45");
+        console.log(size.value);
+      }
+      if (shoe45.value === false) {
+        let indexofShoe45 = size.value.indexOf("45");
+        size.value.splice(indexofShoe45, 1);
       }
     });
 
@@ -1252,6 +1563,17 @@ export default {
       number36,
       number38,
       number40,
+      freeSize,
+      shoe36,
+      shoe37,
+      shoe38,
+      shoe39,
+      shoe40,
+      shoe41,
+      shoe42,
+      shoe43,
+      shoe44,
+      shoe45,
     };
   },
 };
