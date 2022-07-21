@@ -32,7 +32,7 @@
       class="w-full h-full flex flex-col text-center align-center justify-center space-y-3 my-4 lg:space-x-9"
     >
       <div class="flex flex-row w-full justify-center">
-        <RadioGroup v-model="selectedColor" class="mt-4">
+        <RadioGroup class="mt-4">
           <RadioGroupLabel class="sr-only">
             یک رنگ رو انتخاب کنید
           </RadioGroupLabel>
@@ -76,7 +76,7 @@
           </div>
         </RadioGroup>
       </div>
-      <RadioGroup v-model="selectedSize" class="mt-4">
+      <RadioGroup  class="mt-4">
         <RadioGroupLabel class="sr-only"> انتخاب کن </RadioGroupLabel>
         <div
           class="grid items-center w-red-500 w-full grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
