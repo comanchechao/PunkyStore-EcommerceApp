@@ -1,22 +1,22 @@
 <template>
   <div
-    class="flex flex-row-reverse justify-around w-full h-16 text-gray-900 border-b-2 hover:bg-Sky-100 hover:border-b-4 transition transform p-1 rounded my-1 border-white align-center"
+    class="flex flex-row-reverse justify-around w-full h-16 text-gray-900 border-b-2 hover:bg-Sky-100 hover:border-b-4 transition transform p-3 my-1 border-white align-center"
   >
     <div
       :class="{
         'bg-Amber-500 hover:bg-yellow-400': displayedTab === 'SentOrders',
-        'bg-blue-500 text-white hover:bg-blue-700':
+        'bg-blue-500 text-black hover:bg-blue-700':
           displayedTab === 'AllOrders',
         'hover:bg-green-500': displayedTab === 'NewOrders',
       }"
       class="date bg-mainGreen hover:text-gray-50 transition text-black px-4 py-2 rounded flex"
     >
-      {{order.date}}
+      {{ order.date }}
     </div>
     <div
       :class="{
         'bg-Amber-500 hover:bg-yellow-400': displayedTab === 'SentOrders',
-        'bg-blue-500 text-white hover:bg-blue-700':
+        'bg-blue-500 text-black hover:bg-blue-700':
           displayedTab === 'AllOrders',
         'hover:bg-green-500': displayedTab === 'NewOrders',
       }"
@@ -34,11 +34,11 @@
           <button
             :class="{
               'bg-Amber-500 hover:bg-yellow-400': displayedTab === 'SentOrders',
-              'bg-blue-500 text-white hover:bg-blue-700':
+              'bg-blue-500 text-black hover:bg-blue-700':
                 displayedTab === 'AllOrders',
               'hover:bg-green-500': displayedTab === 'NewOrders',
             }"
-            class="menuButton inline-flex flex-row-reverse text-black text-md font-black align-center justify-between transition ease-in duration-200 w-full px-4 py-2 bg-mainGreen rounded-md hover:bg-Sky-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            class="menuButton inline-flex flex-row-reverse text-black text-md font-black align-center justify-between transition ease-in duration-200 w-full px-4 py-2 bg-mainGreen rounded-md hover:bg-green-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             <h1 class="transition ease-in duration-200 hover:text-white">
               کالا
@@ -76,44 +76,46 @@
                   class="relative transition-all flex px-5 py-4 rounded-lg shadow-md cursor-pointer focus:outline-none"
                 >
                   <div class="flex flex-row-reverse items-center w-full">
-                <div
-                  class="flex w-full flex-row-reverse justify-around items-center"
-                >
-                  <div class="text-sm w-full">
-                    <RadioGroupLabel
-                      as="div"
-                      :class="checked ? 'text-white' : 'text-gray-900'"
-                      class="font-medium flex justify-between align-center text-right"
+                    <div
+                      class="flex w-full flex-row-reverse justify-around items-center"
                     >
-                      <div class="w-12 h-12 bg-yellow-200 rounded-full"></div>
-                      <span>
-                        {{ item.item.title }}
-                      </span>
-                    </RadioGroupLabel>
-                    <RadioGroupDescription
-                      as="div"
-                      :class="checked ? 'text-white' : 'text-gray-500'"
-                      class="flex justify-around w-full"
-                    >
-                      <span>
-                        قیمت:
-                        {{ item.item.price }}
-                      </span>
-                      <span>
-                        تعداد:
-                        {{ item.quantity }}
-                      </span>
-                      <span>
-                        موجود:
-                        {{ item.item.inStock }}
-                      </span>
-                      <span>
-                        جزئیات:
-                        {{ item.item.description }}
-                      </span>
-                    </RadioGroupDescription>
-                  </div>
-                </div>
+                      <div class="text-sm w-full">
+                        <RadioGroupLabel
+                          as="div"
+                          :class="checked ? 'text-white' : 'text-gray-900'"
+                          class="font-medium flex justify-between align-center text-right"
+                        >
+                          <div
+                            class="w-12 h-12 bg-yellow-200 rounded-full"
+                          ></div>
+                          <span>
+                            {{ item.item.title }}
+                          </span>
+                        </RadioGroupLabel>
+                        <RadioGroupDescription
+                          as="div"
+                          :class="checked ? 'text-white' : 'text-gray-500'"
+                          class="flex justify-around w-full"
+                        >
+                          <span>
+                            قیمت:
+                            {{ item.item.price }}
+                          </span>
+                          <span>
+                            تعداد:
+                            {{ item.quantity }}
+                          </span>
+                          <span>
+                            موجود:
+                            {{ item.item.inStock }}
+                          </span>
+                          <span>
+                            جزئیات:
+                            {{ item.item.description }}
+                          </span>
+                        </RadioGroupDescription>
+                      </div>
+                    </div>
                     <div v-show="checked" class="flex-shrink-0 text-white">
                       <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
                         <circle
@@ -147,11 +149,11 @@
           <button
             :class="{
               'bg-Amber-500 hover:bg-yellow-400': displayedTab === 'SentOrders',
-              'bg-blue-500 text-white hover:bg-blue-700':
+              'bg-blue-500 text-black hover:bg-blue-700':
                 displayedTab === 'AllOrders',
               'hover:bg-green-500': displayedTab === 'NewOrders',
             }"
-            class="menuButton inline-flex flex-row-reverse text-black text-md font-black align-center justify-between transition ease-in duration-200 w-full px-4 py-2 bg-mainGreen rounded-md hover:bg-Sky-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+            class="menuButton inline-flex flex-row-reverse text-black text-md font-black align-center justify-between transition ease-in duration-200 w-full px-4 py-2 bg-mainGreen rounded-md hover:bg-green-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
           >
             <h1 class="transition ease-in duration-200 hover:text-white">
               اطلاعات ارسال
@@ -210,7 +212,11 @@
               </div>
             </div>
             <div class="flex w-full my-2 justify-around">
-              <button class="p-3 transition rounded shadow-xl bg-green-400 hover:bg-green-300">انتقال به ارسال شده </button>
+              <button
+                class="p-3 transition rounded shadow-xl bg-green-400 hover:bg-green-300"
+              >
+                انتقال به ارسال شده
+              </button>
             </div>
           </div>
         </template>
@@ -270,7 +276,7 @@ export default {
 
     async function getOrderItems() {
       try {
-        console.log(orderDetailId.value)
+        console.log(orderDetailId.value);
         const { data, error } = await supabase
           .from("order_items")
           .select()

@@ -2,10 +2,10 @@
   <div class="">
     <button
       @click="openModal"
-      class="bg-yellow-600 w-20 h-20 text-white lg:w-28 lg:w-28 shadow-2xl rounded-xl"
+      class="bg-mainYellow text-white w-48 h-24 lg:w-44 filter drop-shadow-lg rounded-4xl"
     >
-      <v-icon>mdi-card-plus</v-icon>
-      <h2>کالا</h2>
+      <v-icon class="text-black">mdi-card-plus</v-icon>
+      <h2 class="font-extralight text-2xl text-black">کالا</h2>
     </button>
   </div>
   <TransitionRoot appear :show="isOpen" as="div">
@@ -295,7 +295,10 @@
                             color.name
                           }}</span>
                         </div>
-                        <button @click="removeColor(color.id)" class="text-red-500">
+                        <button
+                          @click="removeColor(color.id)"
+                          class="text-red-500"
+                        >
                           <v-icon>mdi-delete</v-icon>
                         </button>
                       </div>
@@ -566,7 +569,7 @@
                       />
                     </div>
 
-                     <div class="">
+                    <div class="">
                       <textarea
                         v-model="features"
                         class="bg-gray-200 appearance-none border-2 text-right border-gray-200 rounded transition w-full my-2 py-6 px-4 text-gray-700 leading-tight focus:outline-gray-200 focus:bg-white focus:border-purple-500"
@@ -575,8 +578,6 @@
                         placeholder="نکات مهم"
                       />
                     </div>
-
-
 
                     <div
                       class="m-1 flex w-full justify-center space-x-4 align-center"
@@ -786,17 +787,17 @@ export default {
     const selectedCategory = ref();
     const categories = ref([]);
     const addedColors = ref([]);
-    const features = ref('')
+    const features = ref("");
 
     watch(selectedColor, (newvalue, oldvalue) => {
       addedColors.value.push(newvalue);
-      console.log(addedColors.value)
+      console.log(addedColors.value);
     });
 
-    function removeColor(id){
+    function removeColor(id) {
       addedColors.value = addedColors.value.filter((color) => {
-        return color.id !== id
-      })
+        return color.id !== id;
+      });
     }
 
     let first_image = ref(null);
@@ -895,7 +896,7 @@ export default {
             third_image: third_image.value,
             forth_image: forth_image.value,
             size: size.value,
-            features: features.value
+            features: features.value,
           },
         ]);
         if (error) throw error;
@@ -1065,7 +1066,7 @@ export default {
       categories,
       addedColors,
       removeColor,
-      features
+      features,
     };
   },
 };

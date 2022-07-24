@@ -1,10 +1,10 @@
 <template>
   <div class="w-full h-full justify-center flex flex-col">
     <div
-      class="flex flex-col align-center my-5 bg-pink-100 h-full justify-start text-right w-full"
+      class="flex flex-col align-center my-5 bg-blue-500 h-full justify-start text-right w-full"
     >
       <div
-        class="flex bg-white shadow-2xl flex-row-reverse justify-around align-center px-4 w-full lg:w-11/12 rounded md:w-1/2 h-32"
+        class="flex bg-blue-800 shadow-2xl lg:flex-row lg:space-y-0 lg:space-x-9 flex-col justify-center space-y-9 align-center px-4 w-full lg:w-11/12 rounded md:w-1/2 h-full"
       >
         <div>
           <Adminastration />
@@ -14,10 +14,10 @@
           <template #openButton>
             <button
               @click="openModal"
-              class="bg-mainGreen text-white w-20 h-20 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
+              class="bg-mainYellow text-white w-48 h-24 lg:w-44 filter drop-shadow-lg rounded-4xl"
             >
-              <v-icon>mdi-card</v-icon>
-              <h2>انبار کالا</h2>
+              <v-icon class="text-black">mdi-card</v-icon>
+              <h2 class="font-extralight text-2xl text-black">انبار کالا</h2>
             </button>
           </template>
           <template #modalTitle> کالا ها </template>
@@ -126,10 +126,10 @@
           <template #openButton>
             <button
               @click="openModal"
-              class="bg-mainPurple text-white w-20 h-20 lg:w-28 lg:w-28 shadow-2xl rounded-xl"
+              class="bg-mainYellow text-white w-48 h-24 lg:w-44 filter drop-shadow-lg rounded-4xl"
             >
-              <v-icon>mdi-card</v-icon>
-              <h2>پیشنهاد ویژه</h2>
+              <v-icon class="text-black">mdi-card</v-icon>
+              <h2 class="font-extralight text-lg text-black">پیشنهاد ویژه</h2>
             </button>
           </template>
           <template #modalTitle> کالا ها </template>
@@ -185,7 +185,7 @@
               </Menu>
               <Disclosure
                 as="div"
-                class="bg-mainPink w-full  self-center"
+                class="bg-mainPink w-full self-center"
                 v-slot="{ open }"
               >
                 <DisclosureButton
@@ -215,14 +215,16 @@
                     </div>
                     <div class="flex flex-row">
                       <button
-                      class="pointer-cursor bg-purple rounded-full justify-center p-1"
+                        class="pointer-cursor bg-purple rounded-full justify-center p-1"
                         v-show="item.offer === true"
                         @click="makeSpecialOffer(item)"
                       >
-                        <v-icon class="font-bold text-Amber-400">mdi-star</v-icon>
+                        <v-icon class="font-bold text-Amber-400"
+                          >mdi-star</v-icon
+                        >
                       </button>
                       <button
-                      class="pointer-cursor bg-purple rounded-full justify-center p-1"
+                        class="pointer-cursor bg-purple rounded-full justify-center p-1"
                         v-show="item.offer === false"
                         @click="makeSpecialOffer(item)"
                       >
@@ -347,9 +349,8 @@ export default {
           alert("product updated");
         } catch (error) {
           alert(error.error_description || error.message);
-        }
-        finally{
-           getProducts();
+        } finally {
+          getProducts();
         }
       }
     };

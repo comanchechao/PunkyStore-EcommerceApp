@@ -1,13 +1,13 @@
 <template>
-  <div class="flex bg-Sky-200 w-full h-full">
+  <div class="flex bg-Indigo-700blue w-full h-full">
     <div class="w-full h-full p-2">
       <div class="flex w-full flex-col justify-center align-center">
         <div class="flex w-full h-16 align-center justify-around rounded m-4">
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'NewOrders'"
-              :class="{ 'bg-mainGreen': tab === 'NewOrders' }"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-mainGreen"
+              :class="{ 'bg-Amber-600': tab === 'NewOrders' }"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-bold rounded text-black bg-mainYellow hover:text-gray-100 transition transform hover:bg-blue-800"
             >
               سفارش های ثبت شده
             </button>
@@ -15,8 +15,8 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'SentOrders'"
-              :class="{ 'bg-Amber-500 ': tab === 'SentOrders' }"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-Amber-500"
+              :class="{ 'bg-Amber-600 ': tab === 'SentOrders' }"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-bold rounded text-black bg-mainYellow hover:text-gray-100 transition transform hover:bg-blue-800"
             >
               سفارش های ارسال شده
             </button>
@@ -24,8 +24,8 @@
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'AllOrders'"
-              :class="{ 'bg-blue-600': tab === 'AllOrders' }"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-black rounded text-gray-50 bg-Sky-400 hover:text-gray-100 transition transform hover:bg-blue-600"
+              :class="{ 'bg-Amber-600': tab === 'AllOrders' }"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-bold rounded text-black bg-mainYellow hover:text-gray-100 transition transform hover:bg-blue-800"
             >
               تمامی سفارش ها
             </button>
@@ -39,7 +39,7 @@
           as="div"
         >
           <div
-            class="flex bg-Emerald-100 flex-col w-full z-0 h-1/3 divide-y divide-dashed overflow-y-scroll"
+            class="flex bg-transparent p-4 flex-col w-full z-0 h-1/3 divide-y divide-dotted overflow-y-scroll"
           >
             <TransitionChild
               as="div"
@@ -47,11 +47,11 @@
               enter-from="transfrom -translate-y-24 scale-95"
               enter-to="opacity-100 scale-100"
             >
-               <CustomerOrder
+              <CustomerOrder
                 v-for="order in orders"
                 :key="order.id"
                 :order="order"
-                class="customerOrder"
+                class="customerOrder p-5"
                 :tab="tab"
               />
             </TransitionChild>
@@ -64,7 +64,7 @@
           as="div"
         >
           <div
-            class="flex bg-Amber-100 p-2 flex-col w-full h-full divide-y divide-dashed hover:divide-solid"
+            class="flex bg-transparent p-4 flex-col w-full z-0 h-1/3 divide-y divide-dotted overflow-y-scroll"
           >
             <TransitionChild
               as="div"
@@ -90,7 +90,7 @@
           as="div"
         >
           <div
-            class="flex flex-col bg-blue-200 h-1/3 w-full h-full divide-y divide-dashed hover:divide-solid"
+            class="flex bg-transparent p-4 flex-col w-full z-0 h-1/3 divide-y divide-dotted overflow-y-scroll"
           >
             <TransitionChild
               as="div"
@@ -98,7 +98,7 @@
               enter-from="transfrom -translate-y-24 scale-95"
               enter-to="opacity-100 scale-100"
             >
-                <CustomerOrder
+              <CustomerOrder
                 v-for="order in orders"
                 :key="order.id"
                 :order="order"
@@ -150,7 +150,9 @@ export default {
     DisclosureButton,
     DisclosurePanel,
     ChevronUpIcon,
-    CustomerOrder: defineAsyncComponent(() => import("../components/CustomerOrder.vue")),
+    CustomerOrder: defineAsyncComponent(() =>
+      import("../components/CustomerOrder.vue")
+    ),
 
     TransitionRoot,
     TransitionChild,
@@ -158,13 +160,13 @@ export default {
   setup() {
     const categories = ref([]);
     const products = ref([]);
-    const orders = ref([])
+    const orders = ref([]);
     const tab = ref("NewOrders");
 
     onMounted(() => {
       getcategories();
       getProducts();
-      getOrders()
+      getOrders();
     });
 
     async function getProducts() {
@@ -179,8 +181,7 @@ export default {
       }
     }
 
-
-     async function getOrders() {
+    async function getOrders() {
       try {
         const { data, error } = await supabase.from("order_detail");
         // .eq("product-category", props.category.title);
@@ -191,8 +192,6 @@ export default {
         alert(error.message);
       }
     }
-
-
 
     async function getcategories() {
       try {
@@ -207,7 +206,7 @@ export default {
         alert(error.message);
       }
     }
-    return { categories, products, tab, people2 , orders };
+    return { categories, products, tab, people2, orders };
   },
 };
 </script>
