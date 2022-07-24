@@ -41,7 +41,4 @@ export const CardManagement = defineStore("card", {
       return total;
     },
   },
-  persist: {
-    enabled: true,
-  },
 });

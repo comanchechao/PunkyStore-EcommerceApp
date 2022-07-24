@@ -9,6 +9,7 @@ import ProductDetailPage from "../views/ProductDetailPage.vue";
 import CheckoutPage from "../views/CheckoutPage.vue";
 import AdminPage from "../views/AdminPage.vue";
 import AboutUs from "../views/AboutUs.vue";
+import { UserManagement } from "../store/UserManagement";
 
 const routes = [
   {
@@ -25,6 +26,13 @@ const routes = [
     path: "/admin",
     name: "AdminPage",
     component: AdminPage,
+    beforeEnter(to, from, next) {
+      if (UserManagement().admin === true) {
+        next();
+      } else {
+        next(false);
+      }
+    },
   },
   {
     path: "/ProductDetail/:id",

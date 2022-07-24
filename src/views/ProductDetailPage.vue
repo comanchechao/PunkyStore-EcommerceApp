@@ -1,62 +1,6 @@
-<!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    theme: {
-      extend: {
-        gridTemplateRows: {
-          '[auto,auto,1fr]': 'auto auto 1fr',
-        },
-      },
-    },
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
 <template>
   <div class="p-8 max-w-screen" id="main">
     <div class="pt-6 mt-32 background">
-      <!-- <nav aria-label="Breadcrumb">
-        <ol
-          role="list"
-          class="max-w-2xl mx-auto px-4 flex flex-row-reverse items-center space-x-2 sm:px-6 lg:max-w-7xl lg:px-8"
-        >
-          <li class="">
-            <a
-              aria-current="page"
-              class="font-medium text-4xl text-gray-900 hover:text-gray-600"
-            >
-              {{ product.title }}
-            </a>
-          </li>
-          <li>
-            <div class="flex items-center">
-              <a class="mr-2 text-xl font-black text-gray-900"> </a>
-              <svg
-                width="16"
-                height="20"
-                viewBox="0 0 16 20"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-                class="w-4 h-5 text-gray-900"
-              >
-                <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
-              </svg>
-            </div>
-          </li>
-        </ol>
-      </nav> -->
-
-      <!-- Image gallery -->
       <div
         class="flex justify-between space-y-4 lg:space-x-7 items-center w-full py-4 px-7 flex-col lg:flex-row lg:h-96 h-62 mt-7"
       >
@@ -86,46 +30,17 @@
             ></v-carousel-item>
           </v-carousel>
         </div>
-
-        <!-- <img
-            :src="product.images[0].src"
-            :alt="product.images[0].alt"
-            class="w-full h-full object-center object-cover"
-          /> -->
-        <!-- <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-          <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-            <img
-              :src="product.images[1].src"
-              :alt="product.images[1].alt"
-              class="w-full h-full object-center object-cover"
-            />
-          </div>
-          <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-            <img
-              :src="product.images[2].src"
-              :alt="product.images[2].alt"
-              class="w-full h-full object-center object-cover"
-            />
-          </div>
-        </div>
-        <div
-          class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4"
-        >
-          <img
-            :src="product.images[3].src"
-            :alt="product.images[3].alt"
-            class="w-full h-full object-center object-cover"
-          />
-        </div> -->
       </div>
 
       <!-- Product info -->
       <div
-        class="max-w-2xl text-right mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8"
+        class="max-w-2xl text-right mx-auto pt-10 pb-16 px-4 sm:px-6 lg:max-w-7xl lg:pt-16 lg:pb-24 lg:px-8 lg:grid lg:grid-cols-3 grid-flow-dense lg:grid-rows-[auto,auto,1fr] lg:gap-x-8"
       >
-        <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+        <div
+          class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8 bg-Indigo-600 p-5 shadow-2xl"
+        >
           <h1
-            class="text-4xl text-center lg:text-right font-extrabold tracking-tight text-gray-900 sm:text-3xl"
+            class="text-4xl text-center lg:text-right font-extrabold tracking-tight text-white sm:text-3xl"
           >
             {{ product.title }}
           </h1>
@@ -133,38 +48,12 @@
 
         <!-- Options -->
         <div class="mt-4 lg:mt-0 lg:row-span-3">
-          <p
-            class="text-3xl flex justify-center lg:justify-end space-x-2 font-bold text-gray-600"
+          <div
+            class="text-3xl p-4 bg-Indigo-500 rounded shadow-xl flex justify-center lg:justify-end space-x-2 font-bold text-gray-600"
           >
-            <span>تومان</span>
-            <span class="text-Emerald-700">{{ product.price }}</span>
-          </p>
-
-          <!-- Reviews -->
-          <!-- <div class="mt-6">
-            <h3 class="sr-only">Reviews</h3>
-            <div class="flex items-center">
-              <div class="flex items-center">
-                <StarIcon
-                  v-for="rating in [0, 1, 2, 3, 4]"
-                  :key="rating"
-                  :class="[
-                    reviews.average > rating
-                      ? 'text-gray-900'
-                      : 'text-gray-200',
-                    'h-5 w-5 flex-shrink-0',
-                  ]"
-                  aria-hidden="true"
-                />
-              </div>
-              <p class="sr-only">{{ reviews.average }} از پنج ستاره</p>
-              <a
-                :href="reviews.href"
-                class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                >{{ reviews.totalCount }} نظرات</a
-              >
-            </div>
-          </div> -->
+            <span class="text-white">تومان</span>
+            <span class="text-white">{{ product.price }}</span>
+          </div>
 
           <form class="mt-10">
             <!-- Colors -->
@@ -175,7 +64,9 @@
                 <RadioGroupLabel class="sr-only">
                   یک رنگ رو انتخاب کنید
                 </RadioGroupLabel>
-                <div class="flex items-center space-x-3">
+                <div
+                  class="flex items-center space-x-3 bg-Indigo-600 p-2 rounded-2xl"
+                >
                   <RadioGroupOption
                     as="template"
                     v-for="color in product.colors"
@@ -185,8 +76,10 @@
                   >
                     <div
                       :class="[
-                        active && checked ? 'ring ring-offset-1' : '',
-                        !active && checked ? 'ring-2' : '',
+                        active && checked
+                          ? 'ring ring-yellow-400  ring-offset-1'
+                          : '',
+                        !active && checked ? 'ring-2 ring-yellow-400' : '',
                         '-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none',
                       ]"
                     >
@@ -229,23 +122,24 @@
               <RadioGroup v-model="selectedSize" class="mt-4">
                 <RadioGroupLabel class="sr-only"> انتخاب کن </RadioGroupLabel>
                 <div
-                  class="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
+                  class="bg-Indigo-600 p-2 rounded-2xl grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
                 >
                   <RadioGroupOption
                     as="div"
                     v-for="size in product.size"
                     :key="size.id"
                     :value="size"
-                    v-slot="{ active }"
+                    v-slot="{ active, checked }"
                   >
                     <div
                       :class="[
                         size
                           ? 'bg-white shadow-sm text-gray-900 cursor-pointer'
                           : 'bg-gray-50 text-gray-200 cursor-not-allowed',
-                        active
-                          ? 'ring-2 ring-indigo-500 text-gray-900'
-                          : 'text-gray-500',
+                        active && checked
+                          ? 'ring-2 ring-yellow-500 text-gray-900'
+                          : 'text-gray-500 ring-yellow-500 ',
+                        !active && checked ? 'ring-2 ring-Amber-500' : '',
                         'group relative border text-gray-500 rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6',
                       ]"
                     >
@@ -257,7 +151,41 @@
                 </div>
               </RadioGroup>
             </div>
-
+            <v-alert
+              v-show="addedToCart"
+              outlined
+              shaped
+              text
+              absolute
+              class="h-20 absolute transform -translate-y-24 w-68 flex right-12 justify-start items-center"
+              type="success"
+            >
+              به سبد خرید اضافه شد</v-alert
+            >
+            <v-alert
+              v-show="faildToAddColor"
+              outlined
+              shaped
+              text
+              absolute
+              class="h-20 absolute transform -translate-y-24 w-68 flex right-12 justify-start text-white items-center"
+              type="error"
+              color="red"
+            >
+              <p class="text-white">رنگ محصول رو انتخاب کنید</p></v-alert
+            >
+            <v-alert
+              v-show="faildToAddSize"
+              outlined
+              shaped
+              text
+              absolute
+              class="h-20 absolute transform -translate-y-24 w-68 flex right-12 justify-start text-white items-center"
+              type="error"
+              color="red"
+            >
+              <p class="text-white">سایز محصول رو انتخاب کنید</p></v-alert
+            >
             <DefaultButton
               @click.prevent="addToCart"
               class="mt-10 w-full bg-goldie text-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-black hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -268,14 +196,14 @@
         </div>
 
         <div
-          class="py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8"
+          class="py-10 px-4 bg-Indigo-800 shadow-2xl lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8"
         >
           <!-- Description and details -->
           <div>
             <h3 class="sr-only">Description</h3>
 
             <div class="space-y-6">
-              <p class="text-2xl font-semibold text-gray-900">
+              <p class="text-2xl font-semibold text-white">
                 {{ product.description }}
               </p>
             </div>
@@ -285,7 +213,7 @@
             <div class="mt-4">
               <ul role="list" class="pl-4 text-right text-sm space-y-2">
                 <li class="text-gray-600 text-lg font-bold">
-                  <span class="text-gray-900">{{ product.features }}</span>
+                  <span class="text-white">{{ product.features }}</span>
                 </li>
               </ul>
             </div>
@@ -411,6 +339,8 @@ export default {
     const secondImage = ref(null);
     const thirdImage = ref(null);
     const forthImage = ref(null);
+    const addedToCart = ref(false);
+    const faildToAddColor = ref(false);
     const Product = ref({
       item: null,
       quantity: 1,
@@ -455,7 +385,9 @@ export default {
 
     onMounted(() => {
       console.log(route.params.id);
+      console.log(product.value);
       getProduct();
+      window.scroll(0, 0);
     });
 
     onUpdated(() => {
@@ -464,6 +396,7 @@ export default {
 
     watch(product, () => {
       Product.value.item = product.value;
+      console.log(Product.value);
     });
 
     watch(selectedColor, () => {
@@ -557,7 +490,23 @@ export default {
     };
 
     const addToCart = function () {
-      manageCard.addToCart(Product.value);
+      if (Product.value.color !== null && Product.value.size !== null) {
+        manageCard.addToCart(Product.value);
+        addedToCart.value = true;
+        setTimeout(() => {
+          addedToCart.value = false;
+        }, 2000);
+      } else if (Product.value.color === null) {
+        faildToAddColor.value = true;
+        setTimeout(() => {
+          faildToAddColor.value = false;
+        }, 2000);
+      } else if (Product.value.size === null) {
+        faildToAddSize.value = true;
+        setTimeout(() => {
+          faildToAddSize.value = false;
+        }, 2000);
+      }
     };
 
     return {
@@ -568,6 +517,8 @@ export default {
       firstImage,
       addToCart,
       images,
+      addedToCart,
+      faildToAddColor,
     };
   },
 };

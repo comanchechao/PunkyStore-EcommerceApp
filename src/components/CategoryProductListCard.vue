@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-gray-300 w-4/5 flex-col h-full lg:h-full my-9 wrapper rounded-lg p-7 flex"
+    class="bg-white w-4/5 flex-col h-full lg:h-full my-9 wrapper rounded-lg p-7 flex"
   >
     <v-alert
       v-show="addedToCart"
@@ -32,7 +32,7 @@
       class="w-full h-full flex flex-col text-center align-center justify-center space-y-3 my-4 lg:space-x-9"
     >
       <div class="flex flex-row w-full justify-center">
-        <RadioGroup v-model="selectedColor" class="mt-4">
+        <RadioGroup class="mt-4">
           <RadioGroupLabel class="sr-only">
             یک رنگ رو انتخاب کنید
           </RadioGroupLabel>
@@ -76,7 +76,7 @@
           </div>
         </RadioGroup>
       </div>
-      <RadioGroup v-model="selectedSize" class="mt-4">
+      <RadioGroup  class="mt-4">
         <RadioGroupLabel class="sr-only"> انتخاب کن </RadioGroupLabel>
         <div
           class="grid items-center w-red-500 w-full grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
@@ -117,14 +117,6 @@
           >نشونم بده</DefaultButton
         >
       </router-link>
-      <button
-        @click.prevent="addToCart"
-        class="px-6 py-2 transition ease-in duration-200 uppercase rounded-full hover:bg-gray-800 hover:text-white border-2 border-gray-900 focus:outline-none"
-      >
-        <v-icon class="hover:text-white">mdi-shopping-outline</v-icon>
-
-        اضافه کردن
-      </button>
     </div>
   </div>
 </template>

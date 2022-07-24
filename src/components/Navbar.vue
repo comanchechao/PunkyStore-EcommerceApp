@@ -32,7 +32,7 @@
       </div>
     </router-link>
     <div class="flex pr-2">
-      <router-link to="/admin">
+      <router-link :class="{ hidden: admin === false }" to="/admin">
         <DefaultButton class="text-white">
           <v-icon>mdi-account-cowboy-hat</v-icon>
         </DefaultButton>
@@ -52,7 +52,7 @@ import LoginDialog from "./LoginDialog.vue";
 import { store } from "../store";
 import ProfilePage from "./ProfilePage.vue";
 import { supabase } from "../supabase";
-import { computed, onMounted, ref } from "@vue/runtime-core";
+import { computed, onMounted, onUpdated, ref, watch } from "@vue/runtime-core";
 import NewShoppingDrawer from "./newShoppingDrawer.vue";
 import NewMenuDrawer from "./newMenuDrawer.vue";
 import gsap from "gsap";
@@ -85,9 +85,29 @@ export default {
   },
   setup() {
     const manageUser = UserManagement();
-    let { user } = storeToRefs(manageUser);
+    let { user, admin } = storeToRefs(manageUser);
 
-    return { user };
+    let userChange = computed(() => {
+      return user;
+    });
+
+    onMounted(() => {
+      if (user !== null) {
+        manageUser.isAdmin();
+      }
+    });
+
+    onUpdated(() => {
+      if (user !== null) {
+        manageUser.isAdmin();
+      }
+    });
+
+    watch(userChange, () => {
+      manageUser.resetAdmin();
+    });
+
+    return { user, admin };
   },
 };
 </script>

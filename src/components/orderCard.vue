@@ -99,9 +99,20 @@
                       :class="checked ? 'text-white' : 'text-gray-900'"
                       class="font-medium flex justify-center font-bold border-b-2 align-center text-right"
                     >
-                      <span class="my-2">
-                        {{ item.item.title }}
-                      </span>
+                      <router-link
+                        :to="{
+                          name: 'ProductDetailPage',
+                          params: {
+                            id: item.item.id,
+                            productTitle: item.item.title,
+                            product: item,
+                          },
+                        }"
+                      >
+                        <span class="my-2">
+                          {{ item.item.title }}
+                        </span>
+                      </router-link>
                     </RadioGroupLabel>
                     <RadioGroupDescription
                       as="div"
@@ -139,17 +150,17 @@
                           </li>
                         </ul>
                       </div>
-                        <div
-                          :class="[
-                            active ? '' : 'text-gray-900',
-                            'group flex justify-center align-center flex-col  items-center w-full px-2 py-2 text-sm',
-                          ]"
-                        >
-                          <span> :سایز </span>
-                          <span>
-                            {{ item.size }}
-                          </span>
-                        </div>
+                      <div
+                        :class="[
+                          active ? '' : 'text-gray-900',
+                          'group flex justify-center align-center flex-col  items-center w-full px-2 py-2 text-sm',
+                        ]"
+                      >
+                        <span> :سایز </span>
+                        <span>
+                          {{ item.size }}
+                        </span>
+                      </div>
                       <div class="flex flex-col spa align-center">
                         <span> :تعداد </span>
                         <span>

@@ -152,6 +152,10 @@ export default {
       getCart.value = cart.value;
     });
 
+    onMounted(() => {
+      console.log(cart.value)
+    })
+
     function closeModal() {
       isOpen.value = false;
     }
