@@ -18,7 +18,7 @@
             <DialogOverlay class="fixed inset-0" />
           </TransitionChild>
 
-          <span class=" h-screen align-middle" aria-hidden="true">
+          <span class="h-screen align-middle" aria-hidden="true">
             &#8203;
           </span>
 
@@ -32,11 +32,11 @@
             leave-to="opacity-0 scale-95"
           >
             <div
-              class="inline-block bg-blue-200 w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-Sky-600 shadow-xl rounded-2xl"
+              class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-yellow-500 shadow-xl rounded-2xl"
             >
               <DialogTitle
                 as="h3"
-                class="text-2xl font-bold text-center text-white leading-6 text-gray-900"
+                class="text-2xl font-bold text-center text-black leading-6"
               >
                 <slot name="modalTitle"></slot>
               </DialogTitle>
@@ -44,10 +44,10 @@
                 <slot name="modalBody"></slot>
               </div>
 
-              <div class="mt-4">
+              <div class="mt-4 flex items-center justify-center">
                 <button
                   type="button"
-                  class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  class="inline-flex justify-center items-center px-10 py-2 text-lg transition ease-in duration-200 font-medium hover:text-black text-white bg-pink-700 rounded-full hover:bg-pink-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                   @click="closeModal"
                 >
                   تایید

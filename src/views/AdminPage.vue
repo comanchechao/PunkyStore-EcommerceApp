@@ -16,22 +16,22 @@
       >
         <button
           @click="adminManagement = 'OrderManagement'"
-          :class="{ 'bg-pink-200': adminManagement === 'OrderManagement' }"
-          class="bg-pink-500 text-xl w-full rounded mx-2 h-full px-2 p-5 hover:bg-pink-400 font-bold transition focus:bg-pink-500 focus:text-white transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+          :class="{ 'bg-pink-400': adminManagement === 'OrderManagement' }"
+          class="bg-pink-500 text-xl w-full rounded mx-2 h-full px-2 p-5 hover:bg-pink-400 font-bold transition focus:bg-pink-600 text-white transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         >
           سفارش ها
         </button>
-        <button
+        <!-- <button
           @click="adminManagement = 'monthsReport'"
           :class="{ 'bg-pink-200': adminManagement === 'monthsReport' }"
           class="bg-pink-500 text-xl w-full rounded mx-2 h-full px-2 p-5 hover:bg-pink-400 font-bold transition focus:bg-pink-500 focus:text-white transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         >
           گزارش ماهانه
-        </button>
+        </button> -->
         <button
           @click="adminManagement = 'ProductManagement'"
-          :class="{ 'bg-pink-200': adminManagement === 'ProductManagement' }"
-          class="bg-pink-500 text-xl w-full rounded mx-2 h-full px-2 p-5 hover:bg-pink-400 font-bold focus:bg-pink-500 focus:text-white transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
+          :class="{ 'bg-pink-400': adminManagement === 'ProductManagement' }"
+          class="bg-pink-500 text-xl w-full rounded mx-2 h-full px-2 p-5 hover:bg-pink-400 font-bold focus:bg-pink-600 text-white transition transform motion-reduce:transition-none motion-reduce:hover:transform-none"
         >
           مدیریت کالا
         </button>
@@ -58,9 +58,9 @@ export default {
     OrderManagement: defineAsyncComponent(() =>
       import("../components/OrderManagement.vue")
     ),
-    monthsReport: defineAsyncComponent(() =>
-      import("../components/monthsReport.vue")
-    ),
+    // monthsReport: defineAsyncComponent(() =>
+    //   import("../components/monthsReport.vue")
+    // ),
   },
   setup() {
     const adminManagement = ref("ProductManagement");
