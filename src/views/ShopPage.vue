@@ -98,7 +98,7 @@
           </div>
         </template>
         <template #Shirt>
-          <div @click="category = 'پیراهن'" class="">
+          <div @click="category = 'تیشرت'" class="">
             <img
               src="../assets/images/Shirt.webp"
               class="object-contain h-36"
@@ -107,7 +107,7 @@
             <h1
               class="lg:text-4xl text-xl text-darkPurple transition ease-in duration-200 hover:bg-LightBlue-500 border-b-4 lg:p-5 p-2 border-b-mainBlue rounded-lg"
             >
-              پیراهن
+              تیشرت
             </h1>
           </div>
         </template>
@@ -240,7 +240,7 @@
               <p class="w-full h-full" @click="category = 'شلوار'">شلوار</p>
             </template>
             <template #secondOption>
-              <p class="w-full h-full" @click="category = 'پیراهن'">پیراهن</p>
+              <p class="w-full h-full" @click="category = 'تیشرت'">تیشرت</p>
             </template>
             <template #thirdOption>
               <p class="w-full h-full" @click="category = 'کلاه'">کلاه</p>

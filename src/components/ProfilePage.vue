@@ -26,7 +26,7 @@
         <div
           class="z-20 lg:w-1/2 lg:justify-center w-full justify-end flex rounded-xl text-center px-1 text-4xl text-white"
         >
-          <h2 class="z-50 rounded p-4 text-right">{{username}}</h2>
+          <h2 class="z-50 rounded p-4 text-right">{{ username }}</h2>
         </div>
         <div
           class="exitContainer z-50 lg:w-full w-1/2 flex items-end justify-start w-full h-full align-start"
@@ -159,6 +159,10 @@ export default {
       }
     }
 
+    function resetAdmin() {
+      manageUser.resetAdmin();
+    }
+
     async function signOut() {
       try {
         let { error } = await supabase.auth.signOut();
@@ -166,6 +170,7 @@ export default {
       } catch (error) {
         alert(error.message);
       } finally {
+        resetAdmin()
         (loggedOut.value = true),
           setTimeout(() => {
             dialog.value = false;

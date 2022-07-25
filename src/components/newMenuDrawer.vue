@@ -117,8 +117,8 @@
                 <DefaultButton class="px-6 rounded-lg" @click="change('کلاه')"
                   >کلاه</DefaultButton
                 >
-                <DefaultButton class="px-6 rounded-lg" @click="change('پیراهن')"
-                  >پیراهن</DefaultButton
+                <DefaultButton class="px-6 rounded-lg" @click="change('تیشرت')"
+                  >تیشرت</DefaultButton
                 >
                 <DefaultButton class="px-6 rounded-lg" @click="change('کفش')"
                   >کفش</DefaultButton

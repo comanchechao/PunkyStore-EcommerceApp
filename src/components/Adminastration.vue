@@ -442,11 +442,8 @@
                     </div>
 
                     <div
-                      v-show="
-                        selectedCategory === 'کلاه' ||
-                        selectedCategory === 'جوراب'
-                      "
-                      class="mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
+                      v-show="(selectedCategory === 'کلاه') || (selectedCategory === 'جوراب') || (selectedCategory === 'کپ')"
+                      class=" mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
                     >
                       <div class="m-1">
                         <Switch
@@ -468,11 +465,8 @@
                     </div>
 
                     <div
-                      v-show="
-                        selectedCategory === 'پیراهن' ||
-                        selectedCategory === 'هودی'
-                      "
-                      class="mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
+                    v-show="(selectedCategory === 'تیشرت') || (selectedCategory === 'هودی')"
+                      class=" mx-1 flex flex-row flex-wrap w-full h-full justify-center align-around z-10"
                     >
                       <div class="m-1">
                         <Switch

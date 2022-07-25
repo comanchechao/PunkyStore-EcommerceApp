@@ -70,7 +70,7 @@
 
         <template #categoryName>شلوار</template>
       </CategoryCards>
-      <CategoryCards @click="change('پیراهن')" class="CategoryCards">
+      <CategoryCards @click="change('تیشرت')" class="CategoryCards">
         <template #categoryPicture>
           <img
             class="w-full shadow-2xl h-full object-contain"
@@ -78,7 +78,7 @@
             alt=""
         /></template>
 
-        <template #categoryName>پیراهن</template>
+        <template #categoryName>تیشرت</template>
       </CategoryCards>
       <CategoryCards @click="change('کلاه')" class="CategoryCards">
         <template #categoryPicture>
