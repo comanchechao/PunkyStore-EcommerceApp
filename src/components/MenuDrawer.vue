@@ -44,7 +44,7 @@
         <DefaultButton class=" ">آکسسوری</DefaultButton>
         <DefaultButton class="text-2xl">تیشرت</DefaultButton>
         <DefaultButton class=" ">کلاه</DefaultButton>
-        <DefaultButton class=" ">پیراهن</DefaultButton>
+        <DefaultButton class=" ">تیشرت</DefaultButton>
         <DefaultButton class=" ">کفش</DefaultButton>
         <DefaultButton class="text-2xl">دیزاین</DefaultButton>
         <DefaultButton class=" ">بول</DefaultButton>

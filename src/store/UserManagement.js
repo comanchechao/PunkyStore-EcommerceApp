@@ -28,8 +28,14 @@ export const UserManagement = defineStore("user", {
         console.log(error);
       }
     },
-    resetAdmin() {
-      this.admin === false;
+    async resetAdmin() {
+      try {
+        if(this.admin === true){
+          this.admin = false
+        }
+      } catch (error) {
+        consonle.log(error.message)
+      }
     },
   },
 
