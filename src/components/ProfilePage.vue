@@ -14,12 +14,9 @@
     <v-card class="w-full overflow-x-hidden h-auto bg-Indigo-900">
       <div
         id="ball"
-        class="z-10 overflow-hidden ball absolute right-0 bg-mainPink rounded-full transform translate-x-28 -translate-y-28 w-64 h-64 lg:w-80 lg:h-80"
+        class="z-10 overflow-hidden ball absolute right-0 bg-mainPink rounded-full transform translate-x-28 -translate-y-28 w-80 h-80 lg:w-80 lg:h-80"
       ></div>
-      <div
-        id="ball"
-        class="z-0 ball absolute right-0 bg-mainYellow rounded-full transform -translate-x-8 -translate-y-28 w-64 h-64 lg:w-80 lg:h-80"
-      ></div>
+
       <div
         class="flex flex-row-reverse p-4 w-full font-mainFont text-xl font-bold cardMain justify-around"
       >
@@ -170,8 +167,7 @@ export default {
       } catch (error) {
         alert(error.message);
       } finally {
-        resetAdmin()
-        (loggedOut.value = true),
+        resetAdmin()((loggedOut.value = true)),
           setTimeout(() => {
             dialog.value = false;
             window.location.reload();

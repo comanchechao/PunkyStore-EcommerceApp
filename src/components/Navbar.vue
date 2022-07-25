@@ -34,7 +34,7 @@
     <div class="flex pr-2">
       <router-link :class="{ hidden: admin === false }" to="/admin">
         <DefaultButton class="text-white">
-          <v-icon>mdi-account-cowboy-hat</v-icon>
+          <v-icon>mdi-account-tie</v-icon>
         </DefaultButton>
       </router-link>
       <div v-show="user"><ProfilePage /></div>
