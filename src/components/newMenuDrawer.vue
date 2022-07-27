@@ -79,27 +79,31 @@
                 <router-link to="/">
                   <DefaultButton
                     class="px-6 text-2xl bg-goldie text-black font-medium"
-                    >خونه</DefaultButton
-                  >
+                    >خونه
+                    <v-icon>mdi-home</v-icon>
+                  </DefaultButton>
                 </router-link>
                 <router-link to="/shop">
                   <DefaultButton
                     class="px-6 text-2xl bg-goldie text-black font-medium"
-                    >خرید</DefaultButton
-                  >
+                    >خرید
+                    <v-icon>mdi-shopping</v-icon>
+                  </DefaultButton>
                 </router-link>
                 <router-link to="/AboutUs">
                   <DefaultButton
-                    class="px-6 text-2xl bg-goldie text-black font-medium"
-                    >درباره ی پانکی مانکی</DefaultButton
-                  >
+                    class="px-6 text-xl bg-goldie text-black font-medium"
+                    >درباره ی ما
+                    <v-icon>mdi-brain</v-icon>
+                  </DefaultButton>
                 </router-link>
 
                 <router-link to="/admin">
                   <DefaultButton
                     class="px-6 text-2xl bg-goldie text-black font-medium"
-                    >ادمین</DefaultButton
-                  >
+                    >ادمین
+                    <v-icon>mdi-account-tie</v-icon>
+                  </DefaultButton>
                 </router-link>
               </div>
 

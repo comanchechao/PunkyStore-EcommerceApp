@@ -37,11 +37,11 @@
           <TransitionChild
             as="template"
             enter="duration-150 ease-out"
-            enter-from="transfrom -translate-y-24 scale-95"
+            enter-from="transfrom translate-x-24 scale-95"
             enter-to="opacity-100 scale-100"
             leave="duration-150 ease-in"
             leave-from="opacity-100 scale-100"
-            leave-to="transfrom -translate-y-24 scale-95"
+            leave-to="transfrom translate-x-24 scale-95"
           >
             <div
               class="inline-block w-full h-screen overflow-hidden text-left align-right transition-all transform bg-gray-100 shadow-xl"
@@ -153,8 +153,8 @@ export default {
     });
 
     onMounted(() => {
-      console.log(cart.value)
-    })
+      console.log(cart.value);
+    });
 
     function closeModal() {
       isOpen.value = false;
