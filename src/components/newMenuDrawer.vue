@@ -44,7 +44,7 @@
                     class="flex flex-col my-2 mx-1 p-4 space-x-1 bg-blue-900/20 rounded"
                   >
                     <Tab as="div">
-                      <DefaultButton
+                      <!-- <DefaultButton
                         @click="bar = 'categories'"
                         :class="[
                           'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
@@ -55,11 +55,11 @@
                         ]"
                       >
                         دسته بندی
-                      </DefaultButton>
+                      </DefaultButton> -->
                       <DefaultButton
                         @click="bar = 'menu'"
                         :class="[
-                          'w-full my-1 py-2.5 text-lg leading-5 font-medium text-white rounded-lg',
+                          'w-full my-1 py-2.5 text-xl leading-5 font-medium text-black  rounded-full',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-500 ring-white ring-opacity-60',
                           bar === 'menu'
                             ? 'bg-goldie text-black shadow'
@@ -77,29 +77,37 @@
                 :class="{ hidden: bar !== 'menu' }"
               >
                 <router-link to="/">
-                  <DefaultButton class="px-6 text-2xl bg-blue-500"
-                    >خونه</DefaultButton
-                  >
+                  <DefaultButton
+                    class="px-6 text-2xl bg-goldie text-black font-medium"
+                    >خونه
+                    <v-icon>mdi-home</v-icon>
+                  </DefaultButton>
                 </router-link>
                 <router-link to="/shop">
-                  <DefaultButton class="px-6 text-2xl bg-blue-500"
-                    >خرید</DefaultButton
-                  >
+                  <DefaultButton
+                    class="px-6 text-2xl bg-goldie text-black font-medium"
+                    >خرید
+                    <v-icon>mdi-shopping</v-icon>
+                  </DefaultButton>
                 </router-link>
                 <router-link to="/AboutUs">
-                  <DefaultButton class="px-6 text-2xl bg-blue-500"
-                    >درباره ی پانکی مانکی</DefaultButton
-                  >
+                  <DefaultButton
+                    class="px-6 text-xl bg-goldie text-black font-medium"
+                    >درباره ی ما
+                    <v-icon>mdi-brain</v-icon>
+                  </DefaultButton>
                 </router-link>
 
                 <router-link to="/admin">
-                  <DefaultButton class="px-6 text-2xl bg-blue-500"
-                    >ادمین</DefaultButton
-                  >
+                  <DefaultButton
+                    class="px-6 text-2xl bg-goldie text-black font-medium"
+                    >ادمین
+                    <v-icon>mdi-account-tie</v-icon>
+                  </DefaultButton>
                 </router-link>
               </div>
 
-              <div
+              <!-- <div
                 class="h-full w-full p-6 flex flex-col justify-start align-center"
                 :class="{ hidden: bar !== 'categories' }"
               >
@@ -129,7 +137,7 @@
                 <DefaultButton class="px-6 rounded-lg" @click="change('شلوار')"
                   >شلوار</DefaultButton
                 >
-              </div>
+              </div> -->
             </div>
           </TransitionChild>
         </div>

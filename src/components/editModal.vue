@@ -62,7 +62,7 @@
               <div class="">
                 <button
                   type="button"
-                  class="inline-flex w-full justify-center text-lg font-semibold px-4 py-2 hover:text-white font-medium text-red-600 transition-all bg-red-100 border border-transparent hover:bg-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  class="inline-flex w-full justify-center text-lg font-semibold px-4 py-2 hover:text-white text-red-600 transition-all bg-red-100 border border-transparent hover:bg-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                   @click="closeModal"
                 >
                   <v-icon>mdi-close </v-icon>
@@ -294,7 +294,7 @@
                       </div>
                       <Listbox as="div" v-model="selectedColor">
                         <ListboxLabel
-                          class="text-right block text-sm text-xl text-gray-700"
+                          class="text-right block text-xl text-gray-700"
                         >
                           انتخاب رنگ
                         </ListboxLabel>
@@ -438,7 +438,7 @@
                     <div class="mx-1 my-2">
                       <Listbox as="div" v-model="selectedCategory">
                         <ListboxLabel
-                          class="text-right block text-sm text-xl text-gray-700"
+                          class="text-right block text-xl text-gray-700"
                         >
                           انتخاب کتگوری
                         </ListboxLabel>

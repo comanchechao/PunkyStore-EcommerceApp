@@ -40,6 +40,15 @@
             <div
               class="inline-block w-full h-full max-w-md my-4 overflow-hidden text-left align-middle transition-all transform bg-purple-100 shadow-xl rounded-2xl"
             >
+              <div class="">
+                <button
+                  type="button"
+                  class="inline-flex w-full justify-center text-lg font-semibold px-4 py-2 hover:text-red-700 text-white transition-all bg-red-600 border border-transparent hover:bg-red-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  @click="closeModal"
+                >
+                  <v-icon>mdi-close </v-icon>
+                </button>
+              </div>
               <DialogTitle
                 as="div"
                 class="flex flex-row justify-around text-lg font-medium leading-6"
@@ -65,19 +74,11 @@
                     class="active:scale-125 text-black transition hover:scale-125"
                     :class="{ 'scale-150': tab === 'category' }"
                   >
-                    هوم
+                    دسته بندی
                   </h1>
                 </button>
               </DialogTitle>
-              <div class="">
-                <button
-                  type="button"
-                  class="inline-flex w-full justify-center text-lg font-semibold px-4 py-2 hover:text-white font-medium text-red-600 transition-all bg-red-100 border border-transparent hover:bg-red-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                  @click="closeModal"
-                >
-                  <v-icon>mdi-close </v-icon>
-                </button>
-              </div>
+
               <div class="p-2">
                 <form
                   v-show="tab === 'product'"

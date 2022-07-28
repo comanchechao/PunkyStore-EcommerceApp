@@ -82,7 +82,7 @@
                 v-slot="{ open }"
               >
                 <DisclosureButton
-                  class="flex justify-center text-center transition w-full px-4 py-2 text-sm font-medium text-left text-black bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+                  class="flex justify-center text-center transition w-full px-4 py-2 text-sm font-medium bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
                 >
                   <span class="self-center">نمایش کالا ها</span>
                   <ChevronDownIcon
@@ -189,7 +189,7 @@
                 v-slot="{ open }"
               >
                 <DisclosureButton
-                  class="flex justify-center text-center transition w-full px-4 py-2 text-sm font-medium text-left text-black bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
+                  class="flex justify-center transition w-full px-4 py-2 text-sm font-medium text-left bg-Sky-600 text-white rounded-lg hover:bg-Sky-900 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75"
                 >
                   <span class="self-center">نمایش کالا ها</span>
                   <ChevronDownIcon
@@ -198,7 +198,7 @@
                   />
                 </DisclosureButton>
                 <DisclosurePanel
-                  class="p-4 align-center bg-red-500 justify-center bg-white divide-y-2 text-sm text-black flex flex-col"
+                  class="p-4 align-center bg-red-500 justify-center divide-y-2 text-sm text-black flex flex-col"
                 >
                   <div
                     v-for="item in products"

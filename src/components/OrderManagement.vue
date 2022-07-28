@@ -1,13 +1,13 @@
 <template>
   <div class="flex bg-Indigo-700blue w-full h-full">
-    <div class="w-full h-full p-2">
+    <div class="w-full h-full p-2 bg-blue-800">
       <div class="flex w-full flex-col justify-center align-center">
         <div class="flex w-full h-16 align-center justify-around rounded m-4">
           <div class="w-full flex justify-center h-full">
             <button
               @click="tab = 'NewOrders'"
               :class="{ 'bg-Amber-600': tab === 'NewOrders' }"
-              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-bold rounded text-black bg-mainYellow hover:text-gray-100 transition transform hover:bg-blue-800"
+              class="px-2 w-full lg:px-10 py-2 lg:py-6 mx-1 font-bold rounded text-black bg-mainYellow transition transform hover:bg-blue-800"
             >
               سفارش های ثبت شده
             </button>
@@ -33,13 +33,13 @@
         </div>
 
         <TransitionRoot
-          class="w-full"
+          class="w-full h-full"
           appear
           :show="tab === 'NewOrders'"
           as="div"
         >
           <div
-            class="flex bg-transparent p-4 flex-col w-full z-0 h-1/3 divide-y divide-dotted overflow-y-scroll"
+            class="flex bg-transparent p-4 flex-col w-full z-0 h-full divide-y divide-dotted overflow-y-scroll"
           >
             <TransitionChild
               as="div"
@@ -64,7 +64,7 @@
           as="div"
         >
           <div
-            class="flex bg-transparent p-4 flex-col w-full z-0 h-1/3 divide-y divide-dotted overflow-y-scroll"
+            class="flex bg-transparent cursor-pointer p-4 flex-col w-full z-0 h-1/3 divide-y divide-dotted overflow-y-scroll"
           >
             <TransitionChild
               as="div"
