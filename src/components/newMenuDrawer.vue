@@ -36,7 +36,7 @@
             leave-to="transfrom -translate-x-24 scale-95"
           >
             <div
-              class="inline-block text-white w-60 h-screen overflow-hidden text-xl text-left align-left transition-all transform bg-blue-800 shadow-xl"
+              class="inline-block text-white w-60 h-screen overflow-hidden text-xl text-left align-left transition-all transform bg-blue-700 shadow-xl"
             >
               <DialogTitle as="h3" class="text-xl font-medium leading-6">
                 <TabGroup as="div">
