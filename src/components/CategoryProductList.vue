@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col w-full">
     <div
-      class="w-full h-24 bg-darkPurple flex justify-between align-center p-7"
+      class="w-full h-20 bg-Indigo-900 flex justify-between align-center p-7"
     >
       <router-link to="/shop">
         <DefaultButton @click="change(category.title)" class="text-white">
@@ -19,7 +19,7 @@
       </h1>
     </div>
     <div
-      class="w-screen h-screen flex flex-col bg-darkPurple items-center justify-around background"
+      class="w-screen h-screen flex flex-col bg-Indigo-700 items-center justify-around background"
     >
       <div
         class="h-24 w-full items-center bg-gray-100 justify-center lg:justify-end space-x-4 lg:pr-8 px-4 flex"
@@ -65,7 +65,7 @@
         </DropDown>
       </div>
       <div
-        class="w-full h-full grid mb-6 lg:mb-0 overflow-y-scroll bg-darkPurple productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
+        class="w-full h-full grid mb-6 lg:mb-0 overflow-y-scroll bg-Indigo-700 productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
       >
         <CategoryProductListCard
           v-for="product in products"
@@ -78,7 +78,7 @@
       </div> -->
       <router-link to="/shop">
         <DefaultButton
-          class="rounded-full font-bold text-black justify-self-start bg-goldie text-lg px-4 m-5"
+          class="rounded-full font-bold text-black justify-self-start bg-mainYellow text-lg px-4 m-5"
         >
           <v-icon
             class="text-5xl transition ease-in duration-200 hover:bg-purple-700 rounded-full"
@@ -99,8 +99,7 @@ import { supabase } from "../supabase";
 import { onMounted, watch } from "@vue/runtime-core";
 import { Switch } from "@headlessui/vue";
 import CategoryProductListCard from "./CategoryProductListCard.vue";
-import { productManagent } from "../store/productManagment"; 
-
+import { productManagent } from "../store/productManagment";
 
 export default {
   components: {

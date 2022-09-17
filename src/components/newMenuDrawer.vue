@@ -62,7 +62,7 @@
                           'w-full my-1 py-2.5 text-xl leading-5 font-medium text-black  rounded-full',
                           'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-500 ring-white ring-opacity-60',
                           bar === 'menu'
-                            ? 'bg-goldie text-black shadow'
+                            ? 'bg-mainYellow text-black shadow'
                             : 'text-gray-800 hover:bg-darkPurple hover:text-white',
                         ]"
                       >
@@ -78,21 +78,21 @@
               >
                 <router-link to="/">
                   <DefaultButton
-                    class="px-6 text-2xl bg-goldie text-black font-medium"
+                    class="px-6 text-2xl bg-mainYellow text-black font-medium"
                     >خونه
                     <v-icon>mdi-home</v-icon>
                   </DefaultButton>
                 </router-link>
                 <router-link to="/shop">
                   <DefaultButton
-                    class="px-6 text-2xl bg-goldie text-black font-medium"
+                    class="px-6 text-2xl bg-mainYellow text-black font-medium"
                     >خرید
                     <v-icon>mdi-shopping</v-icon>
                   </DefaultButton>
                 </router-link>
                 <router-link to="/AboutUs">
                   <DefaultButton
-                    class="px-6 text-xl bg-goldie text-black font-medium"
+                    class="px-6 text-xl bg-mainYellow text-black font-medium"
                     >درباره ی ما
                     <v-icon>mdi-brain</v-icon>
                   </DefaultButton>
@@ -100,7 +100,7 @@
 
                 <router-link to="/admin">
                   <DefaultButton
-                    class="px-6 text-2xl bg-goldie text-black font-medium"
+                    class="px-6 text-2xl bg-mainYellow text-black font-medium"
                     >ادمین
                     <v-icon>mdi-account-tie</v-icon>
                   </DefaultButton>

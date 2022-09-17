@@ -54,7 +54,7 @@
           indeterminate
         ></v-progress-circular>
       </div>
-      <MegaMenu v-show="!fetching"  >
+      <MegaMenu v-show="!fetching">
         <template #Hat>
           <div @click="category = 'کلاه'" class="">
             <img
@@ -205,7 +205,7 @@
         </div>
         <div class="flex items-center justify-center space-x-3">
           <DropDown>
-            ><template #title> فیلترها </template>
+            <template #title> فیلترها </template>
 
             <template #firstOption>
               <p @click="order = 'created_at'" class="w-full h-full">
@@ -233,7 +233,7 @@
             </template>
           </DropDown>
 
-          <DropDown>
+          <!-- <DropDown>
             <template #title> زیرمجموعه ها </template>
 
             <template #firstOption>
@@ -251,7 +251,7 @@
             <template #fifthOption>
               <p class="w-full h-full" @click="category = 'هودی'">هودی</p>
             </template>
-          </DropDown>
+          </DropDown> -->
         </div>
       </div>
 
@@ -369,7 +369,7 @@ export default {
     });
     onMounted(() => {
       // getcategories();
-      window.scrollTo(0, 0)
+      window.scrollTo(0, 0);
       console.log(category.value);
       getProducts();
     });

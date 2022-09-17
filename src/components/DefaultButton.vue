@@ -1,6 +1,6 @@
 <template>
-  <button class="Button py-3 cursor-pointer rounded-md px-2">
-    <slot>Default</slot>
+  <button class="Button py-3 cursor-pointer rounded-sm px-2">
+    <slot class="">Default</slot>
   </button>
 </template>
 
@@ -21,7 +21,7 @@ export default {};
 }
 
 .Button:active {
-  filter: brightness(1.5);
+  filter: brightness(1.2);
   transform: scale(1.06);
 }
 </style>
