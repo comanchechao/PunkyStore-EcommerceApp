@@ -77,9 +77,7 @@
             class="flex flex-col font-mainFont space-y-2 font-thin capitalize text-center text-lg lg:text-xl text-green-500"
           >
             توسعه سایت توسط
-            <a
-              href="https://www.instagram.com/comanche.chao/?hl=en"
-              class="Chao"
+            <a href="https://www.instagram.com/comanchechao/?hl=en" class="Chao"
               >Comanche Chao🧙</a
             >
             <a href="https://www.instagram.com/just_greez/?hl=en" class="Greez">
