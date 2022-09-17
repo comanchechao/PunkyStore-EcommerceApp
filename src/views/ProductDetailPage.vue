@@ -1,8 +1,8 @@
 <template>
-  <div class="p-8 max-w-screen" id="main">
+  <div class="p-8 h-full max-w-screen" id="main">
     <div class="pt-6 mt-32 background">
       <div
-        class="flex justify-between space-y-4 lg:space-x-7 items-center w-full py-4 px-7 flex-col lg:flex-row lg:h-96 h-62 mt-7"
+        class="flex justify-between space-y-4 lg:space-x-7 items-center w-full py-4 px-7 flex-col lg:flex-row h-full mt-7"
       >
         <div
           class="flex justify-center w-full self-center h-full lg:w-8/12 lg:h-96"
@@ -10,10 +10,10 @@
           <inner-image-zoom
             hideCloseButton="true"
             :src="firstImage"
-            class="w-carousel self-center flex justify-center items-center lg:w-2/3 rounded-md shadow-xl"
+            class="w-carousel self-center flex justify-center h-full w-96 items-center rounded-md shadow-xl"
           />
         </div>
-        <div class="lg:w-10/12 w-full h-full">
+        <div class="w-full h-full">
           <v-carousel
             class="bg-white rounded-md shadow-xl border-2 border-Sky-400"
             cycle
@@ -47,7 +47,7 @@
         </div>
 
         <!-- Options -->
-        <div class="mt-4 lg:mt-0 lg:row-span-3">
+        <div class="mt-4 w-full h-full lg:mt-0 lg:row-span-3">
           <div
             class="text-3xl p-4 bg-Indigo-500 rounded shadow-xl flex justify-center lg:justify-end space-x-2 font-bold text-gray-600"
           >
@@ -58,14 +58,16 @@
           <form class="mt-10">
             <!-- Colors -->
             <div>
-              <h3 class="text-lg text-darkPurple font-bold">انتخاب رنگ</h3>
+              <h3 class="text-lg text-darkPurple text-center font-bold">
+                انتخاب رنگ
+              </h3>
 
               <RadioGroup v-model="selectedColor" class="mt-4">
                 <RadioGroupLabel class="sr-only">
                   یک رنگ رو انتخاب کنید
                 </RadioGroupLabel>
                 <div
-                  class="flex items-center space-x-3 bg-Indigo-600 p-2 rounded-2xl"
+                  class="flex items-center space-x-3 bg-Indigo-600 p-4 rounded-2xl"
                 >
                   <RadioGroupOption
                     as="template"
@@ -101,7 +103,7 @@
                           'bg-white': color.name === 'سفید',
                         }"
                         aria-hidden="true"
-                        class="h-6 w-6 border border-black border-opacity-10 rounded-full"
+                        class="h-8 w-8 border border-black border-opacity-10 rounded-full"
                       />
                     </div>
                   </RadioGroupOption>
@@ -188,7 +190,6 @@
             >
             <DefaultButton
               @click.prevent="addToCart"
-              class="mt-10 w-full bg-goldie text-black border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-xl font-black hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               اضافه کردن
             </DefaultButton>
@@ -528,7 +529,7 @@ export default {
 .background {
   backdrop-filter: blur(9px) saturate(109%);
   -webkit-backdrop-filter: blur(9px) saturate(109%);
-  background-color: rgba(255, 255, 255, 0.76);
+  background-color: rgba(215, 248, 246, 0.76);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
 }
