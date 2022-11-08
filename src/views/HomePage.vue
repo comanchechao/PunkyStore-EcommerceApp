@@ -3,11 +3,6 @@
     class="w-screen h-full flex space-y-16 justify-center align-center pt-10 flex-col overflow-hidden"
     id="main"
   >
-    <h1
-      class="mt-20 text-center font-extrabold text-4xl lg:text-7xl lg:mr-44 text-yellow-400 m-auto"
-    >
-      به آنلاین شاپ
-    </h1>
     <div class="w-screen lg:h-rem33 h-56 p-6 mt-20">
       <div class="h-full w-full justify-center align-center flex">
         <img
@@ -49,27 +44,29 @@
       </div>
     </div>
     <h1
-      class="mt-20 font-extrabold text-center lg:ml-44 text-4xl lg:text-7xl text-yellow-400 m-auto"
+      class="mt-20 font-extrabold text-center text-4xl lg:text-7xl text-yellow-400 m-auto"
     >
       خوش اومدین
     </h1>
-    <transition-group
+    <!-- <transition-group
       appear
-      class="h-auto w-screen flex flex-col justify-center align-center mt-20 space-y-16 p-7"
+      class="h-auto w-screen flex flex-col lg:flex-row flex-wrap justify-around align-center mt-20 space-y-16 p-7"
       tag="ul"
       @before-enter="beforeEnter"
       @enter="enter"
     >
-      <CategoryCards @click="change('شلوار')" class="CategoryCards">
-        <template #categoryPicture>
-          <img
-            class="w-full shadow-2xl h-full object-contain"
-            src="../assets/images/pantsCategory.webp"
-            alt=""
-        /></template>
+      <div class="w-full flex bg-purple-700 items-end">
+        <CategoryCards @click="change('شلوار')" class="CategoryCards">
+          <template #categoryPicture>
+            <img
+              class="w-full shadow-2xl h-full object-contain"
+              src="../assets/images/pantsCategory.webp"
+              alt=""
+          /></template>
 
-        <template #categoryName>شلوار</template>
-      </CategoryCards>
+          <template #categoryName>شلوار</template>
+        </CategoryCards>
+      </div>
       <CategoryCards @click="change('تیشرت')" class="CategoryCards">
         <template #categoryPicture>
           <img
@@ -130,7 +127,7 @@
 
         <template #categoryName>کفش</template>
       </CategoryCards>
-    </transition-group>
+    </transition-group> -->
     <div
       class="w-screen h-rem35 space-y-11 flex-col lg:flex-row bg-gray-900 flex justify-start items-center lg:space-x-20 lg:p-10"
     >
@@ -237,7 +234,8 @@ export default {
       try {
         const { data, error } = await supabase
           .from("product-category")
-          .select("title");
+          .select("title")
+          .limit(3);
         if (error) throw error;
         categories.value = data;
       } catch (error) {

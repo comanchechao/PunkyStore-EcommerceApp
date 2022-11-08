@@ -76,7 +76,7 @@
           </div>
         </RadioGroup>
       </div>
-      <RadioGroup  class="mt-4">
+      <RadioGroup class="mt-4">
         <RadioGroupLabel class="sr-only"> انتخاب کن </RadioGroupLabel>
         <div
           class="grid items-center w-red-500 w-full grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4"
@@ -109,7 +109,7 @@
       <h1 class="text-black font-bold text-2xl lg:text-3xl prod-title">
         {{ product.title }}
       </h1>
-      <h2 class="text-Emerald-600 font-bold text-1xl lg:text-3xl">
+      <h2 class="text-darkPurple font-bold text-1xl lg:text-3xl">
         {{ product.price }}
       </h2>
       <router-link to="/shop">

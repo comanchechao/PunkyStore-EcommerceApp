@@ -41,27 +41,9 @@ html {
 
 #main {
   /* animation: 35s ease-in-out infinite alternate-reverse color-change; */
-  background-color: #4350c0;
-}
-@-webkit-keyframes color-change {
-  0% {
-    background-color: #3f5ec2;
-  }
-
-  100% {
-    background-color: #85c6e2;
-  }
+  background-color: #140b53;
 }
 
-@keyframes color-change {
-  0% {
-    background-color: #85c6e2;
-  }
-
-  100% {
-    background-color: #043df9;
-  }
-}
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 9px;

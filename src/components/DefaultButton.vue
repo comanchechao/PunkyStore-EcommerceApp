@@ -1,5 +1,7 @@
 <template>
-  <button class="Button py-3 cursor-pointer rounded-sm px-2">
+  <button
+    class="Button border-2 border-dashed border-mainYellow py-3 cursor-pointer rounded-sm px-2"
+  >
     <slot class="">Default</slot>
   </button>
 </template>

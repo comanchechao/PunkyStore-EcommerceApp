@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col w-full">
+  <div class="flex flex-col w-full my-24">
     <div
-      class="w-full h-20 bg-Indigo-900 flex justify-between align-center p-7"
+      class="w-full h-20 bg-blueGray-900 flex justify-between align-center p-7"
     >
       <router-link to="/shop">
         <DefaultButton @click="change(category.title)" class="text-white">
@@ -19,7 +19,7 @@
       </h1>
     </div>
     <div
-      class="w-screen h-screen flex flex-col bg-Indigo-700 items-center justify-around background"
+      class="w-screen h-screen flex flex-col bg-CoolGray-900 items-center justify-around background"
     >
       <div
         class="h-24 w-full items-center bg-gray-100 justify-center lg:justify-end space-x-4 lg:pr-8 px-4 flex"
@@ -65,7 +65,7 @@
         </DropDown>
       </div>
       <div
-        class="w-full h-full grid mb-6 lg:mb-0 overflow-y-scroll bg-Indigo-700 productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
+        class="w-full h-full grid mb-6 lg:mb-0 overflow-y-scroll bg-CoolGray-800 productCard lg:grid-cols-4 grid-cols-1 gap-6 p-10 place-items-center self-center justify-self-center"
       >
         <CategoryProductListCard
           v-for="product in products"

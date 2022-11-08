@@ -75,7 +75,7 @@
                         'bg-white': color.name === 'سفید',
                       }"
                       aria-hidden="true"
-                      class="h-6 w-6 border rounded-full border-black border-opacity-10 rounded-full"
+                      class="h-6 w-6 border border-black border-opacity-10 rounded-full"
                     />
                   </div>
                 </RadioGroupOption>

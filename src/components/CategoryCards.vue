@@ -1,19 +1,18 @@
 <template>
   <div
-    class="bg-white w-full h-96 lg:h-rem33 my-9 wrapper rounded-lg p-5 flex flex-col lg:flex-row space-x-3"
+    class="bg-white w-1/2 h-96 my-9 wrapper rounded-sm p-5 flex flex-col space-x-3"
   >
     <slot name="categoryPicture"> </slot>
     <div
-      class="w-full h-full flex flex-col text-center align-center justify-around space-y-4"
+      class="w-full h-40 flex flex-col text-center align-center justify-around space-y-4"
     >
-      <h1 class="text-black font-bold text-2xl lg:text-5xl">
+      <h1 class="text-black my-3 font-bold text-2xl lg:text-3xl">
         <slot name="categoryName"> </slot>
       </h1>
 
       <router-link to="/shop">
         <DefaultButton
-          
-          class="bg-goldie font-bold text-xl px-4 lg:px-20 lg:py-28 lg:text-4xl rounded-full"
+          class="bg-goldie font-bold text-xl px-4 lg:px-20 lg:py-28 lg:text-2xl rounded-full"
           >نشونم بده</DefaultButton
         >
       </router-link>
