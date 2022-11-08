@@ -20,7 +20,7 @@
       با ما در تماس باشین
     </h1>
     <div
-      class="flex justify-around flex-col items-center w-screen md:h-72 h-dialog bg-darkPurple"
+      class="flex justify-around flex-col items-center w-screen md:h-72 h-dialog bg-CoolGray-900"
     >
       <div
         class="flex w-screen justify-center items-center lg:space-x-6 space-x-1"

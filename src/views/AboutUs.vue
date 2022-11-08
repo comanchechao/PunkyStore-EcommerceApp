@@ -1,6 +1,6 @@
 <template>
-  <div class="w-screen h-screen p-6 bg-pink-600">
-    <div class="h-full w-full justify-center align-center flex">
+  <div class="w-screen h-screen p-6 bg-Sky-900">
+    <div class="h-full w-full justify-center align-center flex my-8">
       <div></div>
       <img
         class="absolute MonkeyNeck"
@@ -8,12 +8,12 @@
         alt=""
       />
       <img
-        class="absolute MonkeyHead"
+        class="absolute MonkeyHead mt-40"
         src="../assets/images/aboutUsMonkeyHead.webp"
         alt=""
       />
       <img
-        class="absolute MonkeyEarings"
+        class="absolute MonkeyEarings mt-40"
         src="../assets/images/aboutUsMonkeyEarings.webp"
         alt=""
       />
@@ -167,15 +167,15 @@ export default {
     },
     animateMonkeyHead() {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
-      tl.to(".MonkeyHead", 0.9, {
-        ease: "power1.in",
-        rotation: -15,
+      tl.to(".MonkeyHead", 1.5, {
+        ease: "expo.out",
+        rotation: -3,
 
         transformOrigin: "50% 100%",
       });
-      tl.to(".MonkeyHead", 0.9, {
-        ease: "power1.in",
-        rotation: 15,
+      tl.to(".MonkeyHead", 1.5, {
+        ease: "expo.out",
+        rotation: 3,
 
         transformOrigin: "50% 100%",
       });
@@ -183,15 +183,15 @@ export default {
     animateMonkeyEarings() {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
 
-      tl.to(".MonkeyEarings", 0.9, {
-        ease: "power1.in",
-        rotation: -15,
+      tl.to(".MonkeyEarings", 1.5, {
+        ease: "expo.out",
+        rotation: -3,
 
         transformOrigin: "50% 100%",
       });
-      tl.to(".MonkeyEarings", 0.9, {
-        ease: "power1.in",
-        rotation: 15,
+      tl.to(".MonkeyEarings", 1.5, {
+        ease: "expo.out",
+        rotation: 3,
 
         transformOrigin: "50% 100%",
       });
@@ -199,15 +199,15 @@ export default {
     animateMonkeyNeck() {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
 
-      tl.to(".MonkeyNeck", 0.9, {
-        ease: "power1.in",
-        rotation: -15,
+      tl.to(".MonkeyNeck", 1.5, {
+        ease: "expo.out",
+        rotation: 3,
 
         transformOrigin: "50% 100%",
       });
-      tl.to(".MonkeyNeck", 0.9, {
-        ease: "power1.in",
-        rotation: 15,
+      tl.to(".MonkeyNeck", 1.5, {
+        ease: "expo.out",
+        rotation: -3,
 
         transformOrigin: "50% 100%",
       });
