@@ -211,6 +211,7 @@ export default {
       const tl = gsap.timeline({ repeat: -1, yoyo: true });
       tl.from(".PunkyHighlights", 1.1, {
         ease: "power1.inOut",
+        delay: 5,
         opacity: 0,
         transformOrigin: "50% 100%",
       });
