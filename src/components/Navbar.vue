@@ -1,7 +1,7 @@
 <template>
   <div
     id="main"
-    class="w-screen bg-opacity-20 z-10 Navbar h-24 flex fixed lg:px-8 lg:justify-between justify-between align-center text-3xl border-b border-gray-200"
+    class="w-screen bg-opacity-20 z-10 Navbar h-24 flex fixed lg:px-8 lg:justify-between justify-between align-center text-xl border-b border-gray-200"
   >
     <div class="flex space-x-3">
       <NewMenuDrawer />
